@@ -1,0 +1,28 @@
+﻿streamsight.preprocessing.Filter
+================================
+
+.. currentmodule:: streamsight.preprocessing
+
+.. autoclass:: Filter
+   :members:                             
+   :show-inheritance:   
+   :private-members:   
+   :undoc-members:        
+   :inherited-members:               
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~Filter.__init__
+      ~Filter.apply
+   
+   
+
+   
+   
+   

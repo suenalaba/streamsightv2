@@ -1,0 +1,6 @@
+﻿streamsight.matrix.to\_csr\_matrix
+==================================
+
+.. currentmodule:: streamsight.matrix
+
+.. autofunction:: to_csr_matrix

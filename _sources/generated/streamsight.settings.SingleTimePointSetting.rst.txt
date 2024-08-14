@@ -1,0 +1,54 @@
+﻿streamsight.settings.SingleTimePointSetting
+===========================================
+
+.. currentmodule:: streamsight.settings
+
+.. autoclass:: SingleTimePointSetting
+   :members:                             
+   :show-inheritance:   
+   :private-members:   
+   :undoc-members:        
+   :inherited-members:               
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~SingleTimePointSetting.__init__
+      ~SingleTimePointSetting.get_params
+      ~SingleTimePointSetting.next_data_timestamp_limit
+      ~SingleTimePointSetting.next_ground_truth_data
+      ~SingleTimePointSetting.next_incremental_data
+      ~SingleTimePointSetting.next_unlabeled_data
+      ~SingleTimePointSetting.reset_data_generators
+      ~SingleTimePointSetting.split
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~SingleTimePointSetting.background_data
+      ~SingleTimePointSetting.data_timestamp_limit
+      ~SingleTimePointSetting.ground_truth_data
+      ~SingleTimePointSetting.identifier
+      ~SingleTimePointSetting.incremental_data
+      ~SingleTimePointSetting.is_ready
+      ~SingleTimePointSetting.is_sliding_window_setting
+      ~SingleTimePointSetting.name
+      ~SingleTimePointSetting.num_split
+      ~SingleTimePointSetting.params
+      ~SingleTimePointSetting.unlabeled_data
+      ~SingleTimePointSetting.t
+      ~SingleTimePointSetting.delta_after_t
+      ~SingleTimePointSetting.n_seq_data
+      ~SingleTimePointSetting.top_K
+   
+   

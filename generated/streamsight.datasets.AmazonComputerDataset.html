@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>streamsight.datasets.AmazonComputerDataset &mdash; streamsight 0.2.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=37f418d5"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="streamsight.datasets.AmazonMovieDataset" href="streamsight.datasets.AmazonMovieDataset.html" />
+    <link rel="prev" title="streamsight.datasets.AmazonBookDataset" href="streamsight.datasets.AmazonBookDataset.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            streamsight
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Data handling</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../streamsight.matrix.html">streamsight.matrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../streamsight.preprocessing.html">streamsight.preprocessing</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../streamsight.datasets.html">streamsight.datasets</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="streamsight.datasets.Dataset.html">streamsight.datasets.Dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="streamsight.datasets.TestDataset.html">streamsight.datasets.TestDataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="streamsight.datasets.AmazonBookDataset.html">streamsight.datasets.AmazonBookDataset</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">streamsight.datasets.AmazonComputerDataset</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#streamsight.datasets.AmazonComputerDataset"><code class="docutils literal notranslate"><span class="pre">AmazonComputerDataset</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#streamsight.datasets.AmazonComputerDataset.__init__"><code class="docutils literal notranslate"><span class="pre">AmazonComputerDataset.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#streamsight.datasets.AmazonComputerDataset.DATASET_URL"><code class="docutils literal notranslate"><span class="pre">AmazonComputerDataset.DATASET_URL</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#streamsight.datasets.AmazonComputerDataset.DEFAULT_BASE_PATH"><code class="docutils literal notranslate"><span class="pre">AmazonComputerDataset.DEFAULT_BASE_PATH</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#streamsight.datasets.AmazonComputerDataset.DEFAULT_FILENAME"><code class="docutils literal notranslate"><span class="pre">AmazonComputerDataset.DEFAULT_FILENAME</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#streamsight.datasets.AmazonComputerDataset.ITEM_IX"><code class="docutils literal notranslate"><span class="pre">AmazonComputerDataset.ITEM_IX</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#streamsight.datasets.AmazonComputerDataset.RATING_IX"><code class="docutils literal notranslate"><span class="pre">AmazonComputerDataset.RATING_IX</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#streamsight.datasets.AmazonComputerDataset.TIMESTAMP_IX"><code class="docutils literal notranslate"><span class="pre">AmazonComputerDataset.TIMESTAMP_IX</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#streamsight.datasets.AmazonComputerDataset.USER_IX"><code class="docutils literal notranslate"><span class="pre">AmazonComputerDataset.USER_IX</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#streamsight.datasets.AmazonComputerDataset._abc_impl"><code class="docutils literal notranslate"><span class="pre">AmazonComputerDataset._abc_impl</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#streamsight.datasets.AmazonComputerDataset._check_safe"><code class="docutils literal notranslate"><span class="pre">AmazonComputerDataset._check_safe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#streamsight.datasets.AmazonComputerDataset._dataframe_to_matrix"><code class="docutils literal notranslate"><span class="pre">AmazonComputerDataset._dataframe_to_matrix()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#streamsight.datasets.AmazonComputerDataset._download_dataset"><code class="docutils literal notranslate"><span class="pre">AmazonComputerDataset._download_dataset()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#streamsight.datasets.AmazonComputerDataset._fetch_remote"><code class="docutils literal notranslate"><span class="pre">AmazonComputerDataset._fetch_remote()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#streamsight.datasets.AmazonComputerDataset._load_dataframe"><code class="docutils literal notranslate"><span class="pre">AmazonComputerDataset._load_dataframe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#streamsight.datasets.AmazonComputerDataset.add_filter"><code class="docutils literal notranslate"><span class="pre">AmazonComputerDataset.add_filter()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#streamsight.datasets.AmazonComputerDataset.fetch_dataset"><code class="docutils literal notranslate"><span class="pre">AmazonComputerDataset.fetch_dataset()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#streamsight.datasets.AmazonComputerDataset.file_path"><code class="docutils literal notranslate"><span class="pre">AmazonComputerDataset.file_path</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#streamsight.datasets.AmazonComputerDataset.load"><code class="docutils literal notranslate"><span class="pre">AmazonComputerDataset.load()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#streamsight.datasets.AmazonComputerDataset.name"><code class="docutils literal notranslate"><span class="pre">AmazonComputerDataset.name</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="streamsight.datasets.AmazonMovieDataset.html">streamsight.datasets.AmazonMovieDataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="streamsight.datasets.AmazonMusicDataset.html">streamsight.datasets.AmazonMusicDataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../streamsight.datasets.html#example">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../streamsight.settings.html">streamsight.settings</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">RecSys</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../streamsight.algorithms.html">streamsight.algorithms</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Evaluation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../streamsight.evaluator.html">streamsight.evaluator</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Other supporting modules</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../streamsight.registries.html">streamsight.registries</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">streamsight</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../streamsight.datasets.html">streamsight.datasets</a></li>
+      <li class="breadcrumb-item active">streamsight.datasets.AmazonComputerDataset</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/generated/streamsight.datasets.AmazonComputerDataset.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="streamsight-datasets-amazoncomputerdataset">
+<h1>streamsight.datasets.AmazonComputerDataset<a class="headerlink" href="#streamsight-datasets-amazoncomputerdataset" title="Link to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="streamsight.datasets.AmazonComputerDataset">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">streamsight.datasets.</span></span><span class="sig-name descname"><span class="pre">AmazonComputerDataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">base_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#streamsight.datasets.AmazonComputerDataset" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">AmazonDataset</span></code></p>
+<p>Handles Amazon Computer dataset.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="streamsight.datasets.AmazonComputerDataset.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">base_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#streamsight.datasets.AmazonComputerDataset.__init__" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<p class="rubric">Methods</p>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#streamsight.datasets.AmazonComputerDataset.__init__" title="streamsight.datasets.AmazonComputerDataset.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>([filename, base_path])</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#streamsight.datasets.AmazonComputerDataset.add_filter" title="streamsight.datasets.AmazonComputerDataset.add_filter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_filter</span></code></a>(_filter)</p></td>
+<td><p>Add a filter to be applied when loading the data.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#streamsight.datasets.AmazonComputerDataset.fetch_dataset" title="streamsight.datasets.AmazonComputerDataset.fetch_dataset"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fetch_dataset</span></code></a>([force])</p></td>
+<td><p>Check if dataset is present, if not download</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#streamsight.datasets.AmazonComputerDataset.load" title="streamsight.datasets.AmazonComputerDataset.load"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load</span></code></a>([apply_filters])</p></td>
+<td><p>Loads data into an InteractionMatrix object.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Attributes</p>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#streamsight.datasets.AmazonComputerDataset.DATASET_URL" title="streamsight.datasets.AmazonComputerDataset.DATASET_URL"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DATASET_URL</span></code></a></p></td>
+<td><p>URL to fetch the dataset from.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#streamsight.datasets.AmazonComputerDataset.DEFAULT_BASE_PATH" title="streamsight.datasets.AmazonComputerDataset.DEFAULT_BASE_PATH"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DEFAULT_BASE_PATH</span></code></a></p></td>
+<td><p>Default base path where the dataset will be stored.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#streamsight.datasets.AmazonComputerDataset.DEFAULT_FILENAME" title="streamsight.datasets.AmazonComputerDataset.DEFAULT_FILENAME"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DEFAULT_FILENAME</span></code></a></p></td>
+<td><p>Default filename that will be used if it is not specified by the user.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#streamsight.datasets.AmazonComputerDataset.ITEM_IX" title="streamsight.datasets.AmazonComputerDataset.ITEM_IX"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ITEM_IX</span></code></a></p></td>
+<td><p>Name of the column in the DataFrame that contains item identifiers.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#streamsight.datasets.AmazonComputerDataset.RATING_IX" title="streamsight.datasets.AmazonComputerDataset.RATING_IX"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RATING_IX</span></code></a></p></td>
+<td><p>Name of the column in the DataFrame that contains the rating a user gave to the item.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#streamsight.datasets.AmazonComputerDataset.TIMESTAMP_IX" title="streamsight.datasets.AmazonComputerDataset.TIMESTAMP_IX"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TIMESTAMP_IX</span></code></a></p></td>
+<td><p>Name of the column in the DataFrame that contains time of interaction in seconds since epoch.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#streamsight.datasets.AmazonComputerDataset.USER_IX" title="streamsight.datasets.AmazonComputerDataset.USER_IX"><code class="xref py py-obj docutils literal notranslate"><span class="pre">USER_IX</span></code></a></p></td>
+<td><p>Name of the column in the DataFrame that contains user identifiers.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#streamsight.datasets.AmazonComputerDataset.file_path" title="streamsight.datasets.AmazonComputerDataset.file_path"><code class="xref py py-obj docutils literal notranslate"><span class="pre">file_path</span></code></a></p></td>
+<td><p>File path of the dataset.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#streamsight.datasets.AmazonComputerDataset.name" title="streamsight.datasets.AmazonComputerDataset.name"><code class="xref py py-obj docutils literal notranslate"><span class="pre">name</span></code></a></p></td>
+<td><p>Name of the object's class.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="streamsight.datasets.AmazonComputerDataset.DATASET_URL">
+<span class="sig-name descname"><span class="pre">DATASET_URL</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'https://datarepo.eng.ucsd.edu/mcauley_group/data/amazon_v2/categoryFilesSmall/Computers.csv'</span></em><a class="headerlink" href="#streamsight.datasets.AmazonComputerDataset.DATASET_URL" title="Link to this definition"></a></dt>
+<dd><p>URL to fetch the dataset from.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="streamsight.datasets.AmazonComputerDataset.DEFAULT_BASE_PATH">
+<span class="sig-name descname"><span class="pre">DEFAULT_BASE_PATH</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'data'</span></em><a class="headerlink" href="#streamsight.datasets.AmazonComputerDataset.DEFAULT_BASE_PATH" title="Link to this definition"></a></dt>
+<dd><p>Default base path where the dataset will be stored.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="streamsight.datasets.AmazonComputerDataset.DEFAULT_FILENAME">
+<span class="sig-name descname"><span class="pre">DEFAULT_FILENAME</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'amazon_computer_dataset.csv'</span></em><a class="headerlink" href="#streamsight.datasets.AmazonComputerDataset.DEFAULT_FILENAME" title="Link to this definition"></a></dt>
+<dd><p>Default filename that will be used if it is not specified by the user.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="streamsight.datasets.AmazonComputerDataset.ITEM_IX">
+<span class="sig-name descname"><span class="pre">ITEM_IX</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'songId'</span></em><a class="headerlink" href="#streamsight.datasets.AmazonComputerDataset.ITEM_IX" title="Link to this definition"></a></dt>
+<dd><p>Name of the column in the DataFrame that contains item identifiers.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="streamsight.datasets.AmazonComputerDataset.RATING_IX">
+<span class="sig-name descname"><span class="pre">RATING_IX</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'rating'</span></em><a class="headerlink" href="#streamsight.datasets.AmazonComputerDataset.RATING_IX" title="Link to this definition"></a></dt>
+<dd><p>Name of the column in the DataFrame that contains the rating a user gave to the item.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="streamsight.datasets.AmazonComputerDataset.TIMESTAMP_IX">
+<span class="sig-name descname"><span class="pre">TIMESTAMP_IX</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'timestamp'</span></em><a class="headerlink" href="#streamsight.datasets.AmazonComputerDataset.TIMESTAMP_IX" title="Link to this definition"></a></dt>
+<dd><p>Name of the column in the DataFrame that contains time of interaction in seconds since epoch.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="streamsight.datasets.AmazonComputerDataset.USER_IX">
+<span class="sig-name descname"><span class="pre">USER_IX</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'userId'</span></em><a class="headerlink" href="#streamsight.datasets.AmazonComputerDataset.USER_IX" title="Link to this definition"></a></dt>
+<dd><p>Name of the column in the DataFrame that contains user identifiers.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="streamsight.datasets.AmazonComputerDataset._abc_impl">
+<span class="sig-name descname"><span class="pre">_abc_impl</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;_abc._abc_data</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#streamsight.datasets.AmazonComputerDataset._abc_impl" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="streamsight.datasets.AmazonComputerDataset._check_safe">
+<span class="sig-name descname"><span class="pre">_check_safe</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#streamsight.datasets.AmazonComputerDataset._check_safe" title="Link to this definition"></a></dt>
+<dd><p>Check if the directory is safe. If directory does not exit, create it.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="streamsight.datasets.AmazonComputerDataset._dataframe_to_matrix">
+<span class="sig-name descname"><span class="pre">_dataframe_to_matrix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="streamsight.matrix.InteractionMatrix.html#streamsight.matrix.InteractionMatrix" title="streamsight.matrix.interaction_matrix.InteractionMatrix"><span class="pre">InteractionMatrix</span></a></span></span><a class="headerlink" href="#streamsight.datasets.AmazonComputerDataset._dataframe_to_matrix" title="Link to this definition"></a></dt>
+<dd><p>Converts a DataFrame to an InteractionMatrix.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>df</strong> (<em>pd.DataFrame</em>) – DataFrame to convert</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>InteractionMatrix object</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="streamsight.matrix.InteractionMatrix.html#streamsight.matrix.InteractionMatrix" title="streamsight.matrix.InteractionMatrix">InteractionMatrix</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="streamsight.datasets.AmazonComputerDataset._download_dataset">
+<span class="sig-name descname"><span class="pre">_download_dataset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#streamsight.datasets.AmazonComputerDataset._download_dataset" title="Link to this definition"></a></dt>
+<dd><p>Downloads the dataset.</p>
+<p>Downloads the csv file from the dataset URL and saves it to the file path.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="streamsight.datasets.AmazonComputerDataset._fetch_remote">
+<span class="sig-name descname"><span class="pre">_fetch_remote</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#streamsight.datasets.AmazonComputerDataset._fetch_remote" title="Link to this definition"></a></dt>
+<dd><p>Fetch data from remote url and save locally</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>url</strong> (<em>str</em>) – url to fetch data from</p></li>
+<li><p><strong>filename</strong> (<em>str</em>) – Path to save file to</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The filename where data was saved</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="streamsight.datasets.AmazonComputerDataset._load_dataframe">
+<span class="sig-name descname"><span class="pre">_load_dataframe</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="headerlink" href="#streamsight.datasets.AmazonComputerDataset._load_dataframe" title="Link to this definition"></a></dt>
+<dd><p>Load the raw dataset from file, and return it as a pandas DataFrame.</p>
+<p>Transform the dataset downloaded to have integer user and item ids. This
+will be needed for representation in the interaction matrix.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The interaction data as a DataFrame with a row per interaction.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>pd.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="streamsight.datasets.AmazonComputerDataset.add_filter">
+<span class="sig-name descname"><span class="pre">add_filter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_filter</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="streamsight.preprocessing.Filter.html#streamsight.preprocessing.Filter" title="streamsight.preprocessing.filter.Filter"><span class="pre">Filter</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#streamsight.datasets.AmazonComputerDataset.add_filter" title="Link to this definition"></a></dt>
+<dd><p>Add a filter to be applied when loading the data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>_filter</strong> (<a class="reference internal" href="streamsight.preprocessing.Filter.html#streamsight.preprocessing.Filter" title="streamsight.preprocessing.Filter"><em>Filter</em></a>) – Filter to be applied to the loaded DataFrame
+processing to interaction matrix.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="streamsight.datasets.AmazonComputerDataset.fetch_dataset">
+<span class="sig-name descname"><span class="pre">fetch_dataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">force</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#streamsight.datasets.AmazonComputerDataset.fetch_dataset" title="Link to this definition"></a></dt>
+<dd><p>Check if dataset is present, if not download</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>force</strong> (<em>bool</em><em>, </em><em>optional</em>) – If True, dataset will be downloaded,
+even if the file already exists.
+Defaults to False.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="streamsight.datasets.AmazonComputerDataset.file_path">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">file_path</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#streamsight.datasets.AmazonComputerDataset.file_path" title="Link to this definition"></a></dt>
+<dd><p>File path of the dataset.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="streamsight.datasets.AmazonComputerDataset.load">
+<span class="sig-name descname"><span class="pre">load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">apply_filters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="streamsight.matrix.InteractionMatrix.html#streamsight.matrix.InteractionMatrix" title="streamsight.matrix.interaction_matrix.InteractionMatrix"><span class="pre">InteractionMatrix</span></a></span></span><a class="headerlink" href="#streamsight.datasets.AmazonComputerDataset.load" title="Link to this definition"></a></dt>
+<dd><p>Loads data into an InteractionMatrix object.</p>
+<p>Data is loaded into a DataFrame using the <a class="reference internal" href="#streamsight.datasets.AmazonComputerDataset._load_dataframe" title="streamsight.datasets.AmazonComputerDataset._load_dataframe"><code class="xref py py-func docutils literal notranslate"><span class="pre">_load_dataframe()</span></code></a> function.
+Resulting DataFrame is parsed into an <code class="xref py py-class docutils literal notranslate"><span class="pre">InteractionMatrix</span></code> object. If
+<code class="xref py py-data docutils literal notranslate"><span class="pre">apply_filters</span></code> is set to True, the filters set will be applied to the
+dataset and mapping of user and item ids will be done. This is advised
+even if there is no filter set, as it will ensure that the user and item
+ids are incrementing in the order of time.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>apply_filters</strong> (<em>bool</em><em>, </em><em>optional</em>) – To apply the filters set and preprocessing,
+defaults to True</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Resulting interaction matrix</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="streamsight.matrix.InteractionMatrix.html#streamsight.matrix.InteractionMatrix" title="streamsight.matrix.InteractionMatrix">InteractionMatrix</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="streamsight.datasets.AmazonComputerDataset.name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#streamsight.datasets.AmazonComputerDataset.name" title="Link to this definition"></a></dt>
+<dd><p>Name of the object’s class.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="streamsight.datasets.AmazonBookDataset.html" class="btn btn-neutral float-left" title="streamsight.datasets.AmazonBookDataset" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="streamsight.datasets.AmazonMovieDataset.html" class="btn btn-neutral float-right" title="streamsight.datasets.AmazonMovieDataset" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Ng Tze Kean.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+﻿streamsight.algorithms.ItemKNN
+==============================
+
+.. currentmodule:: streamsight.algorithms
+
+.. autoclass:: ItemKNN
+   :members:                             
+   :show-inheritance:   
+   :private-members:   
+   :undoc-members:        
+   :inherited-members:               
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~ItemKNN.__init__
+      ~ItemKNN.fit
+      ~ItemKNN.get_metadata_routing
+      ~ItemKNN.get_params
+      ~ItemKNN.predict
+      ~ItemKNN.set_params
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~ItemKNN.ITEM_USER_BASED
+      ~ItemKNN.identifier
+      ~ItemKNN.name
+   
+   

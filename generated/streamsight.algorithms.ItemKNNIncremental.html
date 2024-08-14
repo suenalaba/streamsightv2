@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>streamsight.algorithms.ItemKNNIncremental &mdash; streamsight 0.2.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=37f418d5"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="streamsight.algorithms.ItemKNNRolling" href="streamsight.algorithms.ItemKNNRolling.html" />
+    <link rel="prev" title="streamsight.algorithms.ItemKNN" href="streamsight.algorithms.ItemKNN.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            streamsight
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Data handling</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../streamsight.matrix.html">streamsight.matrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../streamsight.preprocessing.html">streamsight.preprocessing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../streamsight.datasets.html">streamsight.datasets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../streamsight.settings.html">streamsight.settings</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">RecSys</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../streamsight.algorithms.html">streamsight.algorithms</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../streamsight.algorithms.html#item-similarity-algorithms">Item Similarity Algorithms</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="streamsight.algorithms.ItemKNN.html">streamsight.algorithms.ItemKNN</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">streamsight.algorithms.ItemKNNIncremental</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#streamsight.algorithms.ItemKNNIncremental"><code class="docutils literal notranslate"><span class="pre">ItemKNNIncremental</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="streamsight.algorithms.ItemKNNRolling.html">streamsight.algorithms.ItemKNNRolling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="streamsight.algorithms.ItemKNNStatic.html">streamsight.algorithms.ItemKNNStatic</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Evaluation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../streamsight.evaluator.html">streamsight.evaluator</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Other supporting modules</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../streamsight.registries.html">streamsight.registries</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">streamsight</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../streamsight.algorithms.html">streamsight.algorithms</a></li>
+      <li class="breadcrumb-item active">streamsight.algorithms.ItemKNNIncremental</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/generated/streamsight.algorithms.ItemKNNIncremental.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="streamsight-algorithms-itemknnincremental">
+<h1>streamsight.algorithms.ItemKNNIncremental<a class="headerlink" href="#streamsight-algorithms-itemknnincremental" title="Link to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="streamsight.algorithms.ItemKNNIncremental">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">streamsight.algorithms.</span></span><span class="sig-name descname"><span class="pre">ItemKNNIncremental</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">K</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#streamsight.algorithms.ItemKNNIncremental" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="streamsight.algorithms.ItemKNN.html#streamsight.algorithms.ItemKNN" title="streamsight.algorithms.itemknn.ItemKNN"><code class="xref py py-class docutils literal notranslate"><span class="pre">ItemKNN</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="streamsight.algorithms.ItemKNNIncremental.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">K</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#streamsight.algorithms.ItemKNNIncremental.__init__" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<p class="rubric">Methods</p>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#streamsight.algorithms.ItemKNNIncremental.__init__" title="streamsight.algorithms.ItemKNNIncremental.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>([K])</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#streamsight.algorithms.ItemKNNIncremental.fit" title="streamsight.algorithms.ItemKNNIncremental.fit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fit</span></code></a>(X)</p></td>
+<td><p>Fit the model to the input interaction matrix.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#streamsight.algorithms.ItemKNNIncremental.get_metadata_routing" title="streamsight.algorithms.ItemKNNIncremental.get_metadata_routing"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_metadata_routing</span></code></a>()</p></td>
+<td><p>Get metadata routing of this object.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#streamsight.algorithms.ItemKNNIncremental.get_params" title="streamsight.algorithms.ItemKNNIncremental.get_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_params</span></code></a>([deep])</p></td>
+<td><p>Get parameters for this estimator.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#streamsight.algorithms.ItemKNNIncremental.predict" title="streamsight.algorithms.ItemKNNIncremental.predict"><code class="xref py py-obj docutils literal notranslate"><span class="pre">predict</span></code></a>(X)</p></td>
+<td><p>Predicts scores, given the interactions in X</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#streamsight.algorithms.ItemKNNIncremental.set_params" title="streamsight.algorithms.ItemKNNIncremental.set_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_params</span></code></a>(**params)</p></td>
+<td><p>Set the parameters of the estimator.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Attributes</p>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#streamsight.algorithms.ItemKNNIncremental.ITEM_USER_BASED" title="streamsight.algorithms.ItemKNNIncremental.ITEM_USER_BASED"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ITEM_USER_BASED</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#streamsight.algorithms.ItemKNNIncremental.identifier" title="streamsight.algorithms.ItemKNNIncremental.identifier"><code class="xref py py-obj docutils literal notranslate"><span class="pre">identifier</span></code></a></p></td>
+<td><p>Name of the object.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#streamsight.algorithms.ItemKNNIncremental.name" title="streamsight.algorithms.ItemKNNIncremental.name"><code class="xref py py-obj docutils literal notranslate"><span class="pre">name</span></code></a></p></td>
+<td><p>Name of the object's class.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="streamsight.algorithms.ItemKNNIncremental.ITEM_USER_BASED">
+<span class="sig-name descname"><span class="pre">ITEM_USER_BASED</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="streamsight.matrix.ItemUserBasedEnum.html#streamsight.matrix.ItemUserBasedEnum" title="streamsight.matrix.ItemUserBasedEnum"><span class="pre">ItemUserBasedEnum</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'item'</span></em><a class="headerlink" href="#streamsight.algorithms.ItemKNNIncremental.ITEM_USER_BASED" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="streamsight.algorithms.ItemKNNIncremental._abc_impl">
+<span class="sig-name descname"><span class="pre">_abc_impl</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;_abc._abc_data</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#streamsight.algorithms.ItemKNNIncremental._abc_impl" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="streamsight.algorithms.ItemKNNIncremental._assert_has_timestamps">
+<span class="sig-name descname"><span class="pre">_assert_has_timestamps</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">matrices</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="streamsight.matrix.InteractionMatrix.html#streamsight.matrix.InteractionMatrix" title="streamsight.matrix.interaction_matrix.InteractionMatrix"><span class="pre">InteractionMatrix</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#streamsight.algorithms.ItemKNNIncremental._assert_has_timestamps" title="Link to this definition"></a></dt>
+<dd><p>Make sure that the matrices all have timestamp information.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="streamsight.algorithms.ItemKNNIncremental._assert_is_interaction_matrix">
+<span class="sig-name descname"><span class="pre">_assert_is_interaction_matrix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">matrices</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="streamsight.matrix.InteractionMatrix.html#streamsight.matrix.InteractionMatrix" title="streamsight.matrix.interaction_matrix.InteractionMatrix"><span class="pre">InteractionMatrix</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#streamsight.algorithms.ItemKNNIncremental._assert_is_interaction_matrix" title="Link to this definition"></a></dt>
+<dd><p>Make sure that the passed matrices are all an InteractionMatrix.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="streamsight.algorithms.ItemKNNIncremental._build_request_for_signature">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">_build_request_for_signature</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">router</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#streamsight.algorithms.ItemKNNIncremental._build_request_for_signature" title="Link to this definition"></a></dt>
+<dd><p>Build the <cite>MethodMetadataRequest</cite> for a method using its signature.</p>
+<p>This method takes all arguments from the method signature and uses
+<code class="docutils literal notranslate"><span class="pre">None</span></code> as their default request value, except <code class="docutils literal notranslate"><span class="pre">X</span></code>, <code class="docutils literal notranslate"><span class="pre">y</span></code>, <code class="docutils literal notranslate"><span class="pre">Y</span></code>,
+<code class="docutils literal notranslate"><span class="pre">Xt</span></code>, <code class="docutils literal notranslate"><span class="pre">yt</span></code>, <code class="docutils literal notranslate"><span class="pre">*args</span></code>, and <code class="docutils literal notranslate"><span class="pre">**kwargs</span></code>.</p>
+<section id="parameters">
+<h2>Parameters<a class="headerlink" href="#parameters" title="Link to this heading"></a></h2>
+<dl class="simple">
+<dt>router<span class="classifier">MetadataRequest</span></dt><dd><p>The parent object for the created <cite>MethodMetadataRequest</cite>.</p>
+</dd>
+<dt>method<span class="classifier">str</span></dt><dd><p>The name of the method.</p>
+</dd>
+</dl>
+</section>
+<section id="returns">
+<h2>Returns<a class="headerlink" href="#returns" title="Link to this heading"></a></h2>
+<dl class="simple">
+<dt>method_request<span class="classifier">MethodMetadataRequest</span></dt><dd><p>The prepared request using the method’s signature.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="streamsight.algorithms.ItemKNNIncremental._check_feature_names">
+<span class="sig-name descname"><span class="pre">_check_feature_names</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reset</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#streamsight.algorithms.ItemKNNIncremental._check_feature_names" title="Link to this definition"></a></dt>
+<dd><p>Set or check the <cite>feature_names_in_</cite> attribute.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 1.0.</span></p>
+</div>
+<section id="id1">
+<h2>Parameters<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
+<dl>
+<dt>X<span class="classifier">{ndarray, dataframe} of shape (n_samples, n_features)</span></dt><dd><p>The input samples.</p>
+</dd>
+<dt>reset<span class="classifier">bool</span></dt><dd><p>Whether to reset the <cite>feature_names_in_</cite> attribute.
+If False, the input will be checked for consistency with
+feature names of data provided when reset was last True.
+.. note:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>It is recommended to call `reset=True` in `fit` and in the first
+call to `partial_fit`. All other methods that validate `X`
+should set `reset=False`.
+</pre></div>
+</div>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="streamsight.algorithms.ItemKNNIncremental._check_fit_complete">
+<span class="sig-name descname"><span class="pre">_check_fit_complete</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#streamsight.algorithms.ItemKNNIncremental._check_fit_complete" title="Link to this definition"></a></dt>
+<dd><p>Helper function to check if model was correctly fitted</p>
+<p>Uses the sklear check_is_fitted function,
+<a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.utils.validation.check_is_fitted.html">https://scikit-learn.org/stable/modules/generated/sklearn.utils.validation.check_is_fitted.html</a></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="streamsight.algorithms.ItemKNNIncremental._check_n_features">
+<span class="sig-name descname"><span class="pre">_check_n_features</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reset</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#streamsight.algorithms.ItemKNNIncremental._check_n_features" title="Link to this definition"></a></dt>
+<dd><p>Set the <cite>n_features_in_</cite> attribute, or check against it.</p>
+<section id="id2">
+<h2>Parameters<a class="headerlink" href="#id2" title="Link to this heading"></a></h2>
+<dl>
+<dt>X<span class="classifier">{ndarray, sparse matrix} of shape (n_samples, n_features)</span></dt><dd><p>The input samples.</p>
+</dd>
+<dt>reset<span class="classifier">bool</span></dt><dd><p>If True, the <cite>n_features_in_</cite> attribute is set to <cite>X.shape[1]</cite>.
+If False and the attribute exists, then check that it is equal to
+<cite>X.shape[1]</cite>. If False and the attribute does <em>not</em> exist, then
+the check is skipped.
+.. note:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>It is recommended to call reset=True in `fit` and in the first
+call to `partial_fit`. All other methods that validate `X`
+should set `reset=False`.
+</pre></div>
+</div>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="streamsight.algorithms.ItemKNNIncremental._check_prediction">
+<span class="sig-name descname"><span class="pre">_check_prediction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X_pred</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">csr_matrix</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">X</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">csr_matrix</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#streamsight.algorithms.ItemKNNIncremental._check_prediction" title="Link to this definition"></a></dt>
+<dd><p>Checks that the predictions matches expectations</p>
+<p>Checks implemented:</p>
+<ul class="simple">
+<li><p>Check that all users with history got at least 1 recommendation</p></li>
+</ul>
+<p>For failing checks a warning is printed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X_pred</strong> (<em>csr_matrix</em>) – Predictions made for all nonzero users in X</p></li>
+<li><p><strong>X</strong> (<em>csr_matrix</em>) – User-item interaction matrix used as input to predict</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="streamsight.algorithms.ItemKNNIncremental._doc_link_module">
+<span class="sig-name descname"><span class="pre">_doc_link_module</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'sklearn'</span></em><a class="headerlink" href="#streamsight.algorithms.ItemKNNIncremental._doc_link_module" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="streamsight.algorithms.ItemKNNIncremental._doc_link_template">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">_doc_link_template</span></span><a class="headerlink" href="#streamsight.algorithms.ItemKNNIncremental._doc_link_template" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="streamsight.algorithms.ItemKNNIncremental._doc_link_url_param_generator">
+<span class="sig-name descname"><span class="pre">_doc_link_url_param_generator</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#streamsight.algorithms.ItemKNNIncremental._doc_link_url_param_generator" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="streamsight.algorithms.ItemKNNIncremental._fit">
+<span class="sig-name descname"><span class="pre">_fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">csr_matrix</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#streamsight.algorithms.ItemKNNIncremental._fit" title="Link to this definition"></a></dt>
+<dd><p>Fit a cosine similarity matrix from item to item
+We assume that X is a binary matrix of shape (n_users, n_items)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="streamsight.algorithms.ItemKNNIncremental._get_default_requests">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">_get_default_requests</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#streamsight.algorithms.ItemKNNIncremental._get_default_requests" title="Link to this definition"></a></dt>
+<dd><p>Collect default request values.</p>
+<p>This method combines the information present in <code class="docutils literal notranslate"><span class="pre">__metadata_request__*</span></code>
+class attributes, as well as determining request keys from method
+signatures.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="streamsight.algorithms.ItemKNNIncremental._get_doc_link">
+<span class="sig-name descname"><span class="pre">_get_doc_link</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#streamsight.algorithms.ItemKNNIncremental._get_doc_link" title="Link to this definition"></a></dt>
+<dd><p>Generates a link to the API documentation for a given estimator.</p>
+<p>This method generates the link to the estimator’s documentation page
+by using the template defined by the attribute <cite>_doc_link_template</cite>.</p>
+<section id="id3">
+<h2>Returns<a class="headerlink" href="#id3" title="Link to this heading"></a></h2>
+<dl class="simple">
+<dt>url<span class="classifier">str</span></dt><dd><p>The URL to the API documentation for this estimator. If the estimator does
+not belong to module <cite>_doc_link_module</cite>, the empty string (i.e. <cite>“”</cite>) is
+returned.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="streamsight.algorithms.ItemKNNIncremental._get_metadata_request">
+<span class="sig-name descname"><span class="pre">_get_metadata_request</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#streamsight.algorithms.ItemKNNIncremental._get_metadata_request" title="Link to this definition"></a></dt>
+<dd><p>Get requested data properties.</p>
+<p>Please check <span class="xref std std-ref">User Guide</span> on how the routing
+mechanism works.</p>
+<section id="id4">
+<h2>Returns<a class="headerlink" href="#id4" title="Link to this heading"></a></h2>
+<dl class="simple">
+<dt>request<span class="classifier">MetadataRequest</span></dt><dd><p>A <code class="xref py py-class docutils literal notranslate"><span class="pre">MetadataRequest</span></code> instance.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="streamsight.algorithms.ItemKNNIncremental._get_param_names">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">_get_param_names</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#streamsight.algorithms.ItemKNNIncremental._get_param_names" title="Link to this definition"></a></dt>
+<dd><p>Get parameter names for the estimator</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="streamsight.algorithms.ItemKNNIncremental._get_tags">
+<span class="sig-name descname"><span class="pre">_get_tags</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#streamsight.algorithms.ItemKNNIncremental._get_tags" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="streamsight.algorithms.ItemKNNIncremental._more_tags">
+<span class="sig-name descname"><span class="pre">_more_tags</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#streamsight.algorithms.ItemKNNIncremental._more_tags" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="streamsight.algorithms.ItemKNNIncremental._predict">
+<span class="sig-name descname"><span class="pre">_predict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">csr_matrix</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">csr_matrix</span></span></span><a class="headerlink" href="#streamsight.algorithms.ItemKNNIncremental._predict" title="Link to this definition"></a></dt>
+<dd><p>Predict scores for nonzero users in X</p>
+<p>Scores are computed by matrix multiplication of X
+with the stored similarity matrix.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>X</strong> (<em>csr_matrix</em>) – csr_matrix with interactions</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>csr_matrix with scores</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>csr_matrix</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="streamsight.algorithms.ItemKNNIncremental._repr_html_">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">_repr_html_</span></span><a class="headerlink" href="#streamsight.algorithms.ItemKNNIncremental._repr_html_" title="Link to this definition"></a></dt>
+<dd><p>HTML representation of estimator.</p>
+<p>This is redundant with the logic of <cite>_repr_mimebundle_</cite>. The latter
+should be favorted in the long term, <cite>_repr_html_</cite> is only
+implemented for consumers who do not interpret <cite>_repr_mimbundle_</cite>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="streamsight.algorithms.ItemKNNIncremental._repr_html_inner">
+<span class="sig-name descname"><span class="pre">_repr_html_inner</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#streamsight.algorithms.ItemKNNIncremental._repr_html_inner" title="Link to this definition"></a></dt>
+<dd><p>This function is returned by the &#64;property <cite>_repr_html_</cite> to make
+<cite>hasattr(estimator, “_repr_html_”) return `True</cite> or <cite>False</cite> depending
+on <cite>get_config()[“display”]</cite>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="streamsight.algorithms.ItemKNNIncremental._repr_mimebundle_">
+<span class="sig-name descname"><span class="pre">_repr_mimebundle_</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#streamsight.algorithms.ItemKNNIncremental._repr_mimebundle_" title="Link to this definition"></a></dt>
+<dd><p>Mime bundle used by jupyter kernels to display estimator</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="streamsight.algorithms.ItemKNNIncremental._transform_fit_input">
+<span class="sig-name descname"><span class="pre">_transform_fit_input</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="streamsight.matrix.InteractionMatrix.html#streamsight.matrix.InteractionMatrix" title="streamsight.matrix.interaction_matrix.InteractionMatrix"><span class="pre">InteractionMatrix</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">csr_matrix</span></span></span><a class="headerlink" href="#streamsight.algorithms.ItemKNNIncremental._transform_fit_input" title="Link to this definition"></a></dt>
+<dd><p>Transform the training data to expected type</p>
+<p>Data will be turned into a binary csr matrix.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>X</strong> (<em>Matrix</em>) – User-item interaction matrix to fit the model to</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Transformed user-item interaction matrix to fit the model</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>csr_matrix</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="streamsight.algorithms.ItemKNNIncremental._transform_predict_input">
+<span class="sig-name descname"><span class="pre">_transform_predict_input</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="streamsight.matrix.InteractionMatrix.html#streamsight.matrix.InteractionMatrix" title="streamsight.matrix.interaction_matrix.InteractionMatrix"><span class="pre">InteractionMatrix</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">csr_matrix</span></span></span><a class="headerlink" href="#streamsight.algorithms.ItemKNNIncremental._transform_predict_input" title="Link to this definition"></a></dt>
+<dd><p>Transform the input of predict to expected type</p>
+<p>Data will be turned into a binary csr matrix.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>X</strong> (<em>Matrix</em>) – User-item interaction matrix used as input to predict</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Transformed user-item interaction matrix used as input to predict</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>csr_matrix</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="streamsight.algorithms.ItemKNNIncremental._validate_data">
+<span class="sig-name descname"><span class="pre">_validate_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'no_validation'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'no_validation'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">validate_separately</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cast_to_ndarray</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">check_params</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#streamsight.algorithms.ItemKNNIncremental._validate_data" title="Link to this definition"></a></dt>
+<dd><p>Validate input data and set or check the <cite>n_features_in_</cite> attribute.</p>
+<section id="id5">
+<h2>Parameters<a class="headerlink" href="#id5" title="Link to this heading"></a></h2>
+<dl>
+<dt>X<span class="classifier">{array-like, sparse matrix, dataframe} of shape                 (n_samples, n_features), default=’no validation’</span></dt><dd><p>The input samples.
+If <cite>‘no_validation’</cite>, no validation is performed on <cite>X</cite>. This is
+useful for meta-estimator which can delegate input validation to
+their underlying estimator(s). In that case <cite>y</cite> must be passed and
+the only accepted <cite>check_params</cite> are <cite>multi_output</cite> and
+<cite>y_numeric</cite>.</p>
+</dd>
+<dt>y<span class="classifier">array-like of shape (n_samples,), default=’no_validation’</span></dt><dd><p>The targets.</p>
+<ul class="simple">
+<li><p>If <cite>None</cite>, <cite>check_array</cite> is called on <cite>X</cite>. If the estimator’s
+requires_y tag is True, then an error will be raised.</p></li>
+<li><p>If <cite>‘no_validation’</cite>, <cite>check_array</cite> is called on <cite>X</cite> and the
+estimator’s requires_y tag is ignored. This is a default
+placeholder and is never meant to be explicitly set. In that case
+<cite>X</cite> must be passed.</p></li>
+<li><p>Otherwise, only <cite>y</cite> with <cite>_check_y</cite> or both <cite>X</cite> and <cite>y</cite> are
+checked with either <cite>check_array</cite> or <cite>check_X_y</cite> depending on
+<cite>validate_separately</cite>.</p></li>
+</ul>
+</dd>
+<dt>reset<span class="classifier">bool, default=True</span></dt><dd><p>Whether to reset the <cite>n_features_in_</cite> attribute.
+If False, the input will be checked for consistency with data
+provided when reset was last True.
+.. note:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>It is recommended to call reset=True in `fit` and in the first
+call to `partial_fit`. All other methods that validate `X`
+should set `reset=False`.
+</pre></div>
+</div>
+</dd>
+<dt>validate_separately<span class="classifier">False or tuple of dicts, default=False</span></dt><dd><p>Only used if y is not None.
+If False, call validate_X_y(). Else, it must be a tuple of kwargs
+to be used for calling check_array() on X and y respectively.</p>
+<p><cite>estimator=self</cite> is automatically added to these dicts to generate
+more informative error message in case of invalid input data.</p>
+</dd>
+<dt>cast_to_ndarray<span class="classifier">bool, default=True</span></dt><dd><p>Cast <cite>X</cite> and <cite>y</cite> to ndarray with checks in <cite>check_params</cite>. If
+<cite>False</cite>, <cite>X</cite> and <cite>y</cite> are unchanged and only <cite>feature_names_in_</cite> and
+<cite>n_features_in_</cite> are checked.</p>
+</dd>
+<dt><a href="#id6"><span class="problematic" id="id7">**</span></a>check_params<span class="classifier">kwargs</span></dt><dd><p>Parameters passed to <code class="xref py py-func docutils literal notranslate"><span class="pre">sklearn.utils.check_array()</span></code> or
+<code class="xref py py-func docutils literal notranslate"><span class="pre">sklearn.utils.check_X_y()</span></code>. Ignored if validate_separately
+is not False.</p>
+<p><cite>estimator=self</cite> is automatically added to these params to generate
+more informative error message in case of invalid input data.</p>
+</dd>
+</dl>
+</section>
+<section id="id8">
+<h2>Returns<a class="headerlink" href="#id8" title="Link to this heading"></a></h2>
+<dl class="simple">
+<dt>out<span class="classifier">{ndarray, sparse matrix} or tuple of these</span></dt><dd><p>The validated input. A tuple is returned if both <cite>X</cite> and <cite>y</cite> are
+validated.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="streamsight.algorithms.ItemKNNIncremental._validate_params">
+<span class="sig-name descname"><span class="pre">_validate_params</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#streamsight.algorithms.ItemKNNIncremental._validate_params" title="Link to this definition"></a></dt>
+<dd><p>Validate types and values of constructor parameters</p>
+<p>The expected type and values must be defined in the <cite>_parameter_constraints</cite>
+class attribute, which is a dictionary <cite>param_name: list of constraints</cite>. See
+the docstring of <cite>validate_parameter_constraints</cite> for a description of the
+accepted constraints.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="streamsight.algorithms.ItemKNNIncremental.fit">
+<span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="streamsight.matrix.InteractionMatrix.html#streamsight.matrix.InteractionMatrix" title="streamsight.matrix.interaction_matrix.InteractionMatrix"><span class="pre">InteractionMatrix</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Algorithm</span></span></span><a class="headerlink" href="#streamsight.algorithms.ItemKNNIncremental.fit" title="Link to this definition"></a></dt>
+<dd><p>Fit the model to the input interaction matrix.</p>
+<p>After fitting the model will be ready to use for prediction.</p>
+<p>This function will handle some generic bookkeeping
+for each of the child classes,</p>
+<ul class="simple">
+<li><p>The fit function gets timed, and this will get printed</p></li>
+<li><p>Input data is converted to expected type using call to
+<a class="reference internal" href="#streamsight.algorithms.ItemKNNIncremental._transform_predict_input" title="streamsight.algorithms.ItemKNNIncremental._transform_predict_input"><code class="xref py py-meth docutils literal notranslate"><span class="pre">_transform_predict_input()</span></code></a></p></li>
+<li><p>The model is trained using the <a class="reference internal" href="#streamsight.algorithms.ItemKNNIncremental._fit" title="streamsight.algorithms.ItemKNNIncremental._fit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">_fit()</span></code></a> method</p></li>
+<li><p><a class="reference internal" href="#streamsight.algorithms.ItemKNNIncremental._check_fit_complete" title="streamsight.algorithms.ItemKNNIncremental._check_fit_complete"><code class="xref py py-meth docutils literal notranslate"><span class="pre">_check_fit_complete()</span></code></a> is called to check fitting was succesful</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>X</strong> (<em>Matrix</em>) – The interactions to fit the model on.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>self</strong>, fitted algorithm</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Algorithm</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="streamsight.algorithms.ItemKNNIncremental.get_metadata_routing">
+<span class="sig-name descname"><span class="pre">get_metadata_routing</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#streamsight.algorithms.ItemKNNIncremental.get_metadata_routing" title="Link to this definition"></a></dt>
+<dd><p>Get metadata routing of this object.</p>
+<p>Please check <span class="xref std std-ref">User Guide</span> on how the routing
+mechanism works.</p>
+<section id="id9">
+<h2>Returns<a class="headerlink" href="#id9" title="Link to this heading"></a></h2>
+<dl class="simple">
+<dt>routing<span class="classifier">MetadataRequest</span></dt><dd><p>A <code class="xref py py-class docutils literal notranslate"><span class="pre">MetadataRequest</span></code> encapsulating
+routing information.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="streamsight.algorithms.ItemKNNIncremental.get_params">
+<span class="sig-name descname"><span class="pre">get_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">deep</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#streamsight.algorithms.ItemKNNIncremental.get_params" title="Link to this definition"></a></dt>
+<dd><p>Get parameters for this estimator.</p>
+<section id="id10">
+<h2>Parameters<a class="headerlink" href="#id10" title="Link to this heading"></a></h2>
+<dl class="simple">
+<dt>deep<span class="classifier">bool, default=True</span></dt><dd><p>If True, will return the parameters for this estimator and
+contained subobjects that are estimators.</p>
+</dd>
+</dl>
+</section>
+<section id="id11">
+<h2>Returns<a class="headerlink" href="#id11" title="Link to this heading"></a></h2>
+<dl class="simple">
+<dt>params<span class="classifier">dict</span></dt><dd><p>Parameter names mapped to their values.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="streamsight.algorithms.ItemKNNIncremental.identifier">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">identifier</span></span><a class="headerlink" href="#streamsight.algorithms.ItemKNNIncremental.identifier" title="Link to this definition"></a></dt>
+<dd><p>Name of the object.</p>
+<p>Name is made by combining the class name with the parameters
+passed at construction time.</p>
+<p>Constructed by recreating the initialisation call.
+Example: <cite>Algorithm(param_1=value)</cite></p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="streamsight.algorithms.ItemKNNIncremental.name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#streamsight.algorithms.ItemKNNIncremental.name" title="Link to this definition"></a></dt>
+<dd><p>Name of the object’s class.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="streamsight.algorithms.ItemKNNIncremental.predict">
+<span class="sig-name descname"><span class="pre">predict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="streamsight.matrix.InteractionMatrix.html#streamsight.matrix.InteractionMatrix" title="streamsight.matrix.interaction_matrix.InteractionMatrix"><span class="pre">InteractionMatrix</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">csr_matrix</span></span></span><a class="headerlink" href="#streamsight.algorithms.ItemKNNIncremental.predict" title="Link to this definition"></a></dt>
+<dd><p>Predicts scores, given the interactions in X</p>
+<p>Recommends items for each nonzero user in the X matrix.</p>
+<p>This function is a wrapper around the <a class="reference internal" href="#streamsight.algorithms.ItemKNNIncremental._predict" title="streamsight.algorithms.ItemKNNIncremental._predict"><code class="xref py py-meth docutils literal notranslate"><span class="pre">_predict()</span></code></a> method,
+and performs checks on in- and output data to guarantee proper computation.</p>
+<ul class="simple">
+<li><p>Checks that model is fitted correctly</p></li>
+<li><p>checks the output using <a class="reference internal" href="#streamsight.algorithms.ItemKNNIncremental._check_prediction" title="streamsight.algorithms.ItemKNNIncremental._check_prediction"><code class="xref py py-meth docutils literal notranslate"><span class="pre">_check_prediction()</span></code></a> function</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>X</strong> (<a class="reference internal" href="streamsight.matrix.InteractionMatrix.html#streamsight.matrix.InteractionMatrix" title="streamsight.matrix.InteractionMatrix"><em>InteractionMatrix</em></a>) – interactions to predict from.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The recommendation scores in a sparse matrix format.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>csr_matrix</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="streamsight.algorithms.ItemKNNIncremental.set_params">
+<span class="sig-name descname"><span class="pre">set_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">params</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#streamsight.algorithms.ItemKNNIncremental.set_params" title="Link to this definition"></a></dt>
+<dd><p>Set the parameters of the estimator.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>params</strong> (<em>dict</em>) – Estimator parameters</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="streamsight.algorithms.ItemKNN.html" class="btn btn-neutral float-left" title="streamsight.algorithms.ItemKNN" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="streamsight.algorithms.ItemKNNRolling.html" class="btn btn-neutral float-right" title="streamsight.algorithms.ItemKNNRolling" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Ng Tze Kean.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

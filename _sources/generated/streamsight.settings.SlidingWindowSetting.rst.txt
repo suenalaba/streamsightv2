@@ -1,0 +1,53 @@
+﻿streamsight.settings.SlidingWindowSetting
+=========================================
+
+.. currentmodule:: streamsight.settings
+
+.. autoclass:: SlidingWindowSetting
+   :members:                             
+   :show-inheritance:   
+   :private-members:   
+   :undoc-members:        
+   :inherited-members:               
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~SlidingWindowSetting.__init__
+      ~SlidingWindowSetting.get_params
+      ~SlidingWindowSetting.next_data_timestamp_limit
+      ~SlidingWindowSetting.next_ground_truth_data
+      ~SlidingWindowSetting.next_incremental_data
+      ~SlidingWindowSetting.next_unlabeled_data
+      ~SlidingWindowSetting.reset_data_generators
+      ~SlidingWindowSetting.split
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~SlidingWindowSetting.background_data
+      ~SlidingWindowSetting.data_timestamp_limit
+      ~SlidingWindowSetting.ground_truth_data
+      ~SlidingWindowSetting.identifier
+      ~SlidingWindowSetting.incremental_data
+      ~SlidingWindowSetting.is_ready
+      ~SlidingWindowSetting.is_sliding_window_setting
+      ~SlidingWindowSetting.name
+      ~SlidingWindowSetting.num_split
+      ~SlidingWindowSetting.params
+      ~SlidingWindowSetting.unlabeled_data
+      ~SlidingWindowSetting.window_size
+      ~SlidingWindowSetting.n_seq_data
+      ~SlidingWindowSetting.top_K
+   
+   

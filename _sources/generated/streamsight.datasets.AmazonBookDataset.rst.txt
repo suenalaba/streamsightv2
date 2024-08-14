@@ -1,0 +1,44 @@
+﻿streamsight.datasets.AmazonBookDataset
+======================================
+
+.. currentmodule:: streamsight.datasets
+
+.. autoclass:: AmazonBookDataset
+   :members:                             
+   :show-inheritance:   
+   :private-members:   
+   :undoc-members:        
+   :inherited-members:               
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~AmazonBookDataset.__init__
+      ~AmazonBookDataset.add_filter
+      ~AmazonBookDataset.fetch_dataset
+      ~AmazonBookDataset.load
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~AmazonBookDataset.DATASET_URL
+      ~AmazonBookDataset.DEFAULT_BASE_PATH
+      ~AmazonBookDataset.DEFAULT_FILENAME
+      ~AmazonBookDataset.ITEM_IX
+      ~AmazonBookDataset.RATING_IX
+      ~AmazonBookDataset.TIMESTAMP_IX
+      ~AmazonBookDataset.USER_IX
+      ~AmazonBookDataset.file_path
+      ~AmazonBookDataset.name
+   
+   

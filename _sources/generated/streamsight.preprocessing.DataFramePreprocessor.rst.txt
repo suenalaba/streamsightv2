@@ -1,0 +1,36 @@
+﻿streamsight.preprocessing.DataFramePreprocessor
+===============================================
+
+.. currentmodule:: streamsight.preprocessing
+
+.. autoclass:: DataFramePreprocessor
+   :members:                             
+   :show-inheritance:   
+   :private-members:   
+   :undoc-members:        
+   :inherited-members:               
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~DataFramePreprocessor.__init__
+      ~DataFramePreprocessor.add_filter
+      ~DataFramePreprocessor.process
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~DataFramePreprocessor.item_id_mapping
+      ~DataFramePreprocessor.user_id_mapping
+   
+   

@@ -1,0 +1,44 @@
+﻿streamsight.datasets.AmazonMusicDataset
+=======================================
+
+.. currentmodule:: streamsight.datasets
+
+.. autoclass:: AmazonMusicDataset
+   :members:                             
+   :show-inheritance:   
+   :private-members:   
+   :undoc-members:        
+   :inherited-members:               
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~AmazonMusicDataset.__init__
+      ~AmazonMusicDataset.add_filter
+      ~AmazonMusicDataset.fetch_dataset
+      ~AmazonMusicDataset.load
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~AmazonMusicDataset.DATASET_URL
+      ~AmazonMusicDataset.DEFAULT_BASE_PATH
+      ~AmazonMusicDataset.DEFAULT_FILENAME
+      ~AmazonMusicDataset.ITEM_IX
+      ~AmazonMusicDataset.RATING_IX
+      ~AmazonMusicDataset.TIMESTAMP_IX
+      ~AmazonMusicDataset.USER_IX
+      ~AmazonMusicDataset.file_path
+      ~AmazonMusicDataset.name
+   
+   
