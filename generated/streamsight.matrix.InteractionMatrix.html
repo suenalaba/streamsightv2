@@ -380,6 +380,10 @@ In all other cases the entry is 0.</p>
 <dt class="sig sig-object py" id="streamsight.matrix.InteractionMatrix.concat">
 <span class="sig-name descname"><span class="pre">concat</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">im</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#streamsight.matrix.InteractionMatrix" title="streamsight.matrix.interaction_matrix.InteractionMatrix"><span class="pre">InteractionMatrix</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">DataFrame</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#streamsight.matrix.InteractionMatrix" title="streamsight.matrix.interaction_matrix.InteractionMatrix"><span class="pre">InteractionMatrix</span></a></span></span><a class="headerlink" href="#streamsight.matrix.InteractionMatrix.concat" title="Link to this definition"></a></dt>
 <dd><p>Concatenate this InteractionMatrix with another.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This is a inplace operation. and will modify the current object.</p>
+</div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>im</strong> (<em>Union</em><em>[</em><a class="reference internal" href="#streamsight.matrix.InteractionMatrix" title="streamsight.matrix.InteractionMatrix"><em>InteractionMatrix</em></a><em>, </em><em>pd.DataFrame</em><em>]</em>) – InteractionMatrix to concat with.</p>
@@ -884,7 +888,6 @@ the interactions timestamp is compared.</p></li>
 <dt class="sig sig-object py" id="streamsight.matrix.InteractionMatrix.union">
 <span class="sig-name descname"><span class="pre">union</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">im</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#streamsight.matrix.InteractionMatrix" title="streamsight.matrix.interaction_matrix.InteractionMatrix"><span class="pre">InteractionMatrix</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#streamsight.matrix.InteractionMatrix" title="streamsight.matrix.interaction_matrix.InteractionMatrix"><span class="pre">InteractionMatrix</span></a></span></span><a class="headerlink" href="#streamsight.matrix.InteractionMatrix.union" title="Link to this definition"></a></dt>
 <dd><p>Combine events from this InteractionMatrix with another.</p>
-<p>This is a inplace operation.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>im</strong> (<a class="reference internal" href="#streamsight.matrix.InteractionMatrix" title="streamsight.matrix.InteractionMatrix"><em>InteractionMatrix</em></a>) – InteractionMatrix to union with.</p>

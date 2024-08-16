@@ -21,7 +21,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="streamsight.settings" href="../streamsight.settings.html" />
+    <link rel="next" title="streamsight.datasets.YelpDataset" href="streamsight.datasets.YelpDataset.html" />
     <link rel="prev" title="streamsight.datasets.AmazonMovieDataset" href="streamsight.datasets.AmazonMovieDataset.html" /> 
 </head>
 
@@ -49,37 +49,20 @@
 <li class="toctree-l1"><a class="reference internal" href="../streamsight.matrix.html">streamsight.matrix</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../streamsight.preprocessing.html">streamsight.preprocessing</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../streamsight.datasets.html">streamsight.datasets</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="streamsight.datasets.Dataset.html">streamsight.datasets.Dataset</a></li>
-<li class="toctree-l2"><a class="reference internal" href="streamsight.datasets.TestDataset.html">streamsight.datasets.TestDataset</a></li>
-<li class="toctree-l2"><a class="reference internal" href="streamsight.datasets.AmazonBookDataset.html">streamsight.datasets.AmazonBookDataset</a></li>
-<li class="toctree-l2"><a class="reference internal" href="streamsight.datasets.AmazonComputerDataset.html">streamsight.datasets.AmazonComputerDataset</a></li>
-<li class="toctree-l2"><a class="reference internal" href="streamsight.datasets.AmazonMovieDataset.html">streamsight.datasets.AmazonMovieDataset</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">streamsight.datasets.AmazonMusicDataset</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#streamsight.datasets.AmazonMusicDataset"><code class="docutils literal notranslate"><span class="pre">AmazonMusicDataset</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#streamsight.datasets.AmazonMusicDataset.__init__"><code class="docutils literal notranslate"><span class="pre">AmazonMusicDataset.__init__()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#streamsight.datasets.AmazonMusicDataset.DATASET_URL"><code class="docutils literal notranslate"><span class="pre">AmazonMusicDataset.DATASET_URL</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#streamsight.datasets.AmazonMusicDataset.DEFAULT_BASE_PATH"><code class="docutils literal notranslate"><span class="pre">AmazonMusicDataset.DEFAULT_BASE_PATH</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#streamsight.datasets.AmazonMusicDataset.DEFAULT_FILENAME"><code class="docutils literal notranslate"><span class="pre">AmazonMusicDataset.DEFAULT_FILENAME</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#streamsight.datasets.AmazonMusicDataset.ITEM_IX"><code class="docutils literal notranslate"><span class="pre">AmazonMusicDataset.ITEM_IX</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#streamsight.datasets.AmazonMusicDataset.RATING_IX"><code class="docutils literal notranslate"><span class="pre">AmazonMusicDataset.RATING_IX</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#streamsight.datasets.AmazonMusicDataset.TIMESTAMP_IX"><code class="docutils literal notranslate"><span class="pre">AmazonMusicDataset.TIMESTAMP_IX</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#streamsight.datasets.AmazonMusicDataset.USER_IX"><code class="docutils literal notranslate"><span class="pre">AmazonMusicDataset.USER_IX</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#streamsight.datasets.AmazonMusicDataset._abc_impl"><code class="docutils literal notranslate"><span class="pre">AmazonMusicDataset._abc_impl</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#streamsight.datasets.AmazonMusicDataset._check_safe"><code class="docutils literal notranslate"><span class="pre">AmazonMusicDataset._check_safe()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#streamsight.datasets.AmazonMusicDataset._dataframe_to_matrix"><code class="docutils literal notranslate"><span class="pre">AmazonMusicDataset._dataframe_to_matrix()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#streamsight.datasets.AmazonMusicDataset._download_dataset"><code class="docutils literal notranslate"><span class="pre">AmazonMusicDataset._download_dataset()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#streamsight.datasets.AmazonMusicDataset._fetch_remote"><code class="docutils literal notranslate"><span class="pre">AmazonMusicDataset._fetch_remote()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#streamsight.datasets.AmazonMusicDataset._load_dataframe"><code class="docutils literal notranslate"><span class="pre">AmazonMusicDataset._load_dataframe()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#streamsight.datasets.AmazonMusicDataset.add_filter"><code class="docutils literal notranslate"><span class="pre">AmazonMusicDataset.add_filter()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#streamsight.datasets.AmazonMusicDataset.fetch_dataset"><code class="docutils literal notranslate"><span class="pre">AmazonMusicDataset.fetch_dataset()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#streamsight.datasets.AmazonMusicDataset.file_path"><code class="docutils literal notranslate"><span class="pre">AmazonMusicDataset.file_path</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#streamsight.datasets.AmazonMusicDataset.load"><code class="docutils literal notranslate"><span class="pre">AmazonMusicDataset.load()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#streamsight.datasets.AmazonMusicDataset.name"><code class="docutils literal notranslate"><span class="pre">AmazonMusicDataset.name</span></code></a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../streamsight.datasets.html#dataset">Dataset</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="streamsight.datasets.Dataset.html">streamsight.datasets.Dataset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="streamsight.datasets.TestDataset.html">streamsight.datasets.TestDataset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="streamsight.datasets.AmazonBookDataset.html">streamsight.datasets.AmazonBookDataset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="streamsight.datasets.AmazonComputerDataset.html">streamsight.datasets.AmazonComputerDataset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="streamsight.datasets.AmazonMovieDataset.html">streamsight.datasets.AmazonMovieDataset</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">streamsight.datasets.AmazonMusicDataset</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#streamsight.datasets.AmazonMusicDataset"><code class="docutils literal notranslate"><span class="pre">AmazonMusicDataset</span></code></a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="streamsight.datasets.YelpDataset.html">streamsight.datasets.YelpDataset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../streamsight.datasets.html#example">Example</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../streamsight.datasets.html#example">Example</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../streamsight.settings.html">streamsight.settings</a></li>
@@ -366,7 +349,7 @@ defaults to True</p>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="streamsight.datasets.AmazonMovieDataset.html" class="btn btn-neutral float-left" title="streamsight.datasets.AmazonMovieDataset" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../streamsight.settings.html" class="btn btn-neutral float-right" title="streamsight.settings" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="streamsight.datasets.YelpDataset.html" class="btn btn-neutral float-right" title="streamsight.datasets.YelpDataset" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

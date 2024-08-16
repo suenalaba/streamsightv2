@@ -49,13 +49,17 @@
 <li class="toctree-l1"><a class="reference internal" href="streamsight.matrix.html">streamsight.matrix</a></li>
 <li class="toctree-l1"><a class="reference internal" href="streamsight.preprocessing.html">streamsight.preprocessing</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">streamsight.datasets</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="generated/streamsight.datasets.Dataset.html">streamsight.datasets.Dataset</a></li>
-<li class="toctree-l2"><a class="reference internal" href="generated/streamsight.datasets.TestDataset.html">streamsight.datasets.TestDataset</a></li>
-<li class="toctree-l2"><a class="reference internal" href="generated/streamsight.datasets.AmazonBookDataset.html">streamsight.datasets.AmazonBookDataset</a></li>
-<li class="toctree-l2"><a class="reference internal" href="generated/streamsight.datasets.AmazonComputerDataset.html">streamsight.datasets.AmazonComputerDataset</a></li>
-<li class="toctree-l2"><a class="reference internal" href="generated/streamsight.datasets.AmazonMovieDataset.html">streamsight.datasets.AmazonMovieDataset</a></li>
-<li class="toctree-l2"><a class="reference internal" href="generated/streamsight.datasets.AmazonMusicDataset.html">streamsight.datasets.AmazonMusicDataset</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#example">Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dataset">Dataset</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="generated/streamsight.datasets.Dataset.html">streamsight.datasets.Dataset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/streamsight.datasets.TestDataset.html">streamsight.datasets.TestDataset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/streamsight.datasets.AmazonBookDataset.html">streamsight.datasets.AmazonBookDataset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/streamsight.datasets.AmazonComputerDataset.html">streamsight.datasets.AmazonComputerDataset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/streamsight.datasets.AmazonMovieDataset.html">streamsight.datasets.AmazonMovieDataset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/streamsight.datasets.AmazonMusicDataset.html">streamsight.datasets.AmazonMusicDataset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/streamsight.datasets.YelpDataset.html">streamsight.datasets.YelpDataset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#example">Example</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="streamsight.settings.html">streamsight.settings</a></li>
@@ -99,8 +103,15 @@
              
   <section id="module-streamsight.datasets">
 <span id="streamsight-datasets"></span><h1>streamsight.datasets<a class="headerlink" href="#module-streamsight.datasets" title="Link to this heading"></a></h1>
+<section id="dataset">
+<h2>Dataset<a class="headerlink" href="#dataset" title="Link to this heading"></a></h2>
 <p>The dataset module allows users to easily use to publicly available datasets
-in their experiments.</p>
+in their experiments. The dataset class are built on top of the <a class="reference internal" href="generated/streamsight.datasets.Dataset.html#streamsight.datasets.Dataset" title="streamsight.datasets.Dataset"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dataset</span></code></a>
+allowing for easy extension and customization. In this module, we provide
+the Amazon datasets and the Yelp dataset. The programmer is free to add more
+datasets as they see fit by defining the abstract methods that must be implemented.</p>
+<p>Other than the 2 publicly available datasets, we also provide a test dataset
+that can be used for testing purposes.</p>
 <table class="autosummary longtable docutils align-default">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/streamsight.datasets.Dataset.html#streamsight.datasets.Dataset" title="streamsight.datasets.Dataset"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Dataset</span></code></a>([filename, base_path])</p></td>
@@ -121,10 +132,13 @@ in their experiments.</p>
 <tr class="row-even"><td><p><a class="reference internal" href="generated/streamsight.datasets.AmazonMusicDataset.html#streamsight.datasets.AmazonMusicDataset" title="streamsight.datasets.AmazonMusicDataset"><code class="xref py py-obj docutils literal notranslate"><span class="pre">AmazonMusicDataset</span></code></a>([filename, base_path])</p></td>
 <td><p>Handles Amazon Music dataset.</p></td>
 </tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/streamsight.datasets.YelpDataset.html#streamsight.datasets.YelpDataset" title="streamsight.datasets.YelpDataset"><code class="xref py py-obj docutils literal notranslate"><span class="pre">YelpDataset</span></code></a>([filename, base_path])</p></td>
+<td><p>Yelp dataset</p></td>
+</tr>
 </tbody>
 </table>
 <section id="example">
-<h2>Example<a class="headerlink" href="#example" title="Link to this heading"></a></h2>
+<h3>Example<a class="headerlink" href="#example" title="Link to this heading"></a></h3>
 <p>Loading a dataset only takes a couple of lines.
 If the file specified does not exist, the dataset is downloaded and written into this file.
 Subsequent loading of the dataset then happens from this file.</p>
@@ -143,6 +157,7 @@ To use custom preprocessing a couple more lines should be added to the example.<
 </pre></div>
 </div>
 <p>For an overview of available filters see <a class="reference internal" href="streamsight.preprocessing.html#module-streamsight.preprocessing" title="streamsight.preprocessing"><code class="xref py py-mod docutils literal notranslate"><span class="pre">streamsight.preprocessing</span></code></a></p>
+</section>
 </section>
 </section>
 
