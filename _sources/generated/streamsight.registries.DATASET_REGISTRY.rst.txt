@@ -1,0 +1,6 @@
+﻿streamsight.registries.DATASET\_REGISTRY
+========================================
+
+.. currentmodule:: streamsight.registries
+
+.. autodata:: DATASET_REGISTRY

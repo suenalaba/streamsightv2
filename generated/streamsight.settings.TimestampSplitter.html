@@ -67,10 +67,6 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../streamsight.algorithms.html">streamsight.algorithms</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Evaluation</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../streamsight.evaluator.html">streamsight.evaluator</a></li>
-</ul>
 <p class="caption" role="heading"><span class="caption-text">Other supporting modules</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../streamsight.registries.html">streamsight.registries</a></li>
@@ -109,14 +105,14 @@
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Splitter</span></code></p>
 <p>Splits data by timestamp.</p>
 <p>Split data so that the first return value contains interactions in
-<code class="docutils literal notranslate"><span class="pre">[t-t_lower,</span> <span class="pre">t)</span></code>, and the second those in <code class="docutils literal notranslate"><span class="pre">[t,</span> <span class="pre">t+t_upper]</span></code>.</p>
-<p>If <code class="docutils literal notranslate"><span class="pre">t_lower</span></code> or <code class="docutils literal notranslate"><span class="pre">t_upper</span></code> are omitted, they are assumed to have a value of infinity.
+<cite>[t-t_lower, t)</cite>, and the second those in <cite>[t, t+t_upper]</cite>.</p>
+<p>If <cite>t_lower</cite> or <cite>t_upper</cite> are omitted, they are assumed to have a value of infinity.
 A user can occur in both return values.</p>
 <section id="attribute-definition">
 <h2>Attribute definition<a class="headerlink" href="#attribute-definition" title="Link to this heading"></a></h2>
 <ul class="simple">
-<li><p>:attr:<code class="docutils literal notranslate"><span class="pre">past_interaction</span></code>: List of unlabeled data. Interval is <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">t)</span></code>.</p></li>
-<li><p>:attr:<code class="docutils literal notranslate"><span class="pre">future_interaction</span></code>: Data used for training the model. Interval is <code class="docutils literal notranslate"><span class="pre">[t,</span> <span class="pre">t+t_upper)</span></code> or <code class="docutils literal notranslate"><span class="pre">[t,inf]</span></code>.</p></li>
+<li><p><code class="xref py py-attr docutils literal notranslate"><span class="pre">past_interaction</span></code>: List of unlabeled data. Interval is <cite>[0, t)</cite>.</p></li>
+<li><p><code class="xref py py-attr docutils literal notranslate"><span class="pre">future_interaction</span></code>: Data used for training the model. Interval is <cite>[t, t+t_upper)</cite> or <cite>[t,inf]</cite>.</p></li>
 </ul>
 <dl class="field-list simple">
 <dt class="field-odd">param t<span class="colon">:</span></dt>
@@ -152,7 +148,7 @@ of interactions in the second return value. Defaults to None (infinity).</p>
 <td><p></p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#streamsight.settings.TimestampSplitter.split" title="streamsight.settings.TimestampSplitter.split"><code class="xref py py-obj docutils literal notranslate"><span class="pre">split</span></code></a>(data)</p></td>
-<td><p>Splits data so that <code class="docutils literal notranslate"><span class="pre">past_interaction</span></code> contains interactions in <code class="docutils literal notranslate"><span class="pre">[t-t_lower,</span> <span class="pre">t)</span></code>, and <code class="docutils literal notranslate"><span class="pre">future_interaction</span></code> those in <code class="docutils literal notranslate"><span class="pre">[t,</span> <span class="pre">t+t_upper]</span></code>.</p></td>
+<td><p>Splits data so that <cite>past_interaction</cite> contains interactions in <cite>[t-t_lower, t)</cite>, and <cite>future_interaction</cite> those in <cite>[t, t+t_upper]</cite>.</p></td>
 </tr>
 </tbody>
 </table>
@@ -188,14 +184,14 @@ contains name and parameter values.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="streamsight.settings.TimestampSplitter.split">
 <span class="sig-name descname"><span class="pre">split</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="streamsight.matrix.InteractionMatrix.html#streamsight.matrix.InteractionMatrix" title="streamsight.matrix.interaction_matrix.InteractionMatrix"><span class="pre">InteractionMatrix</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="streamsight.matrix.InteractionMatrix.html#streamsight.matrix.InteractionMatrix" title="streamsight.matrix.interaction_matrix.InteractionMatrix"><span class="pre">InteractionMatrix</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="streamsight.matrix.InteractionMatrix.html#streamsight.matrix.InteractionMatrix" title="streamsight.matrix.interaction_matrix.InteractionMatrix"><span class="pre">InteractionMatrix</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#streamsight.settings.TimestampSplitter.split" title="Link to this definition"></a></dt>
-<dd><p>Splits data so that <code class="docutils literal notranslate"><span class="pre">past_interaction</span></code> contains interactions in <code class="docutils literal notranslate"><span class="pre">[t-t_lower,</span> <span class="pre">t)</span></code>,
-and <code class="docutils literal notranslate"><span class="pre">future_interaction</span></code> those in <code class="docutils literal notranslate"><span class="pre">[t,</span> <span class="pre">t+t_upper]</span></code>.</p>
+<dd><p>Splits data so that <cite>past_interaction</cite> contains interactions in <cite>[t-t_lower, t)</cite>,
+and <cite>future_interaction</cite> those in <cite>[t, t+t_upper]</cite>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>data</strong> (<a class="reference internal" href="streamsight.matrix.InteractionMatrix.html#streamsight.matrix.InteractionMatrix" title="streamsight.matrix.InteractionMatrix"><em>InteractionMatrix</em></a>) – Interaction matrix to be split. Must contain timestamps.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>A 2-tuple containing the <code class="docutils literal notranslate"><span class="pre">past_interaction</span></code> and <code class="docutils literal notranslate"><span class="pre">future_interaction</span></code> matrices.</p>
+<dd class="field-even"><p>A 2-tuple containing the <cite>past_interaction</cite> and <cite>future_interaction</cite> matrices.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Tuple[<a class="reference internal" href="streamsight.matrix.InteractionMatrix.html#streamsight.matrix.InteractionMatrix" title="streamsight.matrix.InteractionMatrix">InteractionMatrix</a>, <a class="reference internal" href="streamsight.matrix.InteractionMatrix.html#streamsight.matrix.InteractionMatrix" title="streamsight.matrix.InteractionMatrix">InteractionMatrix</a>]</p>

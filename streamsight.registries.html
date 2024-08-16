@@ -21,7 +21,8 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="streamsight.evaluator" href="streamsight.evaluator.html" /> 
+    <link rel="next" title="streamsight.registries.ALGORITHM_REGISTRY" href="generated/streamsight.registries.ALGORITHM_REGISTRY.html" />
+    <link rel="prev" title="streamsight.algorithms.ItemKNNStatic" href="generated/streamsight.algorithms.ItemKNNStatic.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -54,13 +55,31 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="streamsight.algorithms.html">streamsight.algorithms</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Evaluation</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="streamsight.evaluator.html">streamsight.evaluator</a></li>
-</ul>
 <p class="caption" role="heading"><span class="caption-text">Other supporting modules</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">streamsight.registries</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">streamsight.registries</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#registry">Registry</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="generated/streamsight.registries.ALGORITHM_REGISTRY.html">streamsight.registries.ALGORITHM_REGISTRY</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/streamsight.registries.DATASET_REGISTRY.html">streamsight.registries.DATASET_REGISTRY</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/streamsight.registries.METRIC_REGISTRY.html">streamsight.registries.METRIC_REGISTRY</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/streamsight.registries.AlgorithmRegistry.html">streamsight.registries.AlgorithmRegistry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/streamsight.registries.DatasetRegistry.html">streamsight.registries.DatasetRegistry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/streamsight.registries.MetricRegistry.html">streamsight.registries.MetricRegistry</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#entries">Entries</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="generated/streamsight.registries.AlgorithmEntry.html">streamsight.registries.AlgorithmEntry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/streamsight.registries.MetricEntry.html">streamsight.registries.MetricEntry</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#status-registry">Status Registry</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="generated/streamsight.registries.AlgorithmStateEnum.html">streamsight.registries.AlgorithmStateEnum</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/streamsight.registries.AlgorithmStatusEntry.html">streamsight.registries.AlgorithmStatusEntry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/streamsight.registries.AlgorithmStatusRegistry.html">streamsight.registries.AlgorithmStatusRegistry</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 
         </div>
@@ -89,13 +108,89 @@
              
   <section id="module-streamsight.registries">
 <span id="streamsight-registries"></span><h1>streamsight.registries<a class="headerlink" href="#module-streamsight.registries" title="Link to this heading"></a></h1>
+<section id="registry">
+<h2>Registry<a class="headerlink" href="#registry" title="Link to this heading"></a></h2>
+<p>Registry for algorithms, metrics and datasets. These registries are used to store
+the algorithms, metrics and datasets that are used in the experiments. The registries
+aid the programmer to keep track of valid classes and to easily instantiate them.</p>
+<p>Contains the streamsight algorithms by default, and allows registration of
+new algorithms via the <cite>register</cite> function.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">streamsight.pipelines</span> <span class="kn">import</span> <span class="n">ALGORITHM_REGISTRY</span>
+<span class="kn">from</span> <span class="nn">streamsight.algorithms</span> <span class="kn">import</span> <span class="n">ItemKNNStatic</span>
+
+<span class="n">algo</span> <span class="o">=</span> <span class="n">ALGORITHM_REGISTRY</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;ItemKNNStatic&#39;</span><span class="p">)(</span><span class="n">K</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">ALGORITHM_REGISTRY</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="s1">&#39;algo_1&#39;</span><span class="p">,</span> <span class="n">ItemKNNStatic</span><span class="p">)</span>
+</pre></div>
+</div>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/streamsight.registries.ALGORITHM_REGISTRY.html#streamsight.registries.ALGORITHM_REGISTRY" title="streamsight.registries.ALGORITHM_REGISTRY"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ALGORITHM_REGISTRY</span></code></a></p></td>
+<td><p>Registry for easy retrieval of algorithm types by name.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/streamsight.registries.DATASET_REGISTRY.html#streamsight.registries.DATASET_REGISTRY" title="streamsight.registries.DATASET_REGISTRY"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DATASET_REGISTRY</span></code></a></p></td>
+<td><p>Registry for easy retrieval of dataset types by name.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/streamsight.registries.METRIC_REGISTRY.html#streamsight.registries.METRIC_REGISTRY" title="streamsight.registries.METRIC_REGISTRY"><code class="xref py py-obj docutils literal notranslate"><span class="pre">METRIC_REGISTRY</span></code></a></p></td>
+<td><p>Registry for easy retrieval of metric types by name.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/streamsight.registries.AlgorithmRegistry.html#streamsight.registries.AlgorithmRegistry" title="streamsight.registries.AlgorithmRegistry"><code class="xref py py-obj docutils literal notranslate"><span class="pre">AlgorithmRegistry</span></code></a>()</p></td>
+<td><p>Registry for easy retrieval of algorithm types by name.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/streamsight.registries.DatasetRegistry.html#streamsight.registries.DatasetRegistry" title="streamsight.registries.DatasetRegistry"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DatasetRegistry</span></code></a>()</p></td>
+<td><p>Registry for easy retrieval of dataset types by name.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/streamsight.registries.MetricRegistry.html#streamsight.registries.MetricRegistry" title="streamsight.registries.MetricRegistry"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MetricRegistry</span></code></a>()</p></td>
+<td><p>Registry for easy retrieval of metric types by name.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="entries">
+<h2>Entries<a class="headerlink" href="#entries" title="Link to this heading"></a></h2>
+<p>Entries for algorithms and metrics. These entries are used to store the algorithms
+and metrics in the registries. The entries are used to store the class and the
+parameters that are used to instantiate the class. These entires will be used
+in <code class="xref py py-class docutils literal notranslate"><span class="pre">EvaluatorPipeline</span></code> to instantiate the algorithms and metrics.</p>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/streamsight.registries.AlgorithmEntry.html#streamsight.registries.AlgorithmEntry" title="streamsight.registries.AlgorithmEntry"><code class="xref py py-obj docutils literal notranslate"><span class="pre">AlgorithmEntry</span></code></a>(name[, params])</p></td>
+<td><p>Entry for the algorithm registry.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/streamsight.registries.MetricEntry.html#streamsight.registries.MetricEntry" title="streamsight.registries.MetricEntry"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MetricEntry</span></code></a>(name[, K])</p></td>
+<td><p>Entry for the metric registry.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="status-registry">
+<h2>Status Registry<a class="headerlink" href="#status-registry" title="Link to this heading"></a></h2>
+<p>Registry for algorithm status. This registry is used to store the status of the
+algorithms. The status of the algorithms are stored in the registry and can be
+accessed by the user. The status of the algorithms are used to keep track of the
+state of the algorithms.</p>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/streamsight.registries.AlgorithmStateEnum.html#streamsight.registries.AlgorithmStateEnum" title="streamsight.registries.AlgorithmStateEnum"><code class="xref py py-obj docutils literal notranslate"><span class="pre">AlgorithmStateEnum</span></code></a>(value[, names, module, ...])</p></td>
+<td><p>Enum for the state of the algorithm</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/streamsight.registries.AlgorithmStatusEntry.html#streamsight.registries.AlgorithmStatusEntry" title="streamsight.registries.AlgorithmStatusEntry"><code class="xref py py-obj docutils literal notranslate"><span class="pre">AlgorithmStatusEntry</span></code></a>(name, algo_id, state[, ...])</p></td>
+<td><p>Entry for the algorithm status registry</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/streamsight.registries.AlgorithmStatusRegistry.html#streamsight.registries.AlgorithmStatusRegistry" title="streamsight.registries.AlgorithmStatusRegistry"><code class="xref py py-obj docutils literal notranslate"><span class="pre">AlgorithmStatusRegistry</span></code></a>()</p></td>
+<td><p>Registry for algorithm status.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="streamsight.evaluator.html" class="btn btn-neutral float-left" title="streamsight.evaluator" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="generated/streamsight.algorithms.ItemKNNStatic.html" class="btn btn-neutral float-left" title="streamsight.algorithms.ItemKNNStatic" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="generated/streamsight.registries.ALGORITHM_REGISTRY.html" class="btn btn-neutral float-right" title="streamsight.registries.ALGORITHM_REGISTRY" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

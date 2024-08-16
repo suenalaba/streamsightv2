@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>streamsight.evaluators.EvaluatorBuilder &mdash; streamsight 0.2.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=37f418d5"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            streamsight
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Data handling</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../streamsight.matrix.html">streamsight.matrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../streamsight.preprocessing.html">streamsight.preprocessing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../streamsight.datasets.html">streamsight.datasets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../streamsight.settings.html">streamsight.settings</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">RecSys</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../streamsight.algorithms.html">streamsight.algorithms</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Other supporting modules</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../streamsight.registries.html">streamsight.registries</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">streamsight</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">streamsight.evaluators.EvaluatorBuilder</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/generated/streamsight.evaluators.EvaluatorBuilder.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="streamsight-evaluators-evaluatorbuilder">
+<h1>streamsight.evaluators.EvaluatorBuilder<a class="headerlink" href="#streamsight-evaluators-evaluatorbuilder" title="Link to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="streamsight.evaluators.EvaluatorBuilder">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">streamsight.evaluators.</span></span><span class="sig-name descname"><span class="pre">EvaluatorBuilder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ignore_unknown_user</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ignore_unknown_item</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#streamsight.evaluators.EvaluatorBuilder" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Builder to facilitate construction of evaluator.
+Provides methods to set specific values for the evaluator and enforce checks
+such that the evaluator can be constructed correctly and to avoid possible
+errors when the evaluator is executed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ignore_unknown_user</strong> (<em>bool</em><em>, </em><em>optional</em>) – Ignore unknown user in the evaluation, defaults to True</p></li>
+<li><p><strong>ignore_unknown_item</strong> (<em>bool</em><em>, </em><em>optional</em>) – Ignore unknown item in the evaluation, defaults to True</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="streamsight.evaluators.EvaluatorBuilder.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ignore_unknown_user</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ignore_unknown_item</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#streamsight.evaluators.EvaluatorBuilder.__init__" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<p class="rubric">Methods</p>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#streamsight.evaluators.EvaluatorBuilder.__init__" title="streamsight.evaluators.EvaluatorBuilder.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>([ignore_unknown_user, ...])</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#streamsight.evaluators.EvaluatorBuilder.add_algorithm" title="streamsight.evaluators.EvaluatorBuilder.add_algorithm"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_algorithm</span></code></a>(algorithm[, params])</p></td>
+<td><p>Add algorithm to evaluate.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#streamsight.evaluators.EvaluatorBuilder.add_metric" title="streamsight.evaluators.EvaluatorBuilder.add_metric"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_metric</span></code></a>(metric[, K])</p></td>
+<td><p>Add metric to evaluate algorithm on.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#streamsight.evaluators.EvaluatorBuilder.add_setting" title="streamsight.evaluators.EvaluatorBuilder.add_setting"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_setting</span></code></a>(setting)</p></td>
+<td><p>Add setting to the evaluator builder.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#streamsight.evaluators.EvaluatorBuilder.build" title="streamsight.evaluators.EvaluatorBuilder.build"><code class="xref py py-obj docutils literal notranslate"><span class="pre">build</span></code></a>()</p></td>
+<td><p>Build Evaluator object.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Attributes</p>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#streamsight.evaluators.EvaluatorBuilder.algorithm_entries" title="streamsight.evaluators.EvaluatorBuilder.algorithm_entries"><code class="xref py py-obj docutils literal notranslate"><span class="pre">algorithm_entries</span></code></a></p></td>
+<td><p>List of algorithms to evaluate</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#streamsight.evaluators.EvaluatorBuilder.metric_entries" title="streamsight.evaluators.EvaluatorBuilder.metric_entries"><code class="xref py py-obj docutils literal notranslate"><span class="pre">metric_entries</span></code></a></p></td>
+<td><p>Dict of metrics to evaluate algorithm on.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#streamsight.evaluators.EvaluatorBuilder.setting" title="streamsight.evaluators.EvaluatorBuilder.setting"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setting</span></code></a></p></td>
+<td><p>Setting to evaluate the algorithms on</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#streamsight.evaluators.EvaluatorBuilder.ignore_unknown_user" title="streamsight.evaluators.EvaluatorBuilder.ignore_unknown_user"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ignore_unknown_user</span></code></a></p></td>
+<td><p>Ignore unknown user in the evaluation</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#streamsight.evaluators.EvaluatorBuilder.ignore_unknown_item" title="streamsight.evaluators.EvaluatorBuilder.ignore_unknown_item"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ignore_unknown_item</span></code></a></p></td>
+<td><p>Ignore unknown item in the evaluation</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt class="sig sig-object py" id="streamsight.evaluators.EvaluatorBuilder._check_ready">
+<span class="sig-name descname"><span class="pre">_check_ready</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#streamsight.evaluators.EvaluatorBuilder._check_ready" title="Link to this definition"></a></dt>
+<dd><p>Check if the builder is ready to construct Evaluator.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>RuntimeError</strong> – If there are invalid configurations</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="streamsight.evaluators.EvaluatorBuilder.add_algorithm">
+<span class="sig-name descname"><span class="pre">add_algorithm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">algorithm</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#streamsight.evaluators.EvaluatorBuilder.add_algorithm" title="Link to this definition"></a></dt>
+<dd><p>Add algorithm to evaluate.</p>
+<p>Adding algorithm to evaluate on. The algorithm can be added by specifying the class type
+or by specifying the class name as a string.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>algorithm</strong> (<em>Union</em><em>[</em><em>str</em><em>, </em><em>type</em><em>]</em>) – Algorithm to evaluate</p></li>
+<li><p><strong>params</strong> (<em>Optional</em><em>[</em><em>Dict</em><em>[</em><em>str</em><em>, </em><em>int</em><em>]</em><em>]</em><em>, </em><em>optional</em>) – Parameter for the algorithm, defaults to None</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If algorithm is not found in ALGORITHM_REGISTRY</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="streamsight.evaluators.EvaluatorBuilder.add_metric">
+<span class="sig-name descname"><span class="pre">add_metric</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">metric</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">K</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#streamsight.evaluators.EvaluatorBuilder.add_metric" title="Link to this definition"></a></dt>
+<dd><p>Add metric to evaluate algorithm on.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>metric</strong> (<em>Union</em><em>[</em><em>str</em><em>, </em><em>type</em><em>]</em>) – Metric to evaluate algorithm on</p></li>
+<li><p><strong>K</strong> (<em>Optional</em><em>[</em><em>int</em><em>]</em><em>, </em><em>optional</em>) – Top K value to evaluate the prediction on, defaults to None</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If metric is not found in METRIC_REGISTRY</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="streamsight.evaluators.EvaluatorBuilder.add_setting">
+<span class="sig-name descname"><span class="pre">add_setting</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">setting</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="streamsight.settings.Setting.html#streamsight.settings.Setting" title="streamsight.settings.base.Setting"><span class="pre">Setting</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#streamsight.evaluators.EvaluatorBuilder.add_setting" title="Link to this definition"></a></dt>
+<dd><p>Add setting to the evaluator builder.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>setting</strong> (<a class="reference internal" href="streamsight.settings.Setting.html#streamsight.settings.Setting" title="streamsight.settings.Setting"><em>Setting</em></a>) – Setting to evaluate the algorithms on</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If setting is not of instance Setting</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="streamsight.evaluators.EvaluatorBuilder.algorithm_entries">
+<span class="sig-name descname"><span class="pre">algorithm_entries</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="streamsight.registries.AlgorithmEntry.html#streamsight.registries.AlgorithmEntry" title="streamsight.registries.registry.AlgorithmEntry"><span class="pre">AlgorithmEntry</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#streamsight.evaluators.EvaluatorBuilder.algorithm_entries" title="Link to this definition"></a></dt>
+<dd><p>List of algorithms to evaluate</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="streamsight.evaluators.EvaluatorBuilder.build">
+<span class="sig-name descname"><span class="pre">build</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="streamsight.evaluators.EvaluatorPipeline.html#streamsight.evaluators.EvaluatorPipeline" title="streamsight.evaluators.evaluator_pipeline.EvaluatorPipeline"><span class="pre">EvaluatorPipeline</span></a></span></span><a class="headerlink" href="#streamsight.evaluators.EvaluatorBuilder.build" title="Link to this definition"></a></dt>
+<dd><p>Build Evaluator object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>RuntimeError</strong> – If no metrics, algorithms or settings are specified</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Evaluator object</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Evaluator</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="streamsight.evaluators.EvaluatorBuilder.ignore_unknown_item">
+<span class="sig-name descname"><span class="pre">ignore_unknown_item</span></span><a class="headerlink" href="#streamsight.evaluators.EvaluatorBuilder.ignore_unknown_item" title="Link to this definition"></a></dt>
+<dd><p>Ignore unknown item in the evaluation</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="streamsight.evaluators.EvaluatorBuilder.ignore_unknown_user">
+<span class="sig-name descname"><span class="pre">ignore_unknown_user</span></span><a class="headerlink" href="#streamsight.evaluators.EvaluatorBuilder.ignore_unknown_user" title="Link to this definition"></a></dt>
+<dd><p>Ignore unknown user in the evaluation</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="streamsight.evaluators.EvaluatorBuilder.metric_entries">
+<span class="sig-name descname"><span class="pre">metric_entries</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="streamsight.registries.MetricEntry.html#streamsight.registries.MetricEntry" title="streamsight.registries.registry.MetricEntry"><span class="pre">MetricEntry</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#streamsight.evaluators.EvaluatorBuilder.metric_entries" title="Link to this definition"></a></dt>
+<dd><p>Dict of metrics to evaluate algorithm on.
+Using Dict instead of List for fast lookup</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="streamsight.evaluators.EvaluatorBuilder.setting">
+<span class="sig-name descname"><span class="pre">setting</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="streamsight.settings.Setting.html#streamsight.settings.Setting" title="streamsight.settings.base.Setting"><span class="pre">Setting</span></a></em><a class="headerlink" href="#streamsight.evaluators.EvaluatorBuilder.setting" title="Link to this definition"></a></dt>
+<dd><p>Setting to evaluate the algorithms on</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Ng Tze Kean.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

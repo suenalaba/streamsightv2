@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>streamsight.evaluators.EvaluatorPipeline &mdash; streamsight 0.2.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=37f418d5"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            streamsight
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Data handling</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../streamsight.matrix.html">streamsight.matrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../streamsight.preprocessing.html">streamsight.preprocessing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../streamsight.datasets.html">streamsight.datasets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../streamsight.settings.html">streamsight.settings</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">RecSys</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../streamsight.algorithms.html">streamsight.algorithms</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Other supporting modules</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../streamsight.registries.html">streamsight.registries</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">streamsight</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">streamsight.evaluators.EvaluatorPipeline</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/generated/streamsight.evaluators.EvaluatorPipeline.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="streamsight-evaluators-evaluatorpipeline">
+<h1>streamsight.evaluators.EvaluatorPipeline<a class="headerlink" href="#streamsight-evaluators-evaluatorpipeline" title="Link to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="streamsight.evaluators.EvaluatorPipeline">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">streamsight.evaluators.</span></span><span class="sig-name descname"><span class="pre">EvaluatorPipeline</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">algorithm_entries</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="streamsight.registries.AlgorithmEntry.html#streamsight.registries.AlgorithmEntry" title="streamsight.registries.registry.AlgorithmEntry"><span class="pre">AlgorithmEntry</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metric_entries</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="streamsight.registries.MetricEntry.html#streamsight.registries.MetricEntry" title="streamsight.registries.registry.MetricEntry"><span class="pre">MetricEntry</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">setting</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="streamsight.settings.Setting.html#streamsight.settings.Setting" title="streamsight.settings.base.Setting"><span class="pre">Setting</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">ignore_unknown_user</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ignore_unknown_item</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#streamsight.evaluators.EvaluatorPipeline" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="streamsight.evaluators.EvaluatorBase.html#streamsight.evaluators.EvaluatorBase" title="streamsight.evaluators.base.EvaluatorBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">EvaluatorBase</span></code></a></p>
+<p>Evaluation via pipeline</p>
+<p>The pipeline is responsible for evaluating algorithms with metrics and evaluates
+the algorithms in 3 phases:</p>
+<ol class="arabic simple">
+<li><p>Pre-phase</p></li>
+<li><p>Evaluation phase</p></li>
+<li><p>Data release phase</p></li>
+</ol>
+<p>In the classical split setting, the evaluator will only run phase 1 and 2.
+In the sliding window setting, the evaluator will run all 3 phases, with
+phase 2 and 3 repeated for each split.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="streamsight.evaluators.EvaluatorPipeline.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">algorithm_entries</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="streamsight.registries.AlgorithmEntry.html#streamsight.registries.AlgorithmEntry" title="streamsight.registries.registry.AlgorithmEntry"><span class="pre">AlgorithmEntry</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metric_entries</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="streamsight.registries.MetricEntry.html#streamsight.registries.MetricEntry" title="streamsight.registries.registry.MetricEntry"><span class="pre">MetricEntry</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">setting</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="streamsight.settings.Setting.html#streamsight.settings.Setting" title="streamsight.settings.base.Setting"><span class="pre">Setting</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">ignore_unknown_user</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ignore_unknown_item</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#streamsight.evaluators.EvaluatorPipeline.__init__" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<p class="rubric">Methods</p>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#streamsight.evaluators.EvaluatorPipeline.__init__" title="streamsight.evaluators.EvaluatorPipeline.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(algorithm_entries, metric_entries, ...)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#streamsight.evaluators.EvaluatorPipeline.metric_results" title="streamsight.evaluators.EvaluatorPipeline.metric_results"><code class="xref py py-obj docutils literal notranslate"><span class="pre">metric_results</span></code></a>([level, ...])</p></td>
+<td><p>Results of the metrics computed.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#streamsight.evaluators.EvaluatorPipeline.run" title="streamsight.evaluators.EvaluatorPipeline.run"><code class="xref py py-obj docutils literal notranslate"><span class="pre">run</span></code></a>()</p></td>
+<td><p>Run the evaluator across all steps and splits</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#streamsight.evaluators.EvaluatorPipeline.run_step" title="streamsight.evaluators.EvaluatorPipeline.run_step"><code class="xref py py-obj docutils literal notranslate"><span class="pre">run_step</span></code></a>([reset])</p></td>
+<td><p>Run a single step of the evaluator.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#streamsight.evaluators.EvaluatorPipeline.run_steps" title="streamsight.evaluators.EvaluatorPipeline.run_steps"><code class="xref py py-obj docutils literal notranslate"><span class="pre">run_steps</span></code></a>(num_steps)</p></td>
+<td><p>Run multiple steps of the evaluator.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Attributes</p>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#streamsight.evaluators.EvaluatorPipeline.setting" title="streamsight.evaluators.EvaluatorPipeline.setting"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setting</span></code></a></p></td>
+<td><p>Setting to evaluate the algorithms on.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#streamsight.evaluators.EvaluatorPipeline.ignore_unknown_user" title="streamsight.evaluators.EvaluatorPipeline.ignore_unknown_user"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ignore_unknown_user</span></code></a></p></td>
+<td><p>To ignore unknown users during evaluation.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#streamsight.evaluators.EvaluatorPipeline.ignore_unknown_item" title="streamsight.evaluators.EvaluatorPipeline.ignore_unknown_item"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ignore_unknown_item</span></code></a></p></td>
+<td><p>To ignore unknown items during evaluation.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="streamsight.evaluators.EvaluatorPipeline._current_timestamp">
+<span class="sig-name descname"><span class="pre">_current_timestamp</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#streamsight.evaluators.EvaluatorPipeline._current_timestamp" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="streamsight.evaluators.EvaluatorPipeline._data_release_step">
+<span class="sig-name descname"><span class="pre">_data_release_step</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#streamsight.evaluators.EvaluatorPipeline._data_release_step" title="Link to this definition"></a></dt>
+<dd><p>Data release phase. (Phase 3)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="streamsight.evaluators.EvaluatorPipeline._evaluate_step">
+<span class="sig-name descname"><span class="pre">_evaluate_step</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#streamsight.evaluators.EvaluatorPipeline._evaluate_step" title="Link to this definition"></a></dt>
+<dd><p>Evaluate performance of the algorithms. (Phase 2)</p>
+<p>This method evaluates the performance of the algorithms with the metrics.
+It takes the unlabeled data, predicts the interaction, and evaluates the
+performance with the ground truth data.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="streamsight.evaluators.EvaluatorPipeline._instantiate_algorithm">
+<span class="sig-name descname"><span class="pre">_instantiate_algorithm</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#streamsight.evaluators.EvaluatorPipeline._instantiate_algorithm" title="Link to this definition"></a></dt>
+<dd><p>Instantiate the algorithms from the algorithm entries.</p>
+<p>This method instantiates the algorithms and stores them in <code class="xref py py-attr docutils literal notranslate"><span class="pre">algorithm</span></code>.
+Each time this method is called, the algorithms are re-instantiated.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="streamsight.evaluators.EvaluatorPipeline._macro_acc">
+<span class="sig-name descname"><span class="pre">_macro_acc</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="streamsight.evaluators.MacroMetricAccumulator.html#streamsight.evaluators.MacroMetricAccumulator" title="streamsight.evaluators.accumulator.MacroMetricAccumulator"><span class="pre">MacroMetricAccumulator</span></a></em><a class="headerlink" href="#streamsight.evaluators.EvaluatorPipeline._macro_acc" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="streamsight.evaluators.EvaluatorPipeline._micro_acc">
+<span class="sig-name descname"><span class="pre">_micro_acc</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="streamsight.evaluators.MicroMetricAccumulator.html#streamsight.evaluators.MicroMetricAccumulator" title="streamsight.evaluators.accumulator.MicroMetricAccumulator"><span class="pre">MicroMetricAccumulator</span></a></em><a class="headerlink" href="#streamsight.evaluators.EvaluatorPipeline._micro_acc" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="streamsight.evaluators.EvaluatorPipeline._ready_algo">
+<span class="sig-name descname"><span class="pre">_ready_algo</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#streamsight.evaluators.EvaluatorPipeline._ready_algo" title="Link to this definition"></a></dt>
+<dd><p>Train the algorithms with the background data.</p>
+<p>This method should be called after <a class="reference internal" href="#streamsight.evaluators.EvaluatorPipeline._instantiate_algorithm" title="streamsight.evaluators.EvaluatorPipeline._instantiate_algorithm"><code class="xref py py-meth docutils literal notranslate"><span class="pre">_instantiate_algorithm()</span></code></a>. The
+algorithms are trained with the background data, and the set of known
+user/item is updated.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>ValueError</strong> – If algorithm is not instantiated</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="streamsight.evaluators.EvaluatorPipeline._ready_evaluator">
+<span class="sig-name descname"><span class="pre">_ready_evaluator</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#streamsight.evaluators.EvaluatorPipeline._ready_evaluator" title="Link to this definition"></a></dt>
+<dd><p>Pre-phase of the evaluator. (Phase 1)</p>
+<p>This method prepares the evaluator for the evaluation process.
+It instantiates the algorithm, trains the algorithm with the background data,
+instantiates the metric accumulator, and prepares the data generators.
+The next phase of the evaluator is the evaluation phase.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="streamsight.evaluators.EvaluatorPipeline.ignore_unknown_item">
+<span class="sig-name descname"><span class="pre">ignore_unknown_item</span></span><a class="headerlink" href="#streamsight.evaluators.EvaluatorPipeline.ignore_unknown_item" title="Link to this definition"></a></dt>
+<dd><p>To ignore unknown items during evaluation.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="streamsight.evaluators.EvaluatorPipeline.ignore_unknown_user">
+<span class="sig-name descname"><span class="pre">ignore_unknown_user</span></span><a class="headerlink" href="#streamsight.evaluators.EvaluatorPipeline.ignore_unknown_user" title="Link to this definition"></a></dt>
+<dd><p>To ignore unknown users during evaluation.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="streamsight.evaluators.EvaluatorPipeline.metric_results">
+<span class="sig-name descname"><span class="pre">metric_results</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">level</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'micro'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'macro'</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="streamsight.evaluators.MetricLevelEnum.html#streamsight.evaluators.MetricLevelEnum" title="streamsight.evaluators.util.MetricLevelEnum"><span class="pre">MetricLevelEnum</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'macro'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">only_current_timestamp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_algo</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="headerlink" href="#streamsight.evaluators.EvaluatorPipeline.metric_results" title="Link to this definition"></a></dt>
+<dd><p>Results of the metrics computed.</p>
+<p>Computes the metrics of all algorithms based on the level specified and
+return the results in a pandas DataFrame. The results can be filtered
+based on the algorithm name and the current timestamp.</p>
+<p>If the level specified is “macro”, then the filtering on the current timestamp
+will be ignored.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="streamsight.evaluators.EvaluatorPipeline.run">
+<span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#streamsight.evaluators.EvaluatorPipeline.run" title="Link to this definition"></a></dt>
+<dd><p>Run the evaluator across all steps and splits</p>
+<p>Runs all 3 phases across all splits (if there are multiple splits).
+This method should be called when the programmer wants to step through
+all phases and splits to arrive to the metrics computed. An alternative
+to running through all splits is to call <a class="reference internal" href="#streamsight.evaluators.EvaluatorPipeline.run_step" title="streamsight.evaluators.EvaluatorPipeline.run_step"><code class="xref py py-meth docutils literal notranslate"><span class="pre">run_step()</span></code></a> method which runs
+only one step at a time.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="streamsight.evaluators.EvaluatorPipeline.run_step">
+<span class="sig-name descname"><span class="pre">run_step</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">reset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#streamsight.evaluators.EvaluatorPipeline.run_step" title="Link to this definition"></a></dt>
+<dd><p>Run a single step of the evaluator.</p>
+<p>This method runs a single step of the evaluator. The evaluator is split
+into 3 phases. In the first run, all 3 phases are run. In the subsequent
+runs, only the evaluation and data release phase are run. The method
+will run all steps until the number of splits is reached. To rerun the
+evaluation again, call with <cite>reset=True</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>reset</strong> (<em>bool</em><em>, </em><em>optional</em>) – To reset the evaluation step , defaults to False</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="streamsight.evaluators.EvaluatorPipeline.run_steps">
+<span class="sig-name descname"><span class="pre">run_steps</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num_steps</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#streamsight.evaluators.EvaluatorPipeline.run_steps" title="Link to this definition"></a></dt>
+<dd><p>Run multiple steps of the evaluator.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>num_steps</strong> (<em>int</em>) – Number of steps to run</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="streamsight.evaluators.EvaluatorPipeline.setting">
+<span class="sig-name descname"><span class="pre">setting</span></span><a class="headerlink" href="#streamsight.evaluators.EvaluatorPipeline.setting" title="Link to this definition"></a></dt>
+<dd><p>Setting to evaluate the algorithms on.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Ng Tze Kean.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

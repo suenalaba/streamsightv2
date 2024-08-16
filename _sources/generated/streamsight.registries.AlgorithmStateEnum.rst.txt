@@ -1,0 +1,83 @@
+﻿streamsight.registries.AlgorithmStateEnum
+=========================================
+
+.. currentmodule:: streamsight.registries
+
+.. autoclass:: AlgorithmStateEnum
+   :members:                             
+   :show-inheritance:   
+   :private-members:   
+   :undoc-members:        
+   :inherited-members:               
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~AlgorithmStateEnum.encode
+      ~AlgorithmStateEnum.replace
+      ~AlgorithmStateEnum.split
+      ~AlgorithmStateEnum.rsplit
+      ~AlgorithmStateEnum.join
+      ~AlgorithmStateEnum.capitalize
+      ~AlgorithmStateEnum.casefold
+      ~AlgorithmStateEnum.title
+      ~AlgorithmStateEnum.center
+      ~AlgorithmStateEnum.count
+      ~AlgorithmStateEnum.expandtabs
+      ~AlgorithmStateEnum.find
+      ~AlgorithmStateEnum.partition
+      ~AlgorithmStateEnum.index
+      ~AlgorithmStateEnum.ljust
+      ~AlgorithmStateEnum.lower
+      ~AlgorithmStateEnum.lstrip
+      ~AlgorithmStateEnum.rfind
+      ~AlgorithmStateEnum.rindex
+      ~AlgorithmStateEnum.rjust
+      ~AlgorithmStateEnum.rstrip
+      ~AlgorithmStateEnum.rpartition
+      ~AlgorithmStateEnum.splitlines
+      ~AlgorithmStateEnum.strip
+      ~AlgorithmStateEnum.swapcase
+      ~AlgorithmStateEnum.translate
+      ~AlgorithmStateEnum.upper
+      ~AlgorithmStateEnum.startswith
+      ~AlgorithmStateEnum.endswith
+      ~AlgorithmStateEnum.removeprefix
+      ~AlgorithmStateEnum.removesuffix
+      ~AlgorithmStateEnum.isascii
+      ~AlgorithmStateEnum.islower
+      ~AlgorithmStateEnum.isupper
+      ~AlgorithmStateEnum.istitle
+      ~AlgorithmStateEnum.isspace
+      ~AlgorithmStateEnum.isdecimal
+      ~AlgorithmStateEnum.isdigit
+      ~AlgorithmStateEnum.isnumeric
+      ~AlgorithmStateEnum.isalpha
+      ~AlgorithmStateEnum.isalnum
+      ~AlgorithmStateEnum.isidentifier
+      ~AlgorithmStateEnum.isprintable
+      ~AlgorithmStateEnum.zfill
+      ~AlgorithmStateEnum.format
+      ~AlgorithmStateEnum.format_map
+      ~AlgorithmStateEnum.maketrans
+      ~AlgorithmStateEnum.__init__
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~AlgorithmStateEnum.NEW
+      ~AlgorithmStateEnum.READY
+      ~AlgorithmStateEnum.PREDICTED
+      ~AlgorithmStateEnum.COMPLETED
+   
+   

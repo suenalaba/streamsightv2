@@ -65,10 +65,6 @@
 </ul>
 </li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Evaluation</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../streamsight.evaluator.html">streamsight.evaluator</a></li>
-</ul>
 <p class="caption" role="heading"><span class="caption-text">Other supporting modules</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../streamsight.registries.html">streamsight.registries</a></li>
@@ -138,7 +134,7 @@
 <table class="autosummary longtable docutils align-default">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#streamsight.algorithms.Algorithm.identifier" title="streamsight.algorithms.Algorithm.identifier"><code class="xref py py-obj docutils literal notranslate"><span class="pre">identifier</span></code></a></p></td>
-<td><p>Name of the object.</p></td>
+<td><p>Identifier of the object.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#streamsight.algorithms.Algorithm.name" title="streamsight.algorithms.Algorithm.name"><code class="xref py py-obj docutils literal notranslate"><span class="pre">name</span></code></a></p></td>
 <td><p>Name of the object's class.</p></td>
@@ -157,18 +153,6 @@
 <dt class="sig sig-object py" id="streamsight.algorithms.Algorithm._abc_impl">
 <span class="sig-name descname"><span class="pre">_abc_impl</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;_abc._abc_data</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#streamsight.algorithms.Algorithm._abc_impl" title="Link to this definition"></a></dt>
 <dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="streamsight.algorithms.Algorithm._assert_has_timestamps">
-<span class="sig-name descname"><span class="pre">_assert_has_timestamps</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">matrices</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="streamsight.matrix.InteractionMatrix.html#streamsight.matrix.InteractionMatrix" title="streamsight.matrix.interaction_matrix.InteractionMatrix"><span class="pre">InteractionMatrix</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#streamsight.algorithms.Algorithm._assert_has_timestamps" title="Link to this definition"></a></dt>
-<dd><p>Make sure that the matrices all have timestamp information.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="streamsight.algorithms.Algorithm._assert_is_interaction_matrix">
-<span class="sig-name descname"><span class="pre">_assert_is_interaction_matrix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">matrices</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="streamsight.matrix.InteractionMatrix.html#streamsight.matrix.InteractionMatrix" title="streamsight.matrix.interaction_matrix.InteractionMatrix"><span class="pre">InteractionMatrix</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#streamsight.algorithms.Algorithm._assert_is_interaction_matrix" title="Link to this definition"></a></dt>
-<dd><p>Make sure that the passed matrices are all an InteractionMatrix.</p>
-</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="streamsight.algorithms.Algorithm._build_request_for_signature">
@@ -520,16 +504,10 @@ accepted constraints.</p>
 <dt class="sig sig-object py" id="streamsight.algorithms.Algorithm.fit">
 <span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="streamsight.matrix.InteractionMatrix.html#streamsight.matrix.InteractionMatrix" title="streamsight.matrix.interaction_matrix.InteractionMatrix"><span class="pre">InteractionMatrix</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#streamsight.algorithms.Algorithm" title="streamsight.algorithms.base.Algorithm"><span class="pre">Algorithm</span></a></span></span><a class="headerlink" href="#streamsight.algorithms.Algorithm.fit" title="Link to this definition"></a></dt>
 <dd><p>Fit the model to the input interaction matrix.</p>
-<p>After fitting the model will be ready to use for prediction.</p>
-<p>This function will handle some generic bookkeeping
-for each of the child classes,</p>
-<ul class="simple">
-<li><p>The fit function gets timed, and this will get printed</p></li>
-<li><p>Input data is converted to expected type using call to
-<a class="reference internal" href="#streamsight.algorithms.Algorithm._transform_predict_input" title="streamsight.algorithms.Algorithm._transform_predict_input"><code class="xref py py-meth docutils literal notranslate"><span class="pre">_transform_predict_input()</span></code></a></p></li>
-<li><p>The model is trained using the <a class="reference internal" href="#streamsight.algorithms.Algorithm._fit" title="streamsight.algorithms.Algorithm._fit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">_fit()</span></code></a> method</p></li>
-<li><p><a class="reference internal" href="#streamsight.algorithms.Algorithm._check_fit_complete" title="streamsight.algorithms.Algorithm._check_fit_complete"><code class="xref py py-meth docutils literal notranslate"><span class="pre">_check_fit_complete()</span></code></a> is called to check fitting was succesful</p></li>
-</ul>
+<p>The input data is transformed to the expected type using
+<a class="reference internal" href="#streamsight.algorithms.Algorithm._transform_fit_input" title="streamsight.algorithms.Algorithm._transform_fit_input"><code class="xref py py-meth docutils literal notranslate"><span class="pre">_transform_fit_input()</span></code></a>. The fitting is done using the
+<a class="reference internal" href="#streamsight.algorithms.Algorithm._fit" title="streamsight.algorithms.Algorithm._fit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">_fit()</span></code></a> method. Finally the method checks that the fitting
+was successful using <a class="reference internal" href="#streamsight.algorithms.Algorithm._check_fit_complete" title="streamsight.algorithms.Algorithm._check_fit_complete"><code class="xref py py-meth docutils literal notranslate"><span class="pre">_check_fit_complete()</span></code></a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>X</strong> (<em>Matrix</em>) – The interactions to fit the model on.</p>
@@ -583,8 +561,8 @@ contained subobjects that are estimators.</p>
 <dl class="py property">
 <dt class="sig sig-object py" id="streamsight.algorithms.Algorithm.identifier">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">identifier</span></span><a class="headerlink" href="#streamsight.algorithms.Algorithm.identifier" title="Link to this definition"></a></dt>
-<dd><p>Name of the object.</p>
-<p>Name is made by combining the class name with the parameters
+<dd><p>Identifier of the object.</p>
+<p>Identifier is made by combining the class name with the parameters
 passed at construction time.</p>
 <p>Constructed by recreating the initialisation call.
 Example: <cite>Algorithm(param_1=value)</cite></p>
@@ -600,13 +578,11 @@ Example: <cite>Algorithm(param_1=value)</cite></p>
 <dt class="sig sig-object py" id="streamsight.algorithms.Algorithm.predict">
 <span class="sig-name descname"><span class="pre">predict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="streamsight.matrix.InteractionMatrix.html#streamsight.matrix.InteractionMatrix" title="streamsight.matrix.interaction_matrix.InteractionMatrix"><span class="pre">InteractionMatrix</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">csr_matrix</span></span></span><a class="headerlink" href="#streamsight.algorithms.Algorithm.predict" title="Link to this definition"></a></dt>
 <dd><p>Predicts scores, given the interactions in X</p>
-<p>Recommends items for each nonzero user in the X matrix.</p>
-<p>This function is a wrapper around the <a class="reference internal" href="#streamsight.algorithms.Algorithm._predict" title="streamsight.algorithms.Algorithm._predict"><code class="xref py py-meth docutils literal notranslate"><span class="pre">_predict()</span></code></a> method,
-and performs checks on in- and output data to guarantee proper computation.</p>
-<ul class="simple">
-<li><p>Checks that model is fitted correctly</p></li>
-<li><p>checks the output using <a class="reference internal" href="#streamsight.algorithms.Algorithm._check_prediction" title="streamsight.algorithms.Algorithm._check_prediction"><code class="xref py py-meth docutils literal notranslate"><span class="pre">_check_prediction()</span></code></a> function</p></li>
-</ul>
+<p>The input data is transformed to the expected type using
+<a class="reference internal" href="#streamsight.algorithms.Algorithm._transform_predict_input" title="streamsight.algorithms.Algorithm._transform_predict_input"><code class="xref py py-meth docutils literal notranslate"><span class="pre">_transform_predict_input()</span></code></a>. The predictions are made
+using the <a class="reference internal" href="#streamsight.algorithms.Algorithm._predict" title="streamsight.algorithms.Algorithm._predict"><code class="xref py py-meth docutils literal notranslate"><span class="pre">_predict()</span></code></a> method. Finally the predictions
+are then padded with random items for users that are not in the
+training data.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>X</strong> (<a class="reference internal" href="streamsight.matrix.InteractionMatrix.html#streamsight.matrix.InteractionMatrix" title="streamsight.matrix.InteractionMatrix"><em>InteractionMatrix</em></a>) – interactions to predict from.</p>

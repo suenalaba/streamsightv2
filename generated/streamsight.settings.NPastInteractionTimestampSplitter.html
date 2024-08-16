@@ -67,10 +67,6 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../streamsight.algorithms.html">streamsight.algorithms</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Evaluation</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../streamsight.evaluator.html">streamsight.evaluator</a></li>
-</ul>
 <p class="caption" role="heading"><span class="caption-text">Other supporting modules</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../streamsight.registries.html">streamsight.registries</a></li>
@@ -109,13 +105,13 @@
 <dd><p>Bases: <a class="reference internal" href="streamsight.settings.TimestampSplitter.html#streamsight.settings.TimestampSplitter" title="streamsight.settings.splitters.TimestampSplitter"><code class="xref py py-class docutils literal notranslate"><span class="pre">TimestampSplitter</span></code></a></p>
 <p>Splits data with n past interactions based on a timestamp.</p>
 <p>Splits the data into unlabeled and ground truth data based on a timestamp.
-Historical data contains last <code class="docutils literal notranslate"><span class="pre">n_seq_data</span></code> interactions before the timestamp <code class="docutils literal notranslate"><span class="pre">t</span></code>
-and the future interaction contains interactions after the timestamp <code class="docutils literal notranslate"><span class="pre">t</span></code>.</p>
+Historical data contains last <cite>n_seq_data</cite> interactions before the timestamp <cite>t</cite>
+and the future interaction contains interactions after the timestamp <cite>t</cite>.</p>
 <section id="attribute-definition">
 <h2>Attribute definition<a class="headerlink" href="#attribute-definition" title="Link to this heading"></a></h2>
 <ul class="simple">
-<li><p>:attr:<code class="docutils literal notranslate"><span class="pre">past_interaction</span></code>: List of unlabeled data. Interval is <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">t)</span></code>.</p></li>
-<li><p>:attr:<code class="docutils literal notranslate"><span class="pre">future_interaction</span></code>: Data used for training the model. Interval is <code class="docutils literal notranslate"><span class="pre">[t,</span> <span class="pre">t+t_upper)</span></code> or <code class="docutils literal notranslate"><span class="pre">[t,inf]</span></code>.</p></li>
+<li><p><code class="xref py py-attr docutils literal notranslate"><span class="pre">past_interaction</span></code>: List of unlabeled data. Interval is <cite>[0, t)</cite>.</p></li>
+<li><p><code class="xref py py-attr docutils literal notranslate"><span class="pre">future_interaction</span></code>: Data used for training the model. Interval is <cite>[t, t+t_upper)</cite> or <cite>[t,inf]</cite>.</p></li>
 </ul>
 <dl class="field-list simple">
 <dt class="field-odd">param t<span class="colon">:</span></dt>
@@ -139,7 +135,7 @@ for model to make prediction.</p>
 <dd class="field-even"><p>int, optional</p>
 </dd>
 <dt class="field-odd">return<span class="colon">:</span></dt>
-<dd class="field-odd"><p>A 2-tuple containing the <code class="docutils literal notranslate"><span class="pre">past_interaction</span></code> and <code class="docutils literal notranslate"><span class="pre">future_interaction</span></code> matrices.</p>
+<dd class="field-odd"><p>A 2-tuple containing the <cite>past_interaction</cite> and <cite>future_interaction</cite> matrices.</p>
 </dd>
 <dt class="field-even">rtype<span class="colon">:</span></dt>
 <dd class="field-even"><p>Tuple[InteractionMatrix, InteractionMatrix]</p>
@@ -157,7 +153,7 @@ for model to make prediction.</p>
 <td><p></p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#streamsight.settings.NPastInteractionTimestampSplitter.split" title="streamsight.settings.NPastInteractionTimestampSplitter.split"><code class="xref py py-obj docutils literal notranslate"><span class="pre">split</span></code></a>(data)</p></td>
-<td><p>Splits data such that the following definition holds: - :attr:<code class="docutils literal notranslate"><span class="pre">past_interaction</span></code>: List of unlabeled data.</p></td>
+<td><p>Splits data such that the following definition holds:</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#streamsight.settings.NPastInteractionTimestampSplitter.update_split_point" title="streamsight.settings.NPastInteractionTimestampSplitter.update_split_point"><code class="xref py py-obj docutils literal notranslate"><span class="pre">update_split_point</span></code></a>(t)</p></td>
 <td><p></p></td>
@@ -196,15 +192,17 @@ contains name and parameter values.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="streamsight.settings.NPastInteractionTimestampSplitter.split">
 <span class="sig-name descname"><span class="pre">split</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="streamsight.matrix.InteractionMatrix.html#streamsight.matrix.InteractionMatrix" title="streamsight.matrix.interaction_matrix.InteractionMatrix"><span class="pre">InteractionMatrix</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="streamsight.matrix.InteractionMatrix.html#streamsight.matrix.InteractionMatrix" title="streamsight.matrix.interaction_matrix.InteractionMatrix"><span class="pre">InteractionMatrix</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="streamsight.matrix.InteractionMatrix.html#streamsight.matrix.InteractionMatrix" title="streamsight.matrix.interaction_matrix.InteractionMatrix"><span class="pre">InteractionMatrix</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#streamsight.settings.NPastInteractionTimestampSplitter.split" title="Link to this definition"></a></dt>
-<dd><p>Splits data such that the following definition holds:
-- :attr:<code class="docutils literal notranslate"><span class="pre">past_interaction</span></code>: List of unlabeled data. Interval is <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">t)</span></code>.
-- :attr:<code class="docutils literal notranslate"><span class="pre">future_interaction</span></code>: Data used for training the model. Interval is <code class="docutils literal notranslate"><span class="pre">[t,</span> <span class="pre">t+t_upper)</span></code> or [t,inf].</p>
+<dd><p>Splits data such that the following definition holds:</p>
+<ul class="simple">
+<li><p><code class="xref py py-attr docutils literal notranslate"><span class="pre">past_interaction</span></code> : List of unlabeled data. Interval is <cite>[0, t)</cite>.</p></li>
+<li><p><code class="xref py py-attr docutils literal notranslate"><span class="pre">future_interaction</span></code> : Data used for training the model. Interval is <cite>[t, t+t_upper)</cite> or <cite>[t,inf]</cite>.</p></li>
+</ul>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>data</strong> (<a class="reference internal" href="streamsight.matrix.InteractionMatrix.html#streamsight.matrix.InteractionMatrix" title="streamsight.matrix.InteractionMatrix"><em>InteractionMatrix</em></a>) – Interaction matrix to be split. Must contain timestamps.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>A 2-tuple containing the <code class="docutils literal notranslate"><span class="pre">past_interaction</span></code> and <code class="docutils literal notranslate"><span class="pre">future_interaction</span></code> matrices.</p>
+<dd class="field-even"><p>A 2-tuple containing the <cite>past_interaction</cite> and <cite>future_interaction</cite> matrices.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Tuple[<a class="reference internal" href="streamsight.matrix.InteractionMatrix.html#streamsight.matrix.InteractionMatrix" title="streamsight.matrix.InteractionMatrix">InteractionMatrix</a>, <a class="reference internal" href="streamsight.matrix.InteractionMatrix.html#streamsight.matrix.InteractionMatrix" title="streamsight.matrix.InteractionMatrix">InteractionMatrix</a>]</p>
