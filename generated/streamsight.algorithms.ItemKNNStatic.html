@@ -108,6 +108,10 @@
 <dt class="sig sig-object py" id="streamsight.algorithms.ItemKNNStatic">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">streamsight.algorithms.</span></span><span class="sig-name descname"><span class="pre">ItemKNNStatic</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">K</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#streamsight.algorithms.ItemKNNStatic" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="streamsight.algorithms.ItemKNN.html#streamsight.algorithms.ItemKNN" title="streamsight.algorithms.itemknn.ItemKNN"><code class="xref py py-class docutils literal notranslate"><span class="pre">ItemKNN</span></code></a></p>
+<p>Static version of ItemKNN algorithm.</p>
+<p>This class extends the ItemKNN algorithm to only fit the model once. <a class="reference internal" href="#streamsight.algorithms.ItemKNNStatic.fit" title="streamsight.algorithms.ItemKNNStatic.fit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">fit()</span></code></a> will only
+fit the model once and will not update the model with new data. The purpose
+is to make the training data static and not update the model with new data.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="streamsight.algorithms.ItemKNNStatic.__init__">
 <span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">K</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#streamsight.algorithms.ItemKNNStatic.__init__" title="Link to this definition"></a></dt>

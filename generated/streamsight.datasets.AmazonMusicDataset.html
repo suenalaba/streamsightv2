@@ -123,7 +123,7 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="#streamsight.datasets.AmazonMusicDataset.__init__" title="streamsight.datasets.AmazonMusicDataset.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>([filename, base_path])</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#streamsight.datasets.AmazonMusicDataset.add_filter" title="streamsight.datasets.AmazonMusicDataset.add_filter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_filter</span></code></a>(_filter)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#streamsight.datasets.AmazonMusicDataset.add_filter" title="streamsight.datasets.AmazonMusicDataset.add_filter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_filter</span></code></a>(filter)</p></td>
 <td><p>Add a filter to be applied when loading the data.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#streamsight.datasets.AmazonMusicDataset.fetch_dataset" title="streamsight.datasets.AmazonMusicDataset.fetch_dataset"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fetch_dataset</span></code></a>([force])</p></td>
@@ -281,11 +281,14 @@ will be needed for representation in the interaction matrix.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="streamsight.datasets.AmazonMusicDataset.add_filter">
-<span class="sig-name descname"><span class="pre">add_filter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_filter</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="streamsight.preprocessing.Filter.html#streamsight.preprocessing.Filter" title="streamsight.preprocessing.filter.Filter"><span class="pre">Filter</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#streamsight.datasets.AmazonMusicDataset.add_filter" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">add_filter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filter</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="streamsight.preprocessing.Filter.html#streamsight.preprocessing.Filter" title="streamsight.preprocessing.filter.Filter"><span class="pre">Filter</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#streamsight.datasets.AmazonMusicDataset.add_filter" title="Link to this definition"></a></dt>
 <dd><p>Add a filter to be applied when loading the data.</p>
+<p>Utilize <code class="xref py py-class docutils literal notranslate"><span class="pre">DataFramePreprocessor</span></code> class to add filters to the
+dataset to load. The filter will be applied when the data is loaded into
+an <code class="xref py py-class docutils literal notranslate"><span class="pre">InteractionMatrix</span></code> object when <a class="reference internal" href="#streamsight.datasets.AmazonMusicDataset.load" title="streamsight.datasets.AmazonMusicDataset.load"><code class="xref py py-meth docutils literal notranslate"><span class="pre">load()</span></code></a> is called.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>_filter</strong> (<a class="reference internal" href="streamsight.preprocessing.Filter.html#streamsight.preprocessing.Filter" title="streamsight.preprocessing.Filter"><em>Filter</em></a>) – Filter to be applied to the loaded DataFrame
+<dd class="field-odd"><p><strong>filter</strong> (<a class="reference internal" href="streamsight.preprocessing.Filter.html#streamsight.preprocessing.Filter" title="streamsight.preprocessing.Filter"><em>Filter</em></a>) – Filter to be applied to the loaded DataFrame
 processing to interaction matrix.</p>
 </dd>
 </dl>

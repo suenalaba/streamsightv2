@@ -131,8 +131,8 @@ easy representation of the matrix.</p>
 <tr class="row-odd"><td><p><a class="reference internal" href="#streamsight.preprocessing.DataFramePreprocessor.__init__" title="streamsight.preprocessing.DataFramePreprocessor.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(item_ix, user_ix, timestamp_ix)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#streamsight.preprocessing.DataFramePreprocessor.add_filter" title="streamsight.preprocessing.DataFramePreprocessor.add_filter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_filter</span></code></a>(_filter)</p></td>
-<td><p>Add a preprocessing filter to be applied before transforming to a InteractionMatrix object.</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#streamsight.preprocessing.DataFramePreprocessor.add_filter" title="streamsight.preprocessing.DataFramePreprocessor.add_filter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_filter</span></code></a>(filter)</p></td>
+<td><p>Add a preprocessing filter to be applied</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#streamsight.preprocessing.DataFramePreprocessor.process" title="streamsight.preprocessing.DataFramePreprocessor.process"><code class="xref py py-obj docutils literal notranslate"><span class="pre">process</span></code></a>(df)</p></td>
 <td><p></p></td>
@@ -182,13 +182,15 @@ allow for easy representation of the matrix.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="streamsight.preprocessing.DataFramePreprocessor.add_filter">
-<span class="sig-name descname"><span class="pre">add_filter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_filter</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="streamsight.preprocessing.Filter.html#streamsight.preprocessing.Filter" title="streamsight.preprocessing.filter.Filter"><span class="pre">Filter</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#streamsight.preprocessing.DataFramePreprocessor.add_filter" title="Link to this definition"></a></dt>
-<dd><p>Add a preprocessing filter to be applied
-before transforming to a InteractionMatrix object.</p>
-<p>Filters are applied in order, different orderings can lead to different results!</p>
+<span class="sig-name descname"><span class="pre">add_filter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filter</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="streamsight.preprocessing.Filter.html#streamsight.preprocessing.Filter" title="streamsight.preprocessing.filter.Filter"><span class="pre">Filter</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#streamsight.preprocessing.DataFramePreprocessor.add_filter" title="Link to this definition"></a></dt>
+<dd><p>Add a preprocessing filter to be applied</p>
+<p>This filter will be applied before transforming to a
+<code class="xref py py-class docutils literal notranslate"><span class="pre">InteractionMatrix</span></code> object.</p>
+<p>Filters are applied in order of addition, different orderings can lead to
+different results!</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>_filter</strong> (<a class="reference internal" href="streamsight.preprocessing.Filter.html#streamsight.preprocessing.Filter" title="streamsight.preprocessing.Filter"><em>Filter</em></a>) – The filter to be applied</p>
+<dd class="field-odd"><p><strong>filter</strong> (<a class="reference internal" href="streamsight.preprocessing.Filter.html#streamsight.preprocessing.Filter" title="streamsight.preprocessing.Filter"><em>Filter</em></a>) – The filter to be applied</p>
 </dd>
 </dl>
 </dd></dl>

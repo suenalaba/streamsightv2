@@ -110,26 +110,13 @@
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">streamsight.algorithms.</span></span><span class="sig-name descname"><span class="pre">ItemKNN</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">K</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#streamsight.algorithms.ItemKNN" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="streamsight.algorithms.Algorithm.html#streamsight.algorithms.Algorithm" title="streamsight.algorithms.base.Algorithm"><code class="xref py py-class docutils literal notranslate"><span class="pre">Algorithm</span></code></a></p>
 <p>Item K Nearest Neighbours model.</p>
-<p>First described in ‘Item-based top-n recommendation algorithms.’
-Deshpande, Mukund, and George Karypis,
-ACM Transactions on Information Systems (TOIS) 22.1 (2004): 143-177</p>
+<p>First described in ‘Item-based top-n recommendation algorithms.’ <span id="id1">[<a class="reference internal" href="../zreferences.html#id3" title="Mukund Deshpande and George Karypis. Item-based top-n recommendation algorithms. ACM Trans. Inf. Syst., 22(1):143–177, jan 2004. URL: https://doi.org/10.1145/963770.963776, doi:10.1145/963770.963776.">DK04</a>]</span></p>
+<p>This code is adapted from RecPack <span id="id2">[<a class="reference internal" href="../zreferences.html#id2" title="Lien Michiels, Robin Verachtert, and Bart Goethals. Recpack: an(other) experimentation toolkit for top-n recommendation using implicit feedback data. In Proceedings of the 16th ACM Conference on Recommender Systems, RecSys '22, 648-651. New York, NY, USA, 2022. Association for Computing Machinery. URL: https://doi.org/10.1145/3523227.3551472, doi:10.1145/3523227.3551472.">MVG22</a>]</span></p>
 <p>For each item the K most similar items are computed during fit.
-Similarity parameter decides how to compute the similarity between two items.
-Supported options are: <code class="docutils literal notranslate"><span class="pre">&quot;cosine&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">&quot;conditional_probability&quot;</span></code></p>
+Similarity parameter decides how to compute the similarity between two items.</p>
 <p>Cosine similarity between item i and j is computed as</p>
 <div class="math notranslate nohighlight">
 \[sim(i,j) = \frac{X_i X_j}{||X_i||_2 ||X_j||_2}\]</div>
-<p>The conditional probablity based similarity of item i with j is computed as</p>
-<div class="math notranslate nohighlight">
-\[sim(i,j) = \frac{\sum\limits_{u \in U} \mathbb{I}_{u,i} X_{u,j}}{Freq(i) \times Freq(j)^{\alpha}}\]</div>
-<p>Where I_ui is 1 if the user u has visited item i, and 0 otherwise.
-And alpha is the pop_discount parameter.
-Note that this is a non-symmetric similarity measure.
-Given that X is a binary matrix, and alpha is set to 0, this simplifies to pure conditional probability.</p>
-<div class="math notranslate nohighlight">
-\[sim(i,j) = \frac{Freq(i \land j)}{Freq(i)}\]</div>
-<p>If sim_normalize is True, the scores are normalized per predictive item,
-making sure the sum of each row in the similarity matrix is 1.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -238,8 +225,8 @@ rare, defaults to False.</p></li>
 <div class="versionadded">
 <p><span class="versionmodified added">Added in version 1.0.</span></p>
 </div>
-<section id="id1">
-<h2>Parameters<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
+<section id="id3">
+<h2>Parameters<a class="headerlink" href="#id3" title="Link to this heading"></a></h2>
 <dl>
 <dt>X<span class="classifier">{ndarray, dataframe} of shape (n_samples, n_features)</span></dt><dd><p>The input samples.</p>
 </dd>
@@ -269,8 +256,8 @@ should set `reset=False`.
 <dt class="sig sig-object py" id="streamsight.algorithms.ItemKNN._check_n_features">
 <span class="sig-name descname"><span class="pre">_check_n_features</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reset</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#streamsight.algorithms.ItemKNN._check_n_features" title="Link to this definition"></a></dt>
 <dd><p>Set the <cite>n_features_in_</cite> attribute, or check against it.</p>
-<section id="id2">
-<h2>Parameters<a class="headerlink" href="#id2" title="Link to this heading"></a></h2>
+<section id="id4">
+<h2>Parameters<a class="headerlink" href="#id4" title="Link to this heading"></a></h2>
 <dl>
 <dt>X<span class="classifier">{ndarray, sparse matrix} of shape (n_samples, n_features)</span></dt><dd><p>The input samples.</p>
 </dd>
@@ -345,8 +332,8 @@ signatures.</p>
 <dd><p>Generates a link to the API documentation for a given estimator.</p>
 <p>This method generates the link to the estimator’s documentation page
 by using the template defined by the attribute <cite>_doc_link_template</cite>.</p>
-<section id="id3">
-<h2>Returns<a class="headerlink" href="#id3" title="Link to this heading"></a></h2>
+<section id="id5">
+<h2>Returns<a class="headerlink" href="#id5" title="Link to this heading"></a></h2>
 <dl class="simple">
 <dt>url<span class="classifier">str</span></dt><dd><p>The URL to the API documentation for this estimator. If the estimator does
 not belong to module <cite>_doc_link_module</cite>, the empty string (i.e. <cite>“”</cite>) is
@@ -362,8 +349,8 @@ returned.</p>
 <dd><p>Get requested data properties.</p>
 <p>Please check <span class="xref std std-ref">User Guide</span> on how the routing
 mechanism works.</p>
-<section id="id4">
-<h2>Returns<a class="headerlink" href="#id4" title="Link to this heading"></a></h2>
+<section id="id6">
+<h2>Returns<a class="headerlink" href="#id6" title="Link to this heading"></a></h2>
 <dl class="simple">
 <dt>request<span class="classifier">MetadataRequest</span></dt><dd><p>A <code class="xref py py-class docutils literal notranslate"><span class="pre">MetadataRequest</span></code> instance.</p>
 </dd>
@@ -469,8 +456,8 @@ on <cite>get_config()[“display”]</cite>.</p>
 <dt class="sig sig-object py" id="streamsight.algorithms.ItemKNN._validate_data">
 <span class="sig-name descname"><span class="pre">_validate_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'no_validation'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'no_validation'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">validate_separately</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cast_to_ndarray</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">check_params</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#streamsight.algorithms.ItemKNN._validate_data" title="Link to this definition"></a></dt>
 <dd><p>Validate input data and set or check the <cite>n_features_in_</cite> attribute.</p>
-<section id="id5">
-<h2>Parameters<a class="headerlink" href="#id5" title="Link to this heading"></a></h2>
+<section id="id7">
+<h2>Parameters<a class="headerlink" href="#id7" title="Link to this heading"></a></h2>
 <dl>
 <dt>X<span class="classifier">{array-like, sparse matrix, dataframe} of shape                 (n_samples, n_features), default=’no validation’</span></dt><dd><p>The input samples.
 If <cite>‘no_validation’</cite>, no validation is performed on <cite>X</cite>. This is
@@ -512,7 +499,7 @@ more informative error message in case of invalid input data.</p>
 <cite>False</cite>, <cite>X</cite> and <cite>y</cite> are unchanged and only <cite>feature_names_in_</cite> and
 <cite>n_features_in_</cite> are checked.</p>
 </dd>
-<dt><a href="#id6"><span class="problematic" id="id7">**</span></a>check_params<span class="classifier">kwargs</span></dt><dd><p>Parameters passed to <code class="xref py py-func docutils literal notranslate"><span class="pre">sklearn.utils.check_array()</span></code> or
+<dt><a href="#id8"><span class="problematic" id="id9">**</span></a>check_params<span class="classifier">kwargs</span></dt><dd><p>Parameters passed to <code class="xref py py-func docutils literal notranslate"><span class="pre">sklearn.utils.check_array()</span></code> or
 <code class="xref py py-func docutils literal notranslate"><span class="pre">sklearn.utils.check_X_y()</span></code>. Ignored if validate_separately
 is not False.</p>
 <p><cite>estimator=self</cite> is automatically added to these params to generate
@@ -520,8 +507,8 @@ more informative error message in case of invalid input data.</p>
 </dd>
 </dl>
 </section>
-<section id="id8">
-<h2>Returns<a class="headerlink" href="#id8" title="Link to this heading"></a></h2>
+<section id="id10">
+<h2>Returns<a class="headerlink" href="#id10" title="Link to this heading"></a></h2>
 <dl class="simple">
 <dt>out<span class="classifier">{ndarray, sparse matrix} or tuple of these</span></dt><dd><p>The validated input. A tuple is returned if both <cite>X</cite> and <cite>y</cite> are
 validated.</p>
@@ -567,8 +554,8 @@ was successful using <a class="reference internal" href="#streamsight.algorithms
 <dd><p>Get metadata routing of this object.</p>
 <p>Please check <span class="xref std std-ref">User Guide</span> on how the routing
 mechanism works.</p>
-<section id="id9">
-<h2>Returns<a class="headerlink" href="#id9" title="Link to this heading"></a></h2>
+<section id="id11">
+<h2>Returns<a class="headerlink" href="#id11" title="Link to this heading"></a></h2>
 <dl class="simple">
 <dt>routing<span class="classifier">MetadataRequest</span></dt><dd><p>A <code class="xref py py-class docutils literal notranslate"><span class="pre">MetadataRequest</span></code> encapsulating
 routing information.</p>
@@ -581,16 +568,16 @@ routing information.</p>
 <dt class="sig sig-object py" id="streamsight.algorithms.ItemKNN.get_params">
 <span class="sig-name descname"><span class="pre">get_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">deep</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#streamsight.algorithms.ItemKNN.get_params" title="Link to this definition"></a></dt>
 <dd><p>Get parameters for this estimator.</p>
-<section id="id10">
-<h2>Parameters<a class="headerlink" href="#id10" title="Link to this heading"></a></h2>
+<section id="id12">
+<h2>Parameters<a class="headerlink" href="#id12" title="Link to this heading"></a></h2>
 <dl class="simple">
 <dt>deep<span class="classifier">bool, default=True</span></dt><dd><p>If True, will return the parameters for this estimator and
 contained subobjects that are estimators.</p>
 </dd>
 </dl>
 </section>
-<section id="id11">
-<h2>Returns<a class="headerlink" href="#id11" title="Link to this heading"></a></h2>
+<section id="id13">
+<h2>Returns<a class="headerlink" href="#id13" title="Link to this heading"></a></h2>
 <dl class="simple">
 <dt>params<span class="classifier">dict</span></dt><dd><p>Parameter names mapped to their values.</p>
 </dd>

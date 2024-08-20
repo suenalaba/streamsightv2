@@ -108,6 +108,10 @@
 <dt class="sig sig-object py" id="streamsight.algorithms.ItemKNNRolling">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">streamsight.algorithms.</span></span><span class="sig-name descname"><span class="pre">ItemKNNRolling</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">K</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#streamsight.algorithms.ItemKNNRolling" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="streamsight.algorithms.ItemKNN.html#streamsight.algorithms.ItemKNN" title="streamsight.algorithms.itemknn.ItemKNN"><code class="xref py py-class docutils literal notranslate"><span class="pre">ItemKNN</span></code></a></p>
+<p>Rolling version of ItemKNN algorithm.</p>
+<p>This class extends the ItemKNN algorithm to update the memory of the model
+to only keep the last window of interactions. The model is simply discarding
+all interactions that are older than the window size.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="streamsight.algorithms.ItemKNNRolling.__init__">
 <span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">K</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#streamsight.algorithms.ItemKNNRolling.__init__" title="Link to this definition"></a></dt>
