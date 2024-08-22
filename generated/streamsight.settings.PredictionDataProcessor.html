@@ -70,6 +70,7 @@
 <p class="caption" role="heading"><span class="caption-text">Evaluation</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../streamsight.evaluators.html">streamsight.evaluators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../streamsight.metrics.html">streamsight.metrics</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Other supporting modules</span></p>
 <ul>
@@ -107,11 +108,11 @@
 <dt class="sig sig-object py" id="streamsight.settings.PredictionDataProcessor">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">streamsight.settings.</span></span><span class="sig-name descname"><span class="pre">PredictionDataProcessor</span></span><a class="headerlink" href="#streamsight.settings.PredictionDataProcessor" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="streamsight.settings.Processor.html#streamsight.settings.Processor" title="streamsight.settings.processor.Processor"><code class="xref py py-class docutils literal notranslate"><span class="pre">Processor</span></code></a></p>
-<p>Injects the item/user ID to indicate ID for prediction.</p>
-<p>Operates on the past and future interaction matrices to inject the item/user
+<p>Injects the user ID to indicate ID for prediction.</p>
+<p>Operates on the past and future interaction matrices to inject the user
 ID to be predicted by the model into the past interaction matrix. The
-resulting past interaction matrix will contain the item/user ID to be
-predicted which will be derived from the set of item/user IDs in the future
+resulting past interaction matrix will contain the user ID to be
+predicted which will be derived from the set of user IDs in the future
 interaction matrix. Timestamp of the masked interactions will be preserved as
 the item ID are simply masked with “-1”.</p>
 <p>The corresponding ground truth future interactions of the actual interaction

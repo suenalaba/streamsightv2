@@ -70,6 +70,7 @@
 <p class="caption" role="heading"><span class="caption-text">Evaluation</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../streamsight.evaluators.html">streamsight.evaluators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../streamsight.metrics.html">streamsight.metrics</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Other supporting modules</span></p>
 <ul>
@@ -107,7 +108,7 @@
 <dt class="sig sig-object py" id="streamsight.settings.NPastInteractionTimestampSplitter">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">streamsight.settings.</span></span><span class="sig-name descname"><span class="pre">NPastInteractionTimestampSplitter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t_upper</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_seq_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#streamsight.settings.NPastInteractionTimestampSplitter" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="streamsight.settings.TimestampSplitter.html#streamsight.settings.TimestampSplitter" title="streamsight.settings.splitters.TimestampSplitter"><code class="xref py py-class docutils literal notranslate"><span class="pre">TimestampSplitter</span></code></a></p>
-<p>Splits data with n past interactions based on a timestamp.</p>
+<p>Splits with n past interactions based on a timestamp.</p>
 <p>Splits the data into unlabeled and ground truth data based on a timestamp.
 Historical data contains last <cite>n_seq_data</cite> interactions before the timestamp <cite>t</cite>
 and the future interaction contains interactions after the timestamp <cite>t</cite>.</p>

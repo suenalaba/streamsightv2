@@ -55,6 +55,7 @@
 <p class="caption" role="heading"><span class="caption-text">Evaluation</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="streamsight.evaluators.html">streamsight.evaluators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="streamsight.metrics.html">streamsight.metrics</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Other supporting modules</span></p>
 <ul>
@@ -172,6 +173,8 @@
 </li>
         <li><a href="generated/streamsight.preprocessing.MinItemsPerUser.html#streamsight.preprocessing.MinItemsPerUser.__init__">(streamsight.preprocessing.MinItemsPerUser method)</a>
 </li>
+        <li><a href="generated/streamsight.preprocessing.MinUsersPerItem.html#streamsight.preprocessing.MinUsersPerItem.__init__">(streamsight.preprocessing.MinUsersPerItem method)</a>
+</li>
         <li><a href="generated/streamsight.registries.AlgorithmEntry.html#streamsight.registries.AlgorithmEntry.__init__">(streamsight.registries.AlgorithmEntry method)</a>
 </li>
         <li><a href="generated/streamsight.registries.AlgorithmRegistry.html#streamsight.registries.AlgorithmRegistry.__init__">(streamsight.registries.AlgorithmRegistry method)</a>
@@ -237,6 +240,8 @@
         <li><a href="generated/streamsight.preprocessing.Filter.html#streamsight.preprocessing.Filter._abc_impl">(streamsight.preprocessing.Filter attribute)</a>
 </li>
         <li><a href="generated/streamsight.preprocessing.MinItemsPerUser.html#streamsight.preprocessing.MinItemsPerUser._abc_impl">(streamsight.preprocessing.MinItemsPerUser attribute)</a>
+</li>
+        <li><a href="generated/streamsight.preprocessing.MinUsersPerItem.html#streamsight.preprocessing.MinUsersPerItem._abc_impl">(streamsight.preprocessing.MinUsersPerItem attribute)</a>
 </li>
         <li><a href="generated/streamsight.settings.NPastInteractionTimestampSplitter.html#streamsight.settings.NPastInteractionTimestampSplitter._abc_impl">(streamsight.settings.NPastInteractionTimestampSplitter attribute)</a>
 </li>
@@ -397,14 +402,6 @@
       </ul></li>
       <li><a href="generated/streamsight.evaluators.EvaluatorPipeline.html#streamsight.evaluators.EvaluatorPipeline._data_release_step">_data_release_step() (streamsight.evaluators.EvaluatorPipeline method)</a>
 </li>
-      <li><a href="generated/streamsight.settings.Setting.html#streamsight.settings.Setting._data_timestamp_limit">_data_timestamp_limit (streamsight.settings.Setting attribute)</a>
-
-      <ul>
-        <li><a href="generated/streamsight.settings.SingleTimePointSetting.html#streamsight.settings.SingleTimePointSetting._data_timestamp_limit">(streamsight.settings.SingleTimePointSetting attribute)</a>
-</li>
-        <li><a href="generated/streamsight.settings.SlidingWindowSetting.html#streamsight.settings.SlidingWindowSetting._data_timestamp_limit">(streamsight.settings.SlidingWindowSetting attribute)</a>
-</li>
-      </ul></li>
       <li><a href="generated/streamsight.datasets.AmazonBookDataset.html#streamsight.datasets.AmazonBookDataset._dataframe_to_matrix">_dataframe_to_matrix() (streamsight.datasets.AmazonBookDataset method)</a>
 
       <ul>
@@ -419,6 +416,22 @@
         <li><a href="generated/streamsight.datasets.TestDataset.html#streamsight.datasets.TestDataset._dataframe_to_matrix">(streamsight.datasets.TestDataset method)</a>
 </li>
         <li><a href="generated/streamsight.datasets.YelpDataset.html#streamsight.datasets.YelpDataset._dataframe_to_matrix">(streamsight.datasets.YelpDataset method)</a>
+</li>
+      </ul></li>
+      <li><a href="generated/streamsight.datasets.AmazonBookDataset.html#streamsight.datasets.AmazonBookDataset._default_filters">_default_filters (streamsight.datasets.AmazonBookDataset property)</a>
+
+      <ul>
+        <li><a href="generated/streamsight.datasets.AmazonComputerDataset.html#streamsight.datasets.AmazonComputerDataset._default_filters">(streamsight.datasets.AmazonComputerDataset property)</a>
+</li>
+        <li><a href="generated/streamsight.datasets.AmazonMovieDataset.html#streamsight.datasets.AmazonMovieDataset._default_filters">(streamsight.datasets.AmazonMovieDataset property)</a>
+</li>
+        <li><a href="generated/streamsight.datasets.AmazonMusicDataset.html#streamsight.datasets.AmazonMusicDataset._default_filters">(streamsight.datasets.AmazonMusicDataset property)</a>
+</li>
+        <li><a href="generated/streamsight.datasets.Dataset.html#streamsight.datasets.Dataset._default_filters">(streamsight.datasets.Dataset property)</a>
+</li>
+        <li><a href="generated/streamsight.datasets.TestDataset.html#streamsight.datasets.TestDataset._default_filters">(streamsight.datasets.TestDataset property)</a>
+</li>
+        <li><a href="generated/streamsight.datasets.YelpDataset.html#streamsight.datasets.YelpDataset._default_filters">(streamsight.datasets.YelpDataset property)</a>
 </li>
       </ul></li>
       <li><a href="generated/streamsight.algorithms.Algorithm.html#streamsight.algorithms.Algorithm._doc_link_module">_doc_link_module (streamsight.algorithms.Algorithm attribute)</a>
@@ -675,12 +688,12 @@
         <li><a href="generated/streamsight.algorithms.ItemKNNStatic.html#streamsight.algorithms.ItemKNNStatic._more_tags">(streamsight.algorithms.ItemKNNStatic method)</a>
 </li>
       </ul></li>
-      <li><a href="generated/streamsight.settings.Setting.html#streamsight.settings.Setting._next_data_timestamp_limit_generator">_next_data_timestamp_limit_generator() (streamsight.settings.Setting method)</a>
+      <li><a href="generated/streamsight.settings.Setting.html#streamsight.settings.Setting._next_t_window_generator">_next_t_window_generator() (streamsight.settings.Setting method)</a>
 
       <ul>
-        <li><a href="generated/streamsight.settings.SingleTimePointSetting.html#streamsight.settings.SingleTimePointSetting._next_data_timestamp_limit_generator">(streamsight.settings.SingleTimePointSetting method)</a>
+        <li><a href="generated/streamsight.settings.SingleTimePointSetting.html#streamsight.settings.SingleTimePointSetting._next_t_window_generator">(streamsight.settings.SingleTimePointSetting method)</a>
 </li>
-        <li><a href="generated/streamsight.settings.SlidingWindowSetting.html#streamsight.settings.SlidingWindowSetting._next_data_timestamp_limit_generator">(streamsight.settings.SlidingWindowSetting method)</a>
+        <li><a href="generated/streamsight.settings.SlidingWindowSetting.html#streamsight.settings.SlidingWindowSetting._next_t_window_generator">(streamsight.settings.SlidingWindowSetting method)</a>
 </li>
       </ul></li>
       <li><a href="generated/streamsight.settings.SingleTimePointSetting.html#streamsight.settings.SingleTimePointSetting._num_full_interactions">_num_full_interactions (streamsight.settings.SingleTimePointSetting attribute)</a>
@@ -765,6 +778,14 @@
         <li><a href="generated/streamsight.settings.SingleTimePointSetting.html#streamsight.settings.SingleTimePointSetting._split_complete">(streamsight.settings.SingleTimePointSetting attribute)</a>
 </li>
         <li><a href="generated/streamsight.settings.SlidingWindowSetting.html#streamsight.settings.SlidingWindowSetting._split_complete">(streamsight.settings.SlidingWindowSetting attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="generated/streamsight.settings.Setting.html#streamsight.settings.Setting._t_window">_t_window (streamsight.settings.Setting attribute)</a>
+
+      <ul>
+        <li><a href="generated/streamsight.settings.SingleTimePointSetting.html#streamsight.settings.SingleTimePointSetting._t_window">(streamsight.settings.SingleTimePointSetting attribute)</a>
+</li>
+        <li><a href="generated/streamsight.settings.SlidingWindowSetting.html#streamsight.settings.SlidingWindowSetting._t_window">(streamsight.settings.SlidingWindowSetting attribute)</a>
 </li>
       </ul></li>
       <li><a href="generated/streamsight.matrix.InteractionMatrix.html#streamsight.matrix.InteractionMatrix._timestamps_cmp">_timestamps_cmp() (streamsight.matrix.InteractionMatrix method)</a>
@@ -885,10 +906,10 @@
         <li><a href="generated/streamsight.evaluators.EvaluatorStreamerBuilder.html#streamsight.evaluators.EvaluatorStreamerBuilder.add_setting">(streamsight.evaluators.EvaluatorStreamerBuilder method)</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="generated/streamsight.registries.AlgorithmStatusEntry.html#streamsight.registries.AlgorithmStatusEntry.algo_id">algo_id (streamsight.registries.AlgorithmStatusEntry attribute)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="generated/streamsight.registries.AlgorithmStatusEntry.html#streamsight.registries.AlgorithmStatusEntry.algo_ptr">algo_ptr (streamsight.registries.AlgorithmStatusEntry attribute)</a>
 </li>
       <li><a href="generated/streamsight.algorithms.Algorithm.html#streamsight.algorithms.Algorithm">Algorithm (class in streamsight.algorithms)</a>
@@ -924,6 +945,8 @@
       <ul>
         <li><a href="generated/streamsight.preprocessing.MinItemsPerUser.html#streamsight.preprocessing.MinItemsPerUser.apply">(streamsight.preprocessing.MinItemsPerUser method)</a>
 </li>
+        <li><a href="generated/streamsight.preprocessing.MinUsersPerItem.html#streamsight.preprocessing.MinUsersPerItem.apply">(streamsight.preprocessing.MinUsersPerItem method)</a>
+</li>
       </ul></li>
   </ul></td>
 </tr></table>
@@ -941,8 +964,6 @@
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="generated/streamsight.matrix.InteractionMatrix.html#streamsight.matrix.InteractionMatrix.binary_item_history">binary_item_history (streamsight.matrix.InteractionMatrix property)</a>
-</li>
       <li><a href="generated/streamsight.matrix.InteractionMatrix.html#streamsight.matrix.InteractionMatrix.binary_values">binary_values (streamsight.matrix.InteractionMatrix property)</a>
 </li>
       <li><a href="generated/streamsight.evaluators.EvaluatorBuilder.html#streamsight.evaluators.EvaluatorBuilder.build">build() (streamsight.evaluators.EvaluatorBuilder method)</a>
@@ -1013,14 +1034,6 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="generated/streamsight.registries.AlgorithmStatusEntry.html#streamsight.registries.AlgorithmStatusEntry.data_segment">data_segment (streamsight.registries.AlgorithmStatusEntry attribute)</a>
 </li>
-      <li><a href="generated/streamsight.settings.Setting.html#streamsight.settings.Setting.data_timestamp_limit">data_timestamp_limit (streamsight.settings.Setting property)</a>
-
-      <ul>
-        <li><a href="generated/streamsight.settings.SingleTimePointSetting.html#streamsight.settings.SingleTimePointSetting.data_timestamp_limit">(streamsight.settings.SingleTimePointSetting property)</a>
-</li>
-        <li><a href="generated/streamsight.settings.SlidingWindowSetting.html#streamsight.settings.SlidingWindowSetting.data_timestamp_limit">(streamsight.settings.SlidingWindowSetting property)</a>
-</li>
-      </ul></li>
       <li><a href="generated/streamsight.preprocessing.DataFramePreprocessor.html#streamsight.preprocessing.DataFramePreprocessor">DataFramePreprocessor (class in streamsight.preprocessing)</a>
 </li>
       <li><a href="generated/streamsight.datasets.Dataset.html#streamsight.datasets.Dataset">Dataset (class in streamsight.datasets)</a>
@@ -1086,6 +1099,8 @@
 </li>
       </ul></li>
       <li><a href="generated/streamsight.evaluators.MicroMetricAccumulator.html#streamsight.evaluators.MicroMetricAccumulator.df_user_level_metric">df_user_level_metric() (streamsight.evaluators.MicroMetricAccumulator method)</a>
+</li>
+      <li><a href="generated/streamsight.matrix.InteractionMatrix.html#streamsight.matrix.InteractionMatrix.difference">difference() (streamsight.matrix.InteractionMatrix method)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -1375,10 +1390,6 @@
       </ul></li>
       <li><a href="generated/streamsight.matrix.InteractionMatrix.html#streamsight.matrix.InteractionMatrix.indices">indices (streamsight.matrix.InteractionMatrix property)</a>
 </li>
-      <li><a href="generated/streamsight.matrix.InteractionMatrix.html#streamsight.matrix.InteractionMatrix.indices_in">indices_in() (streamsight.matrix.InteractionMatrix method)</a>
-</li>
-      <li><a href="generated/streamsight.matrix.InteractionMatrix.html#streamsight.matrix.InteractionMatrix.interaction_history">interaction_history (streamsight.matrix.InteractionMatrix property)</a>
-</li>
       <li><a href="generated/streamsight.matrix.InteractionMatrix.html#streamsight.matrix.InteractionMatrix.INTERACTION_IX">INTERACTION_IX (streamsight.matrix.InteractionMatrix attribute)</a>
 </li>
       <li><a href="generated/streamsight.matrix.InteractionMatrix.html#streamsight.matrix.InteractionMatrix">InteractionMatrix (class in streamsight.matrix)</a>
@@ -1427,8 +1438,6 @@
         <li><a href="generated/streamsight.registries.AlgorithmStateEnum.html#streamsight.registries.AlgorithmStateEnum.isascii">(streamsight.registries.AlgorithmStateEnum method)</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="generated/streamsight.evaluators.MetricLevelEnum.html#streamsight.evaluators.MetricLevelEnum.isdecimal">isdecimal() (streamsight.evaluators.MetricLevelEnum method)</a>
 
       <ul>
@@ -1437,6 +1446,8 @@
         <li><a href="generated/streamsight.registries.AlgorithmStateEnum.html#streamsight.registries.AlgorithmStateEnum.isdecimal">(streamsight.registries.AlgorithmStateEnum method)</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="generated/streamsight.evaluators.MetricLevelEnum.html#streamsight.evaluators.MetricLevelEnum.isdigit">isdigit() (streamsight.evaluators.MetricLevelEnum method)</a>
 
       <ul>
@@ -1699,6 +1710,8 @@
 </li>
       <li><a href="generated/streamsight.preprocessing.MinItemsPerUser.html#streamsight.preprocessing.MinItemsPerUser">MinItemsPerUser (class in streamsight.preprocessing)</a>
 </li>
+      <li><a href="generated/streamsight.preprocessing.MinUsersPerItem.html#streamsight.preprocessing.MinUsersPerItem">MinUsersPerItem (class in streamsight.preprocessing)</a>
+</li>
       <li>
     module
 
@@ -1780,14 +1793,6 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="generated/streamsight.registries.AlgorithmStateEnum.html#streamsight.registries.AlgorithmStateEnum.NEW">NEW (streamsight.registries.AlgorithmStateEnum attribute)</a>
 </li>
-      <li><a href="generated/streamsight.settings.Setting.html#streamsight.settings.Setting.next_data_timestamp_limit">next_data_timestamp_limit() (streamsight.settings.Setting method)</a>
-
-      <ul>
-        <li><a href="generated/streamsight.settings.SingleTimePointSetting.html#streamsight.settings.SingleTimePointSetting.next_data_timestamp_limit">(streamsight.settings.SingleTimePointSetting method)</a>
-</li>
-        <li><a href="generated/streamsight.settings.SlidingWindowSetting.html#streamsight.settings.SlidingWindowSetting.next_data_timestamp_limit">(streamsight.settings.SlidingWindowSetting method)</a>
-</li>
-      </ul></li>
       <li><a href="generated/streamsight.settings.Setting.html#streamsight.settings.Setting.next_ground_truth_data">next_ground_truth_data() (streamsight.settings.Setting method)</a>
 
       <ul>
@@ -1802,6 +1807,14 @@
         <li><a href="generated/streamsight.settings.SingleTimePointSetting.html#streamsight.settings.SingleTimePointSetting.next_incremental_data">(streamsight.settings.SingleTimePointSetting method)</a>
 </li>
         <li><a href="generated/streamsight.settings.SlidingWindowSetting.html#streamsight.settings.SlidingWindowSetting.next_incremental_data">(streamsight.settings.SlidingWindowSetting method)</a>
+</li>
+      </ul></li>
+      <li><a href="generated/streamsight.settings.Setting.html#streamsight.settings.Setting.next_t_window">next_t_window() (streamsight.settings.Setting method)</a>
+
+      <ul>
+        <li><a href="generated/streamsight.settings.SingleTimePointSetting.html#streamsight.settings.SingleTimePointSetting.next_t_window">(streamsight.settings.SingleTimePointSetting method)</a>
+</li>
+        <li><a href="generated/streamsight.settings.SlidingWindowSetting.html#streamsight.settings.SlidingWindowSetting.next_t_window">(streamsight.settings.SlidingWindowSetting method)</a>
 </li>
       </ul></li>
       <li><a href="generated/streamsight.settings.Setting.html#streamsight.settings.Setting.next_unlabeled_data">next_unlabeled_data() (streamsight.settings.Setting method)</a>
@@ -2038,10 +2051,6 @@
 </li>
       <li><a href="generated/streamsight.settings.SlidingWindowSetting.html#streamsight.settings.SlidingWindowSetting">SlidingWindowSetting (class in streamsight.settings)</a>
 </li>
-      <li><a href="generated/streamsight.matrix.InteractionMatrix.html#streamsight.matrix.InteractionMatrix.sorted_interaction_history">sorted_interaction_history (streamsight.matrix.InteractionMatrix property)</a>
-</li>
-      <li><a href="generated/streamsight.matrix.InteractionMatrix.html#streamsight.matrix.InteractionMatrix.sorted_item_history">sorted_item_history (streamsight.matrix.InteractionMatrix property)</a>
-</li>
       <li><a href="generated/streamsight.evaluators.MetricLevelEnum.html#streamsight.evaluators.MetricLevelEnum.split">split() (streamsight.evaluators.MetricLevelEnum method)</a>
 
       <ul>
@@ -2068,10 +2077,10 @@
         <li><a href="generated/streamsight.registries.AlgorithmStateEnum.html#streamsight.registries.AlgorithmStateEnum.splitlines">(streamsight.registries.AlgorithmStateEnum method)</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="generated/streamsight.evaluators.EvaluatorStreamer.html#streamsight.evaluators.EvaluatorStreamer.start_stream">start_stream() (streamsight.evaluators.EvaluatorStreamer method)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="generated/streamsight.evaluators.MetricLevelEnum.html#streamsight.evaluators.MetricLevelEnum.startswith">startswith() (streamsight.evaluators.MetricLevelEnum method)</a>
 
       <ul>
@@ -2164,6 +2173,14 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="generated/streamsight.settings.SingleTimePointSetting.html#streamsight.settings.SingleTimePointSetting.t">t (streamsight.settings.SingleTimePointSetting attribute)</a>
 </li>
+      <li><a href="generated/streamsight.settings.Setting.html#streamsight.settings.Setting.t_window">t_window (streamsight.settings.Setting property)</a>
+
+      <ul>
+        <li><a href="generated/streamsight.settings.SingleTimePointSetting.html#streamsight.settings.SingleTimePointSetting.t_window">(streamsight.settings.SingleTimePointSetting property)</a>
+</li>
+        <li><a href="generated/streamsight.settings.SlidingWindowSetting.html#streamsight.settings.SlidingWindowSetting.t_window">(streamsight.settings.SlidingWindowSetting property)</a>
+</li>
+      </ul></li>
       <li><a href="generated/streamsight.datasets.TestDataset.html#streamsight.datasets.TestDataset">TestDataset (class in streamsight.datasets)</a>
 </li>
       <li><a href="generated/streamsight.datasets.AmazonBookDataset.html#streamsight.datasets.AmazonBookDataset.TIMESTAMP_IX">TIMESTAMP_IX (streamsight.datasets.AmazonBookDataset attribute)</a>
@@ -2186,12 +2203,12 @@
       </ul></li>
       <li><a href="generated/streamsight.matrix.TimestampAttributeMissingError.html#streamsight.matrix.TimestampAttributeMissingError">TimestampAttributeMissingError</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="generated/streamsight.matrix.InteractionMatrix.html#streamsight.matrix.InteractionMatrix.timestamps_gt">timestamps_gt() (streamsight.matrix.InteractionMatrix method)</a>
 </li>
       <li><a href="generated/streamsight.matrix.InteractionMatrix.html#streamsight.matrix.InteractionMatrix.timestamps_gte">timestamps_gte() (streamsight.matrix.InteractionMatrix method)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="generated/streamsight.matrix.InteractionMatrix.html#streamsight.matrix.InteractionMatrix.timestamps_lt">timestamps_lt() (streamsight.matrix.InteractionMatrix method)</a>
 </li>
       <li><a href="generated/streamsight.matrix.InteractionMatrix.html#streamsight.matrix.InteractionMatrix.timestamps_lte">timestamps_lte() (streamsight.matrix.InteractionMatrix method)</a>

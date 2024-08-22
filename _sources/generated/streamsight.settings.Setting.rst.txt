@@ -20,9 +20,9 @@
    
       ~Setting.__init__
       ~Setting.get_params
-      ~Setting.next_data_timestamp_limit
       ~Setting.next_ground_truth_data
       ~Setting.next_incremental_data
+      ~Setting.next_t_window
       ~Setting.next_unlabeled_data
       ~Setting.reset_data_generators
       ~Setting.split
@@ -36,7 +36,6 @@
    .. autosummary::
    
       ~Setting.background_data
-      ~Setting.data_timestamp_limit
       ~Setting.ground_truth_data
       ~Setting.identifier
       ~Setting.incremental_data
@@ -45,6 +44,7 @@
       ~Setting.name
       ~Setting.num_split
       ~Setting.params
+      ~Setting.t_window
       ~Setting.unlabeled_data
       ~Setting.n_seq_data
       ~Setting.top_K

@@ -20,9 +20,9 @@
    
       ~SlidingWindowSetting.__init__
       ~SlidingWindowSetting.get_params
-      ~SlidingWindowSetting.next_data_timestamp_limit
       ~SlidingWindowSetting.next_ground_truth_data
       ~SlidingWindowSetting.next_incremental_data
+      ~SlidingWindowSetting.next_t_window
       ~SlidingWindowSetting.next_unlabeled_data
       ~SlidingWindowSetting.reset_data_generators
       ~SlidingWindowSetting.split
@@ -36,7 +36,6 @@
    .. autosummary::
    
       ~SlidingWindowSetting.background_data
-      ~SlidingWindowSetting.data_timestamp_limit
       ~SlidingWindowSetting.ground_truth_data
       ~SlidingWindowSetting.identifier
       ~SlidingWindowSetting.incremental_data
@@ -45,6 +44,7 @@
       ~SlidingWindowSetting.name
       ~SlidingWindowSetting.num_split
       ~SlidingWindowSetting.params
+      ~SlidingWindowSetting.t_window
       ~SlidingWindowSetting.unlabeled_data
       ~SlidingWindowSetting.window_size
       ~SlidingWindowSetting.n_seq_data

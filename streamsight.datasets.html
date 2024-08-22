@@ -71,6 +71,7 @@
 <p class="caption" role="heading"><span class="caption-text">Evaluation</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="streamsight.evaluators.html">streamsight.evaluators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="streamsight.metrics.html">streamsight.metrics</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Other supporting modules</span></p>
 <ul>
@@ -114,46 +115,50 @@ datasets as they see fit by defining the abstract methods that must be implement
 that can be used for testing purposes.</p>
 <table class="autosummary longtable docutils align-default">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/streamsight.datasets.Dataset.html#streamsight.datasets.Dataset" title="streamsight.datasets.Dataset"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Dataset</span></code></a>([filename, base_path])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/streamsight.datasets.Dataset.html#streamsight.datasets.Dataset" title="streamsight.datasets.Dataset"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Dataset</span></code></a>([filename, base_path, ...])</p></td>
 <td><p>Represents a collaborative filtering dataset.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/streamsight.datasets.TestDataset.html#streamsight.datasets.TestDataset" title="streamsight.datasets.TestDataset"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TestDataset</span></code></a>([filename, base_path])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/streamsight.datasets.TestDataset.html#streamsight.datasets.TestDataset" title="streamsight.datasets.TestDataset"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TestDataset</span></code></a>([filename, base_path, ...])</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/streamsight.datasets.AmazonBookDataset.html#streamsight.datasets.AmazonBookDataset" title="streamsight.datasets.AmazonBookDataset"><code class="xref py py-obj docutils literal notranslate"><span class="pre">AmazonBookDataset</span></code></a>([filename, base_path])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/streamsight.datasets.AmazonBookDataset.html#streamsight.datasets.AmazonBookDataset" title="streamsight.datasets.AmazonBookDataset"><code class="xref py py-obj docutils literal notranslate"><span class="pre">AmazonBookDataset</span></code></a>([filename, base_path, ...])</p></td>
 <td><p>Handles Amazon Book dataset.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/streamsight.datasets.AmazonComputerDataset.html#streamsight.datasets.AmazonComputerDataset" title="streamsight.datasets.AmazonComputerDataset"><code class="xref py py-obj docutils literal notranslate"><span class="pre">AmazonComputerDataset</span></code></a>([filename, base_path])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/streamsight.datasets.AmazonComputerDataset.html#streamsight.datasets.AmazonComputerDataset" title="streamsight.datasets.AmazonComputerDataset"><code class="xref py py-obj docutils literal notranslate"><span class="pre">AmazonComputerDataset</span></code></a>([filename, base_path, ...])</p></td>
 <td><p>Handles Amazon Computer dataset.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/streamsight.datasets.AmazonMovieDataset.html#streamsight.datasets.AmazonMovieDataset" title="streamsight.datasets.AmazonMovieDataset"><code class="xref py py-obj docutils literal notranslate"><span class="pre">AmazonMovieDataset</span></code></a>([filename, base_path])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/streamsight.datasets.AmazonMovieDataset.html#streamsight.datasets.AmazonMovieDataset" title="streamsight.datasets.AmazonMovieDataset"><code class="xref py py-obj docutils literal notranslate"><span class="pre">AmazonMovieDataset</span></code></a>([filename, base_path, ...])</p></td>
 <td><p>Handles Amazon Movie dataset.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/streamsight.datasets.AmazonMusicDataset.html#streamsight.datasets.AmazonMusicDataset" title="streamsight.datasets.AmazonMusicDataset"><code class="xref py py-obj docutils literal notranslate"><span class="pre">AmazonMusicDataset</span></code></a>([filename, base_path])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/streamsight.datasets.AmazonMusicDataset.html#streamsight.datasets.AmazonMusicDataset" title="streamsight.datasets.AmazonMusicDataset"><code class="xref py py-obj docutils literal notranslate"><span class="pre">AmazonMusicDataset</span></code></a>([filename, base_path, ...])</p></td>
 <td><p>Handles Amazon Music dataset.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/streamsight.datasets.YelpDataset.html#streamsight.datasets.YelpDataset" title="streamsight.datasets.YelpDataset"><code class="xref py py-obj docutils literal notranslate"><span class="pre">YelpDataset</span></code></a>([filename, base_path])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/streamsight.datasets.YelpDataset.html#streamsight.datasets.YelpDataset" title="streamsight.datasets.YelpDataset"><code class="xref py py-obj docutils literal notranslate"><span class="pre">YelpDataset</span></code></a>([filename, base_path, ...])</p></td>
 <td><p>Yelp dataset</p></td>
 </tr>
 </tbody>
 </table>
 <section id="example">
 <h3>Example<a class="headerlink" href="#example" title="Link to this heading"></a></h3>
-<p>Loading a dataset only takes a couple of lines.
-If the file specified does not exist, the dataset is downloaded and written into this file.
-Subsequent loading of the dataset then happens from this file.</p>
+<p>If the file specified does not exist, the dataset is downloaded and written into this file.
+Subsequent loading of the dataset will not require downloading the dataset again,
+and will be obtained from the file in the directory.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">streamsight.datasets</span> <span class="kn">import</span> <span class="n">AmazonMusicDataset</span>
 
 <span class="n">dataset</span> <span class="o">=</span> <span class="n">AmazonMusicDataset</span><span class="p">()</span>
 <span class="n">data</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">load</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>Each dataset has its own default preprocessing steps, documented in the classes respectively.
-To use custom preprocessing a couple more lines should be added to the example.</p>
+<p>Each dataset can be loaded with default filters that are applied to the dataset.
+To use the default filters, set <cite>use_default_filters</cite> parameter to True.
+The dataset can also be loaded without filters and preprocessing of ID by
+calling the <code class="xref py py-meth docutils literal notranslate"><span class="pre">load()</span></code> method with the parameter <cite>apply_filters</cite> set to False.
+The recommended loading is with filters applied to ensure that the user and item
+ids are incrementing in the order of time.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">streamsight.datasets</span> <span class="kn">import</span> <span class="n">AmazonMusicDataset</span>
 
-<span class="n">dataset</span> <span class="o">=</span> <span class="n">AmazonMusicDataset</span><span class="p">()</span>
-<span class="n">data</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">load</span><span class="p">()</span>
+<span class="n">dataset</span> <span class="o">=</span> <span class="n">AmazonMusicDataset</span><span class="p">(</span><span class="n">use_default_filters</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">apply_filters</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>For an overview of available filters see <a class="reference internal" href="streamsight.preprocessing.html#module-streamsight.preprocessing" title="streamsight.preprocessing"><code class="xref py py-mod docutils literal notranslate"><span class="pre">streamsight.preprocessing</span></code></a></p>
