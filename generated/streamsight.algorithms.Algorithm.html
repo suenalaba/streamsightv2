@@ -242,25 +242,6 @@ should set `reset=False`.
 </section>
 </dd></dl>
 
-<dl class="py method">
-<dt class="sig sig-object py" id="streamsight.algorithms.Algorithm._check_prediction">
-<span class="sig-name descname"><span class="pre">_check_prediction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X_pred</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">csr_matrix</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">X</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">csr_matrix</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#streamsight.algorithms.Algorithm._check_prediction" title="Link to this definition"></a></dt>
-<dd><p>Checks that the predictions matches expectations</p>
-<p>Checks implemented:</p>
-<ul class="simple">
-<li><p>Check that all users with history got at least 1 recommendation</p></li>
-</ul>
-<p>For failing checks a warning is printed.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>X_pred</strong> (<em>csr_matrix</em>) – Predictions made for all nonzero users in X</p></li>
-<li><p><strong>X</strong> (<em>csr_matrix</em>) – User-item interaction matrix used as input to predict</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
 <dl class="py attribute">
 <dt class="sig sig-object py" id="streamsight.algorithms.Algorithm._doc_link_module">
 <span class="sig-name descname"><span class="pre">_doc_link_module</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'sklearn'</span></em><a class="headerlink" href="#streamsight.algorithms.Algorithm._doc_link_module" title="Link to this definition"></a></dt>
@@ -350,14 +331,38 @@ mechanism works.</p>
 <dd></dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="streamsight.algorithms.Algorithm._pad_predict">
+<span class="sig-name descname"><span class="pre">_pad_predict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X_pred</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">csr_matrix</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">intended_shape</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">to_predict_frame</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">csr_matrix</span></span></span><a class="headerlink" href="#streamsight.algorithms.Algorithm._pad_predict" title="Link to this definition"></a></dt>
+<dd><p>Pad the predictions with random items for users that are not in the training data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X_pred</strong> (<em>csr_matrix</em>) – Predictions made by the algorithm</p></li>
+<li><p><strong>intended_shape</strong> (<em>tuple</em>) – The intended shape of the prediction matrix</p></li>
+<li><p><strong>to_predict_frame</strong> (<em>pd.DataFrame</em>) – DataFrame containing the user IDs to predict for</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The padded prediction matrix</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>csr_matrix</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="streamsight.algorithms.Algorithm._predict">
-<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">_predict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">csr_matrix</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">csr_matrix</span></span></span><a class="headerlink" href="#streamsight.algorithms.Algorithm._predict" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">_predict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">csr_matrix</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">predict_frame</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">csr_matrix</span></span></span><a class="headerlink" href="#streamsight.algorithms.Algorithm._predict" title="Link to this definition"></a></dt>
 <dd><p>Stub for predicting scores to users</p>
 <p>Will be called by the <cite>predict</cite> wrapper.
 Child classes should implement this function.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>X</strong> (<em>csr_matrix</em>) – User-item interaction matrix used as input to predict</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> (<em>csr_matrix</em>) – User-item interaction matrix used as input to predict</p></li>
+<li><p><strong>predict_frame</strong> (<em>pd.DataFrame</em>) – DataFrame containing the user IDs to predict for</p></li>
+</ul>
 </dd>
 <dt class="field-even">Raises<span class="colon">:</span></dt>
 <dd class="field-even"><p><strong>NotImplementedError</strong> – Implement this method in the child class</p>

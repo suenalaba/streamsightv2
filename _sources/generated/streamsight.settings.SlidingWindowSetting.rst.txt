@@ -47,6 +47,7 @@
       ~SlidingWindowSetting.t_window
       ~SlidingWindowSetting.unlabeled_data
       ~SlidingWindowSetting.window_size
+      ~SlidingWindowSetting.t_upper
       ~SlidingWindowSetting.n_seq_data
       ~SlidingWindowSetting.top_K
    

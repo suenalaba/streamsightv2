@@ -120,7 +120,7 @@ the algorithms in 3 phases:</p>
 </ol>
 <p>In the classical split setting, the evaluator will only run phase 1 and 2.
 In the sliding window setting, the evaluator will run all 3 phases, with
-phase 2 and 3 repeated for each split.</p>
+phase 2 and 3 repeated for each window/split.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="streamsight.evaluators.EvaluatorPipeline.__init__">
 <span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">algorithm_entries</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="streamsight.registries.AlgorithmEntry.html#streamsight.registries.AlgorithmEntry" title="streamsight.registries.registry.AlgorithmEntry"><span class="pre">AlgorithmEntry</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metric_entries</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="streamsight.registries.MetricEntry.html#streamsight.registries.MetricEntry" title="streamsight.registries.registry.MetricEntry"><span class="pre">MetricEntry</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">setting</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="streamsight.settings.Setting.html#streamsight.settings.Setting" title="streamsight.settings.base.Setting"><span class="pre">Setting</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">ignore_unknown_user</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ignore_unknown_item</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#streamsight.evaluators.EvaluatorPipeline.__init__" title="Link to this definition"></a></dt>
@@ -169,15 +169,49 @@ phase 2 and 3 repeated for each split.</p>
 <dt class="sig sig-object py" id="streamsight.evaluators.EvaluatorPipeline._data_release_step">
 <span class="sig-name descname"><span class="pre">_data_release_step</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#streamsight.evaluators.EvaluatorPipeline._data_release_step" title="Link to this definition"></a></dt>
 <dd><p>Data release phase. (Phase 3)</p>
+<p>This method releases the data from the evaluator. This method should only
+be called when the setting is a sliding window setting.</p>
+<p>The data is released by updating the known user/item base with the
+incremental data. After updating the known user/item base, the incremental
+data is masked to the known user/item base shape. The algorithms are then
+trained with the incremental data.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Previously unknown user/item base is reset after the data release.
+Since these unknown user/item base should be within the incremental
+data released.</p>
+</div>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="streamsight.evaluators.EvaluatorPipeline._evaluate_step">
 <span class="sig-name descname"><span class="pre">_evaluate_step</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#streamsight.evaluators.EvaluatorPipeline._evaluate_step" title="Link to this definition"></a></dt>
 <dd><p>Evaluate performance of the algorithms. (Phase 2)</p>
+<section id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Link to this heading"></a></h2>
 <p>This method evaluates the performance of the algorithms with the metrics.
 It takes the unlabeled data, predicts the interaction, and evaluates the
 performance with the ground truth data.</p>
+</section>
+<section id="specifics">
+<h2>Specifics<a class="headerlink" href="#specifics" title="Link to this heading"></a></h2>
+<p>The evaluation is done by:
+1. Get the next unlabeled data and ground truth data from the setting
+2. Get the current timestamp from the setting
+3. Update the unknown user/item base with the ground truth data
+4. Mask the unlabeled data to the known user/item base shape
+5. Mask the ground truth data based on the provided flags <a class="reference internal" href="#streamsight.evaluators.EvaluatorPipeline.ignore_unknown_user" title="streamsight.evaluators.EvaluatorPipeline.ignore_unknown_user"><code class="xref py py-attr docutils literal notranslate"><span class="pre">ignore_unknown_user</span></code></a></p>
+<blockquote>
+<div><p>and <a class="reference internal" href="#streamsight.evaluators.EvaluatorPipeline.ignore_unknown_item" title="streamsight.evaluators.EvaluatorPipeline.ignore_unknown_item"><code class="xref py py-attr docutils literal notranslate"><span class="pre">ignore_unknown_item</span></code></a></p>
+</div></blockquote>
+<ol class="arabic simple" start="6">
+<li><p>Predict the interaction with the algorithms</p></li>
+<li><p>Check the shape of the prediction matrix</p></li>
+<li><p>Store the results in the micro metric accumulator</p></li>
+<li><p>Cache the results in the macro metric accumulator</p></li>
+<li><p>Repeat step 6 for each algorithm</p></li>
+</ol>
+</section>
 </dd></dl>
 
 <dl class="py method">
@@ -199,6 +233,12 @@ Each time this method is called, the algorithms are re-instantiated.</p>
 <dd></dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="streamsight.evaluators.EvaluatorPipeline._prediction_shape_handler">
+<span class="sig-name descname"><span class="pre">_prediction_shape_handler</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X_true</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">csr_matrix</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">X_pred</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">csr_matrix</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#streamsight.evaluators.EvaluatorPipeline._prediction_shape_handler" title="Link to this definition"></a></dt>
+<dd><p>Check the shape of the prediction matrix.</p>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="streamsight.evaluators.EvaluatorPipeline._ready_algo">
 <span class="sig-name descname"><span class="pre">_ready_algo</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#streamsight.evaluators.EvaluatorPipeline._ready_algo" title="Link to this definition"></a></dt>
 <dd><p>Train the algorithms with the background data.</p>
@@ -216,10 +256,27 @@ user/item is updated.</p>
 <dt class="sig sig-object py" id="streamsight.evaluators.EvaluatorPipeline._ready_evaluator">
 <span class="sig-name descname"><span class="pre">_ready_evaluator</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#streamsight.evaluators.EvaluatorPipeline._ready_evaluator" title="Link to this definition"></a></dt>
 <dd><p>Pre-phase of the evaluator. (Phase 1)</p>
+<section id="id1">
+<h2>Summary<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
 <p>This method prepares the evaluator for the evaluation process.
 It instantiates the algorithm, trains the algorithm with the background data,
 instantiates the metric accumulator, and prepares the data generators.
-The next phase of the evaluator is the evaluation phase.</p>
+The next phase of the evaluator is the evaluation phase (Phase 2).</p>
+</section>
+<section id="id2">
+<h2>Specifics<a class="headerlink" href="#id2" title="Link to this heading"></a></h2>
+<p>The evaluator is prepared by:
+1. Instantiating the each algorithm from the algorithm entries
+2. For each algorithm, train the algorithm with the background data from</p>
+<blockquote>
+<div><p><a class="reference internal" href="#streamsight.evaluators.EvaluatorPipeline.setting" title="streamsight.evaluators.EvaluatorPipeline.setting"><code class="xref py py-attr docutils literal notranslate"><span class="pre">setting</span></code></a></p>
+</div></blockquote>
+<ol class="arabic simple" start="3">
+<li><p>Instantiate the metric accumulator for micro and macro metrics</p></li>
+<li><p>Create an entry for each metric in the macro metric accumulator</p></li>
+<li><p>Prepare the data generators for the setting</p></li>
+</ol>
+</section>
 </dd></dl>
 
 <dl class="py attribute">
@@ -276,6 +333,8 @@ evaluation again, call with <cite>reset=True</cite>.</p>
 <dt class="sig sig-object py" id="streamsight.evaluators.EvaluatorPipeline.run_steps">
 <span class="sig-name descname"><span class="pre">run_steps</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num_steps</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#streamsight.evaluators.EvaluatorPipeline.run_steps" title="Link to this definition"></a></dt>
 <dd><p>Run multiple steps of the evaluator.</p>
+<p>Effectively runs <a class="reference internal" href="#streamsight.evaluators.EvaluatorPipeline.run_step" title="streamsight.evaluators.EvaluatorPipeline.run_step"><code class="xref py py-meth docutils literal notranslate"><span class="pre">run_step()</span></code></a> method <a href="#id3"><span class="problematic" id="id4">:param:`num_steps`</span></a> times. Call
+this method to run multiple steps of the evaluator at once.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>num_steps</strong> (<em>int</em>) – Number of steps to run</p>

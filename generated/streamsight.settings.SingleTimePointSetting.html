@@ -61,6 +61,7 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../streamsight.settings.html#splitters">Splitters</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../streamsight.settings.html#processor">Processor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../streamsight.settings.html#exception">Exception</a></li>
 </ul>
 </li>
 </ul>
@@ -107,17 +108,18 @@
 <h1>streamsight.settings.SingleTimePointSetting<a class="headerlink" href="#streamsight-settings-singletimepointsetting" title="Link to this heading"></a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="streamsight.settings.SingleTimePointSetting">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">streamsight.settings.</span></span><span class="sig-name descname"><span class="pre">SingleTimePointSetting</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">background_t</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delta_after_t</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">2147483647</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_seq_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">top_K</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#streamsight.settings.SingleTimePointSetting" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">streamsight.settings.</span></span><span class="sig-name descname"><span class="pre">SingleTimePointSetting</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">background_t</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_seq_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">top_K</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t_upper</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">2147483647</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#streamsight.settings.SingleTimePointSetting" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="streamsight.settings.Setting.html#streamsight.settings.Setting" title="streamsight.settings.base.Setting"><code class="xref py py-class docutils literal notranslate"><span class="pre">Setting</span></code></a></p>
 <p>Single time point setting for data split.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>background_t</strong> (<em>int</em>) – Time point to split the data into background and evaluation data. Split will be from <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">t)</span></code></p></li>
-<li><p><strong>delta_after_t</strong> (<em>int</em><em>, </em><em>optional</em>) – Defaults to maximal integer value (acting as infinity).</p></li>
 <li><p><strong>n_seq_data</strong> (<em>int</em><em>, </em><em>optional</em>) – Number of last sequential interactions to provide as
 unlabeled data for model to make prediction.</p></li>
 <li><p><strong>top_K</strong> (<em>int</em><em>, </em><em>optional</em>) – Number of interaction per user that should be selected for evaluation purposes.</p></li>
+<li><p><strong>t_upper</strong> (<em>int</em><em>, </em><em>optional</em>) – Upper bound on the timestamp of interactions.
+Defaults to maximal integer value (acting as infinity).</p></li>
 <li><p><strong>seed</strong> (<em>int</em><em>, </em><em>optional</em>) – Seed for randomization parts of the scenario.
 Timed scenario is deterministic, so changing seed should not matter.
 Defaults to None, so random seed will be generated.</p></li>
@@ -126,13 +128,13 @@ Defaults to None, so random seed will be generated.</p></li>
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="streamsight.settings.SingleTimePointSetting.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">background_t</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delta_after_t</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">2147483647</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_seq_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">top_K</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#streamsight.settings.SingleTimePointSetting.__init__" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">background_t</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_seq_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">top_K</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t_upper</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">2147483647</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#streamsight.settings.SingleTimePointSetting.__init__" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <p class="rubric">Methods</p>
 <table class="autosummary longtable docutils align-default">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#streamsight.settings.SingleTimePointSetting.__init__" title="streamsight.settings.SingleTimePointSetting.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(background_t[, delta_after_t, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#streamsight.settings.SingleTimePointSetting.__init__" title="streamsight.settings.SingleTimePointSetting.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(background_t[, n_seq_data, top_K, ...])</p></td>
 <td><p></p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#streamsight.settings.SingleTimePointSetting.get_params" title="streamsight.settings.SingleTimePointSetting.get_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_params</span></code></a>()</p></td>
@@ -197,7 +199,7 @@ Defaults to None, so random seed will be generated.</p></li>
 <tr class="row-even"><td><p><a class="reference internal" href="#streamsight.settings.SingleTimePointSetting.t" title="streamsight.settings.SingleTimePointSetting.t"><code class="xref py py-obj docutils literal notranslate"><span class="pre">t</span></code></a></p></td>
 <td><p>Seconds before <cite>t</cite> timestamp value to be used in <cite>background_set</cite>.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#streamsight.settings.SingleTimePointSetting.delta_after_t" title="streamsight.settings.SingleTimePointSetting.delta_after_t"><code class="xref py py-obj docutils literal notranslate"><span class="pre">delta_after_t</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#streamsight.settings.SingleTimePointSetting.t_upper" title="streamsight.settings.SingleTimePointSetting.t_upper"><code class="xref py py-obj docutils literal notranslate"><span class="pre">t_upper</span></code></a></p></td>
 <td><p>Seconds after <cite>t</cite> timestamp value to be used in <cite>ground_truth_data</cite>.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#streamsight.settings.SingleTimePointSetting.n_seq_data" title="streamsight.settings.SingleTimePointSetting.n_seq_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">n_seq_data</span></code></a></p></td>
@@ -379,12 +381,6 @@ the generator and to allow for easy resetting when needed.</p>
 </dl>
 </dd></dl>
 
-<dl class="py attribute">
-<dt class="sig sig-object py" id="streamsight.settings.SingleTimePointSetting.delta_after_t">
-<span class="sig-name descname"><span class="pre">delta_after_t</span></span><a class="headerlink" href="#streamsight.settings.SingleTimePointSetting.delta_after_t" title="Link to this definition"></a></dt>
-<dd><p>Seconds after <cite>t</cite> timestamp value to be used in <cite>ground_truth_data</cite>.</p>
-</dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="streamsight.settings.SingleTimePointSetting.get_params">
 <span class="sig-name descname"><span class="pre">get_params</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#streamsight.settings.SingleTimePointSetting.get_params" title="Link to this definition"></a></dt>
@@ -488,7 +484,7 @@ the list of ground truth data.</p>
 <dd class="field-odd"><p><strong>reset</strong> (<em>bool</em><em>, </em><em>optional</em>) – To reset the generator, defaults to False</p>
 </dd>
 <dt class="field-even">Raises<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>EOWSetting</strong> – If there is no more ground truth data to iterate over.</p>
+<dd class="field-even"><p><a class="reference internal" href="streamsight.settings.EOWSetting.html#streamsight.settings.EOWSetting" title="streamsight.settings.EOWSetting"><strong>EOWSetting</strong></a> – If there is no more ground truth data to iterate over.</p>
 </dd>
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>The next ground truth data for the corresponding split.</p>
@@ -513,7 +509,7 @@ the list of incremental data.</p>
 <dt class="field-even">Raises<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>AttributeError</strong> – If the setting is not a sliding window setting.</p></li>
-<li><p><strong>EOWSetting</strong> – If there is no more incremental data to iterate over.</p></li>
+<li><p><a class="reference internal" href="streamsight.settings.EOWSetting.html#streamsight.settings.EOWSetting" title="streamsight.settings.EOWSetting"><strong>EOWSetting</strong></a> – If there is no more incremental data to iterate over.</p></li>
 </ul>
 </dd>
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -537,7 +533,7 @@ the list of timestamps that specify the timestamp cut off for the data.</p>
 <dd class="field-odd"><p><strong>reset</strong> (<em>bool</em><em>, </em><em>optional</em>) – To reset the generator, defaults to False</p>
 </dd>
 <dt class="field-even">Raises<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>EOWSetting</strong> – If there is no more data timestamp limit to iterate over.</p>
+<dd class="field-even"><p><a class="reference internal" href="streamsight.settings.EOWSetting.html#streamsight.settings.EOWSetting" title="streamsight.settings.EOWSetting"><strong>EOWSetting</strong></a> – If there is no more data timestamp limit to iterate over.</p>
 </dd>
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>The next t_window for the corresponding split.</p>
@@ -560,7 +556,7 @@ the list of unlabeled data.</p>
 <dd class="field-odd"><p><strong>reset</strong> (<em>bool</em><em>, </em><em>optional</em>) – To reset the generator, defaults to False</p>
 </dd>
 <dt class="field-even">Raises<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>EOWSetting</strong> – If there is no more unlabeled data to iterate over.</p>
+<dd class="field-even"><p><a class="reference internal" href="streamsight.settings.EOWSetting.html#streamsight.settings.EOWSetting" title="streamsight.settings.EOWSetting"><strong>EOWSetting</strong></a> – If there is no more unlabeled data to iterate over.</p>
 </dd>
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>The next unlabeled data for the corresponding split.</p>
@@ -628,6 +624,12 @@ split did not result in any empty or unusually small datasets.</p>
 <dt class="sig sig-object py" id="streamsight.settings.SingleTimePointSetting.t">
 <span class="sig-name descname"><span class="pre">t</span></span><a class="headerlink" href="#streamsight.settings.SingleTimePointSetting.t" title="Link to this definition"></a></dt>
 <dd><p>Seconds before <cite>t</cite> timestamp value to be used in <cite>background_set</cite>.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="streamsight.settings.SingleTimePointSetting.t_upper">
+<span class="sig-name descname"><span class="pre">t_upper</span></span><a class="headerlink" href="#streamsight.settings.SingleTimePointSetting.t_upper" title="Link to this definition"></a></dt>
+<dd><p>Seconds after <cite>t</cite> timestamp value to be used in <cite>ground_truth_data</cite>.</p>
 </dd></dl>
 
 <dl class="py property">

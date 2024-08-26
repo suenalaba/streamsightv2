@@ -61,6 +61,7 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../streamsight.settings.html#splitters">Splitters</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../streamsight.settings.html#processor">Processor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../streamsight.settings.html#exception">Exception</a></li>
 </ul>
 </li>
 </ul>
@@ -469,7 +470,7 @@ the list of ground truth data.</p>
 <dd class="field-odd"><p><strong>reset</strong> (<em>bool</em><em>, </em><em>optional</em>) – To reset the generator, defaults to False</p>
 </dd>
 <dt class="field-even">Raises<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>EOWSetting</strong> – If there is no more ground truth data to iterate over.</p>
+<dd class="field-even"><p><a class="reference internal" href="streamsight.settings.EOWSetting.html#streamsight.settings.EOWSetting" title="streamsight.settings.EOWSetting"><strong>EOWSetting</strong></a> – If there is no more ground truth data to iterate over.</p>
 </dd>
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>The next ground truth data for the corresponding split.</p>
@@ -494,7 +495,7 @@ the list of incremental data.</p>
 <dt class="field-even">Raises<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>AttributeError</strong> – If the setting is not a sliding window setting.</p></li>
-<li><p><strong>EOWSetting</strong> – If there is no more incremental data to iterate over.</p></li>
+<li><p><a class="reference internal" href="streamsight.settings.EOWSetting.html#streamsight.settings.EOWSetting" title="streamsight.settings.EOWSetting"><strong>EOWSetting</strong></a> – If there is no more incremental data to iterate over.</p></li>
 </ul>
 </dd>
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -518,7 +519,7 @@ the list of timestamps that specify the timestamp cut off for the data.</p>
 <dd class="field-odd"><p><strong>reset</strong> (<em>bool</em><em>, </em><em>optional</em>) – To reset the generator, defaults to False</p>
 </dd>
 <dt class="field-even">Raises<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>EOWSetting</strong> – If there is no more data timestamp limit to iterate over.</p>
+<dd class="field-even"><p><a class="reference internal" href="streamsight.settings.EOWSetting.html#streamsight.settings.EOWSetting" title="streamsight.settings.EOWSetting"><strong>EOWSetting</strong></a> – If there is no more data timestamp limit to iterate over.</p>
 </dd>
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>The next t_window for the corresponding split.</p>
@@ -541,7 +542,7 @@ the list of unlabeled data.</p>
 <dd class="field-odd"><p><strong>reset</strong> (<em>bool</em><em>, </em><em>optional</em>) – To reset the generator, defaults to False</p>
 </dd>
 <dt class="field-even">Raises<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>EOWSetting</strong> – If there is no more unlabeled data to iterate over.</p>
+<dd class="field-even"><p><a class="reference internal" href="streamsight.settings.EOWSetting.html#streamsight.settings.EOWSetting" title="streamsight.settings.EOWSetting"><strong>EOWSetting</strong></a> – If there is no more unlabeled data to iterate over.</p>
 </dd>
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>The next unlabeled data for the corresponding split.</p>

@@ -47,7 +47,7 @@
       ~SingleTimePointSetting.t_window
       ~SingleTimePointSetting.unlabeled_data
       ~SingleTimePointSetting.t
-      ~SingleTimePointSetting.delta_after_t
+      ~SingleTimePointSetting.t_upper
       ~SingleTimePointSetting.n_seq_data
       ~SingleTimePointSetting.top_K
    

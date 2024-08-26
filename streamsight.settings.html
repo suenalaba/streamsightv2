@@ -66,6 +66,10 @@
 <li class="toctree-l3"><a class="reference internal" href="generated/streamsight.settings.PredictionDataProcessor.html">streamsight.settings.PredictionDataProcessor</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#exception">Exception</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="generated/streamsight.settings.EOWSetting.html">streamsight.settings.EOWSetting</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -132,7 +136,7 @@ the following components:</p>
 </tr>
 </tbody>
 </table>
-<p>A setting is stateful. Thus, the initialisation of the setting object only stores
+<p>A setting is stateful. Thus, the initialization of the setting object only stores
 the parameters that are passed. Calling of <a class="reference internal" href="generated/streamsight.settings.Setting.html#streamsight.settings.Setting.split" title="streamsight.settings.Setting.split"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Setting.split</span></code></a> is necessary
 such that the attributes <a class="reference internal" href="generated/streamsight.settings.Setting.html#streamsight.settings.Setting.background_data" title="streamsight.settings.Setting.background_data"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Setting.background_data</span></code></a>, <a class="reference internal" href="generated/streamsight.settings.Setting.html#streamsight.settings.Setting.unlabeled_data" title="streamsight.settings.Setting.unlabeled_data"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Setting.unlabeled_data</span></code></a>
 and <a class="reference internal" href="generated/streamsight.settings.Setting.html#streamsight.settings.Setting.ground_truth_data" title="streamsight.settings.Setting.ground_truth_data"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Setting.ground_truth_data</span></code></a> are populated.</p>
@@ -172,6 +176,18 @@ splitter and reuse the existing setting.</p>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="generated/streamsight.settings.PredictionDataProcessor.html#streamsight.settings.PredictionDataProcessor" title="streamsight.settings.PredictionDataProcessor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PredictionDataProcessor</span></code></a>()</p></td>
 <td><p>Injects the user ID to indicate ID for prediction.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="exception">
+<h2>Exception<a class="headerlink" href="#exception" title="Link to this heading"></a></h2>
+<p>The exception class <a class="reference internal" href="generated/streamsight.settings.EOWSetting.html#streamsight.settings.EOWSetting" title="streamsight.settings.EOWSetting"><code class="xref py py-class docutils literal notranslate"><span class="pre">EOWSetting</span></code></a> is used to raise an exception when the
+end of window is reached. Note that this exception is declared the base file.</p>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/streamsight.settings.EOWSetting.html#streamsight.settings.EOWSetting" title="streamsight.settings.EOWSetting"><code class="xref py py-obj docutils literal notranslate"><span class="pre">EOWSetting</span></code></a>([message])</p></td>
+<td><p>End of Window Setting Exception.</p></td>
 </tr>
 </tbody>
 </table>
