@@ -160,7 +160,7 @@ the necessary data to the algorithm and evaluate the prediction.</p>
 <tr class="row-even"><td><p><a class="reference internal" href="#streamsight.evaluators.EvaluatorStreamer.metric_results" title="streamsight.evaluators.EvaluatorStreamer.metric_results"><code class="xref py py-obj docutils literal notranslate"><span class="pre">metric_results</span></code></a>([level, ...])</p></td>
 <td><p>Results of the metrics computed.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#streamsight.evaluators.EvaluatorStreamer.register_algorithm" title="streamsight.evaluators.EvaluatorStreamer.register_algorithm"><code class="xref py py-obj docutils literal notranslate"><span class="pre">register_algorithm</span></code></a>(algorithm, algorithmName)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#streamsight.evaluators.EvaluatorStreamer.register_algorithm" title="streamsight.evaluators.EvaluatorStreamer.register_algorithm"><code class="xref py py-obj docutils literal notranslate"><span class="pre">register_algorithm</span></code></a>(algorithm, algorithm_name)</p></td>
 <td><p>Register the algorithm with the evaluator</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#streamsight.evaluators.EvaluatorStreamer.start_stream" title="streamsight.evaluators.EvaluatorStreamer.start_stream"><code class="xref py py-obj docutils literal notranslate"><span class="pre">start_stream</span></code></a>()</p></td>
@@ -398,7 +398,7 @@ will be ignored.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="streamsight.evaluators.EvaluatorStreamer.register_algorithm">
-<span class="sig-name descname"><span class="pre">register_algorithm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">algorithm</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="streamsight.algorithms.Algorithm.html#streamsight.algorithms.Algorithm" title="streamsight.algorithms.base.Algorithm"><span class="pre">Algorithm</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">algorithmName</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">UUID</span></span></span><a class="headerlink" href="#streamsight.evaluators.EvaluatorStreamer.register_algorithm" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">register_algorithm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">algorithm</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="streamsight.algorithms.Algorithm.html#streamsight.algorithms.Algorithm" title="streamsight.algorithms.base.Algorithm"><span class="pre">Algorithm</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">algorithm_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">UUID</span></span></span><a class="headerlink" href="#streamsight.evaluators.EvaluatorStreamer.register_algorithm" title="Link to this definition"></a></dt>
 <dd><p>Register the algorithm with the evaluator</p>
 <p>This method is called to register the algorithm with the evaluator.
 The method will assign a unique identifier to the algorithm and store
@@ -411,7 +411,7 @@ the stream has already started.</p>
 <dt class="field-even">Raises<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>ValueError</strong> – If the stream has already started</p></li>
-<li><p><strong>ValueError</strong> – If neither algorithm nor algorithmName is provided</p></li>
+<li><p><strong>ValueError</strong> – If neither algorithm nor algorithm_name is provided</p></li>
 </ul>
 </dd>
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
