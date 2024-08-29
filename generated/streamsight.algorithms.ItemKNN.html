@@ -23,7 +23,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="streamsight.algorithms.ItemKNNIncremental" href="streamsight.algorithms.ItemKNNIncremental.html" />
-    <link rel="prev" title="streamsight.algorithms.Algorithm" href="streamsight.algorithms.Algorithm.html" /> 
+    <link rel="prev" title="streamsight.algorithms.Popularity" href="streamsight.algorithms.Popularity.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -56,6 +56,7 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../streamsight.algorithms.html">streamsight.algorithms</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../streamsight.algorithms.html#algorithm">Algorithm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../streamsight.algorithms.html#baseline-algorithms">Baseline Algorithms</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../streamsight.algorithms.html#item-similarity-algorithms">Item Similarity Algorithms</a><ul class="current">
 <li class="toctree-l3 current"><a class="current reference internal" href="#">streamsight.algorithms.ItemKNN</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#streamsight.algorithms.ItemKNN"><code class="docutils literal notranslate"><span class="pre">ItemKNN</span></code></a></li>
@@ -412,7 +413,7 @@ on <cite>get_config()[“display”]</cite>.</p>
 <p>Data will be turned into a binary csr matrix.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>X</strong> (<em>Matrix</em>) – User-item interaction matrix to fit the model to</p>
+<dd class="field-odd"><p><strong>X</strong> (<a class="reference internal" href="streamsight.matrix.InteractionMatrix.html#streamsight.matrix.InteractionMatrix" title="streamsight.matrix.InteractionMatrix"><em>InteractionMatrix</em></a>) – User-item interaction matrix to fit the model to</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>Transformed user-item interaction matrix to fit the model</p>
@@ -430,7 +431,7 @@ on <cite>get_config()[“display”]</cite>.</p>
 <p>Data will be turned into a binary csr matrix.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>X</strong> (<em>Matrix</em>) – User-item interaction matrix used as input to predict</p>
+<dd class="field-odd"><p><strong>X</strong> (<a class="reference internal" href="streamsight.matrix.InteractionMatrix.html#streamsight.matrix.InteractionMatrix" title="streamsight.matrix.InteractionMatrix"><em>InteractionMatrix</em></a>) – User-item interaction matrix used as input to predict</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>Transformed user-item interaction matrix used as input to predict</p>
@@ -526,10 +527,10 @@ accepted constraints.</p>
 was successful using <a class="reference internal" href="#streamsight.algorithms.ItemKNN._check_fit_complete" title="streamsight.algorithms.ItemKNN._check_fit_complete"><code class="xref py py-meth docutils literal notranslate"><span class="pre">_check_fit_complete()</span></code></a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>X</strong> (<em>Matrix</em>) – The interactions to fit the model on.</p>
+<dd class="field-odd"><p><strong>X</strong> (<a class="reference internal" href="streamsight.matrix.InteractionMatrix.html#streamsight.matrix.InteractionMatrix" title="streamsight.matrix.InteractionMatrix"><em>InteractionMatrix</em></a>) – The interactions to fit the model on.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>self</strong>, fitted algorithm</p>
+<dd class="field-even"><p>Fitted algorithm</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference internal" href="streamsight.algorithms.Algorithm.html#streamsight.algorithms.Algorithm" title="streamsight.algorithms.Algorithm">Algorithm</a></p>
@@ -631,7 +632,7 @@ training data.</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="streamsight.algorithms.Algorithm.html" class="btn btn-neutral float-left" title="streamsight.algorithms.Algorithm" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="streamsight.algorithms.Popularity.html" class="btn btn-neutral float-left" title="streamsight.algorithms.Popularity" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="streamsight.algorithms.ItemKNNIncremental.html" class="btn btn-neutral float-right" title="streamsight.algorithms.ItemKNNIncremental" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

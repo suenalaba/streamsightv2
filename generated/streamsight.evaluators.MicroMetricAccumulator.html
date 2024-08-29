@@ -150,12 +150,12 @@
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="streamsight.evaluators.MicroMetricAccumulator.acc">
-<span class="sig-name descname"><span class="pre">acc</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">defaultdict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Metric</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#streamsight.evaluators.MicroMetricAccumulator.acc" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">acc</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">defaultdict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="streamsight.metrics.Metric.html#streamsight.metrics.Metric" title="streamsight.metrics.base.Metric"><span class="pre">Metric</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#streamsight.evaluators.MicroMetricAccumulator.acc" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="streamsight.evaluators.MicroMetricAccumulator.add">
-<span class="sig-name descname"><span class="pre">add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">metric</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Metric</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">algorithm_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#streamsight.evaluators.MicroMetricAccumulator.add" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">metric</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="streamsight.metrics.Metric.html#streamsight.metrics.Metric" title="streamsight.metrics.base.Metric"><span class="pre">Metric</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">algorithm_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#streamsight.evaluators.MicroMetricAccumulator.add" title="Link to this definition"></a></dt>
 <dd><p>Add a metric to the accumulator</p>
 <p>Takes a <code class="xref py py-class docutils literal notranslate"><span class="pre">Metric</span></code> object and adds it under the algorithm name. If
 the specified metric already exists for the algorithm, it will be
@@ -163,7 +163,7 @@ overwritten with the new metric.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>metric</strong> (<em>Metric</em>) – Metric to store</p></li>
+<li><p><strong>metric</strong> (<a class="reference internal" href="streamsight.metrics.Metric.html#streamsight.metrics.Metric" title="streamsight.metrics.Metric"><em>Metric</em></a>) – Metric to store</p></li>
 <li><p><strong>algorithm_name</strong> (<em>str</em>) – Name of the algorithm</p></li>
 </ul>
 </dd>

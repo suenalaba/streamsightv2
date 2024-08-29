@@ -18,10 +18,11 @@
         <script src="_static/documentation_options.js?v=37f418d5"></script>
         <script src="_static/doctools.js?v=9a2dae69"></script>
         <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="streamsight.registries" href="streamsight.registries.html" />
+    <link rel="next" title="streamsight.metrics.Metric" href="generated/streamsight.metrics.Metric.html" />
     <link rel="prev" title="streamsight.evaluators.AlgorithmStatusWarning" href="generated/streamsight.evaluators.AlgorithmStatusWarning.html" /> 
 </head>
 
@@ -58,7 +59,15 @@
 <p class="caption" role="heading"><span class="caption-text">Evaluation</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="streamsight.evaluators.html">streamsight.evaluators</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">streamsight.metrics</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">streamsight.metrics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#metrics">Metrics</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="generated/streamsight.metrics.Metric.html">streamsight.metrics.Metric</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/streamsight.metrics.PrecisionK.html">streamsight.metrics.PrecisionK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/streamsight.metrics.RecallK.html">streamsight.metrics.RecallK</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Other supporting modules</span></p>
 <ul>
@@ -91,6 +100,23 @@
              
   <section id="module-streamsight.metrics">
 <span id="streamsight-metrics"></span><h1>streamsight.metrics<a class="headerlink" href="#module-streamsight.metrics" title="Link to this heading"></a></h1>
+<section id="metrics">
+<h2>Metrics<a class="headerlink" href="#metrics" title="Link to this heading"></a></h2>
+<p>This module provides the functionality to evaluate the performance of the recommendation system.</p>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/streamsight.metrics.Metric.html#streamsight.metrics.Metric" title="streamsight.metrics.Metric"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Metric</span></code></a>([timestamp_limit, cache])</p></td>
+<td><p>Base class for all metrics.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/streamsight.metrics.PrecisionK.html#streamsight.metrics.PrecisionK" title="streamsight.metrics.PrecisionK"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PrecisionK</span></code></a>([K, timestamp_limit, cache])</p></td>
+<td><p>Computes the fraction of top-K recommendations that correspond to true interactions.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/streamsight.metrics.RecallK.html#streamsight.metrics.RecallK" title="streamsight.metrics.RecallK"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RecallK</span></code></a>([K, timestamp_limit, cache])</p></td>
+<td><p>Computes the fraction of true interactions that made it into the Top-K recommendations.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
 </section>
 
 
@@ -98,7 +124,7 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="generated/streamsight.evaluators.AlgorithmStatusWarning.html" class="btn btn-neutral float-left" title="streamsight.evaluators.AlgorithmStatusWarning" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="streamsight.registries.html" class="btn btn-neutral float-right" title="streamsight.registries" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="generated/streamsight.metrics.Metric.html" class="btn btn-neutral float-right" title="streamsight.metrics.Metric" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
