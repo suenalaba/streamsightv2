@@ -23,6 +23,7 @@
       ~RecallK.calculate
       ~RecallK.calculate_cached
       ~RecallK.get_params
+      ~RecallK.prepare_matrix
    
    
 

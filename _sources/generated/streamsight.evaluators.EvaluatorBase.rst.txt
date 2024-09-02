@@ -30,6 +30,7 @@
    .. autosummary::
    
       ~EvaluatorBase.setting
+      ~EvaluatorBase.metric_k
       ~EvaluatorBase.ignore_unknown_user
       ~EvaluatorBase.ignore_unknown_item
    

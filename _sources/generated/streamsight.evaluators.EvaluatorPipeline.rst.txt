@@ -33,6 +33,7 @@
    .. autosummary::
    
       ~EvaluatorPipeline.setting
+      ~EvaluatorPipeline.metric_k
       ~EvaluatorPipeline.ignore_unknown_user
       ~EvaluatorPipeline.ignore_unknown_item
    

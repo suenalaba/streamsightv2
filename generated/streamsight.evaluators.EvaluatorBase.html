@@ -108,7 +108,7 @@
 <h1>streamsight.evaluators.EvaluatorBase<a class="headerlink" href="#streamsight-evaluators-evaluatorbase" title="Link to this heading"></a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="streamsight.evaluators.EvaluatorBase">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">streamsight.evaluators.</span></span><span class="sig-name descname"><span class="pre">EvaluatorBase</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">metric_entries</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="streamsight.registries.MetricEntry.html#streamsight.registries.MetricEntry" title="streamsight.registries.registry.MetricEntry"><span class="pre">MetricEntry</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">setting</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="streamsight.settings.Setting.html#streamsight.settings.Setting" title="streamsight.settings.base.Setting"><span class="pre">Setting</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">ignore_unknown_user</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ignore_unknown_item</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#streamsight.evaluators.EvaluatorBase" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">streamsight.evaluators.</span></span><span class="sig-name descname"><span class="pre">EvaluatorBase</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">metric_entries</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="streamsight.registries.MetricEntry.html#streamsight.registries.MetricEntry" title="streamsight.registries.registry.MetricEntry"><span class="pre">MetricEntry</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">setting</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="streamsight.settings.Setting.html#streamsight.settings.Setting" title="streamsight.settings.base.Setting"><span class="pre">Setting</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">metric_k</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ignore_unknown_user</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ignore_unknown_item</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#streamsight.evaluators.EvaluatorBase" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Base class for evaluator.</p>
 <dl class="field-list simple">
@@ -123,13 +123,13 @@
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="streamsight.evaluators.EvaluatorBase.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">metric_entries</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="streamsight.registries.MetricEntry.html#streamsight.registries.MetricEntry" title="streamsight.registries.registry.MetricEntry"><span class="pre">MetricEntry</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">setting</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="streamsight.settings.Setting.html#streamsight.settings.Setting" title="streamsight.settings.base.Setting"><span class="pre">Setting</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">ignore_unknown_user</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ignore_unknown_item</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#streamsight.evaluators.EvaluatorBase.__init__" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">metric_entries</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="streamsight.registries.MetricEntry.html#streamsight.registries.MetricEntry" title="streamsight.registries.registry.MetricEntry"><span class="pre">MetricEntry</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">setting</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="streamsight.settings.Setting.html#streamsight.settings.Setting" title="streamsight.settings.base.Setting"><span class="pre">Setting</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">metric_k</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ignore_unknown_user</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ignore_unknown_item</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#streamsight.evaluators.EvaluatorBase.__init__" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <p class="rubric">Methods</p>
 <table class="autosummary longtable docutils align-default">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#streamsight.evaluators.EvaluatorBase.__init__" title="streamsight.evaluators.EvaluatorBase.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(metric_entries, setting[, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#streamsight.evaluators.EvaluatorBase.__init__" title="streamsight.evaluators.EvaluatorBase.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(metric_entries, setting, metric_k)</p></td>
 <td><p></p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#streamsight.evaluators.EvaluatorBase.metric_results" title="streamsight.evaluators.EvaluatorBase.metric_results"><code class="xref py py-obj docutils literal notranslate"><span class="pre">metric_results</span></code></a>([level, ...])</p></td>
@@ -143,18 +143,41 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="#streamsight.evaluators.EvaluatorBase.setting" title="streamsight.evaluators.EvaluatorBase.setting"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setting</span></code></a></p></td>
 <td><p>Setting to evaluate the algorithms on.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#streamsight.evaluators.EvaluatorBase.ignore_unknown_user" title="streamsight.evaluators.EvaluatorBase.ignore_unknown_user"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ignore_unknown_user</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#streamsight.evaluators.EvaluatorBase.metric_k" title="streamsight.evaluators.EvaluatorBase.metric_k"><code class="xref py py-obj docutils literal notranslate"><span class="pre">metric_k</span></code></a></p></td>
+<td><p>Value of K for the metrics.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#streamsight.evaluators.EvaluatorBase.ignore_unknown_user" title="streamsight.evaluators.EvaluatorBase.ignore_unknown_user"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ignore_unknown_user</span></code></a></p></td>
 <td><p>To ignore unknown users during evaluation.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#streamsight.evaluators.EvaluatorBase.ignore_unknown_item" title="streamsight.evaluators.EvaluatorBase.ignore_unknown_item"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ignore_unknown_item</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#streamsight.evaluators.EvaluatorBase.ignore_unknown_item" title="streamsight.evaluators.EvaluatorBase.ignore_unknown_item"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ignore_unknown_item</span></code></a></p></td>
 <td><p>To ignore unknown items during evaluation.</p></td>
 </tr>
 </tbody>
 </table>
 <dl class="py method">
 <dt class="sig sig-object py" id="streamsight.evaluators.EvaluatorBase._prediction_shape_handler">
-<span class="sig-name descname"><span class="pre">_prediction_shape_handler</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X_true</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">csr_matrix</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">X_pred</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">csr_matrix</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#streamsight.evaluators.EvaluatorBase._prediction_shape_handler" title="Link to this definition"></a></dt>
-<dd><p>Check the shape of the prediction matrix.</p>
+<span class="sig-name descname"><span class="pre">_prediction_shape_handler</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X_true_shape</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">X_pred</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">csr_matrix</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">csr_matrix</span></span></span><a class="headerlink" href="#streamsight.evaluators.EvaluatorBase._prediction_shape_handler" title="Link to this definition"></a></dt>
+<dd><p>Handle shape difference of the prediction matrix.</p>
+<p>If there is a difference in the shape of the prediction matrix and the
+ground truth matrix, this function will handle the difference based on
+<a class="reference internal" href="#streamsight.evaluators.EvaluatorBase.ignore_unknown_user" title="streamsight.evaluators.EvaluatorBase.ignore_unknown_user"><code class="xref py py-attr docutils literal notranslate"><span class="pre">ignore_unknown_user</span></code></a> and <a class="reference internal" href="#streamsight.evaluators.EvaluatorBase.ignore_unknown_item" title="streamsight.evaluators.EvaluatorBase.ignore_unknown_item"><code class="xref py py-attr docutils literal notranslate"><span class="pre">ignore_unknown_item</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X_true_shape</strong> (<em>Tuple</em><em>[</em><em>int</em><em>,</em><em>int</em><em>]</em>) – Shape of the ground truth matrix</p></li>
+<li><p><strong>X_pred</strong> (<em>csr_matrix</em>) – Prediction matrix</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If the user dimension of the prediction matrix is less than the ground truth matrix</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Prediction matrix with the same shape as the ground truth matrix</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>csr_matrix</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py attribute">
@@ -169,15 +192,69 @@
 <dd><p>To ignore unknown users during evaluation.</p>
 </dd></dl>
 
+<dl class="py attribute">
+<dt class="sig sig-object py" id="streamsight.evaluators.EvaluatorBase.metric_k">
+<span class="sig-name descname"><span class="pre">metric_k</span></span><a class="headerlink" href="#streamsight.evaluators.EvaluatorBase.metric_k" title="Link to this definition"></a></dt>
+<dd><p>Value of K for the metrics.</p>
+</dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="streamsight.evaluators.EvaluatorBase.metric_results">
-<span class="sig-name descname"><span class="pre">metric_results</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">level</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'micro'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'macro'</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="streamsight.evaluators.MetricLevelEnum.html#streamsight.evaluators.MetricLevelEnum" title="streamsight.evaluators.util.MetricLevelEnum"><span class="pre">MetricLevelEnum</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'macro'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">only_current_timestamp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_algo</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="headerlink" href="#streamsight.evaluators.EvaluatorBase.metric_results" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">metric_results</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">level</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="streamsight.evaluators.MetricLevelEnum.html#streamsight.evaluators.MetricLevelEnum" title="streamsight.evaluators.util.MetricLevelEnum"><span class="pre">MetricLevelEnum</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'macro'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'micro'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'window'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'user'</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">MetricLevelEnum.MACRO</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">only_current_timestamp</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_timestamp</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_algo</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="headerlink" href="#streamsight.evaluators.EvaluatorBase.metric_results" title="Link to this definition"></a></dt>
 <dd><p>Results of the metrics computed.</p>
 <p>Computes the metrics of all algorithms based on the level specified and
 return the results in a pandas DataFrame. The results can be filtered
 based on the algorithm name and the current timestamp.</p>
-<p>If the level specified is “macro”, then the filtering on the current timestamp
-will be ignored.</p>
+<section id="specifics">
+<h2>Specifics<a class="headerlink" href="#specifics" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>User level: User level metrics computed across all timestamps.</p></li>
+<li><p>Window level: Window level metrics computed across all timestamps. This can
+be viewed as a macro level metric in the context of a single window, where
+the scores of each user is averaged within the window.</p></li>
+<li><p>Macro level: Macro level metrics computed for entire timeline. This
+score is computed by averaging the scores of all windows, treating each
+window equally.</p></li>
+<li><p>Micro level: Micro level metrics computed for entire timeline. This
+score is computed by averaging the scores of all users, treating each
+user and the timestamp the user is in as unique contribution to the
+overall score.</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">param level<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Level of the metric to compute, defaults to “macro”</p>
+</dd>
+<dt class="field-even">type level<span class="colon">:</span></dt>
+<dd class="field-even"><p>Union[MetricLevelEnum, Literal[“macro”, “micro”, “window”, “user”]]</p>
+</dd>
+<dt class="field-odd">param only_current_timestamp<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Filter only the current timestamp, defaults to False</p>
+</dd>
+<dt class="field-even">type only_current_timestamp<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool, optional</p>
+</dd>
+<dt class="field-odd">param filter_timestamp<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Timestamp value to filter on, defaults to None.
+If both <cite>only_current_timestamp</cite> and <cite>filter_timestamp</cite> are provided,
+<cite>filter_timestamp</cite> will be used.</p>
+</dd>
+<dt class="field-even">type filter_timestamp<span class="colon">:</span></dt>
+<dd class="field-even"><p>Optional[int], optional</p>
+</dd>
+<dt class="field-odd">param filter_algo<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Algorithm name to filter on, defaults to None</p>
+</dd>
+<dt class="field-even">type filter_algo<span class="colon">:</span></dt>
+<dd class="field-even"><p>Optional[str], optional</p>
+</dd>
+<dt class="field-odd">return<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Dataframe representation of the metric</p>
+</dd>
+<dt class="field-even">rtype<span class="colon">:</span></dt>
+<dd class="field-even"><p>pd.DataFrame</p>
+</dd>
+</dl>
+</section>
 </dd></dl>
 
 <dl class="py attribute">

@@ -20,7 +20,11 @@
    
       ~MetricAccumulator.__init__
       ~MetricAccumulator.add
+      ~MetricAccumulator.df_macro_level_metric
       ~MetricAccumulator.df_metric
+      ~MetricAccumulator.df_micro_level_metric
+      ~MetricAccumulator.df_user_level_metric
+      ~MetricAccumulator.df_window_level_metric
    
    
 
@@ -31,5 +35,7 @@
    .. autosummary::
    
       ~MetricAccumulator.metrics
+      ~MetricAccumulator.user_level_metrics
+      ~MetricAccumulator.window_level_metrics
    
    

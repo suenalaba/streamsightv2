@@ -132,7 +132,10 @@ split point. The ground truth data is the interactions after the split point and
 <dd class="field-even"><p>int</p>
 </dd>
 <dt class="field-odd">param window_size<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Size of the window in seconds to slide over the data.</p>
+<dd class="field-odd"><p>Size of the window in seconds to slide over the data.
+Affects the incremental data being released to the model. If
+<a href="#id1"><span class="problematic" id="id2">:param:`t_ground_truth_window`</span></a> is not provided, ground truth data will also
+take this window.</p>
 </dd>
 <dt class="field-even">type window_size<span class="colon">:</span></dt>
 <dd class="field-even"><p>int, optional</p>
@@ -201,7 +204,7 @@ If not provided, defaults to window_size during computation.</p>
 <td><p>Reset data generators.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#streamsight.settings.SlidingWindowSetting.split" title="streamsight.settings.SlidingWindowSetting.split"><code class="xref py py-obj docutils literal notranslate"><span class="pre">split</span></code></a>(data)</p></td>
-<td><p>Splits <a href="#id1"><span class="problematic" id="id2">:param:`data`</span></a> according to the setting.</p></td>
+<td><p>Splits <a href="#id3"><span class="problematic" id="id4">:param:`data`</span></a> according to the setting.</p></td>
 </tr>
 </tbody>
 </table>
@@ -644,7 +647,7 @@ of the setting object to the beginning of the data series.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="streamsight.settings.SlidingWindowSetting.split">
 <span class="sig-name descname"><span class="pre">split</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="streamsight.matrix.InteractionMatrix.html#streamsight.matrix.InteractionMatrix" title="streamsight.matrix.interaction_matrix.InteractionMatrix"><span class="pre">InteractionMatrix</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#streamsight.settings.SlidingWindowSetting.split" title="Link to this definition"></a></dt>
-<dd><p>Splits <a href="#id3"><span class="problematic" id="id4">:param:`data`</span></a> according to the setting.</p>
+<dd><p>Splits <a href="#id5"><span class="problematic" id="id6">:param:`data`</span></a> according to the setting.</p>
 <p>Calling this method will change the state of the setting object to be ready
 for evaluation. The method will split the data into <a class="reference internal" href="#streamsight.settings.SlidingWindowSetting.background_data" title="streamsight.settings.SlidingWindowSetting.background_data"><code class="xref py py-attr docutils literal notranslate"><span class="pre">background_data</span></code></a>,
 <a class="reference internal" href="#streamsight.settings.SlidingWindowSetting.ground_truth_data" title="streamsight.settings.SlidingWindowSetting.ground_truth_data"><code class="xref py py-attr docutils literal notranslate"><span class="pre">ground_truth_data</span></code></a>, <a class="reference internal" href="#streamsight.settings.SlidingWindowSetting.unlabeled_data" title="streamsight.settings.SlidingWindowSetting.unlabeled_data"><code class="xref py py-attr docutils literal notranslate"><span class="pre">unlabeled_data</span></code></a>.</p>

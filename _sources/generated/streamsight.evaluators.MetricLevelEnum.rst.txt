@@ -78,5 +78,7 @@
    
       ~MetricLevelEnum.MICRO
       ~MetricLevelEnum.MACRO
+      ~MetricLevelEnum.WINDOW
+      ~MetricLevelEnum.USER
    
    

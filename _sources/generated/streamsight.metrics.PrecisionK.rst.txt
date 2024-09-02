@@ -23,6 +23,7 @@
       ~PrecisionK.calculate
       ~PrecisionK.calculate_cached
       ~PrecisionK.get_params
+      ~PrecisionK.prepare_matrix
    
    
 

@@ -23,6 +23,8 @@
       ~EvaluatorBuilder.add_metric
       ~EvaluatorBuilder.add_setting
       ~EvaluatorBuilder.build
+      ~EvaluatorBuilder.clear_metrics
+      ~EvaluatorBuilder.set_metric_K
    
    
 

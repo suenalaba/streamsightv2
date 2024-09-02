@@ -72,8 +72,6 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#accumulator">Accumulator</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="generated/streamsight.evaluators.MetricAccumulator.html">streamsight.evaluators.MetricAccumulator</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/streamsight.evaluators.MacroMetricAccumulator.html">streamsight.evaluators.MacroMetricAccumulator</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/streamsight.evaluators.MicroMetricAccumulator.html">streamsight.evaluators.MicroMetricAccumulator</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#utility">Utility</a><ul>
@@ -171,13 +169,13 @@ computing the metric for each prediction against the ground truth. There are
 2 concrete implementation of <code class="xref py py-class docutils literal notranslate"><span class="pre">Evaluator</span></code>.</p>
 <table class="autosummary longtable docutils align-default">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/streamsight.evaluators.EvaluatorBase.html#streamsight.evaluators.EvaluatorBase" title="streamsight.evaluators.EvaluatorBase"><code class="xref py py-obj docutils literal notranslate"><span class="pre">EvaluatorBase</span></code></a>(metric_entries, setting[, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/streamsight.evaluators.EvaluatorBase.html#streamsight.evaluators.EvaluatorBase" title="streamsight.evaluators.EvaluatorBase"><code class="xref py py-obj docutils literal notranslate"><span class="pre">EvaluatorBase</span></code></a>(metric_entries, setting, metric_k)</p></td>
 <td><p>Base class for evaluator.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="generated/streamsight.evaluators.EvaluatorPipeline.html#streamsight.evaluators.EvaluatorPipeline" title="streamsight.evaluators.EvaluatorPipeline"><code class="xref py py-obj docutils literal notranslate"><span class="pre">EvaluatorPipeline</span></code></a>(algorithm_entries, ...[, ...])</p></td>
 <td><p>Evaluation via pipeline</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/streamsight.evaluators.EvaluatorStreamer.html#streamsight.evaluators.EvaluatorStreamer" title="streamsight.evaluators.EvaluatorStreamer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">EvaluatorStreamer</span></code></a>(metric_entries, setting[, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/streamsight.evaluators.EvaluatorStreamer.html#streamsight.evaluators.EvaluatorStreamer" title="streamsight.evaluators.EvaluatorStreamer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">EvaluatorStreamer</span></code></a>(metric_entries, setting, ...)</p></td>
 <td><p>Evaluation via streaming through API</p></td>
 </tr>
 </tbody>
@@ -190,12 +188,6 @@ used to accumulate the metrics.</p>
 <table class="autosummary longtable docutils align-default">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/streamsight.evaluators.MetricAccumulator.html#streamsight.evaluators.MetricAccumulator" title="streamsight.evaluators.MetricAccumulator"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MetricAccumulator</span></code></a>()</p></td>
-<td><p>Accumulates and aggregate <code class="xref py py-class docutils literal notranslate"><span class="pre">Metric</span></code></p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/streamsight.evaluators.MacroMetricAccumulator.html#streamsight.evaluators.MacroMetricAccumulator" title="streamsight.evaluators.MacroMetricAccumulator"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MacroMetricAccumulator</span></code></a>()</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/streamsight.evaluators.MicroMetricAccumulator.html#streamsight.evaluators.MicroMetricAccumulator" title="streamsight.evaluators.MicroMetricAccumulator"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MicroMetricAccumulator</span></code></a>()</p></td>
 <td><p></p></td>
 </tr>
 </tbody>

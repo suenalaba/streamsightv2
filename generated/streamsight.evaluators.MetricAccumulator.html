@@ -21,7 +21,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="streamsight.evaluators.MacroMetricAccumulator" href="streamsight.evaluators.MacroMetricAccumulator.html" />
+    <link rel="next" title="streamsight.evaluators.MetricLevelEnum" href="streamsight.evaluators.MetricLevelEnum.html" />
     <link rel="prev" title="streamsight.evaluators.EvaluatorStreamer" href="streamsight.evaluators.EvaluatorStreamer.html" /> 
 </head>
 
@@ -65,8 +65,6 @@
 <li class="toctree-l4"><a class="reference internal" href="#streamsight.evaluators.MetricAccumulator"><code class="docutils literal notranslate"><span class="pre">MetricAccumulator</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="streamsight.evaluators.MacroMetricAccumulator.html">streamsight.evaluators.MacroMetricAccumulator</a></li>
-<li class="toctree-l3"><a class="reference internal" href="streamsight.evaluators.MicroMetricAccumulator.html">streamsight.evaluators.MicroMetricAccumulator</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../streamsight.evaluators.html#utility">Utility</a></li>
@@ -109,12 +107,7 @@
 <dl class="py class">
 <dt class="sig sig-object py" id="streamsight.evaluators.MetricAccumulator">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">streamsight.evaluators.</span></span><span class="sig-name descname"><span class="pre">MetricAccumulator</span></span><a class="headerlink" href="#streamsight.evaluators.MetricAccumulator" title="Link to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></p>
-<p>Accumulates and aggregate <code class="xref py py-class docutils literal notranslate"><span class="pre">Metric</span></code></p>
-<p>Base class for accumulating metrics. The class is used to store and aggregate
-metrics for each algorithm. The class is abstract and should not be instantiated
-directly. Instead, use the <a class="reference internal" href="streamsight.evaluators.MacroMetricAccumulator.html#streamsight.evaluators.MacroMetricAccumulator" title="streamsight.evaluators.MacroMetricAccumulator"><code class="xref py py-class docutils literal notranslate"><span class="pre">MacroMetricAccumulator</span></code></a> or <a class="reference internal" href="streamsight.evaluators.MicroMetricAccumulator.html#streamsight.evaluators.MicroMetricAccumulator" title="streamsight.evaluators.MicroMetricAccumulator"><code class="xref py py-class docutils literal notranslate"><span class="pre">MicroMetricAccumulator</span></code></a>
-to accumulate metrics.</p>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <dl class="py method">
 <dt class="sig sig-object py" id="streamsight.evaluators.MetricAccumulator.__init__">
 <span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#streamsight.evaluators.MetricAccumulator.__init__" title="Link to this definition"></a></dt>
@@ -129,8 +122,20 @@ to accumulate metrics.</p>
 <tr class="row-even"><td><p><a class="reference internal" href="#streamsight.evaluators.MetricAccumulator.add" title="streamsight.evaluators.MetricAccumulator.add"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add</span></code></a>(metric, algorithm_name)</p></td>
 <td><p>Add a metric to the accumulator</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#streamsight.evaluators.MetricAccumulator.df_metric" title="streamsight.evaluators.MetricAccumulator.df_metric"><code class="xref py py-obj docutils literal notranslate"><span class="pre">df_metric</span></code></a>([filter_timestamp, filter_algo])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#streamsight.evaluators.MetricAccumulator.df_macro_level_metric" title="streamsight.evaluators.MetricAccumulator.df_macro_level_metric"><code class="xref py py-obj docutils literal notranslate"><span class="pre">df_macro_level_metric</span></code></a>()</p></td>
+<td><p>Macro metric across all timestamps</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#streamsight.evaluators.MetricAccumulator.df_metric" title="streamsight.evaluators.MetricAccumulator.df_metric"><code class="xref py py-obj docutils literal notranslate"><span class="pre">df_metric</span></code></a>([filter_timestamp, filter_algo, level])</p></td>
 <td><p>Dataframe representation of the metric</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#streamsight.evaluators.MetricAccumulator.df_micro_level_metric" title="streamsight.evaluators.MetricAccumulator.df_micro_level_metric"><code class="xref py py-obj docutils literal notranslate"><span class="pre">df_micro_level_metric</span></code></a>()</p></td>
+<td><p>Micro metric across all timestamps</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#streamsight.evaluators.MetricAccumulator.df_user_level_metric" title="streamsight.evaluators.MetricAccumulator.df_user_level_metric"><code class="xref py py-obj docutils literal notranslate"><span class="pre">df_user_level_metric</span></code></a>()</p></td>
+<td><p>User metric across all timestamps</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#streamsight.evaluators.MetricAccumulator.df_window_level_metric" title="streamsight.evaluators.MetricAccumulator.df_window_level_metric"><code class="xref py py-obj docutils literal notranslate"><span class="pre">df_window_level_metric</span></code></a>()</p></td>
+<td><p></p></td>
 </tr>
 </tbody>
 </table>
@@ -138,15 +143,16 @@ to accumulate metrics.</p>
 <table class="autosummary longtable docutils align-default">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#streamsight.evaluators.MetricAccumulator.metrics" title="streamsight.evaluators.MetricAccumulator.metrics"><code class="xref py py-obj docutils literal notranslate"><span class="pre">metrics</span></code></a></p></td>
-<td><p>Compute metric for output</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#streamsight.evaluators.MetricAccumulator.user_level_metrics" title="streamsight.evaluators.MetricAccumulator.user_level_metrics"><code class="xref py py-obj docutils literal notranslate"><span class="pre">user_level_metrics</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#streamsight.evaluators.MetricAccumulator.window_level_metrics" title="streamsight.evaluators.MetricAccumulator.window_level_metrics"><code class="xref py py-obj docutils literal notranslate"><span class="pre">window_level_metrics</span></code></a></p></td>
+<td><p></p></td>
 </tr>
 </tbody>
 </table>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="streamsight.evaluators.MetricAccumulator._abc_impl">
-<span class="sig-name descname"><span class="pre">_abc_impl</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;_abc._abc_data</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#streamsight.evaluators.MetricAccumulator._abc_impl" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="streamsight.evaluators.MetricAccumulator.add">
 <span class="sig-name descname"><span class="pre">add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">metric</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="streamsight.metrics.Metric.html#streamsight.metrics.Metric" title="streamsight.metrics.base.Metric"><span class="pre">Metric</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">algorithm_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#streamsight.evaluators.MetricAccumulator.add" title="Link to this definition"></a></dt>
@@ -165,14 +171,31 @@ overwritten with the new metric.</p>
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="streamsight.evaluators.MetricAccumulator.df_macro_level_metric">
+<span class="sig-name descname"><span class="pre">df_macro_level_metric</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="headerlink" href="#streamsight.evaluators.MetricAccumulator.df_macro_level_metric" title="Link to this definition"></a></dt>
+<dd><p>Macro metric across all timestamps</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>_description_</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>pd.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="streamsight.evaluators.MetricAccumulator.df_metric">
-<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">df_metric</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filter_timestamp</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_algo</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="headerlink" href="#streamsight.evaluators.MetricAccumulator.df_metric" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">df_metric</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filter_timestamp</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_algo</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">level</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="streamsight.evaluators.MetricLevelEnum.html#streamsight.evaluators.MetricLevelEnum" title="streamsight.evaluators.util.MetricLevelEnum"><span class="pre">MetricLevelEnum</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">MetricLevelEnum.MACRO</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="headerlink" href="#streamsight.evaluators.MetricAccumulator.df_metric" title="Link to this definition"></a></dt>
 <dd><p>Dataframe representation of the metric</p>
+<p>Returns a dataframe representation of the metric. The dataframe can be
+filtered based on the algorithm name and the timestamp.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>filter_timestamp</strong> (<em>Optional</em><em>[</em><em>int</em><em>]</em><em>, </em><em>optional</em>) – Timestamp value to filter on, defaults to None</p></li>
 <li><p><strong>filter_algo</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em><em>, </em><em>optional</em>) – Algorithm name to filter on, defaults to None</p></li>
+<li><p><strong>level</strong> (<a class="reference internal" href="streamsight.evaluators.MetricLevelEnum.html#streamsight.evaluators.MetricLevelEnum" title="streamsight.evaluators.MetricLevelEnum"><em>MetricLevelEnum</em></a><em>, </em><em>optional</em>) – Level of the metric to compute, defaults to MetricLevelEnum.MACRO</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -184,22 +207,57 @@ overwritten with the new metric.</p>
 </dl>
 </dd></dl>
 
-<dl class="py property">
-<dt class="sig sig-object py" id="streamsight.evaluators.MetricAccumulator.metrics">
-<em class="property"><span class="pre">abstract</span><span class="w"> </span><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">metrics</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">defaultdict</span></em><a class="headerlink" href="#streamsight.evaluators.MetricAccumulator.metrics" title="Link to this definition"></a></dt>
-<dd><p>Compute metric for output</p>
-<p>Computes the metric for each algorithm into a dictionary. The Key value
-of the dictionary depends on the level of aggregation of the metric
-and the algorithm name.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="streamsight.evaluators.MetricAccumulator.df_micro_level_metric">
+<span class="sig-name descname"><span class="pre">df_micro_level_metric</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="headerlink" href="#streamsight.evaluators.MetricAccumulator.df_micro_level_metric" title="Link to this definition"></a></dt>
+<dd><p>Micro metric across all timestamps</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>_description_</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>defaultdict</p>
+<dd class="field-even"><p>pd.DataFrame</p>
 </dd>
 </dl>
 </dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="streamsight.evaluators.MetricAccumulator.df_user_level_metric">
+<span class="sig-name descname"><span class="pre">df_user_level_metric</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="headerlink" href="#streamsight.evaluators.MetricAccumulator.df_user_level_metric" title="Link to this definition"></a></dt>
+<dd><p>User metric across all timestamps</p>
+<p>Computation of metrics evaluated on the user level</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>_description_</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>pd.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="streamsight.evaluators.MetricAccumulator.df_window_level_metric">
+<span class="sig-name descname"><span class="pre">df_window_level_metric</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="headerlink" href="#streamsight.evaluators.MetricAccumulator.df_window_level_metric" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="streamsight.evaluators.MetricAccumulator.metrics">
+<span class="sig-name descname"><span class="pre">metrics</span></span><a class="headerlink" href="#streamsight.evaluators.MetricAccumulator.metrics" title="Link to this definition"></a></dt>
+<dd><div class="deprecated">
+<p><span class="versionmodified deprecated">Deprecated since version Use: </span><cite>window_level_metrics</cite> instead</p>
+</div>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="streamsight.evaluators.MetricAccumulator.user_level_metrics">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">user_level_metrics</span></span><a class="headerlink" href="#streamsight.evaluators.MetricAccumulator.user_level_metrics" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="streamsight.evaluators.MetricAccumulator.window_level_metrics">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">window_level_metrics</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">defaultdict</span></em><a class="headerlink" href="#streamsight.evaluators.MetricAccumulator.window_level_metrics" title="Link to this definition"></a></dt>
+<dd></dd></dl>
 
 </dd></dl>
 
@@ -210,7 +268,7 @@ and the algorithm name.</p>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="streamsight.evaluators.EvaluatorStreamer.html" class="btn btn-neutral float-left" title="streamsight.evaluators.EvaluatorStreamer" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="streamsight.evaluators.MacroMetricAccumulator.html" class="btn btn-neutral float-right" title="streamsight.evaluators.MacroMetricAccumulator" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="streamsight.evaluators.MetricLevelEnum.html" class="btn btn-neutral float-right" title="streamsight.evaluators.MetricLevelEnum" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

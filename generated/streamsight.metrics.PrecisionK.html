@@ -138,16 +138,19 @@ observations to the total predictions made.</p>
 <td><p></p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#streamsight.metrics.PrecisionK.cache_values" title="streamsight.metrics.PrecisionK.cache_values"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cache_values</span></code></a>(y_true, y_pred)</p></td>
-<td><p></p></td>
+<td><p>Cache the values of y_true and y_pred for later use.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#streamsight.metrics.PrecisionK.calculate" title="streamsight.metrics.PrecisionK.calculate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calculate</span></code></a>(y_true, y_pred)</p></td>
 <td><p>Computes metric given true labels <code class="docutils literal notranslate"><span class="pre">y_true</span></code> and predicted scores <code class="docutils literal notranslate"><span class="pre">y_pred</span></code>.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#streamsight.metrics.PrecisionK.calculate_cached" title="streamsight.metrics.PrecisionK.calculate_cached"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calculate_cached</span></code></a>()</p></td>
-<td><p></p></td>
+<td><p>Calculate the metric using the cached values of y_true and y_pred.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#streamsight.metrics.PrecisionK.get_params" title="streamsight.metrics.PrecisionK.get_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_params</span></code></a>()</p></td>
 <td><p>Get the parameters of the metric.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#streamsight.metrics.PrecisionK.prepare_matrix" title="streamsight.metrics.PrecisionK.prepare_matrix"><code class="xref py py-obj docutils literal notranslate"><span class="pre">prepare_matrix</span></code></a>(y_true, y_pred)</p></td>
+<td><p>Prepare the matrices for the metric calculation.</p></td>
 </tr>
 </tbody>
 </table>
@@ -167,7 +170,7 @@ observations to the total predictions made.</p>
 <td><p>Global metric value obtained by taking the average over all users.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#streamsight.metrics.PrecisionK.micro_result" title="streamsight.metrics.PrecisionK.micro_result"><code class="xref py py-obj docutils literal notranslate"><span class="pre">micro_result</span></code></a></p></td>
-<td><p>Get the detailed results for this metric.</p></td>
+<td><p>User level results for the metric.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#streamsight.metrics.PrecisionK.name" title="streamsight.metrics.PrecisionK.name"><code class="xref py py-obj docutils literal notranslate"><span class="pre">name</span></code></a></p></td>
 <td><p>Name of the metric.</p></td>
@@ -210,8 +213,9 @@ observations to the total predictions made.</p>
 <dt class="sig sig-object py" id="streamsight.metrics.PrecisionK._eliminate_empty_users">
 <span class="sig-name descname"><span class="pre">_eliminate_empty_users</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y_true</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">csr_matrix</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_pred</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">csr_matrix</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">csr_matrix</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">csr_matrix</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#streamsight.metrics.PrecisionK._eliminate_empty_users" title="Link to this definition"></a></dt>
 <dd><p>Eliminate users that have no interactions in <code class="docutils literal notranslate"><span class="pre">y_true</span></code>.</p>
-<p>We cannot make accurate predictions of interactions for
-these users as there are none.</p>
+<p>Users with no interactions in <code class="docutils literal notranslate"><span class="pre">y_true</span></code> are eliminated from the
+prediction matrix <code class="docutils literal notranslate"><span class="pre">y_pred</span></code>. This is done to avoid division by zero
+and to also reduce the computational overhead.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -228,6 +232,18 @@ these users as there are none.</p>
 </dl>
 </dd></dl>
 
+<dl class="py attribute">
+<dt class="sig sig-object py" id="streamsight.metrics.PrecisionK._false_negative">
+<span class="sig-name descname"><span class="pre">_false_negative</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#streamsight.metrics.PrecisionK._false_negative" title="Link to this definition"></a></dt>
+<dd><p>Number of false negatives computed. Used for caching to obtain macro results.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="streamsight.metrics.PrecisionK._false_positive">
+<span class="sig-name descname"><span class="pre">_false_positive</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#streamsight.metrics.PrecisionK._false_positive" title="Link to this definition"></a></dt>
+<dd><p>Number of false positives computed. Used for caching to obtain macro results.</p>
+</dd></dl>
+
 <dl class="py property">
 <dt class="sig sig-object py" id="streamsight.metrics.PrecisionK._indices">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">_indices</span></span><a class="headerlink" href="#streamsight.metrics.PrecisionK._indices" title="Link to this definition"></a></dt>
@@ -239,6 +255,11 @@ these users as there are none.</p>
 <span class="sig-name descname"><span class="pre">_map_users</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">users</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#streamsight.metrics.PrecisionK._map_users" title="Link to this definition"></a></dt>
 <dd><p>Map internal identifiers of users to actual user identifiers.</p>
 </dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="streamsight.metrics.PrecisionK._scores">
+<span class="sig-name descname"><span class="pre">_scores</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">csr_matrix</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#streamsight.metrics.PrecisionK._scores" title="Link to this definition"></a></dt>
+<dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="streamsight.metrics.PrecisionK._set_shape">
@@ -253,6 +274,17 @@ computation of the metric to be done in the correct shape.</p>
 </dd>
 </dl>
 </dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="streamsight.metrics.PrecisionK._true_positive">
+<span class="sig-name descname"><span class="pre">_true_positive</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#streamsight.metrics.PrecisionK._true_positive" title="Link to this definition"></a></dt>
+<dd><p>Number of true positives computed. Used for caching to obtain macro results.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="streamsight.metrics.PrecisionK._value">
+<span class="sig-name descname"><span class="pre">_value</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#streamsight.metrics.PrecisionK._value" title="Link to this definition"></a></dt>
+<dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="streamsight.metrics.PrecisionK._verify_shape">
@@ -277,10 +309,46 @@ computation of the metric to be done in the correct shape.</p>
 </dl>
 </dd></dl>
 
+<dl class="py attribute">
+<dt class="sig sig-object py" id="streamsight.metrics.PrecisionK._y_pred">
+<span class="sig-name descname"><span class="pre">_y_pred</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">csr_matrix</span></em><a class="headerlink" href="#streamsight.metrics.PrecisionK._y_pred" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="streamsight.metrics.PrecisionK._y_true">
+<span class="sig-name descname"><span class="pre">_y_true</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">csr_matrix</span></em><a class="headerlink" href="#streamsight.metrics.PrecisionK._y_true" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="streamsight.metrics.PrecisionK.cache_values">
-<span class="sig-name descname"><span class="pre">cache_values</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y_true</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">csr_matrix</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_pred</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">csr_matrix</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#streamsight.metrics.PrecisionK.cache_values" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<span class="sig-name descname"><span class="pre">cache_values</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y_true</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">csr_matrix</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_pred</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">csr_matrix</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#streamsight.metrics.PrecisionK.cache_values" title="Link to this definition"></a></dt>
+<dd><p>Cache the values of y_true and y_pred for later use.</p>
+<p>Basic method to cache the values of y_true and y_pred for later use.
+This is useful when the metric can be calculated with the cumulative
+values of y_true and y_pred.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This method should be over written in the child class if the metric
+cannot be calculated with the cumulative values of y_true and y_pred.
+For example, in the case of Precision&#64;K, the metric default behavior
+is to obtain the top-K ranks of y_pred and and y_true, this will
+cause cumulative values to be possibly dropped.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>y_true</strong> (<em>csr_matrix</em>) – True user-item interactions.</p></li>
+<li><p><strong>y_pred</strong> (<em>csr_matrix</em>) – Predicted affinity of users for items.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If caching is disabled for the metric.</p>
+</dd>
+</dl>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">Deprecated since version Caching: </span>values for metric is no longer needed for core functionalities due to change in compute method.</p>
+</div>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="streamsight.metrics.PrecisionK.calculate">
@@ -301,7 +369,23 @@ Global aggregate metric value is retrieved as <code class="xref py py-attr docut
 <dl class="py method">
 <dt class="sig sig-object py" id="streamsight.metrics.PrecisionK.calculate_cached">
 <span class="sig-name descname"><span class="pre">calculate_cached</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#streamsight.metrics.PrecisionK.calculate_cached" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Calculate the metric using the cached values of y_true and y_pred.</p>
+<p>This method calculates the metric using the cached values of y_true and y_pred.
+<a class="reference internal" href="#streamsight.metrics.PrecisionK.calculate" title="streamsight.metrics.PrecisionK.calculate"><code class="xref py py-meth docutils literal notranslate"><span class="pre">calculate()</span></code></a> will be called on the cached values.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This method should be overwritten in the child class if the metric
+cannot be calculated with the cumulative values of y_true and y_pred.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>ValueError</strong> – If caching is disabled for the metric.</p>
+</dd>
+</dl>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">Deprecated since version Caching: </span>values for metric is no longer needed for core functionalities due to change in compute method.</p>
+</div>
+</dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="streamsight.metrics.PrecisionK.col_names">
@@ -323,14 +407,25 @@ Global aggregate metric value is retrieved as <code class="xref py py-attr docut
 
 <dl class="py property">
 <dt class="sig sig-object py" id="streamsight.metrics.PrecisionK.macro_result">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">macro_result</span></span><a class="headerlink" href="#streamsight.metrics.PrecisionK.macro_result" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">macro_result</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#streamsight.metrics.PrecisionK.macro_result" title="Link to this definition"></a></dt>
 <dd><p>Global metric value obtained by taking the average over all users.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>ValueError</strong> – If the metric has not been calculated yet.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The global metric value.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float, optional</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="streamsight.metrics.PrecisionK.micro_result">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">micro_result</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#streamsight.metrics.PrecisionK.micro_result" title="Link to this definition"></a></dt>
-<dd><p>Get the detailed results for this metric.</p>
+<dd><p>User level results for the metric.</p>
 <p>Contains an entry for every user.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -365,6 +460,28 @@ after elimination of users without interactions in <code class="docutils literal
 <dt class="sig sig-object py" id="streamsight.metrics.PrecisionK.params">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">params</span></span><a class="headerlink" href="#streamsight.metrics.PrecisionK.params" title="Link to this definition"></a></dt>
 <dd><p>Parameters of the metric.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="streamsight.metrics.PrecisionK.prepare_matrix">
+<span class="sig-name descname"><span class="pre">prepare_matrix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y_true</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">csr_matrix</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_pred</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">csr_matrix</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">csr_matrix</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">csr_matrix</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#streamsight.metrics.PrecisionK.prepare_matrix" title="Link to this definition"></a></dt>
+<dd><p>Prepare the matrices for the metric calculation.</p>
+<p>This method is used to prepare the matrices for the metric calculation.
+It is used to eliminate empty users and to set the shape of the matrices.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>y_true</strong> (<em>csr_matrix</em>) – True user-item interactions.</p></li>
+<li><p><strong>y_pred</strong> (<em>csr_matrix</em>) – Predicted affinity of users for items.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Tuple of the prepared matrices.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Tuple[csr_matrix, csr_matrix]</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py property">

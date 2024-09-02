@@ -22,6 +22,8 @@
       ~EvaluatorStreamerBuilder.add_metric
       ~EvaluatorStreamerBuilder.add_setting
       ~EvaluatorStreamerBuilder.build
+      ~EvaluatorStreamerBuilder.clear_metrics
+      ~EvaluatorStreamerBuilder.set_metric_K
    
    
 

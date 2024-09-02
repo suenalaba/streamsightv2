@@ -128,13 +128,13 @@ the results can be retrieved in one of two ways:</p>
 <td><p></p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#streamsight.metrics.Metric.cache_values" title="streamsight.metrics.Metric.cache_values"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cache_values</span></code></a>(y_true, y_pred)</p></td>
-<td><p></p></td>
+<td><p>Cache the values of y_true and y_pred for later use.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#streamsight.metrics.Metric.calculate" title="streamsight.metrics.Metric.calculate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calculate</span></code></a>(y_true, y_pred)</p></td>
 <td><p>Calculates this metric for all nonzero users in <code class="docutils literal notranslate"><span class="pre">y_true</span></code>, given true labels and predicted scores.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#streamsight.metrics.Metric.calculate_cached" title="streamsight.metrics.Metric.calculate_cached"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calculate_cached</span></code></a>()</p></td>
-<td><p></p></td>
+<td><p>Calculate the metric using the cached values of y_true and y_pred.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#streamsight.metrics.Metric.get_params" title="streamsight.metrics.Metric.get_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_params</span></code></a>()</p></td>
 <td><p>Get the parameters of the metric.</p></td>
@@ -172,15 +172,16 @@ the results can be retrieved in one of two ways:</p>
 </table>
 <dl class="py method">
 <dt class="sig sig-object py" id="streamsight.metrics.Metric._calculate">
-<span class="sig-name descname"><span class="pre">_calculate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y_true</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_pred</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#streamsight.metrics.Metric._calculate" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">_calculate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y_true</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">csr_matrix</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_pred</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">csr_matrix</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#streamsight.metrics.Metric._calculate" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="streamsight.metrics.Metric._eliminate_empty_users">
 <span class="sig-name descname"><span class="pre">_eliminate_empty_users</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y_true</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">csr_matrix</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_pred</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">csr_matrix</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">csr_matrix</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">csr_matrix</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#streamsight.metrics.Metric._eliminate_empty_users" title="Link to this definition"></a></dt>
 <dd><p>Eliminate users that have no interactions in <code class="docutils literal notranslate"><span class="pre">y_true</span></code>.</p>
-<p>We cannot make accurate predictions of interactions for
-these users as there are none.</p>
+<p>Users with no interactions in <code class="docutils literal notranslate"><span class="pre">y_true</span></code> are eliminated from the
+prediction matrix <code class="docutils literal notranslate"><span class="pre">y_pred</span></code>. This is done to avoid division by zero
+and to also reduce the computational overhead.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -195,6 +196,18 @@ these users as there are none.</p>
 <dd class="field-odd"><p>Tuple[csr_matrix, csr_matrix]</p>
 </dd>
 </dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="streamsight.metrics.Metric._false_negative">
+<span class="sig-name descname"><span class="pre">_false_negative</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#streamsight.metrics.Metric._false_negative" title="Link to this definition"></a></dt>
+<dd><p>Number of false negatives computed. Used for caching to obtain macro results.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="streamsight.metrics.Metric._false_positive">
+<span class="sig-name descname"><span class="pre">_false_positive</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#streamsight.metrics.Metric._false_positive" title="Link to this definition"></a></dt>
+<dd><p>Number of false positives computed. Used for caching to obtain macro results.</p>
 </dd></dl>
 
 <dl class="py property">
@@ -223,6 +236,12 @@ computation of the metric to be done in the correct shape.</p>
 </dl>
 </dd></dl>
 
+<dl class="py attribute">
+<dt class="sig sig-object py" id="streamsight.metrics.Metric._true_positive">
+<span class="sig-name descname"><span class="pre">_true_positive</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#streamsight.metrics.Metric._true_positive" title="Link to this definition"></a></dt>
+<dd><p>Number of true positives computed. Used for caching to obtain macro results.</p>
+</dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="streamsight.metrics.Metric._verify_shape">
 <span class="sig-name descname"><span class="pre">_verify_shape</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y_true</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">csr_matrix</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_pred</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">csr_matrix</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#streamsight.metrics.Metric._verify_shape" title="Link to this definition"></a></dt>
@@ -248,8 +267,34 @@ computation of the metric to be done in the correct shape.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="streamsight.metrics.Metric.cache_values">
-<span class="sig-name descname"><span class="pre">cache_values</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y_true</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">csr_matrix</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_pred</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">csr_matrix</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#streamsight.metrics.Metric.cache_values" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<span class="sig-name descname"><span class="pre">cache_values</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y_true</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">csr_matrix</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_pred</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">csr_matrix</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#streamsight.metrics.Metric.cache_values" title="Link to this definition"></a></dt>
+<dd><p>Cache the values of y_true and y_pred for later use.</p>
+<p>Basic method to cache the values of y_true and y_pred for later use.
+This is useful when the metric can be calculated with the cumulative
+values of y_true and y_pred.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This method should be over written in the child class if the metric
+cannot be calculated with the cumulative values of y_true and y_pred.
+For example, in the case of Precision&#64;K, the metric default behavior
+is to obtain the top-K ranks of y_pred and and y_true, this will
+cause cumulative values to be possibly dropped.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>y_true</strong> (<em>csr_matrix</em>) – True user-item interactions.</p></li>
+<li><p><strong>y_pred</strong> (<em>csr_matrix</em>) – Predicted affinity of users for items.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If caching is disabled for the metric.</p>
+</dd>
+</dl>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">Deprecated since version Caching: </span>values for metric is no longer needed for core functionalities due to change in compute method.</p>
+</div>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="streamsight.metrics.Metric.calculate">
@@ -269,7 +314,23 @@ given true labels and predicted scores.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="streamsight.metrics.Metric.calculate_cached">
 <span class="sig-name descname"><span class="pre">calculate_cached</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#streamsight.metrics.Metric.calculate_cached" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Calculate the metric using the cached values of y_true and y_pred.</p>
+<p>This method calculates the metric using the cached values of y_true and y_pred.
+<a class="reference internal" href="#streamsight.metrics.Metric.calculate" title="streamsight.metrics.Metric.calculate"><code class="xref py py-meth docutils literal notranslate"><span class="pre">calculate()</span></code></a> will be called on the cached values.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This method should be overwritten in the child class if the metric
+cannot be calculated with the cumulative values of y_true and y_pred.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>ValueError</strong> – If caching is disabled for the metric.</p>
+</dd>
+</dl>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">Deprecated since version Caching: </span>values for metric is no longer needed for core functionalities due to change in compute method.</p>
+</div>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="streamsight.metrics.Metric.get_params">

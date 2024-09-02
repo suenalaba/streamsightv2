@@ -37,6 +37,7 @@
    .. autosummary::
    
       ~EvaluatorStreamer.setting
+      ~EvaluatorStreamer.metric_k
       ~EvaluatorStreamer.ignore_unknown_user
       ~EvaluatorStreamer.ignore_unknown_item
    
