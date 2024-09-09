@@ -135,6 +135,12 @@ phase 2 and 3 repeated for each window/split.</p>
 <tr class="row-even"><td><p><a class="reference internal" href="#streamsight.evaluators.EvaluatorPipeline.metric_results" title="streamsight.evaluators.EvaluatorPipeline.metric_results"><code class="xref py py-obj docutils literal notranslate"><span class="pre">metric_results</span></code></a>([level, ...])</p></td>
 <td><p>Results of the metrics computed.</p></td>
 </tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#streamsight.evaluators.EvaluatorPipeline.prepare_dump" title="streamsight.evaluators.EvaluatorPipeline.prepare_dump"><code class="xref py py-obj docutils literal notranslate"><span class="pre">prepare_dump</span></code></a>()</p></td>
+<td><p>Prepare evaluator for pickling.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#streamsight.evaluators.EvaluatorPipeline.restore" title="streamsight.evaluators.EvaluatorPipeline.restore"><code class="xref py py-obj docutils literal notranslate"><span class="pre">restore</span></code></a>()</p></td>
+<td><p>Restore the generators before pickling.</p></td>
+</tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#streamsight.evaluators.EvaluatorPipeline.run" title="streamsight.evaluators.EvaluatorPipeline.run"><code class="xref py py-obj docutils literal notranslate"><span class="pre">run</span></code></a>()</p></td>
 <td><p>Run the evaluator across all steps and splits</p></td>
 </tr>
@@ -219,7 +225,38 @@ performance with the ground truth data.</p>
 <li><p>Cache the results in the macro metric accumulator</p></li>
 <li><p>Repeat step 6 for each algorithm</p></li>
 </ol>
+<dl class="field-list simple">
+<dt class="field-odd">raises EOWSetting<span class="colon">:</span></dt>
+<dd class="field-odd"><p>If there is no more data to be processed</p>
+</dd>
+</dl>
 </section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="streamsight.evaluators.EvaluatorPipeline._get_evaluation_data">
+<span class="sig-name descname"><span class="pre">_get_evaluation_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="streamsight.matrix.InteractionMatrix.html#streamsight.matrix.InteractionMatrix" title="streamsight.matrix.interaction_matrix.InteractionMatrix"><span class="pre">InteractionMatrix</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="streamsight.matrix.InteractionMatrix.html#streamsight.matrix.InteractionMatrix" title="streamsight.matrix.interaction_matrix.InteractionMatrix"><span class="pre">InteractionMatrix</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#streamsight.evaluators.EvaluatorPipeline._get_evaluation_data" title="Link to this definition"></a></dt>
+<dd><p>Get the evaluation data for the current step.</p>
+<p>Internal method to get the evaluation data for the current step. The
+evaluation data consists of the unlabeled data, ground truth data, and
+the current timestamp which will be returned as a tuple. The shapes
+are masked based through <code class="xref py py-attr docutils literal notranslate"><span class="pre">user_item_base</span></code>. The unknown users in
+the ground truth data are also updated in <code class="xref py py-attr docutils literal notranslate"><span class="pre">user_item_base</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><a class="reference internal" href="#streamsight.evaluators.EvaluatorPipeline._current_timestamp" title="streamsight.evaluators.EvaluatorPipeline._current_timestamp"><code class="xref py py-attr docutils literal notranslate"><span class="pre">_current_timestamp</span></code></a> is updated with the current timestamp.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Tuple of unlabeled data, ground truth data, and current timestamp</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>Tuple[csr_matrix, csr_matrix, int]</p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="streamsight.settings.EOWSetting.html#streamsight.settings.EOWSetting" title="streamsight.settings.EOWSetting"><strong>EOWSetting</strong></a> – If there is no more data to be processed</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -372,6 +409,22 @@ If both <cite>only_current_timestamp</cite> and <cite>filter_timestamp</cite> ar
 </dd>
 </dl>
 </section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="streamsight.evaluators.EvaluatorPipeline.prepare_dump">
+<span class="sig-name descname"><span class="pre">prepare_dump</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#streamsight.evaluators.EvaluatorPipeline.prepare_dump" title="Link to this definition"></a></dt>
+<dd><p>Prepare evaluator for pickling.</p>
+<p>This method is used to prepare the evaluator for pickling. The method
+will destruct the generators to avoid pickling issues.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="streamsight.evaluators.EvaluatorPipeline.restore">
+<span class="sig-name descname"><span class="pre">restore</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#streamsight.evaluators.EvaluatorPipeline.restore" title="Link to this definition"></a></dt>
+<dd><p>Restore the generators before pickling.</p>
+<p>This method is used to restore the generators after loading the object
+from a pickle file.</p>
 </dd></dl>
 
 <dl class="py method">

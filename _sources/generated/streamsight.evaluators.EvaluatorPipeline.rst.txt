@@ -20,6 +20,8 @@
    
       ~EvaluatorPipeline.__init__
       ~EvaluatorPipeline.metric_results
+      ~EvaluatorPipeline.prepare_dump
+      ~EvaluatorPipeline.restore
       ~EvaluatorPipeline.run
       ~EvaluatorPipeline.run_step
       ~EvaluatorPipeline.run_steps

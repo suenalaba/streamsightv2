@@ -20,6 +20,8 @@
    
       ~EvaluatorBase.__init__
       ~EvaluatorBase.metric_results
+      ~EvaluatorBase.prepare_dump
+      ~EvaluatorBase.restore
    
    
 

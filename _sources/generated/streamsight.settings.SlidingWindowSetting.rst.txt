@@ -19,12 +19,14 @@
    .. autosummary::
    
       ~SlidingWindowSetting.__init__
+      ~SlidingWindowSetting.destruct_generators
       ~SlidingWindowSetting.get_params
       ~SlidingWindowSetting.next_ground_truth_data
       ~SlidingWindowSetting.next_incremental_data
       ~SlidingWindowSetting.next_t_window
       ~SlidingWindowSetting.next_unlabeled_data
       ~SlidingWindowSetting.reset_data_generators
+      ~SlidingWindowSetting.restore_generators
       ~SlidingWindowSetting.split
    
    

@@ -47,7 +47,6 @@
               <p class="caption" role="heading"><span class="caption-text">Data handling</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../streamsight.matrix.html">streamsight.matrix</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../streamsight.matrix.html#matrix">Matrix</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../streamsight.matrix.html#interaction-matrix">Interaction Matrix</a><ul class="current">
 <li class="toctree-l3 current"><a class="current reference internal" href="#">streamsight.matrix.InteractionMatrix</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#streamsight.matrix.InteractionMatrix"><code class="docutils literal notranslate"><span class="pre">InteractionMatrix</span></code></a></li>
@@ -107,17 +106,19 @@
 <dt class="sig sig-object py" id="streamsight.matrix.InteractionMatrix">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">streamsight.matrix.</span></span><span class="sig-name descname"><span class="pre">InteractionMatrix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">item_ix</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">user_ix</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timestamp_ix</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shape</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">skip_df_processing</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#streamsight.matrix.InteractionMatrix" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>An InteractionMatrix contains interactions between users and items at a certain time.</p>
+<p>Matrix of interaction data between users and items.</p>
 <p>It provides a number of properties and methods for easy manipulation of this interaction data.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
 <ul class="simple">
 <li><p>The InteractionMatrix does not assume binary user-item pairs.
 If a user interacts with an item more than once, there will be two
 entries for this user-item pair.</p></li>
 <li><p>We assume that the user and item IDs are integers starting from 0. IDs
 that are indicated by “-1” are reserved to label the user or item to
-be predicted.</p></li>
+be predicted. This assumption is crucial as it will be used during the
+split scheme and evaluation of the RS since it will affect the 2D shape
+of the CSR matrix</p></li>
 </ul>
 </div>
 <dl class="field-list simple">

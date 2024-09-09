@@ -137,23 +137,29 @@ Defaults to None, so random seed will be generated.</p></li>
 <tr class="row-odd"><td><p><a class="reference internal" href="#streamsight.settings.SingleTimePointSetting.__init__" title="streamsight.settings.SingleTimePointSetting.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(background_t[, n_seq_data, top_K, ...])</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#streamsight.settings.SingleTimePointSetting.get_params" title="streamsight.settings.SingleTimePointSetting.get_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_params</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#streamsight.settings.SingleTimePointSetting.destruct_generators" title="streamsight.settings.SingleTimePointSetting.destruct_generators"><code class="xref py py-obj docutils literal notranslate"><span class="pre">destruct_generators</span></code></a>()</p></td>
+<td><p>Destruct data generators.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#streamsight.settings.SingleTimePointSetting.get_params" title="streamsight.settings.SingleTimePointSetting.get_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_params</span></code></a>()</p></td>
 <td><p>Get the parameters of the setting.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#streamsight.settings.SingleTimePointSetting.next_ground_truth_data" title="streamsight.settings.SingleTimePointSetting.next_ground_truth_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">next_ground_truth_data</span></code></a>([reset])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#streamsight.settings.SingleTimePointSetting.next_ground_truth_data" title="streamsight.settings.SingleTimePointSetting.next_ground_truth_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">next_ground_truth_data</span></code></a>([reset])</p></td>
 <td><p>Get the next ground truth data.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#streamsight.settings.SingleTimePointSetting.next_incremental_data" title="streamsight.settings.SingleTimePointSetting.next_incremental_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">next_incremental_data</span></code></a>([reset])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#streamsight.settings.SingleTimePointSetting.next_incremental_data" title="streamsight.settings.SingleTimePointSetting.next_incremental_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">next_incremental_data</span></code></a>([reset])</p></td>
 <td><p>Get the next incremental data.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#streamsight.settings.SingleTimePointSetting.next_t_window" title="streamsight.settings.SingleTimePointSetting.next_t_window"><code class="xref py py-obj docutils literal notranslate"><span class="pre">next_t_window</span></code></a>([reset])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#streamsight.settings.SingleTimePointSetting.next_t_window" title="streamsight.settings.SingleTimePointSetting.next_t_window"><code class="xref py py-obj docutils literal notranslate"><span class="pre">next_t_window</span></code></a>([reset])</p></td>
 <td><p>Get the next data timestamp limit.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#streamsight.settings.SingleTimePointSetting.next_unlabeled_data" title="streamsight.settings.SingleTimePointSetting.next_unlabeled_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">next_unlabeled_data</span></code></a>([reset])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#streamsight.settings.SingleTimePointSetting.next_unlabeled_data" title="streamsight.settings.SingleTimePointSetting.next_unlabeled_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">next_unlabeled_data</span></code></a>([reset])</p></td>
 <td><p>Get the next unlabeled data.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#streamsight.settings.SingleTimePointSetting.reset_data_generators" title="streamsight.settings.SingleTimePointSetting.reset_data_generators"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reset_data_generators</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#streamsight.settings.SingleTimePointSetting.reset_data_generators" title="streamsight.settings.SingleTimePointSetting.reset_data_generators"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reset_data_generators</span></code></a>()</p></td>
 <td><p>Reset data generators.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#streamsight.settings.SingleTimePointSetting.restore_generators" title="streamsight.settings.SingleTimePointSetting.restore_generators"><code class="xref py py-obj docutils literal notranslate"><span class="pre">restore_generators</span></code></a>([n])</p></td>
+<td><p>Restore data generators.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#streamsight.settings.SingleTimePointSetting.split" title="streamsight.settings.SingleTimePointSetting.split"><code class="xref py py-obj docutils literal notranslate"><span class="pre">split</span></code></a>(data)</p></td>
 <td><p>Splits <a href="#id1"><span class="problematic" id="id2">:param:`data`</span></a> according to the setting.</p></td>
@@ -382,6 +388,14 @@ the generator and to allow for easy resetting when needed.</p>
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="streamsight.settings.SingleTimePointSetting.destruct_generators">
+<span class="sig-name descname"><span class="pre">destruct_generators</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#streamsight.settings.SingleTimePointSetting.destruct_generators" title="Link to this definition"></a></dt>
+<dd><p>Destruct data generators.</p>
+<p>Destructs the data generators of the setting object. This method is
+useful when the setting object needs to be be pickled or saved to disk.</p>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="streamsight.settings.SingleTimePointSetting.get_params">
 <span class="sig-name descname"><span class="pre">get_params</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#streamsight.settings.SingleTimePointSetting.get_params" title="Link to this definition"></a></dt>
 <dd><p>Get the parameters of the setting.</p>
@@ -600,9 +614,24 @@ of the setting object to the beginning of the data series.</p>
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="streamsight.settings.SingleTimePointSetting.restore_generators">
+<span class="sig-name descname"><span class="pre">restore_generators</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#streamsight.settings.SingleTimePointSetting.restore_generators" title="Link to this definition"></a></dt>
+<dd><p>Restore data generators.</p>
+<p>Restores the data generators of the setting object. If <a href="#id3"><span class="problematic" id="id4">:param:`n`</span></a> is
+provided, then it will restore the data generators to the iteration
+number <a href="#id5"><span class="problematic" id="id6">:param:`n`</span></a>. If <a href="#id7"><span class="problematic" id="id8">:param:`n`</span></a> is not provided, then it will restore
+the data generators to the beginning of the data series.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>n</strong> (<em>int</em><em>, </em><em>optional</em>) – iteration number to restore generator to, defaults to int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="streamsight.settings.SingleTimePointSetting.split">
 <span class="sig-name descname"><span class="pre">split</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="streamsight.matrix.InteractionMatrix.html#streamsight.matrix.InteractionMatrix" title="streamsight.matrix.interaction_matrix.InteractionMatrix"><span class="pre">InteractionMatrix</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#streamsight.settings.SingleTimePointSetting.split" title="Link to this definition"></a></dt>
-<dd><p>Splits <a href="#id3"><span class="problematic" id="id4">:param:`data`</span></a> according to the setting.</p>
+<dd><p>Splits <a href="#id9"><span class="problematic" id="id10">:param:`data`</span></a> according to the setting.</p>
 <p>Calling this method will change the state of the setting object to be ready
 for evaluation. The method will split the data into <a class="reference internal" href="#streamsight.settings.SingleTimePointSetting.background_data" title="streamsight.settings.SingleTimePointSetting.background_data"><code class="xref py py-attr docutils literal notranslate"><span class="pre">background_data</span></code></a>,
 <a class="reference internal" href="#streamsight.settings.SingleTimePointSetting.ground_truth_data" title="streamsight.settings.SingleTimePointSetting.ground_truth_data"><code class="xref py py-attr docutils literal notranslate"><span class="pre">ground_truth_data</span></code></a>, <a class="reference internal" href="#streamsight.settings.SingleTimePointSetting.unlabeled_data" title="streamsight.settings.SingleTimePointSetting.unlabeled_data"><code class="xref py py-attr docutils literal notranslate"><span class="pre">unlabeled_data</span></code></a>.</p>

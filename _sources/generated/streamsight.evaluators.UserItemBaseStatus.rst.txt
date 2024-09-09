@@ -28,6 +28,9 @@
 
    .. autosummary::
    
+      ~UserItemBaseStatus.global_item_ids
+      ~UserItemBaseStatus.global_shape
+      ~UserItemBaseStatus.global_user_ids
       ~UserItemBaseStatus.known_item
       ~UserItemBaseStatus.known_shape
       ~UserItemBaseStatus.known_user

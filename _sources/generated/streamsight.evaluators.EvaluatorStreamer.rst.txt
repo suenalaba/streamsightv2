@@ -24,7 +24,9 @@
       ~EvaluatorStreamer.get_data
       ~EvaluatorStreamer.get_unlabeled_data
       ~EvaluatorStreamer.metric_results
+      ~EvaluatorStreamer.prepare_dump
       ~EvaluatorStreamer.register_algorithm
+      ~EvaluatorStreamer.restore
       ~EvaluatorStreamer.start_stream
       ~EvaluatorStreamer.submit_prediction
    

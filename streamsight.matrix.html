@@ -47,7 +47,6 @@
               <p class="caption" role="heading"><span class="caption-text">Data handling</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">streamsight.matrix</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#matrix">Matrix</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#interaction-matrix">Interaction Matrix</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="generated/streamsight.matrix.InteractionMatrix.html">streamsight.matrix.InteractionMatrix</a></li>
 </ul>
@@ -104,19 +103,16 @@
              
   <section id="module-streamsight.matrix">
 <span id="streamsight-matrix"></span><h1>streamsight.matrix<a class="headerlink" href="#module-streamsight.matrix" title="Link to this heading"></a></h1>
-<section id="matrix">
-<h2>Matrix<a class="headerlink" href="#matrix" title="Link to this heading"></a></h2>
-<p>This module provides the functionality to create interaction matrix from the stream data.
-The interaction matrix can be used to build recommendation systems.</p>
-</section>
 <section id="interaction-matrix">
 <h2>Interaction Matrix<a class="headerlink" href="#interaction-matrix" title="Link to this heading"></a></h2>
-<p>The InteractionMatrix class is used to create an interaction matrix from the stream data.
-The interaction matrix can be used to build recommendation systems.</p>
+<p>The InteractionMatrix class is used to create an interaction matrix from the
+dataset loaded. The interaction matrix stores a dataframe under the hood and
+provides functionality to convert the dataframe to a CSR matrix and other 
+operations which are useful for building recommendation systems.</p>
 <table class="autosummary longtable docutils align-default">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/streamsight.matrix.InteractionMatrix.html#streamsight.matrix.InteractionMatrix" title="streamsight.matrix.InteractionMatrix"><code class="xref py py-obj docutils literal notranslate"><span class="pre">InteractionMatrix</span></code></a>(df, item_ix, user_ix, ...)</p></td>
-<td><p>An InteractionMatrix contains interactions between users and items at a certain time.</p></td>
+<td><p>Matrix of interaction data between users and items.</p></td>
 </tr>
 </tbody>
 </table>

@@ -110,14 +110,16 @@
              
   <section id="module-streamsight.algorithms">
 <span id="streamsight-algorithms"></span><h1>streamsight.algorithms<a class="headerlink" href="#module-streamsight.algorithms" title="Link to this heading"></a></h1>
-<p>The algorithms module in streamsight contains a wide array of state-of-the-art
-collaborative filtering algorithms.
-Also included are some baseline algorithms, as well as several reusable building blocks
-such as commonly used loss functions and sampling methods.</p>
+<p>The algorithms module in streamsight contains a collection of baseline algorithms
+and various of the item-based KNN collaborative filtering algorithm. A total of
+3 variation of the item-based KNN algorithm is implemented in the module. Which
+are listed below</p>
 <section id="algorithm">
 <h2>Algorithm<a class="headerlink" href="#algorithm" title="Link to this heading"></a></h2>
-<p>Base class for all algorithms. Programmer should inherit from this class when implementing
-a new algorithm.</p>
+<p>Base class for all algorithms. Programmer should inherit from this class when
+implementing a new algorithm. It provides a common interface for all algorithms
+such that the expected methods and properties are defined to avoid any runtime
+errors.</p>
 <table class="autosummary longtable docutils align-default">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/streamsight.algorithms.Algorithm.html#streamsight.algorithms.Algorithm" title="streamsight.algorithms.Algorithm"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Algorithm</span></code></a>()</p></td>
@@ -128,6 +130,9 @@ a new algorithm.</p>
 </section>
 <section id="baseline-algorithms">
 <h2>Baseline Algorithms<a class="headerlink" href="#baseline-algorithms" title="Link to this heading"></a></h2>
+<p>The baseline algorithms are simple algorithms that can be used as a reference
+point to compare the performance of the more complex algorithms. The following
+baseline algorithms are implemented in the module.</p>
 <table class="autosummary longtable docutils align-default">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/streamsight.algorithms.Random.html#streamsight.algorithms.Random" title="streamsight.algorithms.Random"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Random</span></code></a>([K, seed])</p></td>
@@ -142,8 +147,12 @@ a new algorithm.</p>
 <section id="item-similarity-algorithms">
 <h2>Item Similarity Algorithms<a class="headerlink" href="#item-similarity-algorithms" title="Link to this heading"></a></h2>
 <p>Item similarity algorithms exploit relationships between items to make recommendations.
-At prediction time, the user is represented by the items
-they have interacted with.</p>
+At prediction time, the user is represented by the items they have interacted
+with. 3 variations of the item-based KNN algorithm are implemented in the module.
+Each variation is to showcase the difference in the learning and prediction of
+the algorithm. We note that no one algorithm is better than the other, and it
+greatly depends on the dataset and parameters used in the algorithm which would
+yield the best performance.</p>
 <table class="autosummary longtable docutils align-default">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/streamsight.algorithms.ItemKNN.html#streamsight.algorithms.ItemKNN" title="streamsight.algorithms.ItemKNN"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ItemKNN</span></code></a>([K])</p></td>

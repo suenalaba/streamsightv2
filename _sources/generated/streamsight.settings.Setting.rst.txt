@@ -19,12 +19,14 @@
    .. autosummary::
    
       ~Setting.__init__
+      ~Setting.destruct_generators
       ~Setting.get_params
       ~Setting.next_ground_truth_data
       ~Setting.next_incremental_data
       ~Setting.next_t_window
       ~Setting.next_unlabeled_data
       ~Setting.reset_data_generators
+      ~Setting.restore_generators
       ~Setting.split
    
    
