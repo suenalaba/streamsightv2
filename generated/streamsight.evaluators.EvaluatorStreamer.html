@@ -77,6 +77,7 @@
 <p class="caption" role="heading"><span class="caption-text">Other supporting modules</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../streamsight.registries.html">streamsight.registries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../streamsight.utils.html">streamsight.utils</a></li>
 </ul>
 
         </div>
@@ -111,6 +112,13 @@
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">streamsight.evaluators.</span></span><span class="sig-name descname"><span class="pre">EvaluatorStreamer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">metric_entries</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="streamsight.registries.MetricEntry.html#streamsight.registries.MetricEntry" title="streamsight.registries.registry.MetricEntry"><span class="pre">MetricEntry</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">setting</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="streamsight.settings.Setting.html#streamsight.settings.Setting" title="streamsight.settings.base.Setting"><span class="pre">Setting</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">metric_k</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ignore_unknown_user</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ignore_unknown_item</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#streamsight.evaluators.EvaluatorStreamer" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="streamsight.evaluators.EvaluatorBase.html#streamsight.evaluators.EvaluatorBase" title="streamsight.evaluators.base.EvaluatorBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">EvaluatorBase</span></code></a></p>
 <p>Evaluation via streaming through API</p>
+<p>The diagram below shows the diagram of the streamer evaluator for the 
+sliding window setting. Instead of the pipeline, we allow the user to
+stream the data release to the algorithm. The data communication is shown
+between the evaluator and the algorithm. Note that while only 2 splits are
+shown here, the evaluator will continue to stream the data until the end
+of the setting where there are no more splits.</p>
+<a class="reference internal image-reference" href="../_images/stream_scheme.png"><img alt="Streamer diagram" class="align-center" src="../_images/stream_scheme.png" style="width: 750.4000000000001px; height: 217.20000000000002px;" /></a>
 <p>This class exposes a few of the core API that allows the user to stream
 the evaluation process. The following API are exposed:</p>
 <ol class="arabic simple">
@@ -129,8 +137,10 @@ the necessary data to the algorithm and evaluate the prediction.</p>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>metric_entries</strong> (<em>List</em><em>[</em><a class="reference internal" href="streamsight.registries.MetricEntry.html#streamsight.registries.MetricEntry" title="streamsight.registries.MetricEntry"><em>MetricEntry</em></a><em>]</em>) – List of metric entries</p></li>
 <li><p><strong>setting</strong> (<a class="reference internal" href="streamsight.settings.Setting.html#streamsight.settings.Setting" title="streamsight.settings.Setting"><em>Setting</em></a>) – Setting object</p></li>
+<li><p><strong>metric_k</strong> (<em>int</em>) – Number of top interactions to consider</p></li>
 <li><p><strong>ignore_unknown_user</strong> (<em>bool</em>) – To ignore unknown users</p></li>
 <li><p><strong>ignore_unknown_item</strong> (<em>bool</em>) – To ignore unknown items</p></li>
+<li><p><strong>seed</strong> (<em>Optional</em><em>[</em><em>int</em><em>]</em>) – Random seed for the evaluator</p></li>
 </ul>
 </dd>
 </dl>

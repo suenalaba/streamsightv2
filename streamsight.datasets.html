@@ -57,6 +57,7 @@
 <li class="toctree-l3"><a class="reference internal" href="generated/streamsight.datasets.AmazonMovieDataset.html">streamsight.datasets.AmazonMovieDataset</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/streamsight.datasets.AmazonMusicDataset.html">streamsight.datasets.AmazonMusicDataset</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/streamsight.datasets.YelpDataset.html">streamsight.datasets.YelpDataset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/streamsight.datasets.MovieLens100K.html">streamsight.datasets.MovieLens100K</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#example">Example</a></li>
 </ul>
 </li>
@@ -76,6 +77,7 @@
 <p class="caption" role="heading"><span class="caption-text">Other supporting modules</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="streamsight.registries.html">streamsight.registries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="streamsight.utils.html">streamsight.utils</a></li>
 </ul>
 
         </div>
@@ -109,10 +111,15 @@
 <p>The dataset module allows users to easily use to publicly available datasets
 in their experiments. The dataset class are built on top of the <a class="reference internal" href="generated/streamsight.datasets.Dataset.html#streamsight.datasets.Dataset" title="streamsight.datasets.Dataset"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dataset</span></code></a>
 allowing for easy extension and customization. In this module, we provide
-the Amazon datasets and the Yelp dataset. The programmer is free to add more
+the a few dataset that is available from public sources. The programmer is free to add more
 datasets as they see fit by defining the abstract methods that must be implemented.</p>
-<p>Other than the 2 publicly available datasets, we also provide a test dataset
-that can be used for testing purposes.</p>
+<p>Other than the publicly available datasets, we also provide a test dataset
+that can be used for testing purposes. The test dataset is a simple dataset
+that can be used to test the functionality of the algorithms.</p>
+<p>While the MovieLens100K dataset is available in the module, we recommend that
+the programmer use the other publicly available datasets as the data are not
+chunked into “blocks”. The setting of a global timeline to split the data
+could potentially cause a chuck of data to be lost.</p>
 <table class="autosummary longtable docutils align-default">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/streamsight.datasets.Dataset.html#streamsight.datasets.Dataset" title="streamsight.datasets.Dataset"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Dataset</span></code></a>([filename, base_path, ...])</p></td>
@@ -135,6 +142,9 @@ that can be used for testing purposes.</p>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/streamsight.datasets.YelpDataset.html#streamsight.datasets.YelpDataset" title="streamsight.datasets.YelpDataset"><code class="xref py py-obj docutils literal notranslate"><span class="pre">YelpDataset</span></code></a>([filename, base_path, ...])</p></td>
 <td><p>Yelp dataset</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/streamsight.datasets.MovieLens100K.html#streamsight.datasets.MovieLens100K" title="streamsight.datasets.MovieLens100K"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MovieLens100K</span></code></a>([filename, base_path, ...])</p></td>
+<td><p></p></td>
 </tr>
 </tbody>
 </table>

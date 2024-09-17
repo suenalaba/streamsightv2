@@ -21,7 +21,7 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="streamsight.evaluators.EvaluatorBuilder" href="generated/streamsight.evaluators.EvaluatorBuilder.html" />
+    <link rel="next" title="streamsight.evaluators.Builder" href="generated/streamsight.evaluators.Builder.html" />
     <link rel="prev" title="streamsight.algorithms.ItemKNNStatic" href="generated/streamsight.algorithms.ItemKNNStatic.html" /> 
 </head>
 
@@ -59,7 +59,8 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">streamsight.evaluators</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#evaluator-builder">Evaluator Builder</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="generated/streamsight.evaluators.EvaluatorBuilder.html">streamsight.evaluators.EvaluatorBuilder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/streamsight.evaluators.Builder.html">streamsight.evaluators.Builder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/streamsight.evaluators.EvaluatorPipelineBuilder.html">streamsight.evaluators.EvaluatorPipelineBuilder</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/streamsight.evaluators.EvaluatorStreamerBuilder.html">streamsight.evaluators.EvaluatorStreamerBuilder</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#example">Example</a></li>
 </ul>
@@ -87,6 +88,7 @@
 <p class="caption" role="heading"><span class="caption-text">Other supporting modules</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="streamsight.registries.html">streamsight.registries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="streamsight.utils.html">streamsight.utils</a></li>
 </ul>
 
         </div>
@@ -117,40 +119,50 @@
 <h1>streamsight.evaluators<a class="headerlink" href="#streamsight-evaluators" title="Link to this heading"></a></h1>
 <section id="evaluator-builder">
 <span id="module-streamsight.evaluators"></span><h2>Evaluator Builder<a class="headerlink" href="#evaluator-builder" title="Link to this heading"></a></h2>
-<p>The evaluator module in streamsight contains the EvaluatorBuilder class which is
-used to build an evaluator object. <a class="reference internal" href="generated/streamsight.evaluators.EvaluatorBuilder.html#streamsight.evaluators.EvaluatorBuilder" title="streamsight.evaluators.EvaluatorBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">EvaluatorBuilder</span></code></a> allows the programmer
+<p>The evaluator module in streamsight contains the Builder class which is
+used to build an evaluator object. <a class="reference internal" href="generated/streamsight.evaluators.Builder.html#streamsight.evaluators.Builder" title="streamsight.evaluators.Builder"><code class="xref py py-class docutils literal notranslate"><span class="pre">Builder</span></code></a> allows the programmer
 to add algorithms, metrics and settings to the evaluator object before the
 <code class="xref py py-class docutils literal notranslate"><span class="pre">Evaluator</span></code> object is built.</p>
-<p>It is recommended to initialise the <code class="xref py py-class docutils literal notranslate"><span class="pre">Evaluator</span></code> object with the <a class="reference internal" href="generated/streamsight.evaluators.EvaluatorBuilder.html#streamsight.evaluators.EvaluatorBuilder" title="streamsight.evaluators.EvaluatorBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">EvaluatorBuilder</span></code></a>
+<p>It is recommended to initialise the <code class="xref py py-class docutils literal notranslate"><span class="pre">Evaluator</span></code> object with the <a class="reference internal" href="generated/streamsight.evaluators.Builder.html#streamsight.evaluators.Builder" title="streamsight.evaluators.Builder"><code class="xref py py-class docutils literal notranslate"><span class="pre">Builder</span></code></a>
 as it provides the API for the needed configurations. Beyond the API for the configurations,
 the builder checks for the validity of the configurations and raises exceptions if the
 configurations are invalid. The programmer can choose to build the <code class="xref py py-class docutils literal notranslate"><span class="pre">Evaluator</span></code> object
-without the <a class="reference internal" href="generated/streamsight.evaluators.EvaluatorBuilder.html#streamsight.evaluators.EvaluatorBuilder" title="streamsight.evaluators.EvaluatorBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">EvaluatorBuilder</span></code></a> as described below but might face exceptions if the
+without the <a class="reference internal" href="generated/streamsight.evaluators.Builder.html#streamsight.evaluators.Builder" title="streamsight.evaluators.Builder"><code class="xref py py-class docutils literal notranslate"><span class="pre">Builder</span></code></a> as described below but might face exceptions if the
 configurations are invalid.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>We use the term <a class="reference internal" href="generated/streamsight.evaluators.Builder.html#streamsight.evaluators.Builder" title="streamsight.evaluators.Builder"><code class="xref py py-class docutils literal notranslate"><span class="pre">Builder</span></code></a> here to refer to the class intendede to build
+the evaluator object, but this is a abstract class. The programmer
+should use either <a class="reference internal" href="generated/streamsight.evaluators.EvaluatorPipelineBuilder.html#streamsight.evaluators.EvaluatorPipelineBuilder" title="streamsight.evaluators.EvaluatorPipelineBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">EvaluatorPipelineBuilder</span></code></a> or
+<a class="reference internal" href="generated/streamsight.evaluators.EvaluatorStreamerBuilder.html#streamsight.evaluators.EvaluatorStreamerBuilder" title="streamsight.evaluators.EvaluatorStreamerBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">EvaluatorStreamerBuilder</span></code></a> as the builder.</p>
+</div>
 <p>The adding of new algorithms through <code class="xref py py-meth docutils literal notranslate"><span class="pre">add_algorithm()</span></code> and metrics through <code class="xref py py-meth docutils literal notranslate"><span class="pre">add_metric()</span></code>
 are made such that it can be done through the class type via importing the class or 
 thorough specifying the class name as a string.</p>
 <table class="autosummary longtable docutils align-default">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/streamsight.evaluators.EvaluatorBuilder.html#streamsight.evaluators.EvaluatorBuilder" title="streamsight.evaluators.EvaluatorBuilder"><code class="xref py py-obj docutils literal notranslate"><span class="pre">EvaluatorBuilder</span></code></a>([ignore_unknown_user, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/streamsight.evaluators.Builder.html#streamsight.evaluators.Builder" title="streamsight.evaluators.Builder"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Builder</span></code></a>([ignore_unknown_user, ...])</p></td>
+<td><p>Base class for Builder objects.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/streamsight.evaluators.EvaluatorPipelineBuilder.html#streamsight.evaluators.EvaluatorPipelineBuilder" title="streamsight.evaluators.EvaluatorPipelineBuilder"><code class="xref py py-obj docutils literal notranslate"><span class="pre">EvaluatorPipelineBuilder</span></code></a>([...])</p></td>
 <td><p>Builder to facilitate construction of evaluator.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/streamsight.evaluators.EvaluatorStreamerBuilder.html#streamsight.evaluators.EvaluatorStreamerBuilder" title="streamsight.evaluators.EvaluatorStreamerBuilder"><code class="xref py py-obj docutils literal notranslate"><span class="pre">EvaluatorStreamerBuilder</span></code></a>([...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/streamsight.evaluators.EvaluatorStreamerBuilder.html#streamsight.evaluators.EvaluatorStreamerBuilder" title="streamsight.evaluators.EvaluatorStreamerBuilder"><code class="xref py py-obj docutils literal notranslate"><span class="pre">EvaluatorStreamerBuilder</span></code></a>([...])</p></td>
 <td><p>Builder to facilitate construction of evaluator.</p></td>
 </tr>
 </tbody>
 </table>
 <section id="example">
 <h3>Example<a class="headerlink" href="#example" title="Link to this heading"></a></h3>
-<p>Below is a typical example of how to use the <a class="reference internal" href="generated/streamsight.evaluators.EvaluatorBuilder.html#streamsight.evaluators.EvaluatorBuilder" title="streamsight.evaluators.EvaluatorBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">EvaluatorBuilder</span></code></a> to build an
+<p>Below is a typical example of how to use the <a class="reference internal" href="generated/streamsight.evaluators.Builder.html#streamsight.evaluators.Builder" title="streamsight.evaluators.Builder"><code class="xref py py-class docutils literal notranslate"><span class="pre">Builder</span></code></a> to build an
 <code class="xref py py-class docutils literal notranslate"><span class="pre">Evaluator</span></code> object. This example also follows from the example in the
 python notebook.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">streamsight.evaluator</span> <span class="kn">import</span> <span class="n">EvaluatorBuilder</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">streamsight.evaluator</span> <span class="kn">import</span> <span class="n">EvaluatorPipelineBuilder</span>
 
-<span class="n">builder</span> <span class="o">=</span> <span class="n">EvaluatorBuilder</span><span class="p">(</span><span class="n">item_user_based</span><span class="o">=</span><span class="s2">&quot;item&quot;</span><span class="p">,</span>
+<span class="n">builder</span> <span class="o">=</span> <span class="n">EvaluatorPipelineBuilder</span><span class="p">(</span><span class="n">item_user_based</span><span class="o">=</span><span class="s2">&quot;item&quot;</span><span class="p">,</span>
                     <span class="n">ignore_unknown_user</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
                     <span class="n">ignore_unknown_item</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">builder</span><span class="o">.</span><span class="n">add_setting</span><span class="p">(</span><span class="n">setting</span><span class="p">)</span>
+<span class="n">builder</span><span class="o">.</span><span class="n">add_setting</span><span class="p">(</span><span class="n">setting</span><span class="p">)</span> <span class="c1"># assuming setting is already defined</span>
 <span class="n">builder</span><span class="o">.</span><span class="n">add_algorithm</span><span class="p">(</span><span class="s2">&quot;ItemKNNIncremental&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;K&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">})</span>
 <span class="n">builder</span><span class="o">.</span><span class="n">add_metric</span><span class="p">(</span><span class="s2">&quot;PrecisionK&quot;</span><span class="p">)</span>
 <span class="n">evaluator</span> <span class="o">=</span> <span class="n">builder</span><span class="o">.</span><span class="n">build</span><span class="p">()</span>
@@ -166,7 +178,9 @@ python notebook.</p>
 programmer to evaluate the algorithms on a fixed setting. The evaluator also
 aids the programmer in masking the shape of the dataset and then subsequently
 computing the metric for each prediction against the ground truth. There are
-2 concrete implementation of <code class="xref py py-class docutils literal notranslate"><span class="pre">Evaluator</span></code>.</p>
+2 concrete implementation of <code class="xref py py-class docutils literal notranslate"><span class="pre">Evaluator</span></code>. The programmer can refer to the
+actual implementation of the <code class="xref py py-class docutils literal notranslate"><span class="pre">Evaluator</span></code> to understand the internal
+workings of the evaluator and to view the schematic diagram of the implementation.</p>
 <table class="autosummary longtable docutils align-default">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/streamsight.evaluators.EvaluatorBase.html#streamsight.evaluators.EvaluatorBase" title="streamsight.evaluators.EvaluatorBase"><code class="xref py py-obj docutils literal notranslate"><span class="pre">EvaluatorBase</span></code></a>(metric_entries, setting, metric_k)</p></td>
@@ -218,7 +232,7 @@ some of the common functionalities used in the evaluator module.</p>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="generated/streamsight.algorithms.ItemKNNStatic.html" class="btn btn-neutral float-left" title="streamsight.algorithms.ItemKNNStatic" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="generated/streamsight.evaluators.EvaluatorBuilder.html" class="btn btn-neutral float-right" title="streamsight.evaluators.EvaluatorBuilder" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="generated/streamsight.evaluators.Builder.html" class="btn btn-neutral float-right" title="streamsight.evaluators.Builder" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

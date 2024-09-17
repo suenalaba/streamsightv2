@@ -1,0 +1,6 @@
+﻿streamsight.utils.create\_config\_yaml
+======================================
+
+.. currentmodule:: streamsight.utils
+
+.. autofunction:: create_config_yaml

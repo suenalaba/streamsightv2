@@ -1,0 +1,6 @@
+﻿streamsight.utils.add\_rows\_to\_csr\_matrix
+============================================
+
+.. currentmodule:: streamsight.utils
+
+.. autofunction:: add_rows_to_csr_matrix

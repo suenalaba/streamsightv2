@@ -22,7 +22,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="streamsight.settings.Setting" href="generated/streamsight.settings.Setting.html" />
-    <link rel="prev" title="streamsight.datasets.YelpDataset" href="generated/streamsight.datasets.YelpDataset.html" /> 
+    <link rel="prev" title="streamsight.datasets.MovieLens100K" href="generated/streamsight.datasets.MovieLens100K.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -54,6 +54,7 @@
 <li class="toctree-l3"><a class="reference internal" href="generated/streamsight.settings.Setting.html">streamsight.settings.Setting</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/streamsight.settings.SingleTimePointSetting.html">streamsight.settings.SingleTimePointSetting</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/streamsight.settings.SlidingWindowSetting.html">streamsight.settings.SlidingWindowSetting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#example">Example</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#splitters">Splitters</a><ul>
@@ -85,6 +86,7 @@
 <p class="caption" role="heading"><span class="caption-text">Other supporting modules</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="streamsight.registries.html">streamsight.registries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="streamsight.utils.html">streamsight.utils</a></li>
 </ul>
 
         </div>
@@ -115,13 +117,34 @@
 <h1>streamsight.settings<a class="headerlink" href="#streamsight-settings" title="Link to this heading"></a></h1>
 <section id="setting">
 <span id="module-streamsight.settings"></span><h2>Setting<a class="headerlink" href="#setting" title="Link to this heading"></a></h2>
-<p>The setting module contains classes that define how the data is split. The
-specifics of the split are defined in paper referenced. A setting will contain
-the following components:</p>
+<p>The setting module contains classes that define how the data is split. To
+generalize the splitting of the data, the interactions are first sorted in
+temporal order, and then the split is performed based on the setting. As this
+library only considers dataset with timestamp, we will consider the case of the
+single time point setting and the sliding window setting. The single time point
+setting is analogous to Setting 3 of <span id="id1">[<a class="reference internal" href="zreferences.html#id4" title="Aixin Sun. Take a fresh look at recommender systems from an evaluation standpoint. In Proceedings of the 46th International ACM SIGIR Conference on Research and Development in Information Retrieval, SIGIR ’23. ACM, July 2023. URL: http://dx.doi.org/10.1145/3539618.3591931, doi:10.1145/3539618.3591931.">Sun23</a>]</span>. The sliding window setting
+is analogous to Setting 1 of <span id="id2">[<a class="reference internal" href="zreferences.html#id4" title="Aixin Sun. Take a fresh look at recommender systems from an evaluation standpoint. In Proceedings of the 46th International ACM SIGIR Conference on Research and Development in Information Retrieval, SIGIR ’23. ACM, July 2023. URL: http://dx.doi.org/10.1145/3539618.3591931, doi:10.1145/3539618.3591931.">Sun23</a>]</span>.</p>
+<p>Observe the diagram below where the data split for Setting 1 is shown below. The
+unlabeled data will contain interactions that are masked which occurs after the
+current timestamp. The ground truth data will contain the actual interactions
+which will be used for evaluation and then released to the algorithm.</p>
+<a class="reference internal image-reference" href="_images/setting1.png"><img alt="Setting 1 diagram" class="align-center" src="_images/setting1.png" style="width: 306.5px; height: 245.0px;" /></a>
+<p>While the this setting allows us to test the algorithm in a real-world scenario,
+there are times when the algorithm might require some sequential data before
+a prediction can be made. While it is not the role of the evaluating platform
+to provide this data, we have included the option to provide the last n interactions</p>
 <ul class="simple">
-<li><p>background_data: Data that is used to train the algorithm before the first    split.</p></li>
-<li><p>unlabeled_data: Data that is released to the algorithm for prediction. Contains    the last n interactions split. The purpose is to provide sequential data    to the algorithm. The data also contains the ID to be predicted and is labeled    with “-1”. Timestamps of the interactions to be predicted are preserved.</p></li>
-<li><p>ground_truth_data: Data that is used to evaluate the algorithm. This data    will contain the actual interactions.</p></li>
+<li><p><strong>background_data</strong>: Data that is used to train the algorithm before the first
+split.</p></li>
+<li><p><strong>unlabeled_data</strong>: Data that is released to the algorithm for prediction.
+Contains the ID to be predicted and is labeled with “-1”. Timestamps of the
+interactions to be predicted are preserved. Can contain the last n interactions
+split if specified in the parameter. The purpose is to provide sequential
+data to the algorithm.</p></li>
+<li><p><strong>ground_truth_data</strong>: Data that is used to evaluate the algorithm. This data
+will contain the actual interactions. The unlabeled data with the masked data
+is a subset of the ground truth to ensure that there is an actual corresponding
+value to evaluate the prediction against.</p></li>
 </ul>
 <table class="autosummary longtable docutils align-default">
 <tbody>
@@ -140,6 +163,26 @@ the following components:</p>
 the parameters that are passed. Calling of <a class="reference internal" href="generated/streamsight.settings.Setting.html#streamsight.settings.Setting.split" title="streamsight.settings.Setting.split"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Setting.split</span></code></a> is necessary
 such that the attributes <a class="reference internal" href="generated/streamsight.settings.Setting.html#streamsight.settings.Setting.background_data" title="streamsight.settings.Setting.background_data"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Setting.background_data</span></code></a>, <a class="reference internal" href="generated/streamsight.settings.Setting.html#streamsight.settings.Setting.unlabeled_data" title="streamsight.settings.Setting.unlabeled_data"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Setting.unlabeled_data</span></code></a>
 and <a class="reference internal" href="generated/streamsight.settings.Setting.html#streamsight.settings.Setting.ground_truth_data" title="streamsight.settings.Setting.ground_truth_data"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Setting.ground_truth_data</span></code></a> are populated.</p>
+<section id="example">
+<h3>Example<a class="headerlink" href="#example" title="Link to this heading"></a></h3>
+<p>If the file specified does not exist, the dataset is downloaded and written into this file.
+Subsequent loading of the dataset will not require downloading the dataset again,
+and will be obtained from the file in the directory.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">streamsight.datasets</span> <span class="kn">import</span> <span class="n">AmazonMovieDataset</span>
+<span class="kn">from</span> <span class="nn">streamsight.settings</span> <span class="kn">import</span> <span class="n">SlidingWindowSetting</span>
+
+<span class="n">dataset</span> <span class="o">=</span> <span class="n">AmazonMovieDataset</span><span class="p">(</span><span class="n">use_default_filters</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">load</span><span class="p">()</span>
+<span class="n">setting_sliding</span> <span class="o">=</span> <span class="n">SlidingWindowSetting</span><span class="p">(</span>
+    <span class="n">background_t</span><span class="o">=</span><span class="mi">1530000000</span><span class="p">,</span>
+    <span class="n">window_size</span><span class="o">=</span><span class="mi">60</span> <span class="o">*</span> <span class="mi">60</span> <span class="o">*</span> <span class="mi">24</span> <span class="o">*</span> <span class="mi">30</span><span class="p">,</span> <span class="c1"># day times N</span>
+    <span class="n">n_seq_data</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+    <span class="n">top_K</span><span class="o">=</span><span class="n">k</span>
+<span class="p">)</span>
+<span class="n">setting_sliding</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
 </section>
 <section id="splitters">
 <h2>Splitters<a class="headerlink" href="#splitters" title="Link to this heading"></a></h2>
@@ -168,7 +211,11 @@ splitter and reuse the existing setting.</p>
 </section>
 <section id="processor">
 <h2>Processor<a class="headerlink" href="#processor" title="Link to this heading"></a></h2>
-<p>The processor module contains classes that are used to process the data.</p>
+<p>The processor module contains classes that are used to process the data. In the
+current implementation, the processor is used to mask the data that is to be
+predicted and inject it into the unlabeled data. The programmer may define
+other processor that is required to do any further processing of the data for
+the data created in the setting.</p>
 <table class="autosummary longtable docutils align-default">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/streamsight.settings.Processor.html#streamsight.settings.Processor" title="streamsight.settings.Processor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Processor</span></code></a>()</p></td>
@@ -198,7 +245,7 @@ end of window is reached. Note that this exception is declared the base file.</p
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="generated/streamsight.datasets.YelpDataset.html" class="btn btn-neutral float-left" title="streamsight.datasets.YelpDataset" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="generated/streamsight.datasets.MovieLens100K.html" class="btn btn-neutral float-left" title="streamsight.datasets.MovieLens100K" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="generated/streamsight.settings.Setting.html" class="btn btn-neutral float-right" title="streamsight.settings.Setting" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
