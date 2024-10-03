@@ -31,7 +31,7 @@
 
    .. autosummary::
    
-      ~MovieLens100K.DATASETURL
+      ~MovieLens100K.DATASET_URL
       ~MovieLens100K.DEFAULT_BASE_PATH
       ~MovieLens100K.DEFAULT_FILENAME
       ~MovieLens100K.ITEM_IX

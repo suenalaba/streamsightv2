@@ -22,7 +22,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="streamsight.settings" href="../streamsight.settings.html" />
-    <link rel="prev" title="streamsight.datasets.YelpDataset" href="streamsight.datasets.YelpDataset.html" /> 
+    <link rel="prev" title="streamsight.datasets.LastFMDataset" href="streamsight.datasets.LastFMDataset.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -57,6 +57,7 @@
 <li class="toctree-l3"><a class="reference internal" href="streamsight.datasets.AmazonMovieDataset.html">streamsight.datasets.AmazonMovieDataset</a></li>
 <li class="toctree-l3"><a class="reference internal" href="streamsight.datasets.AmazonMusicDataset.html">streamsight.datasets.AmazonMusicDataset</a></li>
 <li class="toctree-l3"><a class="reference internal" href="streamsight.datasets.YelpDataset.html">streamsight.datasets.YelpDataset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="streamsight.datasets.LastFMDataset.html">streamsight.datasets.LastFMDataset</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">streamsight.datasets.MovieLens100K</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#streamsight.datasets.MovieLens100K"><code class="docutils literal notranslate"><span class="pre">MovieLens100K</span></code></a></li>
 </ul>
@@ -114,6 +115,7 @@
 <dt class="sig sig-object py" id="streamsight.datasets.MovieLens100K">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">streamsight.datasets.</span></span><span class="sig-name descname"><span class="pre">MovieLens100K</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">base_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_default_filters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#streamsight.datasets.MovieLens100K" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">MovieLensDataset</span></code></p>
+<p>MovieLens 100K dataset.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="streamsight.datasets.MovieLens100K.__init__">
 <span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">base_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_default_filters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#streamsight.datasets.MovieLens100K.__init__" title="Link to this definition"></a></dt>
@@ -139,7 +141,7 @@
 <p class="rubric">Attributes</p>
 <table class="autosummary longtable docutils align-default">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#streamsight.datasets.MovieLens100K.DATASETURL" title="streamsight.datasets.MovieLens100K.DATASETURL"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DATASETURL</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#streamsight.datasets.MovieLens100K.DATASET_URL" title="streamsight.datasets.MovieLens100K.DATASET_URL"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DATASET_URL</span></code></a></p></td>
 <td><p></p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#streamsight.datasets.MovieLens100K.DEFAULT_BASE_PATH" title="streamsight.datasets.MovieLens100K.DEFAULT_BASE_PATH"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DEFAULT_BASE_PATH</span></code></a></p></td>
@@ -175,8 +177,8 @@
 </tbody>
 </table>
 <dl class="py attribute">
-<dt class="sig sig-object py" id="streamsight.datasets.MovieLens100K.DATASETURL">
-<span class="sig-name descname"><span class="pre">DATASETURL</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'http://files.grouplens.org/datasets/movielens'</span></em><a class="headerlink" href="#streamsight.datasets.MovieLens100K.DATASETURL" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="streamsight.datasets.MovieLens100K.DATASET_URL">
+<span class="sig-name descname"><span class="pre">DATASET_URL</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'http://files.grouplens.org/datasets/movielens'</span></em><a class="headerlink" href="#streamsight.datasets.MovieLens100K.DATASET_URL" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
@@ -387,7 +389,7 @@ defaults to True</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="streamsight.datasets.YelpDataset.html" class="btn btn-neutral float-left" title="streamsight.datasets.YelpDataset" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="streamsight.datasets.LastFMDataset.html" class="btn btn-neutral float-left" title="streamsight.datasets.LastFMDataset" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="../streamsight.settings.html" class="btn btn-neutral float-right" title="streamsight.settings" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
