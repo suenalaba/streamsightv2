@@ -1,0 +1,73 @@
+﻿streamsightv2.matrix.InteractionMatrix
+======================================
+
+.. currentmodule:: streamsightv2.matrix
+
+.. autoclass:: InteractionMatrix
+   :members:                             
+   :show-inheritance:   
+   :private-members:   
+   :undoc-members:        
+   :inherited-members:               
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~InteractionMatrix.__init__
+      ~InteractionMatrix.concat
+      ~InteractionMatrix.copy
+      ~InteractionMatrix.copy_df
+      ~InteractionMatrix.difference
+      ~InteractionMatrix.get_interaction_data
+      ~InteractionMatrix.get_items_n_first_interaction
+      ~InteractionMatrix.get_items_n_last_interaction
+      ~InteractionMatrix.get_prediction_data
+      ~InteractionMatrix.get_users_n_first_interaction
+      ~InteractionMatrix.get_users_n_last_interaction
+      ~InteractionMatrix.interactions_in
+      ~InteractionMatrix.items_in
+      ~InteractionMatrix.items_not_in
+      ~InteractionMatrix.mask_shape
+      ~InteractionMatrix.nonzero
+      ~InteractionMatrix.timestamps_gt
+      ~InteractionMatrix.timestamps_gte
+      ~InteractionMatrix.timestamps_lt
+      ~InteractionMatrix.timestamps_lte
+      ~InteractionMatrix.union
+      ~InteractionMatrix.users_in
+      ~InteractionMatrix.users_not_in
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~InteractionMatrix.INTERACTION_IX
+      ~InteractionMatrix.ITEM_IX
+      ~InteractionMatrix.MASKED_LABEL
+      ~InteractionMatrix.TIMESTAMP_IX
+      ~InteractionMatrix.USER_IX
+      ~InteractionMatrix.binary_values
+      ~InteractionMatrix.has_timestamps
+      ~InteractionMatrix.indices
+      ~InteractionMatrix.item_ids
+      ~InteractionMatrix.latest_interaction_timestamps_matrix
+      ~InteractionMatrix.max_item_id
+      ~InteractionMatrix.max_timestamp
+      ~InteractionMatrix.max_user_id
+      ~InteractionMatrix.min_timestamp
+      ~InteractionMatrix.num_interactions
+      ~InteractionMatrix.timestamps
+      ~InteractionMatrix.user_ids
+      ~InteractionMatrix.values
+      ~InteractionMatrix.shape
+   
+   

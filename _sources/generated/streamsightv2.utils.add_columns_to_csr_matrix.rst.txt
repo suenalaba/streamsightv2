@@ -1,0 +1,6 @@
+﻿streamsightv2.utils.add\_columns\_to\_csr\_matrix
+=================================================
+
+.. currentmodule:: streamsightv2.utils
+
+.. autofunction:: add_columns_to_csr_matrix

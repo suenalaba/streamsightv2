@@ -1,0 +1,44 @@
+﻿streamsightv2.metrics.Metric
+============================
+
+.. currentmodule:: streamsightv2.metrics
+
+.. autoclass:: Metric
+   :members:                             
+   :show-inheritance:   
+   :private-members:   
+   :undoc-members:        
+   :inherited-members:               
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~Metric.__init__
+      ~Metric.cache_values
+      ~Metric.calculate
+      ~Metric.calculate_cached
+      ~Metric.get_params
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~Metric.identifier
+      ~Metric.macro_result
+      ~Metric.micro_result
+      ~Metric.name
+      ~Metric.num_items
+      ~Metric.num_users
+      ~Metric.params
+      ~Metric.timestamp_limit
+   
+   

@@ -1,0 +1,84 @@
+﻿streamsightv2.evaluators.MetricLevelEnum
+========================================
+
+.. currentmodule:: streamsightv2.evaluators
+
+.. autoclass:: MetricLevelEnum
+   :members:                             
+   :show-inheritance:   
+   :private-members:   
+   :undoc-members:        
+   :inherited-members:               
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~MetricLevelEnum.encode
+      ~MetricLevelEnum.replace
+      ~MetricLevelEnum.split
+      ~MetricLevelEnum.rsplit
+      ~MetricLevelEnum.join
+      ~MetricLevelEnum.capitalize
+      ~MetricLevelEnum.casefold
+      ~MetricLevelEnum.title
+      ~MetricLevelEnum.center
+      ~MetricLevelEnum.count
+      ~MetricLevelEnum.expandtabs
+      ~MetricLevelEnum.find
+      ~MetricLevelEnum.partition
+      ~MetricLevelEnum.index
+      ~MetricLevelEnum.ljust
+      ~MetricLevelEnum.lower
+      ~MetricLevelEnum.lstrip
+      ~MetricLevelEnum.rfind
+      ~MetricLevelEnum.rindex
+      ~MetricLevelEnum.rjust
+      ~MetricLevelEnum.rstrip
+      ~MetricLevelEnum.rpartition
+      ~MetricLevelEnum.splitlines
+      ~MetricLevelEnum.strip
+      ~MetricLevelEnum.swapcase
+      ~MetricLevelEnum.translate
+      ~MetricLevelEnum.upper
+      ~MetricLevelEnum.startswith
+      ~MetricLevelEnum.endswith
+      ~MetricLevelEnum.removeprefix
+      ~MetricLevelEnum.removesuffix
+      ~MetricLevelEnum.isascii
+      ~MetricLevelEnum.islower
+      ~MetricLevelEnum.isupper
+      ~MetricLevelEnum.istitle
+      ~MetricLevelEnum.isspace
+      ~MetricLevelEnum.isdecimal
+      ~MetricLevelEnum.isdigit
+      ~MetricLevelEnum.isnumeric
+      ~MetricLevelEnum.isalpha
+      ~MetricLevelEnum.isalnum
+      ~MetricLevelEnum.isidentifier
+      ~MetricLevelEnum.isprintable
+      ~MetricLevelEnum.zfill
+      ~MetricLevelEnum.format
+      ~MetricLevelEnum.format_map
+      ~MetricLevelEnum.maketrans
+      ~MetricLevelEnum.has_value
+      ~MetricLevelEnum.__init__
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~MetricLevelEnum.MICRO
+      ~MetricLevelEnum.MACRO
+      ~MetricLevelEnum.WINDOW
+      ~MetricLevelEnum.USER
+   
+   

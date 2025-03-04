@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>streamsightv2.settings.Setting &mdash; streamsightv2 0.2.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=37f418d5"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="streamsightv2.settings.SingleTimePointSetting" href="streamsightv2.settings.SingleTimePointSetting.html" />
+    <link rel="prev" title="streamsightv2.settings" href="../streamsightv2.settings.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            streamsightv2
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Data handling</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../streamsightv2.matrix.html">streamsightv2.matrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../streamsightv2.preprocessing.html">streamsightv2.preprocessing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../streamsightv2.datasets.html">streamsightv2.datasets</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../streamsightv2.settings.html">streamsightv2.settings</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../streamsightv2.settings.html#setting">Setting</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">streamsightv2.settings.Setting</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#streamsightv2.settings.Setting"><code class="docutils literal notranslate"><span class="pre">Setting</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="streamsightv2.settings.SingleTimePointSetting.html">streamsightv2.settings.SingleTimePointSetting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="streamsightv2.settings.SlidingWindowSetting.html">streamsightv2.settings.SlidingWindowSetting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../streamsightv2.settings.html#example">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../streamsightv2.settings.html#splitters">Splitters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../streamsightv2.settings.html#processor">Processor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../streamsightv2.settings.html#exception">Exception</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">RecSys</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../streamsightv2.algorithms.html">streamsightv2.algorithms</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Evaluation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../streamsightv2.evaluators.html">streamsightv2.evaluators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../streamsightv2.metrics.html">streamsightv2.metrics</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Other supporting modules</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../streamsightv2.registries.html">streamsightv2.registries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../streamsightv2.utils.html">streamsightv2.utils</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Additional Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../poster.html">Poster</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">streamsightv2</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../streamsightv2.settings.html">streamsightv2.settings</a></li>
+      <li class="breadcrumb-item active">streamsightv2.settings.Setting</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/generated/streamsightv2.settings.Setting.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="streamsightv2-settings-setting">
+<h1>streamsightv2.settings.Setting<a class="headerlink" href="#streamsightv2-settings-setting" title="Link to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="streamsightv2.settings.Setting">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">streamsightv2.settings.</span></span><span class="sig-name descname"><span class="pre">Setting</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#streamsightv2.settings.Setting" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></p>
+<p>Base class for defining an evaluation setting.</p>
+<section id="core-attribute">
+<h2>Core attribute<a class="headerlink" href="#core-attribute" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="#streamsightv2.settings.Setting.background_data" title="streamsightv2.settings.Setting.background_data"><code class="xref py py-attr docutils literal notranslate"><span class="pre">background_data</span></code></a>: Data used for training the model. Interval is <cite>[0, background_t)</cite>.</p></li>
+<li><p><a class="reference internal" href="#streamsightv2.settings.Setting.unlabeled_data" title="streamsightv2.settings.Setting.unlabeled_data"><code class="xref py py-attr docutils literal notranslate"><span class="pre">unlabeled_data</span></code></a>: List of unlabeled data. Each element is a <code class="xref py py-class docutils literal notranslate"><span class="pre">InteractionMatrix</span></code> object of interval <cite>[0, t)</cite>.</p></li>
+<li><p><a class="reference internal" href="#streamsightv2.settings.Setting.ground_truth_data" title="streamsightv2.settings.Setting.ground_truth_data"><code class="xref py py-attr docutils literal notranslate"><span class="pre">ground_truth_data</span></code></a>: List of ground truth data. Each element is a <code class="xref py py-class docutils literal notranslate"><span class="pre">InteractionMatrix</span></code> object of interval <cite>[t, t + window_size)</cite>.</p></li>
+<li><p><a class="reference internal" href="#streamsightv2.settings.Setting.incremental_data" title="streamsightv2.settings.Setting.incremental_data"><code class="xref py py-attr docutils literal notranslate"><span class="pre">incremental_data</span></code></a>: List of data that is used to incrementally update the model. Each element is a <code class="xref py py-class docutils literal notranslate"><span class="pre">InteractionMatrix</span></code> object of interval <cite>[t, t + window_size)</cite>. Unique to <a class="reference internal" href="streamsightv2.settings.SlidingWindowSetting.html#streamsightv2.settings.SlidingWindowSetting" title="streamsightv2.settings.SlidingWindowSetting"><code class="xref py py-class docutils literal notranslate"><span class="pre">SlidingWindowSetting</span></code></a>.</p></li>
+<li><p><code class="xref py py-attr docutils literal notranslate"><span class="pre">data_timestamp_limit</span></code>: List of timestamps that the splitter will slide over the data.</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">param seed<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Seed for randomisation parts of the setting.
+Defaults to None, so random seed will be generated.</p>
+</dd>
+<dt class="field-even">type seed<span class="colon">:</span></dt>
+<dd class="field-even"><p>int, optional</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="streamsightv2.settings.Setting.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#streamsightv2.settings.Setting.__init__" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<p class="rubric">Methods</p>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#streamsightv2.settings.Setting.__init__" title="streamsightv2.settings.Setting.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>([seed])</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#streamsightv2.settings.Setting.destruct_generators" title="streamsightv2.settings.Setting.destruct_generators"><code class="xref py py-obj docutils literal notranslate"><span class="pre">destruct_generators</span></code></a>()</p></td>
+<td><p>Destruct data generators.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#streamsightv2.settings.Setting.get_params" title="streamsightv2.settings.Setting.get_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_params</span></code></a>()</p></td>
+<td><p>Get the parameters of the setting.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#streamsightv2.settings.Setting.next_ground_truth_data" title="streamsightv2.settings.Setting.next_ground_truth_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">next_ground_truth_data</span></code></a>([reset])</p></td>
+<td><p>Get the next ground truth data.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#streamsightv2.settings.Setting.next_incremental_data" title="streamsightv2.settings.Setting.next_incremental_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">next_incremental_data</span></code></a>([reset])</p></td>
+<td><p>Get the next incremental data.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#streamsightv2.settings.Setting.next_t_window" title="streamsightv2.settings.Setting.next_t_window"><code class="xref py py-obj docutils literal notranslate"><span class="pre">next_t_window</span></code></a>([reset])</p></td>
+<td><p>Get the next data timestamp limit.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#streamsightv2.settings.Setting.next_unlabeled_data" title="streamsightv2.settings.Setting.next_unlabeled_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">next_unlabeled_data</span></code></a>([reset])</p></td>
+<td><p>Get the next unlabeled data.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#streamsightv2.settings.Setting.reset_data_generators" title="streamsightv2.settings.Setting.reset_data_generators"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reset_data_generators</span></code></a>()</p></td>
+<td><p>Reset data generators.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#streamsightv2.settings.Setting.restore_generators" title="streamsightv2.settings.Setting.restore_generators"><code class="xref py py-obj docutils literal notranslate"><span class="pre">restore_generators</span></code></a>([n])</p></td>
+<td><p>Restore data generators.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#streamsightv2.settings.Setting.split" title="streamsightv2.settings.Setting.split"><code class="xref py py-obj docutils literal notranslate"><span class="pre">split</span></code></a>(data)</p></td>
+<td><p>Splits <a href="#id1"><span class="problematic" id="id2">:param:`data`</span></a> according to the setting.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Attributes</p>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#streamsightv2.settings.Setting.background_data" title="streamsightv2.settings.Setting.background_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">background_data</span></code></a></p></td>
+<td><p>Background data provided for the model for the initial training.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#streamsightv2.settings.Setting.ground_truth_data" title="streamsightv2.settings.Setting.ground_truth_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ground_truth_data</span></code></a></p></td>
+<td><p>Ground truth data to evaluate the model's predictions on.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#streamsightv2.settings.Setting.identifier" title="streamsightv2.settings.Setting.identifier"><code class="xref py py-obj docutils literal notranslate"><span class="pre">identifier</span></code></a></p></td>
+<td><p>Name of the setting.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#streamsightv2.settings.Setting.incremental_data" title="streamsightv2.settings.Setting.incremental_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">incremental_data</span></code></a></p></td>
+<td><p>Data that is used to incrementally update the model.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#streamsightv2.settings.Setting.is_ready" title="streamsightv2.settings.Setting.is_ready"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_ready</span></code></a></p></td>
+<td><p>Flag on setting if it is ready to be used for evaluation.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#streamsightv2.settings.Setting.is_sliding_window_setting" title="streamsightv2.settings.Setting.is_sliding_window_setting"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_sliding_window_setting</span></code></a></p></td>
+<td><p>Flag to indicate if the setting is <a class="reference internal" href="streamsightv2.settings.SlidingWindowSetting.html#streamsightv2.settings.SlidingWindowSetting" title="streamsightv2.settings.SlidingWindowSetting"><code class="xref py py-class docutils literal notranslate"><span class="pre">SlidingWindowSetting</span></code></a>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#streamsightv2.settings.Setting.name" title="streamsightv2.settings.Setting.name"><code class="xref py py-obj docutils literal notranslate"><span class="pre">name</span></code></a></p></td>
+<td><p>Name of the setting.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#streamsightv2.settings.Setting.num_split" title="streamsightv2.settings.Setting.num_split"><code class="xref py py-obj docutils literal notranslate"><span class="pre">num_split</span></code></a></p></td>
+<td><p>Number of splits created from dataset.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#streamsightv2.settings.Setting.params" title="streamsightv2.settings.Setting.params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">params</span></code></a></p></td>
+<td><p>Parameters of the setting.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#streamsightv2.settings.Setting.t_window" title="streamsightv2.settings.Setting.t_window"><code class="xref py py-obj docutils literal notranslate"><span class="pre">t_window</span></code></a></p></td>
+<td><p>The upper timestamp of the window in split.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#streamsightv2.settings.Setting.unlabeled_data" title="streamsightv2.settings.Setting.unlabeled_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">unlabeled_data</span></code></a></p></td>
+<td><p>Unlabeled data for the model to make predictions on.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#streamsightv2.settings.Setting.n_seq_data" title="streamsightv2.settings.Setting.n_seq_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">n_seq_data</span></code></a></p></td>
+<td><p>Number of last sequential interactions to provide in <a class="reference internal" href="#streamsightv2.settings.Setting.unlabeled_data" title="streamsightv2.settings.Setting.unlabeled_data"><code class="xref py py-attr docutils literal notranslate"><span class="pre">unlabeled_data</span></code></a> as data for model to make prediction.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#streamsightv2.settings.Setting.top_K" title="streamsightv2.settings.Setting.top_K"><code class="xref py py-obj docutils literal notranslate"><span class="pre">top_K</span></code></a></p></td>
+<td><p>Number of interaction per user that should be selected for evaluation purposes in <a class="reference internal" href="#streamsightv2.settings.Setting.ground_truth_data" title="streamsightv2.settings.Setting.ground_truth_data"><code class="xref py py-attr docutils literal notranslate"><span class="pre">ground_truth_data</span></code></a>.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="streamsightv2.settings.Setting._abc_impl">
+<span class="sig-name descname"><span class="pre">_abc_impl</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;_abc._abc_data</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#streamsightv2.settings.Setting._abc_impl" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="streamsightv2.settings.Setting._background_data">
+<span class="sig-name descname"><span class="pre">_background_data</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="streamsightv2.matrix.InteractionMatrix.html#streamsightv2.matrix.InteractionMatrix" title="streamsightv2.matrix.interaction_matrix.InteractionMatrix"><span class="pre">InteractionMatrix</span></a></em><a class="headerlink" href="#streamsightv2.settings.Setting._background_data" title="Link to this definition"></a></dt>
+<dd><p>Data used as the initial set of interactions to train the model.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="streamsightv2.settings.Setting._check_size">
+<span class="sig-name descname"><span class="pre">_check_size</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#streamsightv2.settings.Setting._check_size" title="Link to this definition"></a></dt>
+<dd><p>Warns user if any of the sets is unusually small or empty</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="streamsightv2.settings.Setting._check_split">
+<span class="sig-name descname"><span class="pre">_check_split</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#streamsightv2.settings.Setting._check_split" title="Link to this definition"></a></dt>
+<dd><p>Checks that the splits have been done properly.</p>
+<p>Makes sure all expected attributes are set.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="streamsightv2.settings.Setting._check_split_complete">
+<span class="sig-name descname"><span class="pre">_check_split_complete</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#streamsightv2.settings.Setting._check_split_complete" title="Link to this definition"></a></dt>
+<dd><p>Check if the setting is ready to be used for evaluation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>KeyError</strong> – If the setting is not ready to be used for evaluation.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="streamsightv2.settings.Setting._create_generator">
+<span class="sig-name descname"><span class="pre">_create_generator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">attribute</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Any</span></span></span><a class="headerlink" href="#streamsightv2.settings.Setting._create_generator" title="Link to this definition"></a></dt>
+<dd><p>Creates generator for provided attribute name</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>attribute</strong> (<em>str</em>) – the attribute name to be used to create the generator</p>
+</dd>
+<dt class="field-even">Yield<span class="colon">:</span></dt>
+<dd class="field-even"><p>Data return from the attribute</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Any</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="streamsightv2.settings.Setting._ground_truth_data">
+<span class="sig-name descname"><span class="pre">_ground_truth_data</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="streamsightv2.matrix.InteractionMatrix.html#streamsightv2.matrix.InteractionMatrix" title="streamsightv2.matrix.interaction_matrix.InteractionMatrix"><span class="pre">InteractionMatrix</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="streamsightv2.matrix.InteractionMatrix.html#streamsightv2.matrix.InteractionMatrix" title="streamsightv2.matrix.interaction_matrix.InteractionMatrix"><span class="pre">InteractionMatrix</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#streamsightv2.settings.Setting._ground_truth_data" title="Link to this definition"></a></dt>
+<dd><p>Data containing the ground truth interactions to <code class="xref py py-attr docutils literal notranslate"><span class="pre">_unlabeled_data</span></code>. If <a class="reference internal" href="streamsightv2.settings.SlidingWindowSetting.html#streamsightv2.settings.SlidingWindowSetting" title="streamsightv2.settings.SlidingWindowSetting"><code class="xref py py-class docutils literal notranslate"><span class="pre">SlidingWindowSetting</span></code></a>, then it will be a list of <code class="xref py py-class docutils literal notranslate"><span class="pre">InteractionMatrix</span></code>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="streamsightv2.settings.Setting._ground_truth_data_generator">
+<span class="sig-name descname"><span class="pre">_ground_truth_data_generator</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#streamsightv2.settings.Setting._ground_truth_data_generator" title="Link to this definition"></a></dt>
+<dd><p>Generates ground truth data.</p>
+<p>Allow for iteration over the ground truth data. If the setting is a
+sliding window setting, then it will iterate over the list of ground
+truth data.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>A private method is specifically created to abstract the creation of
+the generator and to allow for easy resetting when needed.</p>
+</div>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="streamsightv2.settings.Setting._incremental_data">
+<span class="sig-name descname"><span class="pre">_incremental_data</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="streamsightv2.matrix.InteractionMatrix.html#streamsightv2.matrix.InteractionMatrix" title="streamsightv2.matrix.interaction_matrix.InteractionMatrix"><span class="pre">InteractionMatrix</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#streamsightv2.settings.Setting._incremental_data" title="Link to this definition"></a></dt>
+<dd><p>Data that is used to incrementally update the model. Unique to <a class="reference internal" href="streamsightv2.settings.SlidingWindowSetting.html#streamsightv2.settings.SlidingWindowSetting" title="streamsightv2.settings.SlidingWindowSetting"><code class="xref py py-class docutils literal notranslate"><span class="pre">SlidingWindowSetting</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="streamsightv2.settings.Setting._incremental_data_generator">
+<span class="sig-name descname"><span class="pre">_incremental_data_generator</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#streamsightv2.settings.Setting._incremental_data_generator" title="Link to this definition"></a></dt>
+<dd><p>Generates incremental data.</p>
+<p>Allow for iteration over the incremental data. If the setting is a
+sliding window setting, then it will iterate over the list of incremental
+data.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>A private method is specifically created to abstract the creation of
+the generator and to allow for easy resetting when needed.</p>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="streamsightv2.settings.Setting._next_t_window_generator">
+<span class="sig-name descname"><span class="pre">_next_t_window_generator</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#streamsightv2.settings.Setting._next_t_window_generator" title="Link to this definition"></a></dt>
+<dd><p>Generates t_window data.</p>
+<p>Allow for iteration over the t_window data. If the setting is a
+sliding window setting, then it will iterate over the list of data
+timestamp limit.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>A private method is specifically created to abstract the creation of
+the generator and to allow for easy resetting when needed.</p>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="streamsightv2.settings.Setting._split">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">_split</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="streamsightv2.matrix.InteractionMatrix.html#streamsightv2.matrix.InteractionMatrix" title="streamsightv2.matrix.interaction_matrix.InteractionMatrix"><span class="pre">InteractionMatrix</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#streamsightv2.settings.Setting._split" title="Link to this definition"></a></dt>
+<dd><p>Abstract method to be implemented by the setting.</p>
+<p>The concrete class should implement this method to split the data into
+<a class="reference internal" href="#streamsightv2.settings.Setting.background_data" title="streamsightv2.settings.Setting.background_data"><code class="xref py py-attr docutils literal notranslate"><span class="pre">background_data</span></code></a>, <a class="reference internal" href="#streamsightv2.settings.Setting.ground_truth_data" title="streamsightv2.settings.Setting.ground_truth_data"><code class="xref py py-attr docutils literal notranslate"><span class="pre">ground_truth_data</span></code></a>, <a class="reference internal" href="#streamsightv2.settings.Setting.unlabeled_data" title="streamsightv2.settings.Setting.unlabeled_data"><code class="xref py py-attr docutils literal notranslate"><span class="pre">unlabeled_data</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>data</strong> (<a class="reference internal" href="streamsightv2.matrix.InteractionMatrix.html#streamsightv2.matrix.InteractionMatrix" title="streamsightv2.matrix.InteractionMatrix"><em>InteractionMatrix</em></a>) – Interaction matrix to be split.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="streamsightv2.settings.Setting._split_complete">
+<span class="sig-name descname"><span class="pre">_split_complete</span></span><a class="headerlink" href="#streamsightv2.settings.Setting._split_complete" title="Link to this definition"></a></dt>
+<dd><p>Number of splits created from sliding window. Defaults to 1 (no splits on training set).</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="streamsightv2.settings.Setting._t_window">
+<span class="sig-name descname"><span class="pre">_t_window</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">None</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#streamsightv2.settings.Setting._t_window" title="Link to this definition"></a></dt>
+<dd><p>This is the upper timestamp of the window in split. The actual interaction might have a smaller timestamp value than this because this will is the t cut off value.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="streamsightv2.settings.Setting._unlabeled_data_generator">
+<span class="sig-name descname"><span class="pre">_unlabeled_data_generator</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#streamsightv2.settings.Setting._unlabeled_data_generator" title="Link to this definition"></a></dt>
+<dd><p>Generates unlabeled data.</p>
+<p>Allow for iteration over the unlabeled data. If the setting is a
+sliding window setting, then it will iterate over the list of unlabeled
+data.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>A private method is specifically created to abstract the creation of
+the generator and to allow for easy resetting when needed.</p>
+</div>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="streamsightv2.settings.Setting.background_data">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">background_data</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="streamsightv2.matrix.InteractionMatrix.html#streamsightv2.matrix.InteractionMatrix" title="streamsightv2.matrix.interaction_matrix.InteractionMatrix"><span class="pre">InteractionMatrix</span></a></em><a class="headerlink" href="#streamsightv2.settings.Setting.background_data" title="Link to this definition"></a></dt>
+<dd><p>Background data provided for the model for the initial training.</p>
+<p>This data is used as the initial set of interactions to train the model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Interaction Matrix of training interactions.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="streamsightv2.matrix.InteractionMatrix.html#streamsightv2.matrix.InteractionMatrix" title="streamsightv2.matrix.InteractionMatrix">InteractionMatrix</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="streamsightv2.settings.Setting.destruct_generators">
+<span class="sig-name descname"><span class="pre">destruct_generators</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#streamsightv2.settings.Setting.destruct_generators" title="Link to this definition"></a></dt>
+<dd><p>Destruct data generators.</p>
+<p>Destructs the data generators of the setting object. This method is
+useful when the setting object needs to be be pickled or saved to disk.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="streamsightv2.settings.Setting.get_params">
+<span class="sig-name descname"><span class="pre">get_params</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#streamsightv2.settings.Setting.get_params" title="Link to this definition"></a></dt>
+<dd><p>Get the parameters of the setting.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="streamsightv2.settings.Setting.ground_truth_data">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ground_truth_data</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="streamsightv2.matrix.InteractionMatrix.html#streamsightv2.matrix.InteractionMatrix" title="streamsightv2.matrix.interaction_matrix.InteractionMatrix"><span class="pre">InteractionMatrix</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="streamsightv2.matrix.InteractionMatrix.html#streamsightv2.matrix.InteractionMatrix" title="streamsightv2.matrix.interaction_matrix.InteractionMatrix"><span class="pre">InteractionMatrix</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#streamsightv2.settings.Setting.ground_truth_data" title="Link to this definition"></a></dt>
+<dd><p>Ground truth data to evaluate the model’s predictions on.</p>
+<p>Contains the actual interactions of the user-item interaction that the
+model is supposed to predict.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>_description_</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>Union[<a class="reference internal" href="streamsightv2.matrix.InteractionMatrix.html#streamsightv2.matrix.InteractionMatrix" title="streamsightv2.matrix.InteractionMatrix">InteractionMatrix</a>, List[<a class="reference internal" href="streamsightv2.matrix.InteractionMatrix.html#streamsightv2.matrix.InteractionMatrix" title="streamsightv2.matrix.InteractionMatrix">InteractionMatrix</a>]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="streamsightv2.settings.Setting.identifier">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">identifier</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#streamsightv2.settings.Setting.identifier" title="Link to this definition"></a></dt>
+<dd><p>Name of the setting.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="streamsightv2.settings.Setting.incremental_data">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">incremental_data</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="streamsightv2.matrix.InteractionMatrix.html#streamsightv2.matrix.InteractionMatrix" title="streamsightv2.matrix.interaction_matrix.InteractionMatrix"><span class="pre">InteractionMatrix</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#streamsightv2.settings.Setting.incremental_data" title="Link to this definition"></a></dt>
+<dd><p>Data that is used to incrementally update the model.</p>
+<p>Unique to sliding window setting.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>_description_</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>List[<a class="reference internal" href="streamsightv2.matrix.InteractionMatrix.html#streamsightv2.matrix.InteractionMatrix" title="streamsightv2.matrix.InteractionMatrix">InteractionMatrix</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="streamsightv2.settings.Setting.is_ready">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">is_ready</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#streamsightv2.settings.Setting.is_ready" title="Link to this definition"></a></dt>
+<dd><p>Flag on setting if it is ready to be used for evaluation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>If the setting is ready to be used for evaluation.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="streamsightv2.settings.Setting.is_sliding_window_setting">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">is_sliding_window_setting</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#streamsightv2.settings.Setting.is_sliding_window_setting" title="Link to this definition"></a></dt>
+<dd><p>Flag to indicate if the setting is <a class="reference internal" href="streamsightv2.settings.SlidingWindowSetting.html#streamsightv2.settings.SlidingWindowSetting" title="streamsightv2.settings.SlidingWindowSetting"><code class="xref py py-class docutils literal notranslate"><span class="pre">SlidingWindowSetting</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>If the setting is <a class="reference internal" href="streamsightv2.settings.SlidingWindowSetting.html#streamsightv2.settings.SlidingWindowSetting" title="streamsightv2.settings.SlidingWindowSetting"><code class="xref py py-class docutils literal notranslate"><span class="pre">SlidingWindowSetting</span></code></a>.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="streamsightv2.settings.Setting.n_seq_data">
+<span class="sig-name descname"><span class="pre">n_seq_data</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#streamsightv2.settings.Setting.n_seq_data" title="Link to this definition"></a></dt>
+<dd><p>Number of last sequential interactions to provide in <a class="reference internal" href="#streamsightv2.settings.Setting.unlabeled_data" title="streamsightv2.settings.Setting.unlabeled_data"><code class="xref py py-attr docutils literal notranslate"><span class="pre">unlabeled_data</span></code></a> as data for model to make prediction.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="streamsightv2.settings.Setting.name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#streamsightv2.settings.Setting.name" title="Link to this definition"></a></dt>
+<dd><p>Name of the setting.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Name of the setting.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="streamsightv2.settings.Setting.next_ground_truth_data">
+<span class="sig-name descname"><span class="pre">next_ground_truth_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">reset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="streamsightv2.matrix.InteractionMatrix.html#streamsightv2.matrix.InteractionMatrix" title="streamsightv2.matrix.interaction_matrix.InteractionMatrix"><span class="pre">InteractionMatrix</span></a></span></span><a class="headerlink" href="#streamsightv2.settings.Setting.next_ground_truth_data" title="Link to this definition"></a></dt>
+<dd><p>Get the next ground truth data.</p>
+<p>Get the next ground truth data for the corresponding split.
+If the setting is a sliding window setting, then it will iterate over
+the list of ground truth data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>reset</strong> (<em>bool</em><em>, </em><em>optional</em>) – To reset the generator, defaults to False</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="streamsightv2.settings.EOWSetting.html#streamsightv2.settings.EOWSetting" title="streamsightv2.settings.EOWSetting"><strong>EOWSetting</strong></a> – If there is no more ground truth data to iterate over.</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The next ground truth data for the corresponding split.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="streamsightv2.matrix.InteractionMatrix.html#streamsightv2.matrix.InteractionMatrix" title="streamsightv2.matrix.InteractionMatrix">InteractionMatrix</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="streamsightv2.settings.Setting.next_incremental_data">
+<span class="sig-name descname"><span class="pre">next_incremental_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">reset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="streamsightv2.matrix.InteractionMatrix.html#streamsightv2.matrix.InteractionMatrix" title="streamsightv2.matrix.interaction_matrix.InteractionMatrix"><span class="pre">InteractionMatrix</span></a></span></span><a class="headerlink" href="#streamsightv2.settings.Setting.next_incremental_data" title="Link to this definition"></a></dt>
+<dd><p>Get the next incremental data.</p>
+<p>Get the next incremental data for the corresponding split.
+If the setting is a sliding window setting, then it will iterate over
+the list of incremental data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>reset</strong> (<em>bool</em><em>, </em><em>optional</em>) – To reset the generator, defaults to False</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>AttributeError</strong> – If the setting is not a sliding window setting.</p></li>
+<li><p><a class="reference internal" href="streamsightv2.settings.EOWSetting.html#streamsightv2.settings.EOWSetting" title="streamsightv2.settings.EOWSetting"><strong>EOWSetting</strong></a> – If there is no more incremental data to iterate over.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The next incremental data for the corresponding split.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="streamsightv2.matrix.InteractionMatrix.html#streamsightv2.matrix.InteractionMatrix" title="streamsightv2.matrix.InteractionMatrix">InteractionMatrix</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="streamsightv2.settings.Setting.next_t_window">
+<span class="sig-name descname"><span class="pre">next_t_window</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">reset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#streamsightv2.settings.Setting.next_t_window" title="Link to this definition"></a></dt>
+<dd><p>Get the next data timestamp limit.</p>
+<p>Get the next upper timestamp limit for the corresponding split.
+If the setting is a sliding window setting, then it will iterate over
+the list of timestamps that specify the timestamp cut off for the data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>reset</strong> (<em>bool</em><em>, </em><em>optional</em>) – To reset the generator, defaults to False</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="streamsightv2.settings.EOWSetting.html#streamsightv2.settings.EOWSetting" title="streamsightv2.settings.EOWSetting"><strong>EOWSetting</strong></a> – If there is no more data timestamp limit to iterate over.</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The next t_window for the corresponding split.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="streamsightv2.settings.Setting.next_unlabeled_data">
+<span class="sig-name descname"><span class="pre">next_unlabeled_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">reset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="streamsightv2.matrix.InteractionMatrix.html#streamsightv2.matrix.InteractionMatrix" title="streamsightv2.matrix.interaction_matrix.InteractionMatrix"><span class="pre">InteractionMatrix</span></a></span></span><a class="headerlink" href="#streamsightv2.settings.Setting.next_unlabeled_data" title="Link to this definition"></a></dt>
+<dd><p>Get the next unlabeled data.</p>
+<p>Get the next unlabeled data for the corresponding split.
+If the setting is a sliding window setting, then it will iterate over
+the list of unlabeled data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>reset</strong> (<em>bool</em><em>, </em><em>optional</em>) – To reset the generator, defaults to False</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="streamsightv2.settings.EOWSetting.html#streamsightv2.settings.EOWSetting" title="streamsightv2.settings.EOWSetting"><strong>EOWSetting</strong></a> – If there is no more unlabeled data to iterate over.</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The next unlabeled data for the corresponding split.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="streamsightv2.matrix.InteractionMatrix.html#streamsightv2.matrix.InteractionMatrix" title="streamsightv2.matrix.InteractionMatrix">InteractionMatrix</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="streamsightv2.settings.Setting.num_split">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">num_split</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#streamsightv2.settings.Setting.num_split" title="Link to this definition"></a></dt>
+<dd><p>Number of splits created from dataset.</p>
+<p>This property defaults to 1 (no splits on training set) on a typical setting.
+Usually for the <a class="reference internal" href="streamsightv2.settings.SlidingWindowSetting.html#streamsightv2.settings.SlidingWindowSetting" title="streamsightv2.settings.SlidingWindowSetting"><code class="xref py py-class docutils literal notranslate"><span class="pre">SlidingWindowSetting</span></code></a> this property will be greater than 1
+if there are multiple splits created from the sliding window on the dataset.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Number of splits created from dataset.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="streamsightv2.settings.Setting.params">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">params</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#streamsightv2.settings.Setting.params" title="Link to this definition"></a></dt>
+<dd><p>Parameters of the setting.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="streamsightv2.settings.Setting.reset_data_generators">
+<span class="sig-name descname"><span class="pre">reset_data_generators</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#streamsightv2.settings.Setting.reset_data_generators" title="Link to this definition"></a></dt>
+<dd><p>Reset data generators.</p>
+<p>Resets the data generators to the beginning of the
+data series. API allows the programmer to reset the data generators
+of the setting object to the beginning of the data series.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="streamsightv2.settings.Setting.restore_generators">
+<span class="sig-name descname"><span class="pre">restore_generators</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#streamsightv2.settings.Setting.restore_generators" title="Link to this definition"></a></dt>
+<dd><p>Restore data generators.</p>
+<p>Restores the data generators of the setting object. If <a href="#id3"><span class="problematic" id="id4">:param:`n`</span></a> is
+provided, then it will restore the data generators to the iteration
+number <a href="#id5"><span class="problematic" id="id6">:param:`n`</span></a>. If <a href="#id7"><span class="problematic" id="id8">:param:`n`</span></a> is not provided, then it will restore
+the data generators to the beginning of the data series.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>n</strong> (<em>int</em><em>, </em><em>optional</em>) – iteration number to restore generator to, defaults to int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="streamsightv2.settings.Setting.split">
+<span class="sig-name descname"><span class="pre">split</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="streamsightv2.matrix.InteractionMatrix.html#streamsightv2.matrix.InteractionMatrix" title="streamsightv2.matrix.interaction_matrix.InteractionMatrix"><span class="pre">InteractionMatrix</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#streamsightv2.settings.Setting.split" title="Link to this definition"></a></dt>
+<dd><p>Splits <a href="#id9"><span class="problematic" id="id10">:param:`data`</span></a> according to the setting.</p>
+<p>Calling this method will change the state of the setting object to be ready
+for evaluation. The method will split the data into <a class="reference internal" href="#streamsightv2.settings.Setting.background_data" title="streamsightv2.settings.Setting.background_data"><code class="xref py py-attr docutils literal notranslate"><span class="pre">background_data</span></code></a>,
+<a class="reference internal" href="#streamsightv2.settings.Setting.ground_truth_data" title="streamsightv2.settings.Setting.ground_truth_data"><code class="xref py py-attr docutils literal notranslate"><span class="pre">ground_truth_data</span></code></a>, <a class="reference internal" href="#streamsightv2.settings.Setting.unlabeled_data" title="streamsightv2.settings.Setting.unlabeled_data"><code class="xref py py-attr docutils literal notranslate"><span class="pre">unlabeled_data</span></code></a>.</p>
+<p>This method will perform a basic check on the split to ensure that the
+split did not result in any empty or unusually small datasets.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><a class="reference internal" href="streamsightv2.settings.SlidingWindowSetting.html#streamsightv2.settings.SlidingWindowSetting" title="streamsightv2.settings.SlidingWindowSetting"><code class="xref py py-class docutils literal notranslate"><span class="pre">SlidingWindowSetting</span></code></a> will have additional attribute
+<a class="reference internal" href="#streamsightv2.settings.Setting.incremental_data" title="streamsightv2.settings.Setting.incremental_data"><code class="xref py py-attr docutils literal notranslate"><span class="pre">incremental_data</span></code></a>.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>data</strong> (<a class="reference internal" href="streamsightv2.matrix.InteractionMatrix.html#streamsightv2.matrix.InteractionMatrix" title="streamsightv2.matrix.InteractionMatrix"><em>InteractionMatrix</em></a>) – Interaction matrix that should be split.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="streamsightv2.settings.Setting.t_window">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">t_window</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">None</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#streamsightv2.settings.Setting.t_window" title="Link to this definition"></a></dt>
+<dd><p>The upper timestamp of the window in split.</p>
+<p>In settings that respect the global timeline, a timestamp value will
+be returned. In the case of <a class="reference internal" href="streamsightv2.settings.SlidingWindowSetting.html#streamsightv2.settings.SlidingWindowSetting" title="streamsightv2.settings.SlidingWindowSetting"><code class="xref py py-class docutils literal notranslate"><span class="pre">SlidingWindowSetting</span></code></a>, a list of
+timestamp values will be returned.</p>
+<p>Settings such as <code class="xref py py-class docutils literal notranslate"><span class="pre">LeaveNOutSetting</span></code> will return None since there
+is no split with respect to time.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>timestamp limit for the data.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>Union[int, List[int]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="streamsightv2.settings.Setting.top_K">
+<span class="sig-name descname"><span class="pre">top_K</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#streamsightv2.settings.Setting.top_K" title="Link to this definition"></a></dt>
+<dd><p>Number of interaction per user that should be selected for evaluation purposes in <a class="reference internal" href="#streamsightv2.settings.Setting.ground_truth_data" title="streamsightv2.settings.Setting.ground_truth_data"><code class="xref py py-attr docutils literal notranslate"><span class="pre">ground_truth_data</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="streamsightv2.settings.Setting.unlabeled_data">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">unlabeled_data</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="streamsightv2.matrix.InteractionMatrix.html#streamsightv2.matrix.InteractionMatrix" title="streamsightv2.matrix.interaction_matrix.InteractionMatrix"><span class="pre">InteractionMatrix</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="streamsightv2.matrix.InteractionMatrix.html#streamsightv2.matrix.InteractionMatrix" title="streamsightv2.matrix.interaction_matrix.InteractionMatrix"><span class="pre">InteractionMatrix</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#streamsightv2.settings.Setting.unlabeled_data" title="Link to this definition"></a></dt>
+<dd><p>Unlabeled data for the model to make predictions on.</p>
+<p>Contains the user/item ID for prediction along with previous sequential
+interactions of user-item on items if it exists. This data is used to
+make predictions on the ground truth data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Either a single InteractionMatrix or a list of InteractionMatrix
+if the setting is a sliding window setting.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>Union[<a class="reference internal" href="streamsightv2.matrix.InteractionMatrix.html#streamsightv2.matrix.InteractionMatrix" title="streamsightv2.matrix.InteractionMatrix">InteractionMatrix</a>, List[<a class="reference internal" href="streamsightv2.matrix.InteractionMatrix.html#streamsightv2.matrix.InteractionMatrix" title="streamsightv2.matrix.InteractionMatrix">InteractionMatrix</a>]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../streamsightv2.settings.html" class="btn btn-neutral float-left" title="streamsightv2.settings" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="streamsightv2.settings.SingleTimePointSetting.html" class="btn btn-neutral float-right" title="streamsightv2.settings.SingleTimePointSetting" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Joshua Khoo, Ng Tze Kean.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

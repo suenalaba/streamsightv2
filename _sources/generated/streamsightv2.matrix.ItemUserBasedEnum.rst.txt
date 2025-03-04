@@ -1,0 +1,82 @@
+﻿streamsightv2.matrix.ItemUserBasedEnum
+======================================
+
+.. currentmodule:: streamsightv2.matrix
+
+.. autoclass:: ItemUserBasedEnum
+   :members:                             
+   :show-inheritance:   
+   :private-members:   
+   :undoc-members:        
+   :inherited-members:               
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~ItemUserBasedEnum.encode
+      ~ItemUserBasedEnum.replace
+      ~ItemUserBasedEnum.split
+      ~ItemUserBasedEnum.rsplit
+      ~ItemUserBasedEnum.join
+      ~ItemUserBasedEnum.capitalize
+      ~ItemUserBasedEnum.casefold
+      ~ItemUserBasedEnum.title
+      ~ItemUserBasedEnum.center
+      ~ItemUserBasedEnum.count
+      ~ItemUserBasedEnum.expandtabs
+      ~ItemUserBasedEnum.find
+      ~ItemUserBasedEnum.partition
+      ~ItemUserBasedEnum.index
+      ~ItemUserBasedEnum.ljust
+      ~ItemUserBasedEnum.lower
+      ~ItemUserBasedEnum.lstrip
+      ~ItemUserBasedEnum.rfind
+      ~ItemUserBasedEnum.rindex
+      ~ItemUserBasedEnum.rjust
+      ~ItemUserBasedEnum.rstrip
+      ~ItemUserBasedEnum.rpartition
+      ~ItemUserBasedEnum.splitlines
+      ~ItemUserBasedEnum.strip
+      ~ItemUserBasedEnum.swapcase
+      ~ItemUserBasedEnum.translate
+      ~ItemUserBasedEnum.upper
+      ~ItemUserBasedEnum.startswith
+      ~ItemUserBasedEnum.endswith
+      ~ItemUserBasedEnum.removeprefix
+      ~ItemUserBasedEnum.removesuffix
+      ~ItemUserBasedEnum.isascii
+      ~ItemUserBasedEnum.islower
+      ~ItemUserBasedEnum.isupper
+      ~ItemUserBasedEnum.istitle
+      ~ItemUserBasedEnum.isspace
+      ~ItemUserBasedEnum.isdecimal
+      ~ItemUserBasedEnum.isdigit
+      ~ItemUserBasedEnum.isnumeric
+      ~ItemUserBasedEnum.isalpha
+      ~ItemUserBasedEnum.isalnum
+      ~ItemUserBasedEnum.isidentifier
+      ~ItemUserBasedEnum.isprintable
+      ~ItemUserBasedEnum.zfill
+      ~ItemUserBasedEnum.format
+      ~ItemUserBasedEnum.format_map
+      ~ItemUserBasedEnum.maketrans
+      ~ItemUserBasedEnum.has_value
+      ~ItemUserBasedEnum.__init__
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~ItemUserBasedEnum.ITEM
+      ~ItemUserBasedEnum.USER
+   
+   

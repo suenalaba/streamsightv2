@@ -1,0 +1,54 @@
+﻿streamsightv2.settings.Setting
+==============================
+
+.. currentmodule:: streamsightv2.settings
+
+.. autoclass:: Setting
+   :members:                             
+   :show-inheritance:   
+   :private-members:   
+   :undoc-members:        
+   :inherited-members:               
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~Setting.__init__
+      ~Setting.destruct_generators
+      ~Setting.get_params
+      ~Setting.next_ground_truth_data
+      ~Setting.next_incremental_data
+      ~Setting.next_t_window
+      ~Setting.next_unlabeled_data
+      ~Setting.reset_data_generators
+      ~Setting.restore_generators
+      ~Setting.split
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~Setting.background_data
+      ~Setting.ground_truth_data
+      ~Setting.identifier
+      ~Setting.incremental_data
+      ~Setting.is_ready
+      ~Setting.is_sliding_window_setting
+      ~Setting.name
+      ~Setting.num_split
+      ~Setting.params
+      ~Setting.t_window
+      ~Setting.unlabeled_data
+      ~Setting.n_seq_data
+      ~Setting.top_K
+   
+   

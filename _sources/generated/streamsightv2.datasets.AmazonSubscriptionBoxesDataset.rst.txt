@@ -1,0 +1,46 @@
+﻿streamsightv2.datasets.AmazonSubscriptionBoxesDataset
+=====================================================
+
+.. currentmodule:: streamsightv2.datasets
+
+.. autoclass:: AmazonSubscriptionBoxesDataset
+   :members:                             
+   :show-inheritance:   
+   :private-members:   
+   :undoc-members:        
+   :inherited-members:               
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~AmazonSubscriptionBoxesDataset.__init__
+      ~AmazonSubscriptionBoxesDataset.add_filter
+      ~AmazonSubscriptionBoxesDataset.fetch_dataset
+      ~AmazonSubscriptionBoxesDataset.load
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~AmazonSubscriptionBoxesDataset.DATASET_URL
+      ~AmazonSubscriptionBoxesDataset.DEFAULT_BASE_PATH
+      ~AmazonSubscriptionBoxesDataset.DEFAULT_FILENAME
+      ~AmazonSubscriptionBoxesDataset.HELPFUL_VOTE_IX
+      ~AmazonSubscriptionBoxesDataset.ITEM_IX
+      ~AmazonSubscriptionBoxesDataset.ITEM_METADATA
+      ~AmazonSubscriptionBoxesDataset.RATING_IX
+      ~AmazonSubscriptionBoxesDataset.TIMESTAMP_IX
+      ~AmazonSubscriptionBoxesDataset.USER_IX
+      ~AmazonSubscriptionBoxesDataset.file_path
+      ~AmazonSubscriptionBoxesDataset.name
+   
+   

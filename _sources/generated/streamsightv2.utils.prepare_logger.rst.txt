@@ -1,0 +1,6 @@
+﻿streamsightv2.utils.prepare\_logger
+===================================
+
+.. currentmodule:: streamsightv2.utils
+
+.. autofunction:: prepare_logger

@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>streamsightv2.matrix.InteractionMatrix &mdash; streamsightv2 0.2.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=37f418d5"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="streamsightv2.matrix.to_csr_matrix" href="streamsightv2.matrix.to_csr_matrix.html" />
+    <link rel="prev" title="streamsightv2.matrix" href="../streamsightv2.matrix.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            streamsightv2
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Data handling</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../streamsightv2.matrix.html">streamsightv2.matrix</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../streamsightv2.matrix.html#interaction-matrix">Interaction Matrix</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">streamsightv2.matrix.InteractionMatrix</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#streamsightv2.matrix.InteractionMatrix"><code class="docutils literal notranslate"><span class="pre">InteractionMatrix</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../streamsightv2.matrix.html#utils">Utils</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../streamsightv2.preprocessing.html">streamsightv2.preprocessing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../streamsightv2.datasets.html">streamsightv2.datasets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../streamsightv2.settings.html">streamsightv2.settings</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">RecSys</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../streamsightv2.algorithms.html">streamsightv2.algorithms</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Evaluation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../streamsightv2.evaluators.html">streamsightv2.evaluators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../streamsightv2.metrics.html">streamsightv2.metrics</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Other supporting modules</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../streamsightv2.registries.html">streamsightv2.registries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../streamsightv2.utils.html">streamsightv2.utils</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Additional Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../poster.html">Poster</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">streamsightv2</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../streamsightv2.matrix.html">streamsightv2.matrix</a></li>
+      <li class="breadcrumb-item active">streamsightv2.matrix.InteractionMatrix</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/generated/streamsightv2.matrix.InteractionMatrix.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="streamsightv2-matrix-interactionmatrix">
+<h1>streamsightv2.matrix.InteractionMatrix<a class="headerlink" href="#streamsightv2-matrix-interactionmatrix" title="Link to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="streamsightv2.matrix.InteractionMatrix">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">streamsightv2.matrix.</span></span><span class="sig-name descname"><span class="pre">InteractionMatrix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">item_ix</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">user_ix</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timestamp_ix</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shape</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">skip_df_processing</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#streamsightv2.matrix.InteractionMatrix" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Matrix of interaction data between users and items.</p>
+<p>It provides a number of properties and methods for easy manipulation of this interaction data.</p>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<ul class="simple">
+<li><p>The InteractionMatrix does not assume binary user-item pairs.
+If a user interacts with an item more than once, there will be two
+entries for this user-item pair.</p></li>
+<li><p>We assume that the user and item IDs are integers starting from 0. IDs
+that are indicated by “-1” are reserved to label the user or item to
+be predicted. This assumption is crucial as it will be used during the
+split scheme and evaluation of the RS since it will affect the 2D shape
+of the CSR matrix</p></li>
+</ul>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>df</strong> (<em>pd.DataFrame</em>) – Dataframe containing user-item interactions. Must contain at least
+item ids and user ids.</p></li>
+<li><p><strong>item_ix</strong> (<em>str</em>) – Item ids column name.</p></li>
+<li><p><strong>user_ix</strong> (<em>str</em>) – User ids column name.</p></li>
+<li><p><strong>timestamp_ix</strong> (<em>str</em>) – Interaction timestamps column name.</p></li>
+<li><p><strong>shape</strong> (<em>Tuple</em><em>[</em><em>int</em><em>, </em><em>int</em><em>]</em><em>, </em><em>optional</em>) – The desired shape of the matrix, i.e. the number of users and items.
+If no shape is specified, the number of users will be equal to the
+maximum user id plus one, the number of items to the maximum item
+id plus one.</p></li>
+<li><p><strong>skip_df_processing</strong> (<em>bool</em><em>, </em><em>optional</em>) – Skip processing of the dataframe. This is useful
+when the dataframe is already processed and the columns are already
+renamed.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="streamsightv2.matrix.InteractionMatrix.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">item_ix</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">user_ix</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timestamp_ix</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shape</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">skip_df_processing</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#streamsightv2.matrix.InteractionMatrix.__init__" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<p class="rubric">Methods</p>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#streamsightv2.matrix.InteractionMatrix.__init__" title="streamsightv2.matrix.InteractionMatrix.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(df, item_ix, user_ix, timestamp_ix)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#streamsightv2.matrix.InteractionMatrix.concat" title="streamsightv2.matrix.InteractionMatrix.concat"><code class="xref py py-obj docutils literal notranslate"><span class="pre">concat</span></code></a>(im)</p></td>
+<td><p>Concatenate this InteractionMatrix with another.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#streamsightv2.matrix.InteractionMatrix.copy" title="streamsightv2.matrix.InteractionMatrix.copy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">copy</span></code></a>()</p></td>
+<td><p>Create a deep copy of this InteractionMatrix.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#streamsightv2.matrix.InteractionMatrix.copy_df" title="streamsightv2.matrix.InteractionMatrix.copy_df"><code class="xref py py-obj docutils literal notranslate"><span class="pre">copy_df</span></code></a>([reset_index])</p></td>
+<td><p>Create a deep copy of the dataframe.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#streamsightv2.matrix.InteractionMatrix.difference" title="streamsightv2.matrix.InteractionMatrix.difference"><code class="xref py py-obj docutils literal notranslate"><span class="pre">difference</span></code></a>(im)</p></td>
+<td><p>Difference between this InteractionMatrix and another.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#streamsightv2.matrix.InteractionMatrix.get_interaction_data" title="streamsightv2.matrix.InteractionMatrix.get_interaction_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_interaction_data</span></code></a>()</p></td>
+<td><p>Get the data that is not denoted by &quot;-1&quot;.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#streamsightv2.matrix.InteractionMatrix.get_items_n_first_interaction" title="streamsightv2.matrix.InteractionMatrix.get_items_n_first_interaction"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_items_n_first_interaction</span></code></a>([n_seq_data, ...])</p></td>
+<td><p>Select the first n interactions for each item.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#streamsightv2.matrix.InteractionMatrix.get_items_n_last_interaction" title="streamsightv2.matrix.InteractionMatrix.get_items_n_last_interaction"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_items_n_last_interaction</span></code></a>([n_seq_data, ...])</p></td>
+<td><p>Select the last n interactions for each item.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#streamsightv2.matrix.InteractionMatrix.get_prediction_data" title="streamsightv2.matrix.InteractionMatrix.get_prediction_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_prediction_data</span></code></a>()</p></td>
+<td><p>Get the data to be predicted.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#streamsightv2.matrix.InteractionMatrix.get_users_n_first_interaction" title="streamsightv2.matrix.InteractionMatrix.get_users_n_first_interaction"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_users_n_first_interaction</span></code></a>([n_seq_data, ...])</p></td>
+<td><p>Select the first n interactions for each user.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#streamsightv2.matrix.InteractionMatrix.get_users_n_last_interaction" title="streamsightv2.matrix.InteractionMatrix.get_users_n_last_interaction"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_users_n_last_interaction</span></code></a>([n_seq_data, ...])</p></td>
+<td><p>Select the last n interactions for each user.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#streamsightv2.matrix.InteractionMatrix.interactions_in" title="streamsightv2.matrix.InteractionMatrix.interactions_in"><code class="xref py py-obj docutils literal notranslate"><span class="pre">interactions_in</span></code></a>(interaction_ids[, inplace])</p></td>
+<td><p>Select the interactions by their interaction ids</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#streamsightv2.matrix.InteractionMatrix.items_in" title="streamsightv2.matrix.InteractionMatrix.items_in"><code class="xref py py-obj docutils literal notranslate"><span class="pre">items_in</span></code></a>()</p></td>
+<td><p>Keep only interactions with the specified items.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#streamsightv2.matrix.InteractionMatrix.items_not_in" title="streamsightv2.matrix.InteractionMatrix.items_not_in"><code class="xref py py-obj docutils literal notranslate"><span class="pre">items_not_in</span></code></a>(I[, inplace])</p></td>
+<td><p>Keep only interactions not with the specified items.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#streamsightv2.matrix.InteractionMatrix.mask_shape" title="streamsightv2.matrix.InteractionMatrix.mask_shape"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mask_shape</span></code></a>([shape, drop_unknown_user, ...])</p></td>
+<td><p>Masks global user and item ID.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#streamsightv2.matrix.InteractionMatrix.nonzero" title="streamsightv2.matrix.InteractionMatrix.nonzero"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nonzero</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#streamsightv2.matrix.InteractionMatrix.timestamps_gt" title="streamsightv2.matrix.InteractionMatrix.timestamps_gt"><code class="xref py py-obj docutils literal notranslate"><span class="pre">timestamps_gt</span></code></a>()</p></td>
+<td><p>Select interactions after a given timestamp.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#streamsightv2.matrix.InteractionMatrix.timestamps_gte" title="streamsightv2.matrix.InteractionMatrix.timestamps_gte"><code class="xref py py-obj docutils literal notranslate"><span class="pre">timestamps_gte</span></code></a>()</p></td>
+<td><p>Select interactions after and including a given timestamp.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#streamsightv2.matrix.InteractionMatrix.timestamps_lt" title="streamsightv2.matrix.InteractionMatrix.timestamps_lt"><code class="xref py py-obj docutils literal notranslate"><span class="pre">timestamps_lt</span></code></a>()</p></td>
+<td><p>Select interactions up to a given timestamp.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#streamsightv2.matrix.InteractionMatrix.timestamps_lte" title="streamsightv2.matrix.InteractionMatrix.timestamps_lte"><code class="xref py py-obj docutils literal notranslate"><span class="pre">timestamps_lte</span></code></a>()</p></td>
+<td><p>Select interactions up to and including a given timestamp.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#streamsightv2.matrix.InteractionMatrix.union" title="streamsightv2.matrix.InteractionMatrix.union"><code class="xref py py-obj docutils literal notranslate"><span class="pre">union</span></code></a>(im)</p></td>
+<td><p>Combine events from this InteractionMatrix with another.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#streamsightv2.matrix.InteractionMatrix.users_in" title="streamsightv2.matrix.InteractionMatrix.users_in"><code class="xref py py-obj docutils literal notranslate"><span class="pre">users_in</span></code></a>()</p></td>
+<td><p>Keep only interactions by one of the specified users.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#streamsightv2.matrix.InteractionMatrix.users_not_in" title="streamsightv2.matrix.InteractionMatrix.users_not_in"><code class="xref py py-obj docutils literal notranslate"><span class="pre">users_not_in</span></code></a>(U[, inplace])</p></td>
+<td><p>Keep only interactions not by the specified users.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Attributes</p>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#streamsightv2.matrix.InteractionMatrix.INTERACTION_IX" title="streamsightv2.matrix.InteractionMatrix.INTERACTION_IX"><code class="xref py py-obj docutils literal notranslate"><span class="pre">INTERACTION_IX</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#streamsightv2.matrix.InteractionMatrix.ITEM_IX" title="streamsightv2.matrix.InteractionMatrix.ITEM_IX"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ITEM_IX</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#streamsightv2.matrix.InteractionMatrix.MASKED_LABEL" title="streamsightv2.matrix.InteractionMatrix.MASKED_LABEL"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MASKED_LABEL</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#streamsightv2.matrix.InteractionMatrix.TIMESTAMP_IX" title="streamsightv2.matrix.InteractionMatrix.TIMESTAMP_IX"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TIMESTAMP_IX</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#streamsightv2.matrix.InteractionMatrix.USER_IX" title="streamsightv2.matrix.InteractionMatrix.USER_IX"><code class="xref py py-obj docutils literal notranslate"><span class="pre">USER_IX</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#streamsightv2.matrix.InteractionMatrix.binary_values" title="streamsightv2.matrix.InteractionMatrix.binary_values"><code class="xref py py-obj docutils literal notranslate"><span class="pre">binary_values</span></code></a></p></td>
+<td><p>All user-item interactions as a sparse, binary matrix of size (users, items).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#streamsightv2.matrix.InteractionMatrix.has_timestamps" title="streamsightv2.matrix.InteractionMatrix.has_timestamps"><code class="xref py py-obj docutils literal notranslate"><span class="pre">has_timestamps</span></code></a></p></td>
+<td><p>Boolean indicating whether instance has timestamp information.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#streamsightv2.matrix.InteractionMatrix.indices" title="streamsightv2.matrix.InteractionMatrix.indices"><code class="xref py py-obj docutils literal notranslate"><span class="pre">indices</span></code></a></p></td>
+<td><p>Returns a tuple of lists of user IDs and item IDs corresponding to interactions.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#streamsightv2.matrix.InteractionMatrix.item_ids" title="streamsightv2.matrix.InteractionMatrix.item_ids"><code class="xref py py-obj docutils literal notranslate"><span class="pre">item_ids</span></code></a></p></td>
+<td><p>The set of all item IDs.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#streamsightv2.matrix.InteractionMatrix.latest_interaction_timestamps_matrix" title="streamsightv2.matrix.InteractionMatrix.latest_interaction_timestamps_matrix"><code class="xref py py-obj docutils literal notranslate"><span class="pre">latest_interaction_timestamps_matrix</span></code></a></p></td>
+<td><p>A csr matrix containing the last interaction timestamp for each user, item pair.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#streamsightv2.matrix.InteractionMatrix.max_item_id" title="streamsightv2.matrix.InteractionMatrix.max_item_id"><code class="xref py py-obj docutils literal notranslate"><span class="pre">max_item_id</span></code></a></p></td>
+<td><p>The highest item ID in the interaction matrix.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#streamsightv2.matrix.InteractionMatrix.max_timestamp" title="streamsightv2.matrix.InteractionMatrix.max_timestamp"><code class="xref py py-obj docutils literal notranslate"><span class="pre">max_timestamp</span></code></a></p></td>
+<td><p>The latest timestamp in the interaction</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#streamsightv2.matrix.InteractionMatrix.max_user_id" title="streamsightv2.matrix.InteractionMatrix.max_user_id"><code class="xref py py-obj docutils literal notranslate"><span class="pre">max_user_id</span></code></a></p></td>
+<td><p>The highest user ID in the interaction matrix.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#streamsightv2.matrix.InteractionMatrix.min_timestamp" title="streamsightv2.matrix.InteractionMatrix.min_timestamp"><code class="xref py py-obj docutils literal notranslate"><span class="pre">min_timestamp</span></code></a></p></td>
+<td><p>The earliest timestamp in the interaction</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#streamsightv2.matrix.InteractionMatrix.num_interactions" title="streamsightv2.matrix.InteractionMatrix.num_interactions"><code class="xref py py-obj docutils literal notranslate"><span class="pre">num_interactions</span></code></a></p></td>
+<td><p>The total number of interactions.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#streamsightv2.matrix.InteractionMatrix.timestamps" title="streamsightv2.matrix.InteractionMatrix.timestamps"><code class="xref py py-obj docutils literal notranslate"><span class="pre">timestamps</span></code></a></p></td>
+<td><p>The interaction timestamps indexed by user and item ID.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#streamsightv2.matrix.InteractionMatrix.user_ids" title="streamsightv2.matrix.InteractionMatrix.user_ids"><code class="xref py py-obj docutils literal notranslate"><span class="pre">user_ids</span></code></a></p></td>
+<td><p>The set of all user IDs.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#streamsightv2.matrix.InteractionMatrix.values" title="streamsightv2.matrix.InteractionMatrix.values"><code class="xref py py-obj docutils literal notranslate"><span class="pre">values</span></code></a></p></td>
+<td><p>All user-item interactions as a sparse matrix of size (<a href="#id5"><span class="problematic" id="id6">|`global_users`|</span></a>, <a href="#id7"><span class="problematic" id="id8">|`global_items`|</span></a>).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#streamsightv2.matrix.InteractionMatrix.shape" title="streamsightv2.matrix.InteractionMatrix.shape"><code class="xref py py-obj docutils literal notranslate"><span class="pre">shape</span></code></a></p></td>
+<td><p>The shape of the interaction matrix, i.e. <cite>|user| x |item|</cite>.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="streamsightv2.matrix.InteractionMatrix.INTERACTION_IX">
+<span class="sig-name descname"><span class="pre">INTERACTION_IX</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'interactionid'</span></em><a class="headerlink" href="#streamsightv2.matrix.InteractionMatrix.INTERACTION_IX" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="streamsightv2.matrix.InteractionMatrix.ITEM_IX">
+<span class="sig-name descname"><span class="pre">ITEM_IX</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'iid'</span></em><a class="headerlink" href="#streamsightv2.matrix.InteractionMatrix.ITEM_IX" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="streamsightv2.matrix.InteractionMatrix.MASKED_LABEL">
+<span class="sig-name descname"><span class="pre">MASKED_LABEL</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">-1</span></em><a class="headerlink" href="#streamsightv2.matrix.InteractionMatrix.MASKED_LABEL" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="streamsightv2.matrix.InteractionMatrix.TIMESTAMP_IX">
+<span class="sig-name descname"><span class="pre">TIMESTAMP_IX</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'ts'</span></em><a class="headerlink" href="#streamsightv2.matrix.InteractionMatrix.TIMESTAMP_IX" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="streamsightv2.matrix.InteractionMatrix.USER_IX">
+<span class="sig-name descname"><span class="pre">USER_IX</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'uid'</span></em><a class="headerlink" href="#streamsightv2.matrix.InteractionMatrix.USER_IX" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="streamsightv2.matrix.InteractionMatrix._apply_mask">
+<span class="sig-name descname"><span class="pre">_apply_mask</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mask</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Series</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inplace</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#streamsightv2.matrix.InteractionMatrix" title="streamsightv2.matrix.interaction_matrix.InteractionMatrix"><span class="pre">InteractionMatrix</span></a></span></span><a class="headerlink" href="#streamsightv2.matrix.InteractionMatrix._apply_mask" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">_apply_mask</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mask</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Series</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inplace</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="streamsightv2.matrix.InteractionMatrix._check_shape">
+<span class="sig-name descname"><span class="pre">_check_shape</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#streamsightv2.matrix.InteractionMatrix._check_shape" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="streamsightv2.matrix.InteractionMatrix._get_first_n_interactions">
+<span class="sig-name descname"><span class="pre">_get_first_n_interactions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">by</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="streamsightv2.matrix.ItemUserBasedEnum.html#streamsightv2.matrix.ItemUserBasedEnum" title="streamsightv2.matrix.interaction_matrix.ItemUserBasedEnum"><span class="pre">ItemUserBasedEnum</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_seq_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t_lower</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inplace</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#streamsightv2.matrix.InteractionMatrix" title="streamsightv2.matrix.interaction_matrix.InteractionMatrix"><span class="pre">InteractionMatrix</span></a></span></span><a class="headerlink" href="#streamsightv2.matrix.InteractionMatrix._get_first_n_interactions" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="streamsightv2.matrix.InteractionMatrix._get_last_n_interactions">
+<span class="sig-name descname"><span class="pre">_get_last_n_interactions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">by</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="streamsightv2.matrix.ItemUserBasedEnum.html#streamsightv2.matrix.ItemUserBasedEnum" title="streamsightv2.matrix.interaction_matrix.ItemUserBasedEnum"><span class="pre">ItemUserBasedEnum</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_seq_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t_upper</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id_in</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inplace</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#streamsightv2.matrix.InteractionMatrix" title="streamsightv2.matrix.interaction_matrix.InteractionMatrix"><span class="pre">InteractionMatrix</span></a></span></span><a class="headerlink" href="#streamsightv2.matrix.InteractionMatrix._get_last_n_interactions" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="streamsightv2.matrix.InteractionMatrix._timestamps_cmp">
+<span class="sig-name descname"><span class="pre">_timestamps_cmp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">op</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timestamp</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inplace</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#streamsightv2.matrix.InteractionMatrix" title="streamsightv2.matrix.interaction_matrix.InteractionMatrix"><span class="pre">InteractionMatrix</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="headerlink" href="#streamsightv2.matrix.InteractionMatrix._timestamps_cmp" title="Link to this definition"></a></dt>
+<dd><p>Filter interactions based on timestamp.
+Keep only interactions for which op(t, timestamp) is True.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>op</strong> (<em>Callable</em>) – Comparison operator.</p></li>
+<li><p><strong>timestamp</strong> (<em>float</em>) – Timestamp to compare against in seconds from epoch.</p></li>
+<li><p><strong>inplace</strong> (<em>bool</em><em>, </em><em>optional</em>) – Modify the data matrix in place. If False, returns a new object.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="streamsightv2.matrix.InteractionMatrix.binary_values">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">binary_values</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">csr_matrix</span></em><a class="headerlink" href="#streamsightv2.matrix.InteractionMatrix.binary_values" title="Link to this definition"></a></dt>
+<dd><p>All user-item interactions as a sparse, binary matrix of size (users, items).</p>
+<p>An entry is 1 if there is at least one interaction between that user and item.
+In all other cases the entry is 0.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Binary csr_matrix of interactions.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>csr_matrix</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="streamsightv2.matrix.InteractionMatrix.concat">
+<span class="sig-name descname"><span class="pre">concat</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">im</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#streamsightv2.matrix.InteractionMatrix" title="streamsightv2.matrix.interaction_matrix.InteractionMatrix"><span class="pre">InteractionMatrix</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">DataFrame</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#streamsightv2.matrix.InteractionMatrix" title="streamsightv2.matrix.interaction_matrix.InteractionMatrix"><span class="pre">InteractionMatrix</span></a></span></span><a class="headerlink" href="#streamsightv2.matrix.InteractionMatrix.concat" title="Link to this definition"></a></dt>
+<dd><p>Concatenate this InteractionMatrix with another.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This is a inplace operation. and will modify the current object.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>im</strong> (<em>Union</em><em>[</em><a class="reference internal" href="#streamsightv2.matrix.InteractionMatrix" title="streamsightv2.matrix.InteractionMatrix"><em>InteractionMatrix</em></a><em>, </em><em>pd.DataFrame</em><em>]</em>) – InteractionMatrix to concat with.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>InteractionMatrix with the interactions from both matrices.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#streamsightv2.matrix.InteractionMatrix" title="streamsightv2.matrix.InteractionMatrix">InteractionMatrix</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="streamsightv2.matrix.InteractionMatrix.copy">
+<span class="sig-name descname"><span class="pre">copy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#streamsightv2.matrix.InteractionMatrix" title="streamsightv2.matrix.interaction_matrix.InteractionMatrix"><span class="pre">InteractionMatrix</span></a></span></span><a class="headerlink" href="#streamsightv2.matrix.InteractionMatrix.copy" title="Link to this definition"></a></dt>
+<dd><p>Create a deep copy of this InteractionMatrix.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Deep copy of this InteractionMatrix.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#streamsightv2.matrix.InteractionMatrix" title="streamsightv2.matrix.InteractionMatrix">InteractionMatrix</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="streamsightv2.matrix.InteractionMatrix.copy_df">
+<span class="sig-name descname"><span class="pre">copy_df</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">reset_index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="headerlink" href="#streamsightv2.matrix.InteractionMatrix.copy_df" title="Link to this definition"></a></dt>
+<dd><p>Create a deep copy of the dataframe.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Deep copy of dataframe.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>pd.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="streamsightv2.matrix.InteractionMatrix.difference">
+<span class="sig-name descname"><span class="pre">difference</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">im</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#streamsightv2.matrix.InteractionMatrix" title="streamsightv2.matrix.interaction_matrix.InteractionMatrix"><span class="pre">InteractionMatrix</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#streamsightv2.matrix.InteractionMatrix" title="streamsightv2.matrix.interaction_matrix.InteractionMatrix"><span class="pre">InteractionMatrix</span></a></span></span><a class="headerlink" href="#streamsightv2.matrix.InteractionMatrix.difference" title="Link to this definition"></a></dt>
+<dd><p>Difference between this InteractionMatrix and another.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>im</strong> (<a class="reference internal" href="#streamsightv2.matrix.InteractionMatrix" title="streamsightv2.matrix.InteractionMatrix"><em>InteractionMatrix</em></a>) – InteractionMatrix to subtract from this.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Difference between this InteractionMatrix and the other.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#streamsightv2.matrix.InteractionMatrix" title="streamsightv2.matrix.InteractionMatrix">InteractionMatrix</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="streamsightv2.matrix.InteractionMatrix.get_interaction_data">
+<span class="sig-name descname"><span class="pre">get_interaction_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#streamsightv2.matrix.InteractionMatrix" title="streamsightv2.matrix.interaction_matrix.InteractionMatrix"><span class="pre">InteractionMatrix</span></a></span></span><a class="headerlink" href="#streamsightv2.matrix.InteractionMatrix.get_interaction_data" title="Link to this definition"></a></dt>
+<dd><p>Get the data that is not denoted by “-1”.</p>
+<p>User and item IDs that are not denoted by “-1” are the ones that are
+known to the model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>InteractionMatrix with only the known data.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#streamsightv2.matrix.InteractionMatrix" title="streamsightv2.matrix.InteractionMatrix">InteractionMatrix</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="streamsightv2.matrix.InteractionMatrix.get_items_n_first_interaction">
+<span class="sig-name descname"><span class="pre">get_items_n_first_interaction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_seq_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t_lower</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inplace</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#streamsightv2.matrix.InteractionMatrix" title="streamsightv2.matrix.interaction_matrix.InteractionMatrix"><span class="pre">InteractionMatrix</span></a></span></span><a class="headerlink" href="#streamsightv2.matrix.InteractionMatrix.get_items_n_first_interaction" title="Link to this definition"></a></dt>
+<dd><p>Select the first n interactions for each item.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>n_seq_data</strong> (<em>int</em><em>, </em><em>optional</em>) – Number of interactions to select, defaults to 1</p></li>
+<li><p><strong>t_lower</strong> (<em>Optional</em><em>[</em><em>int</em><em>]</em><em>, </em><em>optional</em>) – Seconds past t. Lower limit for the timestamp
+of the interactions to select, defaults to None</p></li>
+<li><p><strong>inplace</strong> (<em>bool</em><em>, </em><em>optional</em>) – If operation is inplace, defaults to False</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Resulting interaction matrix</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#streamsightv2.matrix.InteractionMatrix" title="streamsightv2.matrix.InteractionMatrix">InteractionMatrix</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="streamsightv2.matrix.InteractionMatrix.get_items_n_last_interaction">
+<span class="sig-name descname"><span class="pre">get_items_n_last_interaction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_seq_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t_upper</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">item_in</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inplace</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#streamsightv2.matrix.InteractionMatrix" title="streamsightv2.matrix.interaction_matrix.InteractionMatrix"><span class="pre">InteractionMatrix</span></a></span></span><a class="headerlink" href="#streamsightv2.matrix.InteractionMatrix.get_items_n_last_interaction" title="Link to this definition"></a></dt>
+<dd><p>Select the last n interactions for each item.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>n_seq_data</strong> (<em>int</em><em>, </em><em>optional</em>) – Number of interactions to select, defaults to 1</p></li>
+<li><p><strong>t_upper</strong> (<em>Optional</em><em>[</em><em>int</em><em>]</em><em>, </em><em>optional</em>) – Seconds past t. Upper limit for the timestamp
+of the interactions to select, defaults to None</p></li>
+<li><p><strong>item_in</strong> (<em>Optional</em><em>[</em><em>Set</em><em>[</em><em>int</em><em>]</em><em>]</em><em>, </em><em>optional</em>) – Set of item IDs to select the interactions from,
+defaults to None</p></li>
+<li><p><strong>inplace</strong> (<em>bool</em><em>, </em><em>optional</em>) – If operation is inplace, defaults to False</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Resulting interaction matrix</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#streamsightv2.matrix.InteractionMatrix" title="streamsightv2.matrix.InteractionMatrix">InteractionMatrix</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="streamsightv2.matrix.InteractionMatrix.get_prediction_data">
+<span class="sig-name descname"><span class="pre">get_prediction_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#streamsightv2.matrix.InteractionMatrix" title="streamsightv2.matrix.interaction_matrix.InteractionMatrix"><span class="pre">InteractionMatrix</span></a></span></span><a class="headerlink" href="#streamsightv2.matrix.InteractionMatrix.get_prediction_data" title="Link to this definition"></a></dt>
+<dd><p>Get the data to be predicted.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>InteractionMatrix with only the data to be predicted.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#streamsightv2.matrix.InteractionMatrix" title="streamsightv2.matrix.InteractionMatrix">InteractionMatrix</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="streamsightv2.matrix.InteractionMatrix.get_users_n_first_interaction">
+<span class="sig-name descname"><span class="pre">get_users_n_first_interaction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_seq_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t_lower</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inplace</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#streamsightv2.matrix.InteractionMatrix" title="streamsightv2.matrix.interaction_matrix.InteractionMatrix"><span class="pre">InteractionMatrix</span></a></span></span><a class="headerlink" href="#streamsightv2.matrix.InteractionMatrix.get_users_n_first_interaction" title="Link to this definition"></a></dt>
+<dd><p>Select the first n interactions for each user.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>n_seq_data</strong> (<em>int</em><em>, </em><em>optional</em>) – Number of interactions to select, defaults to 1</p></li>
+<li><p><strong>t_lower</strong> (<em>Optional</em><em>[</em><em>int</em><em>]</em><em>, </em><em>optional</em>) – Seconds past t. Lower limit for the timestamp
+of the interactions to select, defaults to None</p></li>
+<li><p><strong>inplace</strong> (<em>bool</em><em>, </em><em>optional</em>) – If operation is inplace, defaults to False</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Resulting interaction matrix</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#streamsightv2.matrix.InteractionMatrix" title="streamsightv2.matrix.InteractionMatrix">InteractionMatrix</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="streamsightv2.matrix.InteractionMatrix.get_users_n_last_interaction">
+<span class="sig-name descname"><span class="pre">get_users_n_last_interaction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_seq_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t_upper</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">user_in</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inplace</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#streamsightv2.matrix.InteractionMatrix" title="streamsightv2.matrix.interaction_matrix.InteractionMatrix"><span class="pre">InteractionMatrix</span></a></span></span><a class="headerlink" href="#streamsightv2.matrix.InteractionMatrix.get_users_n_last_interaction" title="Link to this definition"></a></dt>
+<dd><p>Select the last n interactions for each user.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>n_seq_data</strong> (<em>int</em><em>, </em><em>optional</em>) – Number of interactions to select, defaults to 1</p></li>
+<li><p><strong>t_upper</strong> (<em>Optional</em><em>[</em><em>int</em><em>]</em><em>, </em><em>optional</em>) – Seconds past t. Upper limit for the timestamp
+of the interactions to select, defaults to None</p></li>
+<li><p><strong>user_in</strong> (<em>Optional</em><em>[</em><em>Set</em><em>[</em><em>int</em><em>]</em><em>]</em><em>, </em><em>optional</em>) – Set of user IDs to select the interactions from,
+defaults to None</p></li>
+<li><p><strong>inplace</strong> (<em>bool</em><em>, </em><em>optional</em>) – If operation is inplace, defaults to False</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Resulting interaction matrix</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#streamsightv2.matrix.InteractionMatrix" title="streamsightv2.matrix.InteractionMatrix">InteractionMatrix</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="streamsightv2.matrix.InteractionMatrix.has_timestamps">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">has_timestamps</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#streamsightv2.matrix.InteractionMatrix.has_timestamps" title="Link to this definition"></a></dt>
+<dd><p>Boolean indicating whether instance has timestamp information.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if timestamps information is available, False otherwise.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="streamsightv2.matrix.InteractionMatrix.indices">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">indices</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#streamsightv2.matrix.InteractionMatrix.indices" title="Link to this definition"></a></dt>
+<dd><p>Returns a tuple of lists of user IDs and item IDs corresponding to interactions.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Tuple of lists of user IDs and item IDs that correspond to at least one interaction.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>Tuple[List[int], List[int]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="streamsightv2.matrix.InteractionMatrix.interactions_in">
+<span class="sig-name descname"><span class="pre">interactions_in</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">interaction_ids</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inplace</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#streamsightv2.matrix.InteractionMatrix" title="streamsightv2.matrix.interaction_matrix.InteractionMatrix"><span class="pre">InteractionMatrix</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="headerlink" href="#streamsightv2.matrix.InteractionMatrix.interactions_in" title="Link to this definition"></a></dt>
+<dd><p>Select the interactions by their interaction ids</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>interaction_ids</strong> (<em>List</em><em>[</em><em>int</em><em>]</em>) – A list of interaction ids</p></li>
+<li><p><strong>inplace</strong> (<em>bool</em><em>, </em><em>optional</em>) – Apply the selection in place,
+or return a new InteractionMatrix object, defaults to False</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None if inplace, otherwise new InteractionMatrix
+object with the selected interactions</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Union[None, <a class="reference internal" href="#streamsightv2.matrix.InteractionMatrix" title="streamsightv2.matrix.InteractionMatrix">InteractionMatrix</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="streamsightv2.matrix.InteractionMatrix.item_ids">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">item_ids</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#streamsightv2.matrix.InteractionMatrix.item_ids" title="Link to this definition"></a></dt>
+<dd><p>The set of all item IDs.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Set of all item IDs.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>Set[int]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="streamsightv2.matrix.InteractionMatrix.items_in">
+<span class="sig-name descname"><span class="pre">items_in</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">I</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inplace</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#streamsightv2.matrix.InteractionMatrix" title="streamsightv2.matrix.interaction_matrix.InteractionMatrix"><span class="pre">InteractionMatrix</span></a></span></span><a class="headerlink" href="#streamsightv2.matrix.InteractionMatrix.items_in" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">items_in</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">I</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inplace</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span></dt>
+<dd><p>Keep only interactions with the specified items.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>I</strong> (<em>Set</em><em>[</em><em>int</em><em>]</em>) – A Set or List of items to select the interactions.</p></li>
+<li><p><strong>inplace</strong> (<em>bool</em><em>, </em><em>optional</em>) – Apply the selection in place or not, defaults to False</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None if <cite>inplace</cite>, otherwise returns a new InteractionMatrix object</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Union[<a class="reference internal" href="#streamsightv2.matrix.InteractionMatrix" title="streamsightv2.matrix.InteractionMatrix">InteractionMatrix</a>, None]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="streamsightv2.matrix.InteractionMatrix.items_not_in">
+<span class="sig-name descname"><span class="pre">items_not_in</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">I</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inplace</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#streamsightv2.matrix.InteractionMatrix" title="streamsightv2.matrix.interaction_matrix.InteractionMatrix"><span class="pre">InteractionMatrix</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="headerlink" href="#streamsightv2.matrix.InteractionMatrix.items_not_in" title="Link to this definition"></a></dt>
+<dd><p>Keep only interactions not with the specified items.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>I</strong> (<em>Set</em><em>[</em><em>int</em><em>]</em>) – A Set or List of items to exclude from the interactions.</p></li>
+<li><p><strong>inplace</strong> (<em>bool</em><em>, </em><em>optional</em>) – Apply the selection in place or not, defaults to False</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None if <cite>inplace</cite>, otherwise returns a new InteractionMatrix object</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Union[<a class="reference internal" href="#streamsightv2.matrix.InteractionMatrix" title="streamsightv2.matrix.InteractionMatrix">InteractionMatrix</a>, None]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="streamsightv2.matrix.InteractionMatrix.latest_interaction_timestamps_matrix">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">latest_interaction_timestamps_matrix</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">csr_matrix</span></em><a class="headerlink" href="#streamsightv2.matrix.InteractionMatrix.latest_interaction_timestamps_matrix" title="Link to this definition"></a></dt>
+<dd><p>A csr matrix containing the last interaction timestamp for each user, item pair.</p>
+<p>We only account for the last interacted timestamp making the dataset non-deduplicated.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="streamsightv2.matrix.InteractionMatrix.mask_shape">
+<span class="sig-name descname"><span class="pre">mask_shape</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shape</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">drop_unknown_user</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">drop_unknown_item</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inherit_max_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#streamsightv2.matrix.InteractionMatrix.mask_shape" title="Link to this definition"></a></dt>
+<dd><p>Masks global user and item ID.</p>
+<p>To ensure released matrix released to the models only contains data
+that is intended to be released. This addresses the data leakage issue.
+It is recommended that the programmer defines the shape of the matrix
+such that the model only sees the data that is intended to be seen.</p>
+<section id="example">
+<h2>Example<a class="headerlink" href="#example" title="Link to this heading"></a></h2>
+<p>Given the following case where the data is as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">uid</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="o">&gt;</span> <span class="n">iid</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="o">&gt;</span> <span class="n">ts</span> <span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Where user 4 is the user to be predicted. Assuming that user 4 is an
+unknown user, that is, the model has never seen user 4 before. The shape
+of the matrix should be (4, 4). This should be defined when calling the
+function in <a href="#id1"><span class="problematic" id="id2">:param:`shape`</span></a>.</p>
+<p>If the shape is defined, and it contains ID of unknown user/item, a warning
+will be raised if <code class="xref py py-attr docutils literal notranslate"><span class="pre">drop_unknown</span></code> is set to False. If <code class="xref py py-attr docutils literal notranslate"><span class="pre">drop_unknown</span></code>
+is set to True, the unknown user/item will be dropped from the data. All
+user/item ID greater than <cite>shape[0]</cite> will be dropped. This follows from
+the initial assumption that the user/item ID starts from 0 as defined in
+the dataset class.</p>
+<p>Else, in the event that <a href="#id3"><span class="problematic" id="id4">:param:`shape`</span></a> is not defined, the shape will be
+inferred from the data. The shape will be determined by the number of
+unique users/items. In this case the shape will be (5, 4). Note that the
+shape may not be as intended by the programmer if the data contains
+unknown users/items or if the dataframe does not contain all historical
+users/items.</p>
+<dl class="field-list simple">
+<dt class="field-odd">param shape<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Shape of the known user and item base. This value is
+usually set by the evaluator during the evaluation run. This value
+can also be set manually but the programmer if there is a need to
+alter the known user/item base. Defaults to None</p>
+</dd>
+<dt class="field-even">type shape<span class="colon">:</span></dt>
+<dd class="field-even"><p>Optional[Tuple[int, int]], optional</p>
+</dd>
+<dt class="field-odd">param drop_unknown_user<span class="colon">:</span></dt>
+<dd class="field-odd"><p>To drop unknown users in the dataset,
+defaults to False</p>
+</dd>
+<dt class="field-even">type drop_unknown_user<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool, optional</p>
+</dd>
+<dt class="field-odd">param drop_unknown_item<span class="colon">:</span></dt>
+<dd class="field-odd"><p>To drop unknown items in the dataset,
+defaults to False</p>
+</dd>
+<dt class="field-even">type drop_unknown_item<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool, optional</p>
+</dd>
+<dt class="field-odd">param inherit_max_id<span class="colon">:</span></dt>
+<dd class="field-odd"><p>To inherit the maximum user and item ID from the
+given shape and the dataframe. This is useful when the shape is
+defined and the dataframe contains unknown users/items. Defaults to False</p>
+</dd>
+<dt class="field-even">type inherit_max_id<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool, optional</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="streamsightv2.matrix.InteractionMatrix.max_item_id">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">max_item_id</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#streamsightv2.matrix.InteractionMatrix.max_item_id" title="Link to this definition"></a></dt>
+<dd><p>The highest item ID in the interaction matrix.</p>
+<p>In the case of an empty matrix, the highest item ID is -1. This is
+consistent with the the definition that -1 denotes the item that is
+unknown. It would be incorrect to use any other value, since 0 is a
+valid item ID.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The highest item ID.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="streamsightv2.matrix.InteractionMatrix.max_timestamp">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">max_timestamp</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#streamsightv2.matrix.InteractionMatrix.max_timestamp" title="Link to this definition"></a></dt>
+<dd><p>The latest timestamp in the interaction</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The latest timestamp.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="streamsightv2.matrix.InteractionMatrix.max_user_id">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">max_user_id</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#streamsightv2.matrix.InteractionMatrix.max_user_id" title="Link to this definition"></a></dt>
+<dd><p>The highest user ID in the interaction matrix.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The highest user ID.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="streamsightv2.matrix.InteractionMatrix.min_timestamp">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">min_timestamp</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#streamsightv2.matrix.InteractionMatrix.min_timestamp" title="Link to this definition"></a></dt>
+<dd><p>The earliest timestamp in the interaction</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The earliest timestamp.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="streamsightv2.matrix.InteractionMatrix.nonzero">
+<span class="sig-name descname"><span class="pre">nonzero</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#streamsightv2.matrix.InteractionMatrix.nonzero" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="streamsightv2.matrix.InteractionMatrix.num_interactions">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">num_interactions</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#streamsightv2.matrix.InteractionMatrix.num_interactions" title="Link to this definition"></a></dt>
+<dd><p>The total number of interactions.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Total interaction count.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="streamsightv2.matrix.InteractionMatrix.shape">
+<span class="sig-name descname"><span class="pre">shape</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#streamsightv2.matrix.InteractionMatrix.shape" title="Link to this definition"></a></dt>
+<dd><p>The shape of the interaction matrix, i.e. <cite>|user| x |item|</cite>.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="streamsightv2.matrix.InteractionMatrix.timestamps">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">timestamps</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Series</span></em><a class="headerlink" href="#streamsightv2.matrix.InteractionMatrix.timestamps" title="Link to this definition"></a></dt>
+<dd><p>The interaction timestamps indexed by user and item ID.</p>
+<p>:raises</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="streamsightv2.matrix.InteractionMatrix.timestamps_gt">
+<span class="sig-name descname"><span class="pre">timestamps_gt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">timestamp</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#streamsightv2.matrix.InteractionMatrix" title="streamsightv2.matrix.interaction_matrix.InteractionMatrix"><span class="pre">InteractionMatrix</span></a></span></span><a class="headerlink" href="#streamsightv2.matrix.InteractionMatrix.timestamps_gt" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">timestamps_gt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">timestamp</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inplace</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="k"><span class="pre">True</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span></dt>
+<dd><p>Select interactions after a given timestamp.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>timestamp</strong> (<em>float</em>) – The timestamp with which
+the interactions timestamp is compared.</p></li>
+<li><p><strong>inplace</strong> (<em>bool</em><em>, </em><em>optional</em>) – Apply the selection in place if True, defaults to False</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None if <cite>inplace</cite>, otherwise returns a new InteractionMatrix object</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Union[<a class="reference internal" href="#streamsightv2.matrix.InteractionMatrix" title="streamsightv2.matrix.InteractionMatrix">InteractionMatrix</a>, None]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="streamsightv2.matrix.InteractionMatrix.timestamps_gte">
+<span class="sig-name descname"><span class="pre">timestamps_gte</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">timestamp</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#streamsightv2.matrix.InteractionMatrix" title="streamsightv2.matrix.interaction_matrix.InteractionMatrix"><span class="pre">InteractionMatrix</span></a></span></span><a class="headerlink" href="#streamsightv2.matrix.InteractionMatrix.timestamps_gte" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">timestamps_gte</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">timestamp</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inplace</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="k"><span class="pre">True</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span></dt>
+<dd><p>Select interactions after and including a given timestamp.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>timestamp</strong> (<em>float</em>) – The timestamp with which
+the interactions timestamp is compared.</p></li>
+<li><p><strong>inplace</strong> (<em>bool</em><em>, </em><em>optional</em>) – Apply the selection in place if True, defaults to False</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None if <cite>inplace</cite>, otherwise returns a new InteractionMatrix object</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Union[<a class="reference internal" href="#streamsightv2.matrix.InteractionMatrix" title="streamsightv2.matrix.InteractionMatrix">InteractionMatrix</a>, None]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="streamsightv2.matrix.InteractionMatrix.timestamps_lt">
+<span class="sig-name descname"><span class="pre">timestamps_lt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">timestamp</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#streamsightv2.matrix.InteractionMatrix" title="streamsightv2.matrix.interaction_matrix.InteractionMatrix"><span class="pre">InteractionMatrix</span></a></span></span><a class="headerlink" href="#streamsightv2.matrix.InteractionMatrix.timestamps_lt" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">timestamps_lt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">timestamp</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inplace</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="k"><span class="pre">True</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span></dt>
+<dd><p>Select interactions up to a given timestamp.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>timestamp</strong> (<em>float</em>) – The timestamp with which
+the interactions timestamp is compared.</p></li>
+<li><p><strong>inplace</strong> (<em>bool</em><em>, </em><em>optional</em>) – Apply the selection in place if True, defaults to False</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None if <cite>inplace</cite>, otherwise returns a new InteractionMatrix object</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Union[<a class="reference internal" href="#streamsightv2.matrix.InteractionMatrix" title="streamsightv2.matrix.InteractionMatrix">InteractionMatrix</a>, None]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="streamsightv2.matrix.InteractionMatrix.timestamps_lte">
+<span class="sig-name descname"><span class="pre">timestamps_lte</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">timestamp</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#streamsightv2.matrix.InteractionMatrix" title="streamsightv2.matrix.interaction_matrix.InteractionMatrix"><span class="pre">InteractionMatrix</span></a></span></span><a class="headerlink" href="#streamsightv2.matrix.InteractionMatrix.timestamps_lte" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">timestamps_lte</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">timestamp</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inplace</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="k"><span class="pre">True</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span></dt>
+<dd><p>Select interactions up to and including a given timestamp.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>timestamp</strong> (<em>float</em>) – The timestamp with which
+the interactions timestamp is compared.</p></li>
+<li><p><strong>inplace</strong> (<em>bool</em><em>, </em><em>optional</em>) – Apply the selection in place if True, defaults to False</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None if <cite>inplace</cite>, otherwise returns a new InteractionMatrix object</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Union[<a class="reference internal" href="#streamsightv2.matrix.InteractionMatrix" title="streamsightv2.matrix.InteractionMatrix">InteractionMatrix</a>, None]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="streamsightv2.matrix.InteractionMatrix.union">
+<span class="sig-name descname"><span class="pre">union</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">im</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#streamsightv2.matrix.InteractionMatrix" title="streamsightv2.matrix.interaction_matrix.InteractionMatrix"><span class="pre">InteractionMatrix</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#streamsightv2.matrix.InteractionMatrix" title="streamsightv2.matrix.interaction_matrix.InteractionMatrix"><span class="pre">InteractionMatrix</span></a></span></span><a class="headerlink" href="#streamsightv2.matrix.InteractionMatrix.union" title="Link to this definition"></a></dt>
+<dd><p>Combine events from this InteractionMatrix with another.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>im</strong> (<a class="reference internal" href="#streamsightv2.matrix.InteractionMatrix" title="streamsightv2.matrix.InteractionMatrix"><em>InteractionMatrix</em></a>) – InteractionMatrix to union with.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Union of interactions in this InteractionMatrix and the other.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#streamsightv2.matrix.InteractionMatrix" title="streamsightv2.matrix.InteractionMatrix">InteractionMatrix</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="streamsightv2.matrix.InteractionMatrix.user_ids">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">user_ids</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#streamsightv2.matrix.InteractionMatrix.user_ids" title="Link to this definition"></a></dt>
+<dd><p>The set of all user IDs.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Set of all user IDs.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>Set[int]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="streamsightv2.matrix.InteractionMatrix.users_in">
+<span class="sig-name descname"><span class="pre">users_in</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">U</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inplace</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#streamsightv2.matrix.InteractionMatrix" title="streamsightv2.matrix.interaction_matrix.InteractionMatrix"><span class="pre">InteractionMatrix</span></a></span></span><a class="headerlink" href="#streamsightv2.matrix.InteractionMatrix.users_in" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">users_in</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">U</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inplace</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span></dt>
+<dd><p>Keep only interactions by one of the specified users.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>U</strong> (<em>Union</em><em>[</em><em>Set</em><em>[</em><em>int</em><em>]</em>) – A Set or List of users to select the interactions from.</p></li>
+<li><p><strong>inplace</strong> (<em>bool</em><em>, </em><em>optional</em>) – Apply the selection in place or not, defaults to False</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None if <cite>inplace</cite>, otherwise returns a new InteractionMatrix object</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Union[<a class="reference internal" href="#streamsightv2.matrix.InteractionMatrix" title="streamsightv2.matrix.InteractionMatrix">InteractionMatrix</a>, None]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="streamsightv2.matrix.InteractionMatrix.users_not_in">
+<span class="sig-name descname"><span class="pre">users_not_in</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">U</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inplace</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#streamsightv2.matrix.InteractionMatrix" title="streamsightv2.matrix.interaction_matrix.InteractionMatrix"><span class="pre">InteractionMatrix</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="headerlink" href="#streamsightv2.matrix.InteractionMatrix.users_not_in" title="Link to this definition"></a></dt>
+<dd><p>Keep only interactions not by the specified users.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>U</strong> (<em>Set</em><em>[</em><em>int</em><em>]</em>) – A Set or List of users to exclude from the interactions.</p></li>
+<li><p><strong>inplace</strong> (<em>bool</em><em>, </em><em>optional</em>) – Apply the selection in place or not, defaults to False</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None if <cite>inplace</cite>, otherwise returns a new InteractionMatrix object</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Union[<a class="reference internal" href="#streamsightv2.matrix.InteractionMatrix" title="streamsightv2.matrix.InteractionMatrix">InteractionMatrix</a>, None]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="streamsightv2.matrix.InteractionMatrix.values">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">values</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">csr_matrix</span></em><a class="headerlink" href="#streamsightv2.matrix.InteractionMatrix.values" title="Link to this definition"></a></dt>
+<dd><p>All user-item interactions as a sparse matrix of size (<a href="#id9"><span class="problematic" id="id10">|`global_users`|</span></a>, <a href="#id11"><span class="problematic" id="id12">|`global_items`|</span></a>).</p>
+<p>Each entry is the number of interactions between that user and item.
+If there are no interactions between a user and item, the entry is 0.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Interactions between users and items as a csr_matrix.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>csr_matrix</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../streamsightv2.matrix.html" class="btn btn-neutral float-left" title="streamsightv2.matrix" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="streamsightv2.matrix.to_csr_matrix.html" class="btn btn-neutral float-right" title="streamsightv2.matrix.to_csr_matrix" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Joshua Khoo, Ng Tze Kean.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

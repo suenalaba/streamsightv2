@@ -1,0 +1,6 @@
+﻿streamsightv2.utils.df\_to\_sparse
+==================================
+
+.. currentmodule:: streamsightv2.utils
+
+.. autofunction:: df_to_sparse

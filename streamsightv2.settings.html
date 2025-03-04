@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>streamsightv2.settings &mdash; streamsightv2 0.2.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=37f418d5"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="streamsightv2.settings.Setting" href="generated/streamsightv2.settings.Setting.html" />
+    <link rel="prev" title="streamsightv2.datasets.MovieLens100K" href="generated/streamsightv2.datasets.MovieLens100K.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            streamsightv2
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Data handling</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="streamsightv2.matrix.html">streamsightv2.matrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="streamsightv2.preprocessing.html">streamsightv2.preprocessing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="streamsightv2.datasets.html">streamsightv2.datasets</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">streamsightv2.settings</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#setting">Setting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="generated/streamsightv2.settings.Setting.html">streamsightv2.settings.Setting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/streamsightv2.settings.SingleTimePointSetting.html">streamsightv2.settings.SingleTimePointSetting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/streamsightv2.settings.SlidingWindowSetting.html">streamsightv2.settings.SlidingWindowSetting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#example">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#splitters">Splitters</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="generated/streamsightv2.settings.TimestampSplitter.html">streamsightv2.settings.TimestampSplitter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/streamsightv2.settings.NPastInteractionTimestampSplitter.html">streamsightv2.settings.NPastInteractionTimestampSplitter</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#processor">Processor</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="generated/streamsightv2.settings.Processor.html">streamsightv2.settings.Processor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/streamsightv2.settings.PredictionDataProcessor.html">streamsightv2.settings.PredictionDataProcessor</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#exception">Exception</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="generated/streamsightv2.settings.EOWSetting.html">streamsightv2.settings.EOWSetting</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">RecSys</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="streamsightv2.algorithms.html">streamsightv2.algorithms</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Evaluation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="streamsightv2.evaluators.html">streamsightv2.evaluators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="streamsightv2.metrics.html">streamsightv2.metrics</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Other supporting modules</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="streamsightv2.registries.html">streamsightv2.registries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="streamsightv2.utils.html">streamsightv2.utils</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Additional Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="poster.html">Poster</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">streamsightv2</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">streamsightv2.settings</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/streamsightv2.settings.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="streamsightv2-settings">
+<h1>streamsightv2.settings<a class="headerlink" href="#streamsightv2-settings" title="Link to this heading"></a></h1>
+<section id="setting">
+<span id="module-streamsightv2.settings"></span><h2>Setting<a class="headerlink" href="#setting" title="Link to this heading"></a></h2>
+<p>The setting module contains classes that define how the data is split. To
+generalize the splitting of the data, the interactions are first sorted in
+temporal order, and then the split is performed based on the setting. As this
+library only considers dataset with timestamp, we will consider the case of the
+single time point setting and the sliding window setting. The single time point
+setting is analogous to Setting 3 of <span id="id1">[<a class="reference internal" href="zreferences.html#id4" title="Aixin Sun. Take a fresh look at recommender systems from an evaluation standpoint. In Proceedings of the 46th International ACM SIGIR Conference on Research and Development in Information Retrieval, SIGIR ’23. ACM, July 2023. URL: http://dx.doi.org/10.1145/3539618.3591931, doi:10.1145/3539618.3591931.">Sun23</a>]</span>. The sliding window setting
+is analogous to Setting 1 of <span id="id2">[<a class="reference internal" href="zreferences.html#id4" title="Aixin Sun. Take a fresh look at recommender systems from an evaluation standpoint. In Proceedings of the 46th International ACM SIGIR Conference on Research and Development in Information Retrieval, SIGIR ’23. ACM, July 2023. URL: http://dx.doi.org/10.1145/3539618.3591931, doi:10.1145/3539618.3591931.">Sun23</a>]</span>.</p>
+<a class="reference internal image-reference" href="_images/data_split_definition.png"><img alt="Setting 1 diagram" class="align-center" src="_images/data_split_definition.png" style="width: 634.4000000000001px; height: 334.40000000000003px;" /></a>
+<p>Observe the diagram below where the data split for Setting 1 is shown below. The
+unlabeled data will contain interactions that are masked which occurs after the
+current timestamp. The ground truth data will contain the actual interactions
+which will be used for evaluation and then released to the algorithm.</p>
+<a class="reference internal image-reference" href="_images/setting1_no_seq.png"><img alt="Setting 1 diagram" class="align-center" src="_images/setting1_no_seq.png" style="width: 591.0px; height: 482.0px;" /></a>
+<p>While the this setting allows us to test the algorithm in a real-world scenario,
+there are times when the algorithm might require some sequential data before
+a prediction can be made. While it is not the role of the evaluating platform
+to provide this data, we have included the option to provide the last n interactions</p>
+<ul class="simple">
+<li><p><strong>background_data</strong>: Data that is used to train the algorithm before the first
+split.</p></li>
+<li><p><strong>unlabeled_data</strong>: Data that is released to the algorithm for prediction.
+Contains the ID to be predicted and is labeled with “-1”. Timestamps of the
+interactions to be predicted are preserved. Can contain the last n interactions
+split if specified in the parameter. The purpose is to provide sequential
+data to the algorithm.</p></li>
+<li><p><strong>ground_truth_data</strong>: Data that is used to evaluate the algorithm. This data
+will contain the actual interactions. The unlabeled data with the masked data
+is a subset of the ground truth to ensure that there is an actual corresponding
+value to evaluate the prediction against.</p></li>
+</ul>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/streamsightv2.settings.Setting.html#streamsightv2.settings.Setting" title="streamsightv2.settings.Setting"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Setting</span></code></a>([seed])</p></td>
+<td><p>Base class for defining an evaluation setting.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/streamsightv2.settings.SingleTimePointSetting.html#streamsightv2.settings.SingleTimePointSetting" title="streamsightv2.settings.SingleTimePointSetting"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SingleTimePointSetting</span></code></a>(background_t[, ...])</p></td>
+<td><p>Single time point setting for data split.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/streamsightv2.settings.SlidingWindowSetting.html#streamsightv2.settings.SlidingWindowSetting" title="streamsightv2.settings.SlidingWindowSetting"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SlidingWindowSetting</span></code></a>(background_t[, ...])</p></td>
+<td><p>Sliding window setting for splitting data.</p></td>
+</tr>
+</tbody>
+</table>
+<p>A setting is stateful. Thus, the initialization of the setting object only stores
+the parameters that are passed. Calling of <a class="reference internal" href="generated/streamsightv2.settings.Setting.html#streamsightv2.settings.Setting.split" title="streamsightv2.settings.Setting.split"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Setting.split</span></code></a> is necessary
+such that the attributes <a class="reference internal" href="generated/streamsightv2.settings.Setting.html#streamsightv2.settings.Setting.background_data" title="streamsightv2.settings.Setting.background_data"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Setting.background_data</span></code></a>, <a class="reference internal" href="generated/streamsightv2.settings.Setting.html#streamsightv2.settings.Setting.unlabeled_data" title="streamsightv2.settings.Setting.unlabeled_data"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Setting.unlabeled_data</span></code></a>
+and <a class="reference internal" href="generated/streamsightv2.settings.Setting.html#streamsightv2.settings.Setting.ground_truth_data" title="streamsightv2.settings.Setting.ground_truth_data"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Setting.ground_truth_data</span></code></a> are populated.</p>
+<section id="example">
+<h3>Example<a class="headerlink" href="#example" title="Link to this heading"></a></h3>
+<p>If the file specified does not exist, the dataset is downloaded and written into this file.
+Subsequent loading of the dataset will not require downloading the dataset again,
+and will be obtained from the file in the directory.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">streamsightv2.datasets</span> <span class="kn">import</span> <span class="n">AmazonMovieDataset</span>
+<span class="kn">from</span> <span class="nn">streamsightv2.settings</span> <span class="kn">import</span> <span class="n">SlidingWindowSetting</span>
+
+<span class="n">dataset</span> <span class="o">=</span> <span class="n">AmazonMovieDataset</span><span class="p">(</span><span class="n">use_default_filters</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">load</span><span class="p">()</span>
+<span class="n">setting_sliding</span> <span class="o">=</span> <span class="n">SlidingWindowSetting</span><span class="p">(</span>
+    <span class="n">background_t</span><span class="o">=</span><span class="mi">1530000000</span><span class="p">,</span>
+    <span class="n">window_size</span><span class="o">=</span><span class="mi">60</span> <span class="o">*</span> <span class="mi">60</span> <span class="o">*</span> <span class="mi">24</span> <span class="o">*</span> <span class="mi">30</span><span class="p">,</span> <span class="c1"># day times N</span>
+    <span class="n">n_seq_data</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+    <span class="n">top_K</span><span class="o">=</span><span class="n">k</span>
+<span class="p">)</span>
+<span class="n">setting_sliding</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="splitters">
+<h2>Splitters<a class="headerlink" href="#splitters" title="Link to this heading"></a></h2>
+<p>Splitters are stateless and can be reused across different settings. The role of
+the splitter is to split the data into two parts. That is <code class="xref py py-attr docutils literal notranslate"><span class="pre">past_interaction</span></code>
+and <code class="xref py py-attr docutils literal notranslate"><span class="pre">future_interaction</span></code>. The naming is chosen such that data returned is
+easily understood as dataset being dealt with will always contain timestamps as
+in our assumption for this project.</p>
+<p>Implementation of other settings is possible by implementing new splitters to
+define the split such that there is no need to redefine the entire architecture
+of the setting.</p>
+<p>For eg. the sliding window setting can be implemented by using a splitter that
+may split using a different or additional criteria other than timestamp. The
+programmer instead of redefining the entire setting can just implement a new
+splitter and reuse the existing setting.</p>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/streamsightv2.settings.TimestampSplitter.html#streamsightv2.settings.TimestampSplitter" title="streamsightv2.settings.TimestampSplitter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TimestampSplitter</span></code></a>(t[, t_lower, t_upper])</p></td>
+<td><p>Splits data by timestamp.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/streamsightv2.settings.NPastInteractionTimestampSplitter.html#streamsightv2.settings.NPastInteractionTimestampSplitter" title="streamsightv2.settings.NPastInteractionTimestampSplitter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">NPastInteractionTimestampSplitter</span></code></a>(t[, ...])</p></td>
+<td><p>Splits with n past interactions based on a timestamp.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="processor">
+<h2>Processor<a class="headerlink" href="#processor" title="Link to this heading"></a></h2>
+<p>The processor module contains classes that are used to process the data. In the
+current implementation, the processor is used to mask the data that is to be
+predicted and inject it into the unlabeled data. The programmer may define
+other processor that is required to do any further processing of the data for
+the data created in the setting.</p>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/streamsightv2.settings.Processor.html#streamsightv2.settings.Processor" title="streamsightv2.settings.Processor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Processor</span></code></a>()</p></td>
+<td><p>Base class for processing data.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/streamsightv2.settings.PredictionDataProcessor.html#streamsightv2.settings.PredictionDataProcessor" title="streamsightv2.settings.PredictionDataProcessor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PredictionDataProcessor</span></code></a>()</p></td>
+<td><p>Injects the user ID to indicate ID for prediction.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="exception">
+<h2>Exception<a class="headerlink" href="#exception" title="Link to this heading"></a></h2>
+<p>The exception class <a class="reference internal" href="generated/streamsightv2.settings.EOWSetting.html#streamsightv2.settings.EOWSetting" title="streamsightv2.settings.EOWSetting"><code class="xref py py-class docutils literal notranslate"><span class="pre">EOWSetting</span></code></a> is used to raise an exception when the
+end of window is reached. Note that this exception is declared the base file.</p>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/streamsightv2.settings.EOWSetting.html#streamsightv2.settings.EOWSetting" title="streamsightv2.settings.EOWSetting"><code class="xref py py-obj docutils literal notranslate"><span class="pre">EOWSetting</span></code></a>([message])</p></td>
+<td><p>End of Window Setting Exception.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="generated/streamsightv2.datasets.MovieLens100K.html" class="btn btn-neutral float-left" title="streamsightv2.datasets.MovieLens100K" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="generated/streamsightv2.settings.Setting.html" class="btn btn-neutral float-right" title="streamsightv2.settings.Setting" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Joshua Khoo, Ng Tze Kean.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,6 @@
+﻿streamsightv2.registries.ALGORITHM\_REGISTRY
+============================================
+
+.. currentmodule:: streamsightv2.registries
+
+.. autodata:: ALGORITHM_REGISTRY

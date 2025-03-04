@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>streamsightv2.evaluators.EvaluatorStreamer &mdash; streamsightv2 0.2.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=37f418d5"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="streamsightv2.evaluators.MetricAccumulator" href="streamsightv2.evaluators.MetricAccumulator.html" />
+    <link rel="prev" title="streamsightv2.evaluators.EvaluatorPipeline" href="streamsightv2.evaluators.EvaluatorPipeline.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            streamsightv2
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Data handling</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../streamsightv2.matrix.html">streamsightv2.matrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../streamsightv2.preprocessing.html">streamsightv2.preprocessing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../streamsightv2.datasets.html">streamsightv2.datasets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../streamsightv2.settings.html">streamsightv2.settings</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">RecSys</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../streamsightv2.algorithms.html">streamsightv2.algorithms</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Evaluation</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../streamsightv2.evaluators.html">streamsightv2.evaluators</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../streamsightv2.evaluators.html#evaluator-builder">Evaluator Builder</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../streamsightv2.evaluators.html#evaluator">Evaluator</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="streamsightv2.evaluators.EvaluatorBase.html">streamsightv2.evaluators.EvaluatorBase</a></li>
+<li class="toctree-l3"><a class="reference internal" href="streamsightv2.evaluators.EvaluatorPipeline.html">streamsightv2.evaluators.EvaluatorPipeline</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">streamsightv2.evaluators.EvaluatorStreamer</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#streamsightv2.evaluators.EvaluatorStreamer"><code class="docutils literal notranslate"><span class="pre">EvaluatorStreamer</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../streamsightv2.evaluators.html#accumulator">Accumulator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../streamsightv2.evaluators.html#utility">Utility</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../streamsightv2.metrics.html">streamsightv2.metrics</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Other supporting modules</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../streamsightv2.registries.html">streamsightv2.registries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../streamsightv2.utils.html">streamsightv2.utils</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Additional Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../poster.html">Poster</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">streamsightv2</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../streamsightv2.evaluators.html">streamsightv2.evaluators</a></li>
+      <li class="breadcrumb-item active">streamsightv2.evaluators.EvaluatorStreamer</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/generated/streamsightv2.evaluators.EvaluatorStreamer.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="streamsightv2-evaluators-evaluatorstreamer">
+<h1>streamsightv2.evaluators.EvaluatorStreamer<a class="headerlink" href="#streamsightv2-evaluators-evaluatorstreamer" title="Link to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="streamsightv2.evaluators.EvaluatorStreamer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">streamsightv2.evaluators.</span></span><span class="sig-name descname"><span class="pre">EvaluatorStreamer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">metric_entries</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="streamsightv2.registries.MetricEntry.html#streamsightv2.registries.MetricEntry" title="streamsightv2.registries.registry.MetricEntry"><span class="pre">MetricEntry</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">setting</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="streamsightv2.settings.Setting.html#streamsightv2.settings.Setting" title="streamsightv2.settings.base.Setting"><span class="pre">Setting</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">metric_k</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ignore_unknown_user</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ignore_unknown_item</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#streamsightv2.evaluators.EvaluatorStreamer" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="streamsightv2.evaluators.EvaluatorBase.html#streamsightv2.evaluators.EvaluatorBase" title="streamsightv2.evaluators.base.EvaluatorBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">EvaluatorBase</span></code></a></p>
+<p>Evaluation via streaming through API</p>
+<p>The diagram below shows the diagram of the streamer evaluator for the 
+sliding window setting. Instead of the pipeline, we allow the user to
+stream the data release to the algorithm. The data communication is shown
+between the evaluator and the algorithm. Note that while only 2 splits are
+shown here, the evaluator will continue to stream the data until the end
+of the setting where there are no more splits.</p>
+<a class="reference internal image-reference" href="../_images/stream_scheme.png"><img alt="Streamer diagram" class="align-center" src="../_images/stream_scheme.png" style="width: 744.4000000000001px; height: 212.8px;" /></a>
+<p>This class exposes a few of the core API that allows the user to stream
+the evaluation process. The following API are exposed:</p>
+<ol class="arabic simple">
+<li><p><a class="reference internal" href="#streamsightv2.evaluators.EvaluatorStreamer.register_algorithm" title="streamsightv2.evaluators.EvaluatorStreamer.register_algorithm"><code class="xref py py-meth docutils literal notranslate"><span class="pre">register_algorithm()</span></code></a></p></li>
+<li><p><a class="reference internal" href="#streamsightv2.evaluators.EvaluatorStreamer.start_stream" title="streamsightv2.evaluators.EvaluatorStreamer.start_stream"><code class="xref py py-meth docutils literal notranslate"><span class="pre">start_stream()</span></code></a></p></li>
+<li><p><a class="reference internal" href="#streamsightv2.evaluators.EvaluatorStreamer.get_unlabeled_data" title="streamsightv2.evaluators.EvaluatorStreamer.get_unlabeled_data"><code class="xref py py-meth docutils literal notranslate"><span class="pre">get_unlabeled_data()</span></code></a></p></li>
+<li><p><a class="reference internal" href="#streamsightv2.evaluators.EvaluatorStreamer.submit_prediction" title="streamsightv2.evaluators.EvaluatorStreamer.submit_prediction"><code class="xref py py-meth docutils literal notranslate"><span class="pre">submit_prediction()</span></code></a></p></li>
+</ol>
+<p>The programmer can take a look at the specific method for more details
+on the implementation of the API. The methods are designed with the
+methodological approach that the algorithm is decoupled from the
+the evaluating platform. And thus, the evaluator will only provide
+the necessary data to the algorithm and evaluate the prediction.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>metric_entries</strong> (<em>List</em><em>[</em><a class="reference internal" href="streamsightv2.registries.MetricEntry.html#streamsightv2.registries.MetricEntry" title="streamsightv2.registries.MetricEntry"><em>MetricEntry</em></a><em>]</em>) – List of metric entries</p></li>
+<li><p><strong>setting</strong> (<a class="reference internal" href="streamsightv2.settings.Setting.html#streamsightv2.settings.Setting" title="streamsightv2.settings.Setting"><em>Setting</em></a>) – Setting object</p></li>
+<li><p><strong>metric_k</strong> (<em>int</em>) – Number of top interactions to consider</p></li>
+<li><p><strong>ignore_unknown_user</strong> (<em>bool</em>) – To ignore unknown users</p></li>
+<li><p><strong>ignore_unknown_item</strong> (<em>bool</em>) – To ignore unknown items</p></li>
+<li><p><strong>seed</strong> (<em>Optional</em><em>[</em><em>int</em><em>]</em>) – Random seed for the evaluator</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="streamsightv2.evaluators.EvaluatorStreamer.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">metric_entries</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="streamsightv2.registries.MetricEntry.html#streamsightv2.registries.MetricEntry" title="streamsightv2.registries.registry.MetricEntry"><span class="pre">MetricEntry</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">setting</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="streamsightv2.settings.Setting.html#streamsightv2.settings.Setting" title="streamsightv2.settings.base.Setting"><span class="pre">Setting</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">metric_k</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ignore_unknown_user</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ignore_unknown_item</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#streamsightv2.evaluators.EvaluatorStreamer.__init__" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<p class="rubric">Methods</p>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#streamsightv2.evaluators.EvaluatorStreamer.__init__" title="streamsightv2.evaluators.EvaluatorStreamer.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(metric_entries, setting, metric_k)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#streamsightv2.evaluators.EvaluatorStreamer.current_step" title="streamsightv2.evaluators.EvaluatorStreamer.current_step"><code class="xref py py-obj docutils literal notranslate"><span class="pre">current_step</span></code></a>()</p></td>
+<td><p>Return the current step of the evaluator.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#streamsightv2.evaluators.EvaluatorStreamer.get_algorithm_state" title="streamsightv2.evaluators.EvaluatorStreamer.get_algorithm_state"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_algorithm_state</span></code></a>(algo_id)</p></td>
+<td><p>Get the state of the algorithm</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#streamsightv2.evaluators.EvaluatorStreamer.get_all_algorithm_status" title="streamsightv2.evaluators.EvaluatorStreamer.get_all_algorithm_status"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_all_algorithm_status</span></code></a>()</p></td>
+<td><p>Get the status of all algorithms</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#streamsightv2.evaluators.EvaluatorStreamer.get_data" title="streamsightv2.evaluators.EvaluatorStreamer.get_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_data</span></code></a>(algo_id)</p></td>
+<td><p>Get training data for the algorithm</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#streamsightv2.evaluators.EvaluatorStreamer.get_unlabeled_data" title="streamsightv2.evaluators.EvaluatorStreamer.get_unlabeled_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_unlabeled_data</span></code></a>(algo_id)</p></td>
+<td><p>Get unlabeled data for the algorithm</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#streamsightv2.evaluators.EvaluatorStreamer.metric_results" title="streamsightv2.evaluators.EvaluatorStreamer.metric_results"><code class="xref py py-obj docutils literal notranslate"><span class="pre">metric_results</span></code></a>([level, ...])</p></td>
+<td><p>Results of the metrics computed.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#streamsightv2.evaluators.EvaluatorStreamer.prepare_dump" title="streamsightv2.evaluators.EvaluatorStreamer.prepare_dump"><code class="xref py py-obj docutils literal notranslate"><span class="pre">prepare_dump</span></code></a>()</p></td>
+<td><p>Prepare evaluator for pickling.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#streamsightv2.evaluators.EvaluatorStreamer.register_algorithm" title="streamsightv2.evaluators.EvaluatorStreamer.register_algorithm"><code class="xref py py-obj docutils literal notranslate"><span class="pre">register_algorithm</span></code></a>([algorithm, algorithm_name])</p></td>
+<td><p>Register the algorithm with the evaluator</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#streamsightv2.evaluators.EvaluatorStreamer.restore" title="streamsightv2.evaluators.EvaluatorStreamer.restore"><code class="xref py py-obj docutils literal notranslate"><span class="pre">restore</span></code></a>()</p></td>
+<td><p>Restore the generators before pickling.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#streamsightv2.evaluators.EvaluatorStreamer.start_stream" title="streamsightv2.evaluators.EvaluatorStreamer.start_stream"><code class="xref py py-obj docutils literal notranslate"><span class="pre">start_stream</span></code></a>()</p></td>
+<td><p>Start the streaming process</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#streamsightv2.evaluators.EvaluatorStreamer.submit_prediction" title="streamsightv2.evaluators.EvaluatorStreamer.submit_prediction"><code class="xref py py-obj docutils literal notranslate"><span class="pre">submit_prediction</span></code></a>(algo_id, X_pred)</p></td>
+<td><p>Submit the prediction of the algorithm</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Attributes</p>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#streamsightv2.evaluators.EvaluatorStreamer.setting" title="streamsightv2.evaluators.EvaluatorStreamer.setting"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setting</span></code></a></p></td>
+<td><p>Setting to evaluate the algorithms on.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#streamsightv2.evaluators.EvaluatorStreamer.metric_k" title="streamsightv2.evaluators.EvaluatorStreamer.metric_k"><code class="xref py py-obj docutils literal notranslate"><span class="pre">metric_k</span></code></a></p></td>
+<td><p>Value of K for the metrics.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#streamsightv2.evaluators.EvaluatorStreamer.ignore_unknown_user" title="streamsightv2.evaluators.EvaluatorStreamer.ignore_unknown_user"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ignore_unknown_user</span></code></a></p></td>
+<td><p>To ignore unknown users during evaluation.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#streamsightv2.evaluators.EvaluatorStreamer.ignore_unknown_item" title="streamsightv2.evaluators.EvaluatorStreamer.ignore_unknown_item"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ignore_unknown_item</span></code></a></p></td>
+<td><p>To ignore unknown items during evaluation.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="streamsightv2.evaluators.EvaluatorStreamer._acc">
+<span class="sig-name descname"><span class="pre">_acc</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="streamsightv2.evaluators.MetricAccumulator.html#streamsightv2.evaluators.MetricAccumulator" title="streamsightv2.evaluators.accumulator.MetricAccumulator"><span class="pre">MetricAccumulator</span></a></em><a class="headerlink" href="#streamsightv2.evaluators.EvaluatorStreamer._acc" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="streamsightv2.evaluators.EvaluatorStreamer._cache_evaluation_data">
+<span class="sig-name descname"><span class="pre">_cache_evaluation_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#streamsightv2.evaluators.EvaluatorStreamer._cache_evaluation_data" title="Link to this definition"></a></dt>
+<dd><p>Cache the evaluation data for the current step.</p>
+<section id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Link to this heading"></a></h2>
+<p>This method will cache the evaluation data for the current step. The method
+will update the unknown user/item base, get the next unlabeled and ground
+truth data, and update the current timestamp.</p>
+</section>
+<section id="specifics">
+<h2>Specifics<a class="headerlink" href="#specifics" title="Link to this heading"></a></h2>
+<p>The method will update the unknown user/item base with the ground truth data.
+Next, mask the unlabeled and ground truth data with the known user/item
+base. The method will cache the unlabeled and ground truth data in the internal
+attributes <code class="xref py py-attr docutils literal notranslate"><span class="pre">_unlabeled_data_cache</span></code> and <code class="xref py py-attr docutils literal notranslate"><span class="pre">_ground_truth_data_cache</span></code>.
+The timestamp is cached in the internal attribute <a class="reference internal" href="#streamsightv2.evaluators.EvaluatorStreamer._current_timestamp" title="streamsightv2.evaluators.EvaluatorStreamer._current_timestamp"><code class="xref py py-attr docutils literal notranslate"><span class="pre">_current_timestamp</span></code></a>.</p>
+<p>we use an internal attribute <code class="xref py py-attr docutils literal notranslate"><span class="pre">_run_step</span></code> to keep track of the current
+step such that we can check if we have reached the last step.</p>
+<p>We assume that any method calling this method has already checked if the
+there is still data to be processed.</p>
+</section>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="streamsightv2.evaluators.EvaluatorStreamer._current_timestamp">
+<span class="sig-name descname"><span class="pre">_current_timestamp</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#streamsightv2.evaluators.EvaluatorStreamer._current_timestamp" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="streamsightv2.evaluators.EvaluatorStreamer._evaluate">
+<span class="sig-name descname"><span class="pre">_evaluate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">algo_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">UUID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">X_pred</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">csr_matrix</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#streamsightv2.evaluators.EvaluatorStreamer._evaluate" title="Link to this definition"></a></dt>
+<dd><p>Evaluate the prediction</p>
+<p>Given the prediction and the algorithm ID, the method will evaluate the
+prediction using the metrics specified in the evaluator. The prediction
+of the algorithm is compared to the ground truth data currently cached.</p>
+<p>The evaluation results will be stored in the micro and macro accumulators
+which will later be used to calculate the final evaluation results.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>algo_id</strong> (<em>UUID</em>) – The unique identifier of the algorithm</p></li>
+<li><p><strong>X_pred</strong> (<em>csr_matrix</em>) – The prediction of the algorithm</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="streamsightv2.evaluators.EvaluatorStreamer._get_evaluation_data">
+<span class="sig-name descname"><span class="pre">_get_evaluation_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="streamsightv2.matrix.InteractionMatrix.html#streamsightv2.matrix.InteractionMatrix" title="streamsightv2.matrix.interaction_matrix.InteractionMatrix"><span class="pre">InteractionMatrix</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="streamsightv2.matrix.InteractionMatrix.html#streamsightv2.matrix.InteractionMatrix" title="streamsightv2.matrix.interaction_matrix.InteractionMatrix"><span class="pre">InteractionMatrix</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#streamsightv2.evaluators.EvaluatorStreamer._get_evaluation_data" title="Link to this definition"></a></dt>
+<dd><p>Get the evaluation data for the current step.</p>
+<p>Internal method to get the evaluation data for the current step. The
+evaluation data consists of the unlabeled data, ground truth data, and
+the current timestamp which will be returned as a tuple. The shapes
+are masked based through <code class="xref py py-attr docutils literal notranslate"><span class="pre">user_item_base</span></code>. The unknown users in
+the ground truth data are also updated in <code class="xref py py-attr docutils literal notranslate"><span class="pre">user_item_base</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><a class="reference internal" href="#streamsightv2.evaluators.EvaluatorStreamer._current_timestamp" title="streamsightv2.evaluators.EvaluatorStreamer._current_timestamp"><code class="xref py py-attr docutils literal notranslate"><span class="pre">_current_timestamp</span></code></a> is updated with the current timestamp.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Tuple of unlabeled data, ground truth data, and current timestamp</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>Tuple[csr_matrix, csr_matrix, int]</p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="streamsightv2.settings.EOWSetting.html#streamsightv2.settings.EOWSetting" title="streamsightv2.settings.EOWSetting"><strong>EOWSetting</strong></a> – If there is no more data to be processed</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="streamsightv2.evaluators.EvaluatorStreamer._prediction_shape_handler">
+<span class="sig-name descname"><span class="pre">_prediction_shape_handler</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X_true_shape</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">X_pred</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">csr_matrix</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">csr_matrix</span></span></span><a class="headerlink" href="#streamsightv2.evaluators.EvaluatorStreamer._prediction_shape_handler" title="Link to this definition"></a></dt>
+<dd><p>Handle shape difference of the prediction matrix.</p>
+<p>If there is a difference in the shape of the prediction matrix and the
+ground truth matrix, this function will handle the difference based on
+<a class="reference internal" href="#streamsightv2.evaluators.EvaluatorStreamer.ignore_unknown_user" title="streamsightv2.evaluators.EvaluatorStreamer.ignore_unknown_user"><code class="xref py py-attr docutils literal notranslate"><span class="pre">ignore_unknown_user</span></code></a> and <a class="reference internal" href="#streamsightv2.evaluators.EvaluatorStreamer.ignore_unknown_item" title="streamsightv2.evaluators.EvaluatorStreamer.ignore_unknown_item"><code class="xref py py-attr docutils literal notranslate"><span class="pre">ignore_unknown_item</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X_true_shape</strong> (<em>Tuple</em><em>[</em><em>int</em><em>,</em><em>int</em><em>]</em>) – Shape of the ground truth matrix</p></li>
+<li><p><strong>X_pred</strong> (<em>csr_matrix</em>) – Prediction matrix</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If the user dimension of the prediction matrix is less than the ground truth matrix</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Prediction matrix with the same shape as the ground truth matrix</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>csr_matrix</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="streamsightv2.evaluators.EvaluatorStreamer._transform_prediction">
+<span class="sig-name descname"><span class="pre">_transform_prediction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X_pred</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">csr_matrix</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="streamsightv2.matrix.InteractionMatrix.html#streamsightv2.matrix.InteractionMatrix" title="streamsightv2.matrix.interaction_matrix.InteractionMatrix"><span class="pre">InteractionMatrix</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">csr_matrix</span></span></span><a class="headerlink" href="#streamsightv2.evaluators.EvaluatorStreamer._transform_prediction" title="Link to this definition"></a></dt>
+<dd><p>Transform the prediction matrix</p>
+<p>This method is called to transform the prediction matrix to a csr_matrix.
+The method will check if the prediction matrix is an InteractionMatrix
+and if the shape attribute is defined. If the shape attribute is not
+defined, the method will set the shape to the known shape of the user/item
+base.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>X_pred</strong> (<em>Union</em><em>[</em><em>csr_matrix</em><em>, </em><a class="reference internal" href="streamsightv2.matrix.InteractionMatrix.html#streamsightv2.matrix.InteractionMatrix" title="streamsightv2.matrix.InteractionMatrix"><em>InteractionMatrix</em></a><em>]</em>) – The prediction matrix</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If X_pred is not an InteractionMatrix or csr_matrix</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The prediction matrix as a csr_matrix</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>csr_matrix</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="streamsightv2.evaluators.EvaluatorStreamer.current_step">
+<span class="sig-name descname"><span class="pre">current_step</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#streamsightv2.evaluators.EvaluatorStreamer.current_step" title="Link to this definition"></a></dt>
+<dd><p>Return the current step of the evaluator.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Current step of the evaluator</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="streamsightv2.evaluators.EvaluatorStreamer.get_algorithm_state">
+<span class="sig-name descname"><span class="pre">get_algorithm_state</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">algo_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">UUID</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="streamsightv2.registries.AlgorithmStateEnum.html#streamsightv2.registries.AlgorithmStateEnum" title="streamsightv2.registries.registry.AlgorithmStateEnum"><span class="pre">AlgorithmStateEnum</span></a></span></span><a class="headerlink" href="#streamsightv2.evaluators.EvaluatorStreamer.get_algorithm_state" title="Link to this definition"></a></dt>
+<dd><p>Get the state of the algorithm</p>
+<p>This method is called to get the state of the algorithm given the
+unique identifier of the algorithm. The method will return the state
+of the algorithm.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>algo_id</strong> (<em>UUID</em>) – Unique identifier of the algorithm</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The state of the algorithm</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="streamsightv2.registries.AlgorithmStateEnum.html#streamsightv2.registries.AlgorithmStateEnum" title="streamsightv2.registries.AlgorithmStateEnum">AlgorithmStateEnum</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="streamsightv2.evaluators.EvaluatorStreamer.get_all_algorithm_status">
+<span class="sig-name descname"><span class="pre">get_all_algorithm_status</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="streamsightv2.registries.AlgorithmStateEnum.html#streamsightv2.registries.AlgorithmStateEnum" title="streamsightv2.registries.registry.AlgorithmStateEnum"><span class="pre">AlgorithmStateEnum</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#streamsightv2.evaluators.EvaluatorStreamer.get_all_algorithm_status" title="Link to this definition"></a></dt>
+<dd><p>Get the status of all algorithms</p>
+<p>This method is called to get the status of all algorithms registered
+with the evaluator. The method will return a dictionary where the key
+is the name of the algorithm and the value is the state of the algorithm.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The status of all algorithms</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dict[str, <a class="reference internal" href="streamsightv2.registries.AlgorithmStateEnum.html#streamsightv2.registries.AlgorithmStateEnum" title="streamsightv2.registries.AlgorithmStateEnum">AlgorithmStateEnum</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="streamsightv2.evaluators.EvaluatorStreamer.get_data">
+<span class="sig-name descname"><span class="pre">get_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">algo_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">UUID</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="streamsightv2.matrix.InteractionMatrix.html#streamsightv2.matrix.InteractionMatrix" title="streamsightv2.matrix.interaction_matrix.InteractionMatrix"><span class="pre">InteractionMatrix</span></a></span></span><a class="headerlink" href="#streamsightv2.evaluators.EvaluatorStreamer.get_data" title="Link to this definition"></a></dt>
+<dd><p>Get training data for the algorithm</p>
+<section id="id1">
+<h2>Summary<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
+<p>This method is called to get the training data for the algorithm. The
+training data is defined as either the background data or the incremental
+data. The training data is always released irrespective of the state of
+the algorithm.</p>
+</section>
+<section id="id2">
+<h2>Specifics<a class="headerlink" href="#id2" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p>If the state is COMPLETED, raise warning that the algorithm has completed</p></li>
+<li><p>If the state is NEW, release training data to the algorithm</p></li>
+<li><p>If the state is READY and the data segment is the same, raise warning
+that the algorithm has already obtained data</p></li>
+<li><p>If the state is PREDICTED and the data segment is the same, inform
+the algorithm that it has already predicted and should wait for other
+algorithms to predict</p></li>
+<li><p>This will occur when <a class="reference internal" href="#streamsightv2.evaluators.EvaluatorStreamer._current_timestamp" title="streamsightv2.evaluators.EvaluatorStreamer._current_timestamp"><code class="xref py py-attr docutils literal notranslate"><span class="pre">_current_timestamp</span></code></a> has changed, which causes
+scenario 2 to not be caught. In this case, the algorithm is requesting
+the next window of data. Thus, this is a valid data call and the status
+will be updated to READY.</p></li>
+</ol>
+<dl class="field-list simple">
+<dt class="field-odd">param algo_id<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Unique identifier of the algorithm</p>
+</dd>
+<dt class="field-even">type algo_id<span class="colon">:</span></dt>
+<dd class="field-even"><p>UUID</p>
+</dd>
+<dt class="field-odd">raises ValueError<span class="colon">:</span></dt>
+<dd class="field-odd"><p>If the stream has not started</p>
+</dd>
+<dt class="field-even">return<span class="colon">:</span></dt>
+<dd class="field-even"><p>The training data for the algorithm</p>
+</dd>
+<dt class="field-odd">rtype<span class="colon">:</span></dt>
+<dd class="field-odd"><p>InteractionMatrix</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="streamsightv2.evaluators.EvaluatorStreamer.get_unlabeled_data">
+<span class="sig-name descname"><span class="pre">get_unlabeled_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">algo_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">UUID</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="streamsightv2.matrix.InteractionMatrix.html#streamsightv2.matrix.InteractionMatrix" title="streamsightv2.matrix.interaction_matrix.InteractionMatrix"><span class="pre">InteractionMatrix</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="headerlink" href="#streamsightv2.evaluators.EvaluatorStreamer.get_unlabeled_data" title="Link to this definition"></a></dt>
+<dd><p>Get unlabeled data for the algorithm</p>
+<section id="id3">
+<h2>Summary<a class="headerlink" href="#id3" title="Link to this heading"></a></h2>
+<p>This method is called to get the unlabeled data for the algorithm. The
+unlabeled data is the data that the algorithm will predict. It will
+contain <cite>(user_id, -1)</cite> pairs, where the value -1 indicates that the
+item is to be predicted.</p>
+</section>
+<section id="id4">
+<h2>Specifics<a class="headerlink" href="#id4" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p>If the state is READY/PREDICTED, return the unlabeled data</p></li>
+<li><p>If the state is COMPLETED, raise warning that the algorithm has completed</p></li>
+<li><p>ALl other same, raise warning that the algorithm has not obtained data
+and should call <a class="reference internal" href="#streamsightv2.evaluators.EvaluatorStreamer.get_data" title="streamsightv2.evaluators.EvaluatorStreamer.get_data"><code class="xref py py-meth docutils literal notranslate"><span class="pre">get_data()</span></code></a> first.</p></li>
+</ol>
+<dl class="field-list simple">
+<dt class="field-odd">param algo_id<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Unique identifier of the algorithm</p>
+</dd>
+<dt class="field-even">type algo_id<span class="colon">:</span></dt>
+<dd class="field-even"><p>UUID</p>
+</dd>
+<dt class="field-odd">return<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The unlabeled data for prediction</p>
+</dd>
+<dt class="field-even">rtype<span class="colon">:</span></dt>
+<dd class="field-even"><p>Optional[InteractionMatrix]</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="streamsightv2.evaluators.EvaluatorStreamer.ignore_unknown_item">
+<span class="sig-name descname"><span class="pre">ignore_unknown_item</span></span><a class="headerlink" href="#streamsightv2.evaluators.EvaluatorStreamer.ignore_unknown_item" title="Link to this definition"></a></dt>
+<dd><p>To ignore unknown items during evaluation.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="streamsightv2.evaluators.EvaluatorStreamer.ignore_unknown_user">
+<span class="sig-name descname"><span class="pre">ignore_unknown_user</span></span><a class="headerlink" href="#streamsightv2.evaluators.EvaluatorStreamer.ignore_unknown_user" title="Link to this definition"></a></dt>
+<dd><p>To ignore unknown users during evaluation.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="streamsightv2.evaluators.EvaluatorStreamer.metric_k">
+<span class="sig-name descname"><span class="pre">metric_k</span></span><a class="headerlink" href="#streamsightv2.evaluators.EvaluatorStreamer.metric_k" title="Link to this definition"></a></dt>
+<dd><p>Value of K for the metrics.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="streamsightv2.evaluators.EvaluatorStreamer.metric_results">
+<span class="sig-name descname"><span class="pre">metric_results</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">level</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="streamsightv2.evaluators.MetricLevelEnum.html#streamsightv2.evaluators.MetricLevelEnum" title="streamsightv2.evaluators.util.MetricLevelEnum"><span class="pre">MetricLevelEnum</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'macro'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'micro'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'window'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'user'</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">MetricLevelEnum.MACRO</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">only_current_timestamp</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_timestamp</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_algo</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="headerlink" href="#streamsightv2.evaluators.EvaluatorStreamer.metric_results" title="Link to this definition"></a></dt>
+<dd><p>Results of the metrics computed.</p>
+<p>Computes the metrics of all algorithms based on the level specified and
+return the results in a pandas DataFrame. The results can be filtered
+based on the algorithm name and the current timestamp.</p>
+<section id="id5">
+<h2>Specifics<a class="headerlink" href="#id5" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>User level: User level metrics computed across all timestamps.</p></li>
+<li><p>Window level: Window level metrics computed across all timestamps. This can
+be viewed as a macro level metric in the context of a single window, where
+the scores of each user is averaged within the window.</p></li>
+<li><p>Macro level: Macro level metrics computed for entire timeline. This
+score is computed by averaging the scores of all windows, treating each
+window equally.</p></li>
+<li><p>Micro level: Micro level metrics computed for entire timeline. This
+score is computed by averaging the scores of all users, treating each
+user and the timestamp the user is in as unique contribution to the
+overall score.</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">param level<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Level of the metric to compute, defaults to “macro”</p>
+</dd>
+<dt class="field-even">type level<span class="colon">:</span></dt>
+<dd class="field-even"><p>Union[MetricLevelEnum, Literal[“macro”, “micro”, “window”, “user”]]</p>
+</dd>
+<dt class="field-odd">param only_current_timestamp<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Filter only the current timestamp, defaults to False</p>
+</dd>
+<dt class="field-even">type only_current_timestamp<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool, optional</p>
+</dd>
+<dt class="field-odd">param filter_timestamp<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Timestamp value to filter on, defaults to None.
+If both <cite>only_current_timestamp</cite> and <cite>filter_timestamp</cite> are provided,
+<cite>filter_timestamp</cite> will be used.</p>
+</dd>
+<dt class="field-even">type filter_timestamp<span class="colon">:</span></dt>
+<dd class="field-even"><p>Optional[int], optional</p>
+</dd>
+<dt class="field-odd">param filter_algo<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Algorithm name to filter on, defaults to None</p>
+</dd>
+<dt class="field-even">type filter_algo<span class="colon">:</span></dt>
+<dd class="field-even"><p>Optional[str], optional</p>
+</dd>
+<dt class="field-odd">return<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Dataframe representation of the metric</p>
+</dd>
+<dt class="field-even">rtype<span class="colon">:</span></dt>
+<dd class="field-even"><p>pd.DataFrame</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="streamsightv2.evaluators.EvaluatorStreamer.prepare_dump">
+<span class="sig-name descname"><span class="pre">prepare_dump</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#streamsightv2.evaluators.EvaluatorStreamer.prepare_dump" title="Link to this definition"></a></dt>
+<dd><p>Prepare evaluator for pickling.</p>
+<p>This method is used to prepare the evaluator for pickling. The method
+will destruct the generators to avoid pickling issues.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="streamsightv2.evaluators.EvaluatorStreamer.register_algorithm">
+<span class="sig-name descname"><span class="pre">register_algorithm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">algorithm</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="streamsightv2.algorithms.Algorithm.html#streamsightv2.algorithms.Algorithm" title="streamsightv2.algorithms.base.Algorithm"><span class="pre">Algorithm</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">algorithm_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">UUID</span></span></span><a class="headerlink" href="#streamsightv2.evaluators.EvaluatorStreamer.register_algorithm" title="Link to this definition"></a></dt>
+<dd><p>Register the algorithm with the evaluator</p>
+<p>This method is called to register the algorithm with the evaluator.
+The method will assign a unique identifier to the algorithm and store
+the algorithm in the registry. The method will raise a ValueError if
+the stream has already started.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>algorithm</strong> (<a class="reference internal" href="streamsightv2.algorithms.Algorithm.html#streamsightv2.algorithms.Algorithm" title="streamsightv2.algorithms.Algorithm"><em>Algorithm</em></a>) – The algorithm to be registered</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>ValueError</strong> – If the stream has already started</p></li>
+<li><p><strong>ValueError</strong> – If neither algorithm nor algorithm_name is provided</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The unique identifier of the algorithm</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>UUID</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="streamsightv2.evaluators.EvaluatorStreamer.restore">
+<span class="sig-name descname"><span class="pre">restore</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#streamsightv2.evaluators.EvaluatorStreamer.restore" title="Link to this definition"></a></dt>
+<dd><p>Restore the generators before pickling.</p>
+<p>This method is used to restore the generators after loading the object
+from a pickle file.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="streamsightv2.evaluators.EvaluatorStreamer.setting">
+<span class="sig-name descname"><span class="pre">setting</span></span><a class="headerlink" href="#streamsightv2.evaluators.EvaluatorStreamer.setting" title="Link to this definition"></a></dt>
+<dd><p>Setting to evaluate the algorithms on.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="streamsightv2.evaluators.EvaluatorStreamer.start_stream">
+<span class="sig-name descname"><span class="pre">start_stream</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#streamsightv2.evaluators.EvaluatorStreamer.start_stream" title="Link to this definition"></a></dt>
+<dd><p>Start the streaming process</p>
+<p>This method is called to start the streaming process. The method will
+prepare the evaluator for the streaming process. The method will reset
+the data generators, prepare the micro and macro accumulators, update
+the known user/item base, and cache the evaluation data.</p>
+<p>The method will set the internal state <code class="xref py py-attr docutils literal notranslate"><span class="pre">has_started</span></code> to True. The
+method can be called anytime after the evaluator is instantiated. However,
+once the method is called, the evaluator cannot register any new algorithms.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>ValueError</strong> – If the stream has already started</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="streamsightv2.evaluators.EvaluatorStreamer.submit_prediction">
+<span class="sig-name descname"><span class="pre">submit_prediction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">algo_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">UUID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">X_pred</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">csr_matrix</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="streamsightv2.matrix.InteractionMatrix.html#streamsightv2.matrix.InteractionMatrix" title="streamsightv2.matrix.interaction_matrix.InteractionMatrix"><span class="pre">InteractionMatrix</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#streamsightv2.evaluators.EvaluatorStreamer.submit_prediction" title="Link to this definition"></a></dt>
+<dd><p>Submit the prediction of the algorithm</p>
+<section id="id6">
+<h2>Summary<a class="headerlink" href="#id6" title="Link to this heading"></a></h2>
+<p>This method is called to submit the prediction of the algorithm.
+There are a few checks that are done before the prediction is
+evaluated by calling <a class="reference internal" href="#streamsightv2.evaluators.EvaluatorStreamer._evaluate" title="streamsightv2.evaluators.EvaluatorStreamer._evaluate"><code class="xref py py-meth docutils literal notranslate"><span class="pre">_evaluate()</span></code></a>.</p>
+<p>Once the prediction is evaluated, the method will update the state
+of the algorithm to PREDICTED.</p>
+<p>The method will also check for each call if the current step of evaluation
+is the final one, if it is the final step, the method will update the
+state of the algorithm to COMPLETED.</p>
+</section>
+<section id="id7">
+<h2>Specifics<a class="headerlink" href="#id7" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p>If state is READY, evaluate the prediction</p></li>
+<li><p>If state is NEW, algorithm has not obtained data, raise warning</p></li>
+<li><p>If state is PREDICTED, algorithm has already predicted, raise warning</p></li>
+<li><p>All other state, raise warning that the algorithm has completed</p></li>
+</ol>
+<dl class="field-list simple">
+<dt class="field-odd">param algo_id<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The unique identifier of the algorithm</p>
+</dd>
+<dt class="field-even">type algo_id<span class="colon">:</span></dt>
+<dd class="field-even"><p>UUID</p>
+</dd>
+<dt class="field-odd">param X_pred<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The prediction of the algorithm</p>
+</dd>
+<dt class="field-even">type X_pred<span class="colon">:</span></dt>
+<dd class="field-even"><p>csr_matrix</p>
+</dd>
+<dt class="field-odd">raises ValueError<span class="colon">:</span></dt>
+<dd class="field-odd"><p>If X_pred is not an InteractionMatrix or csr_matrix</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="streamsightv2.evaluators.EvaluatorPipeline.html" class="btn btn-neutral float-left" title="streamsightv2.evaluators.EvaluatorPipeline" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="streamsightv2.evaluators.MetricAccumulator.html" class="btn btn-neutral float-right" title="streamsightv2.evaluators.MetricAccumulator" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Joshua Khoo, Ng Tze Kean.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

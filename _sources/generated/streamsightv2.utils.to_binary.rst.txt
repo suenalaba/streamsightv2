@@ -1,0 +1,6 @@
+﻿streamsightv2.utils.to\_binary
+==============================
+
+.. currentmodule:: streamsightv2.utils
+
+.. autofunction:: to_binary

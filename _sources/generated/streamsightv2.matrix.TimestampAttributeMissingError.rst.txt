@@ -1,0 +1,6 @@
+﻿streamsightv2.matrix.TimestampAttributeMissingError
+===================================================
+
+.. currentmodule:: streamsightv2.matrix
+
+.. autoexception:: TimestampAttributeMissingError

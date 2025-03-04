@@ -1,0 +1,6 @@
+﻿streamsightv2.evaluators.AlgorithmStatusWarning
+===============================================
+
+.. currentmodule:: streamsightv2.evaluators
+
+.. autoexception:: AlgorithmStatusWarning

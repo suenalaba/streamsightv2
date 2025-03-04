@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>streamsightv2.utils &mdash; streamsightv2 0.2.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=37f418d5"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="streamsightv2.utils.create_config_yaml" href="generated/streamsightv2.utils.create_config_yaml.html" />
+    <link rel="prev" title="streamsightv2.registries.AlgorithmStatusRegistry" href="generated/streamsightv2.registries.AlgorithmStatusRegistry.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            streamsightv2
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Data handling</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="streamsightv2.matrix.html">streamsightv2.matrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="streamsightv2.preprocessing.html">streamsightv2.preprocessing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="streamsightv2.datasets.html">streamsightv2.datasets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="streamsightv2.settings.html">streamsightv2.settings</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">RecSys</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="streamsightv2.algorithms.html">streamsightv2.algorithms</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Evaluation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="streamsightv2.evaluators.html">streamsightv2.evaluators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="streamsightv2.metrics.html">streamsightv2.metrics</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Other supporting modules</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="streamsightv2.registries.html">streamsightv2.registries</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">streamsightv2.utils</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#utility">Utility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="generated/streamsightv2.utils.create_config_yaml.html">streamsightv2.utils.create_config_yaml</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/streamsightv2.utils.safe_dir.html">streamsightv2.utils.safe_dir</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/streamsightv2.utils.add_columns_to_csr_matrix.html">streamsightv2.utils.add_columns_to_csr_matrix</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/streamsightv2.utils.add_rows_to_csr_matrix.html">streamsightv2.utils.add_rows_to_csr_matrix</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/streamsightv2.utils.arg_to_str.html">streamsightv2.utils.arg_to_str</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/streamsightv2.utils.df_to_sparse.html">streamsightv2.utils.df_to_sparse</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/streamsightv2.utils.prepare_logger.html">streamsightv2.utils.prepare_logger</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/streamsightv2.utils.to_binary.html">streamsightv2.utils.to_binary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/streamsightv2.utils.to_tuple.html">streamsightv2.utils.to_tuple</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/streamsightv2.utils.ProgressBar.html">streamsightv2.utils.ProgressBar</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#logging">Logging</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#example">Example</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="generated/streamsightv2.utils.log_level.html">streamsightv2.utils.log_level</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/streamsightv2.utils.log_level_by_name.html">streamsightv2.utils.log_level_by_name</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/streamsightv2.utils.suppress_warnings.html">streamsightv2.utils.suppress_warnings</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/streamsightv2.utils.suppress_specific_warnings.html">streamsightv2.utils.suppress_specific_warnings</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Additional Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="poster.html">Poster</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">streamsightv2</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">streamsightv2.utils</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/streamsightv2.utils.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-streamsightv2.utils">
+<span id="streamsightv2-utils"></span><h1>streamsightv2.utils<a class="headerlink" href="#module-streamsightv2.utils" title="Link to this heading"></a></h1>
+<section id="utility">
+<h2>Utility<a class="headerlink" href="#utility" title="Link to this heading"></a></h2>
+<p>The utility module provides a set of utility functions that are used in the
+Streamsight library. These function are general functions that are not class
+specific and also contains functions that are used in the top level such as
+preparing the logger and creating the configuration file.</p>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/streamsightv2.utils.create_config_yaml.html#streamsightv2.utils.create_config_yaml" title="streamsightv2.utils.create_config_yaml"><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_config_yaml</span></code></a>(config_filename)</p></td>
+<td><p>Create a configuration file for the logger.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/streamsightv2.utils.safe_dir.html#streamsightv2.utils.safe_dir" title="streamsightv2.utils.safe_dir"><code class="xref py py-obj docutils literal notranslate"><span class="pre">safe_dir</span></code></a>(path)</p></td>
+<td><p>Check if directory is safe</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/streamsightv2.utils.add_columns_to_csr_matrix.html#streamsightv2.utils.add_columns_to_csr_matrix" title="streamsightv2.utils.add_columns_to_csr_matrix"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_columns_to_csr_matrix</span></code></a>(matrix[, n])</p></td>
+<td><p>Add a column of zeros to a csr_matrix.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/streamsightv2.utils.add_rows_to_csr_matrix.html#streamsightv2.utils.add_rows_to_csr_matrix" title="streamsightv2.utils.add_rows_to_csr_matrix"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_rows_to_csr_matrix</span></code></a>(matrix[, n])</p></td>
+<td><p>Add a row of zeros to a csr_matrix.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/streamsightv2.utils.arg_to_str.html#streamsightv2.utils.arg_to_str" title="streamsightv2.utils.arg_to_str"><code class="xref py py-obj docutils literal notranslate"><span class="pre">arg_to_str</span></code></a>(arg)</p></td>
+<td><p>Converts a type to its name or returns the string.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/streamsightv2.utils.df_to_sparse.html#streamsightv2.utils.df_to_sparse" title="streamsightv2.utils.df_to_sparse"><code class="xref py py-obj docutils literal notranslate"><span class="pre">df_to_sparse</span></code></a>(df, item_ix, user_ix[, ...])</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/streamsightv2.utils.prepare_logger.html#streamsightv2.utils.prepare_logger" title="streamsightv2.utils.prepare_logger"><code class="xref py py-obj docutils literal notranslate"><span class="pre">prepare_logger</span></code></a>(log_config_filename)</p></td>
+<td><p>Prepare the logger.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/streamsightv2.utils.to_binary.html#streamsightv2.utils.to_binary" title="streamsightv2.utils.to_binary"><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_binary</span></code></a>(X)</p></td>
+<td><p>Converts a matrix to binary by setting all non-zero values to 1.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/streamsightv2.utils.to_tuple.html#streamsightv2.utils.to_tuple" title="streamsightv2.utils.to_tuple"><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_tuple</span></code></a>(el)</p></td>
+<td><p>Whether single element or tuple, always returns as tuple.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/streamsightv2.utils.ProgressBar.html#streamsightv2.utils.ProgressBar" title="streamsightv2.utils.ProgressBar"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ProgressBar</span></code></a>()</p></td>
+<td><p>Progress bar as visual.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="logging">
+<h2>Logging<a class="headerlink" href="#logging" title="Link to this heading"></a></h2>
+<p>The logging module provides functions to control the logging level and
+suppression of warnings.</p>
+<section id="example">
+<h3>Example<a class="headerlink" href="#example" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">streamsight</span>
+
+<span class="c1"># Set log level to INFO and suppress warnings</span>
+<span class="n">streamsightv2</span><span class="o">.</span><span class="n">log_level_by_name</span><span class="p">(</span><span class="s2">&quot;INFO&quot;</span><span class="p">)</span>
+<span class="n">streamsightv2</span><span class="o">.</span><span class="n">suppress_warnings</span><span class="p">(</span><span class="n">suppress</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Log some information</span>
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s2">&quot;streamsight&quot;</span><span class="p">)</span>
+<span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;This is an informational message.&quot;</span><span class="p">)</span>
+
+<span class="c1"># Emit a warning (this will be suppressed)</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s2">&quot;This warning will not appear.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/streamsightv2.utils.log_level.html#streamsightv2.utils.log_level" title="streamsightv2.utils.log_level"><code class="xref py py-obj docutils literal notranslate"><span class="pre">log_level</span></code></a>(level)</p></td>
+<td><p>Change the logging level for root logger.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/streamsightv2.utils.log_level_by_name.html#streamsightv2.utils.log_level_by_name" title="streamsightv2.utils.log_level_by_name"><code class="xref py py-obj docutils literal notranslate"><span class="pre">log_level_by_name</span></code></a>(level_name)</p></td>
+<td><p>Change the logging level using level names like 'DEBUG', 'INFO', etc.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/streamsightv2.utils.suppress_warnings.html#streamsightv2.utils.suppress_warnings" title="streamsightv2.utils.suppress_warnings"><code class="xref py py-obj docutils literal notranslate"><span class="pre">suppress_warnings</span></code></a>([suppress])</p></td>
+<td><p>Enable or disable the suppression of warnings.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/streamsightv2.utils.suppress_specific_warnings.html#streamsightv2.utils.suppress_specific_warnings" title="streamsightv2.utils.suppress_specific_warnings"><code class="xref py py-obj docutils literal notranslate"><span class="pre">suppress_specific_warnings</span></code></a>(category)</p></td>
+<td><p>Suppress specific warnings by category.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="generated/streamsightv2.registries.AlgorithmStatusRegistry.html" class="btn btn-neutral float-left" title="streamsightv2.registries.AlgorithmStatusRegistry" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="generated/streamsightv2.utils.create_config_yaml.html" class="btn btn-neutral float-right" title="streamsightv2.utils.create_config_yaml" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Joshua Khoo, Ng Tze Kean.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
