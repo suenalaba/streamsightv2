@@ -1,6 +1,0 @@
-﻿streamsight.settings.EOWSetting
-===============================
-
-.. currentmodule:: streamsight.settings
-
-.. autoexception:: EOWSetting

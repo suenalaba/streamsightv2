@@ -1,6 +1,0 @@
-﻿streamsight.utils.arg\_to\_str
-==============================
-
-.. currentmodule:: streamsight.utils
-
-.. autofunction:: arg_to_str

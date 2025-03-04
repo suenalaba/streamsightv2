@@ -1,6 +1,0 @@
-﻿streamsight.utils.to\_tuple
-===========================
-
-.. currentmodule:: streamsight.utils
-
-.. autofunction:: to_tuple

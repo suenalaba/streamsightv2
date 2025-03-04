@@ -18,12 +18,11 @@
         <script src="_static/documentation_options.js?v=37f418d5"></script>
         <script src="_static/doctools.js?v=9a2dae69"></script>
         <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
-        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="streamsight.algorithms.Algorithm" href="generated/streamsight.algorithms.Algorithm.html" />
-    <link rel="prev" title="streamsight.settings.EOWSetting" href="generated/streamsight.settings.EOWSetting.html" /> 
+    <link rel="next" title="streamsight.evaluators" href="streamsight.evaluators.html" />
+    <link rel="prev" title="streamsight.settings" href="streamsight.settings.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -54,25 +53,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">RecSys</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">streamsight.algorithms</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#algorithm">Algorithm</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="generated/streamsight.algorithms.Algorithm.html">streamsight.algorithms.Algorithm</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#baseline-algorithms">Baseline Algorithms</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="generated/streamsight.algorithms.Random.html">streamsight.algorithms.Random</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/streamsight.algorithms.Popularity.html">streamsight.algorithms.Popularity</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#item-similarity-algorithms">Item Similarity Algorithms</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="generated/streamsight.algorithms.ItemKNN.html">streamsight.algorithms.ItemKNN</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/streamsight.algorithms.ItemKNNIncremental.html">streamsight.algorithms.ItemKNNIncremental</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/streamsight.algorithms.ItemKNNRolling.html">streamsight.algorithms.ItemKNNRolling</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/streamsight.algorithms.ItemKNNStatic.html">streamsight.algorithms.ItemKNNStatic</a></li>
-</ul>
-</li>
-</ul>
-</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">streamsight.algorithms</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Evaluation</span></p>
 <ul>
@@ -83,6 +64,10 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="streamsight.registries.html">streamsight.registries</a></li>
 <li class="toctree-l1"><a class="reference internal" href="streamsight.utils.html">streamsight.utils</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Additional Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="poster.html">Poster</a></li>
 </ul>
 
         </div>
@@ -109,76 +94,16 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="module-streamsight.algorithms">
-<span id="streamsight-algorithms"></span><h1>streamsight.algorithms<a class="headerlink" href="#module-streamsight.algorithms" title="Link to this heading"></a></h1>
-<p>The algorithms module in streamsight contains a collection of baseline algorithms
-and various of the item-based KNN collaborative filtering algorithm. A total of
-3 variation of the item-based KNN algorithm is implemented in the module. Which
-are listed below</p>
-<section id="algorithm">
-<h2>Algorithm<a class="headerlink" href="#algorithm" title="Link to this heading"></a></h2>
-<p>Base class for all algorithms. Programmer should inherit from this class when
-implementing a new algorithm. It provides a common interface for all algorithms
-such that the expected methods and properties are defined to avoid any runtime
-errors.</p>
-<table class="autosummary longtable docutils align-default">
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/streamsight.algorithms.Algorithm.html#streamsight.algorithms.Algorithm" title="streamsight.algorithms.Algorithm"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Algorithm</span></code></a>()</p></td>
-<td><p>Base class for all streamsight algorithm implementations.</p></td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="baseline-algorithms">
-<h2>Baseline Algorithms<a class="headerlink" href="#baseline-algorithms" title="Link to this heading"></a></h2>
-<p>The baseline algorithms are simple algorithms that can be used as a reference
-point to compare the performance of the more complex algorithms. The following
-baseline algorithms are implemented in the module.</p>
-<table class="autosummary longtable docutils align-default">
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/streamsight.algorithms.Random.html#streamsight.algorithms.Random" title="streamsight.algorithms.Random"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Random</span></code></a>([K, seed])</p></td>
-<td><p>Random recommendation for users.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/streamsight.algorithms.Popularity.html#streamsight.algorithms.Popularity" title="streamsight.algorithms.Popularity"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Popularity</span></code></a>([K])</p></td>
-<td><p>Recommends K most popular items</p></td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="item-similarity-algorithms">
-<h2>Item Similarity Algorithms<a class="headerlink" href="#item-similarity-algorithms" title="Link to this heading"></a></h2>
-<p>Item similarity algorithms exploit relationships between items to make recommendations.
-At prediction time, the user is represented by the items they have interacted
-with. 3 variations of the item-based KNN algorithm are implemented in the module.
-Each variation is to showcase the difference in the learning and prediction of
-the algorithm. We note that no one algorithm is better than the other, and it
-greatly depends on the dataset and parameters used in the algorithm which would
-yield the best performance.</p>
-<table class="autosummary longtable docutils align-default">
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/streamsight.algorithms.ItemKNN.html#streamsight.algorithms.ItemKNN" title="streamsight.algorithms.ItemKNN"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ItemKNN</span></code></a>([K])</p></td>
-<td><p>Item K Nearest Neighbours model.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/streamsight.algorithms.ItemKNNIncremental.html#streamsight.algorithms.ItemKNNIncremental" title="streamsight.algorithms.ItemKNNIncremental"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ItemKNNIncremental</span></code></a>([K])</p></td>
-<td><p>Incremental version of ItemKNN algorithm.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/streamsight.algorithms.ItemKNNRolling.html#streamsight.algorithms.ItemKNNRolling" title="streamsight.algorithms.ItemKNNRolling"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ItemKNNRolling</span></code></a>([K])</p></td>
-<td><p>Rolling version of ItemKNN algorithm.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/streamsight.algorithms.ItemKNNStatic.html#streamsight.algorithms.ItemKNNStatic" title="streamsight.algorithms.ItemKNNStatic"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ItemKNNStatic</span></code></a>([K])</p></td>
-<td><p>Static version of ItemKNN algorithm.</p></td>
-</tr>
-</tbody>
-</table>
-</section>
+  <section id="streamsight-algorithms">
+<h1>streamsight.algorithms<a class="headerlink" href="#streamsight-algorithms" title="Link to this heading"></a></h1>
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="generated/streamsight.settings.EOWSetting.html" class="btn btn-neutral float-left" title="streamsight.settings.EOWSetting" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="generated/streamsight.algorithms.Algorithm.html" class="btn btn-neutral float-right" title="streamsight.algorithms.Algorithm" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="streamsight.settings.html" class="btn btn-neutral float-left" title="streamsight.settings" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="streamsight.evaluators.html" class="btn btn-neutral float-right" title="streamsight.evaluators" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

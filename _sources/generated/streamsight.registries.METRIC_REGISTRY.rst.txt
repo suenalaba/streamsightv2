@@ -1,6 +1,0 @@
-﻿streamsight.registries.METRIC\_REGISTRY
-=======================================
-
-.. currentmodule:: streamsight.registries
-
-.. autodata:: METRIC_REGISTRY

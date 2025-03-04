@@ -1,6 +1,0 @@
-﻿streamsight.utils.add\_columns\_to\_csr\_matrix
-===============================================
-
-.. currentmodule:: streamsight.utils
-
-.. autofunction:: add_columns_to_csr_matrix

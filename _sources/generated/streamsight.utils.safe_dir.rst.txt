@@ -1,6 +1,0 @@
-﻿streamsight.utils.safe\_dir
-===========================
-
-.. currentmodule:: streamsight.utils
-
-.. autofunction:: safe_dir

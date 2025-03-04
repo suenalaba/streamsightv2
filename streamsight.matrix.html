@@ -21,7 +21,7 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="streamsight.matrix.InteractionMatrix" href="generated/streamsight.matrix.InteractionMatrix.html" />
+    <link rel="next" title="streamsight.preprocessing" href="streamsight.preprocessing.html" />
     <link rel="prev" title="Welcome to Streamsight’s documentation!" href="index.html" /> 
 </head>
 
@@ -46,19 +46,7 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Data handling</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">streamsight.matrix</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#interaction-matrix">Interaction Matrix</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="generated/streamsight.matrix.InteractionMatrix.html">streamsight.matrix.InteractionMatrix</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#utils">Utils</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="generated/streamsight.matrix.to_csr_matrix.html">streamsight.matrix.to_csr_matrix</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/streamsight.matrix.ItemUserBasedEnum.html">streamsight.matrix.ItemUserBasedEnum</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/streamsight.matrix.TimestampAttributeMissingError.html">streamsight.matrix.TimestampAttributeMissingError</a></li>
-</ul>
-</li>
-</ul>
-</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">streamsight.matrix</a></li>
 <li class="toctree-l1"><a class="reference internal" href="streamsight.preprocessing.html">streamsight.preprocessing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="streamsight.datasets.html">streamsight.datasets</a></li>
 <li class="toctree-l1"><a class="reference internal" href="streamsight.settings.html">streamsight.settings</a></li>
@@ -76,6 +64,10 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="streamsight.registries.html">streamsight.registries</a></li>
 <li class="toctree-l1"><a class="reference internal" href="streamsight.utils.html">streamsight.utils</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Additional Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="poster.html">Poster</a></li>
 </ul>
 
         </div>
@@ -102,40 +94,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="module-streamsight.matrix">
-<span id="streamsight-matrix"></span><h1>streamsight.matrix<a class="headerlink" href="#module-streamsight.matrix" title="Link to this heading"></a></h1>
-<section id="interaction-matrix">
-<h2>Interaction Matrix<a class="headerlink" href="#interaction-matrix" title="Link to this heading"></a></h2>
-<p>The InteractionMatrix class is used to create an interaction matrix from the
-dataset loaded. The interaction matrix stores a dataframe under the hood and
-provides functionality to convert the dataframe to a CSR matrix and other 
-operations which are useful for building recommendation systems.</p>
-<table class="autosummary longtable docutils align-default">
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/streamsight.matrix.InteractionMatrix.html#streamsight.matrix.InteractionMatrix" title="streamsight.matrix.InteractionMatrix"><code class="xref py py-obj docutils literal notranslate"><span class="pre">InteractionMatrix</span></code></a>(df, item_ix, user_ix, ...)</p></td>
-<td><p>Matrix of interaction data between users and items.</p></td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="utils">
-<h2>Utils<a class="headerlink" href="#utils" title="Link to this heading"></a></h2>
-<p>Below are some of the utility classes and functions that are used in the matrix module.
-These provides functionality for the matrix module and for use cases in other modules.</p>
-<table class="autosummary longtable docutils align-default">
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/streamsight.matrix.to_csr_matrix.html#streamsight.matrix.to_csr_matrix" title="streamsight.matrix.to_csr_matrix"><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_csr_matrix</span></code></a>(X[, binary])</p></td>
-<td><p>Convert a matrix-like object to a scipy csr_matrix.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/streamsight.matrix.ItemUserBasedEnum.html#streamsight.matrix.ItemUserBasedEnum" title="streamsight.matrix.ItemUserBasedEnum"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ItemUserBasedEnum</span></code></a>(value[, names, module, ...])</p></td>
-<td><p>Enum class for item and user based properties.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/streamsight.matrix.TimestampAttributeMissingError.html#streamsight.matrix.TimestampAttributeMissingError" title="streamsight.matrix.TimestampAttributeMissingError"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TimestampAttributeMissingError</span></code></a>([message])</p></td>
-<td><p>Error raised when timestamp attribute is missing.</p></td>
-</tr>
-</tbody>
-</table>
-</section>
+  <section id="streamsight-matrix">
+<h1>streamsight.matrix<a class="headerlink" href="#streamsight-matrix" title="Link to this heading"></a></h1>
 </section>
 
 
@@ -143,7 +103,7 @@ These provides functionality for the matrix module and for use cases in other mo
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="index.html" class="btn btn-neutral float-left" title="Welcome to Streamsight’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="generated/streamsight.matrix.InteractionMatrix.html" class="btn btn-neutral float-right" title="streamsight.matrix.InteractionMatrix" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="streamsight.preprocessing.html" class="btn btn-neutral float-right" title="streamsight.preprocessing" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

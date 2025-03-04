@@ -21,8 +21,8 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="streamsight.preprocessing.Filter" href="generated/streamsight.preprocessing.Filter.html" />
-    <link rel="prev" title="streamsight.matrix.TimestampAttributeMissingError" href="generated/streamsight.matrix.TimestampAttributeMissingError.html" /> 
+    <link rel="next" title="streamsight.datasets" href="streamsight.datasets.html" />
+    <link rel="prev" title="streamsight.matrix" href="streamsight.matrix.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -47,19 +47,7 @@
               <p class="caption" role="heading"><span class="caption-text">Data handling</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="streamsight.matrix.html">streamsight.matrix</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">streamsight.preprocessing</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#filters">Filters</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="generated/streamsight.preprocessing.Filter.html">streamsight.preprocessing.Filter</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/streamsight.preprocessing.MinItemsPerUser.html">streamsight.preprocessing.MinItemsPerUser</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/streamsight.preprocessing.MinUsersPerItem.html">streamsight.preprocessing.MinUsersPerItem</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#preprocessor">Preprocessor</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="generated/streamsight.preprocessing.DataFramePreprocessor.html">streamsight.preprocessing.DataFramePreprocessor</a></li>
-</ul>
-</li>
-</ul>
-</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">streamsight.preprocessing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="streamsight.datasets.html">streamsight.datasets</a></li>
 <li class="toctree-l1"><a class="reference internal" href="streamsight.settings.html">streamsight.settings</a></li>
 </ul>
@@ -76,6 +64,10 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="streamsight.registries.html">streamsight.registries</a></li>
 <li class="toctree-l1"><a class="reference internal" href="streamsight.utils.html">streamsight.utils</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Additional Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="poster.html">Poster</a></li>
 </ul>
 
         </div>
@@ -102,49 +94,16 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="module-streamsight.preprocessing">
-<span id="streamsight-preprocessing"></span><h1>streamsight.preprocessing<a class="headerlink" href="#module-streamsight.preprocessing" title="Link to this heading"></a></h1>
-<section id="filters">
-<h2>Filters<a class="headerlink" href="#filters" title="Link to this heading"></a></h2>
-<p>The filter module contains classes that are used to filter the data before
-transforming the data into an InteractionMatrix object.</p>
-<table class="autosummary longtable docutils align-default">
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/streamsight.preprocessing.Filter.html#streamsight.preprocessing.Filter" title="streamsight.preprocessing.Filter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Filter</span></code></a>()</p></td>
-<td><p>Abstract baseclass for filter implementations</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/streamsight.preprocessing.MinItemsPerUser.html#streamsight.preprocessing.MinItemsPerUser" title="streamsight.preprocessing.MinItemsPerUser"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MinItemsPerUser</span></code></a>(min_items_per_user, item_ix, ...)</p></td>
-<td><p>Require that a user has interacted with a minimum number of items.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/streamsight.preprocessing.MinUsersPerItem.html#streamsight.preprocessing.MinUsersPerItem" title="streamsight.preprocessing.MinUsersPerItem"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MinUsersPerItem</span></code></a>(min_users_per_item, item_ix, ...)</p></td>
-<td><p>Require that a minimum number of users has interacted with an item.</p></td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="preprocessor">
-<h2>Preprocessor<a class="headerlink" href="#preprocessor" title="Link to this heading"></a></h2>
-<p>The preprocessor class allows the programmer to add the filters for data
-preprocessing before transforming the data into an InteractionMatrix object.
-The preprocessor class after applying the filters, updates the item and user
-ID mappings into internal ID to reduce the computation load and allows for
-easy representation of the matrix.</p>
-<table class="autosummary longtable docutils align-default">
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/streamsight.preprocessing.DataFramePreprocessor.html#streamsight.preprocessing.DataFramePreprocessor" title="streamsight.preprocessing.DataFramePreprocessor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataFramePreprocessor</span></code></a>(item_ix, user_ix, ...)</p></td>
-<td><p>Preprocesses a pandas DataFrame into an InteractionMatrix object.</p></td>
-</tr>
-</tbody>
-</table>
-</section>
+  <section id="streamsight-preprocessing">
+<h1>streamsight.preprocessing<a class="headerlink" href="#streamsight-preprocessing" title="Link to this heading"></a></h1>
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="generated/streamsight.matrix.TimestampAttributeMissingError.html" class="btn btn-neutral float-left" title="streamsight.matrix.TimestampAttributeMissingError" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="generated/streamsight.preprocessing.Filter.html" class="btn btn-neutral float-right" title="streamsight.preprocessing.Filter" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="streamsight.matrix.html" class="btn btn-neutral float-left" title="streamsight.matrix" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="streamsight.datasets.html" class="btn btn-neutral float-right" title="streamsight.datasets" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

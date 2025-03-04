@@ -21,8 +21,8 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="streamsight.utils.create_config_yaml" href="generated/streamsight.utils.create_config_yaml.html" />
-    <link rel="prev" title="streamsight.registries.AlgorithmStatusRegistry" href="generated/streamsight.registries.AlgorithmStatusRegistry.html" /> 
+    <link rel="next" title="Poster" href="poster.html" />
+    <link rel="prev" title="streamsight.registries" href="streamsight.registries.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -63,22 +63,11 @@
 <p class="caption" role="heading"><span class="caption-text">Other supporting modules</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="streamsight.registries.html">streamsight.registries</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">streamsight.utils</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#utility">Utility</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="generated/streamsight.utils.create_config_yaml.html">streamsight.utils.create_config_yaml</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/streamsight.utils.safe_dir.html">streamsight.utils.safe_dir</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/streamsight.utils.add_columns_to_csr_matrix.html">streamsight.utils.add_columns_to_csr_matrix</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/streamsight.utils.add_rows_to_csr_matrix.html">streamsight.utils.add_rows_to_csr_matrix</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/streamsight.utils.arg_to_str.html">streamsight.utils.arg_to_str</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/streamsight.utils.df_to_sparse.html">streamsight.utils.df_to_sparse</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/streamsight.utils.prepare_logger.html">streamsight.utils.prepare_logger</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/streamsight.utils.to_binary.html">streamsight.utils.to_binary</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/streamsight.utils.to_tuple.html">streamsight.utils.to_tuple</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/streamsight.utils.ProgressBar.html">streamsight.utils.ProgressBar</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">streamsight.utils</a></li>
 </ul>
-</li>
-</ul>
-</li>
+<p class="caption" role="heading"><span class="caption-text">Additional Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="poster.html">Poster</a></li>
 </ul>
 
         </div>
@@ -105,57 +94,16 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="module-streamsight.utils">
-<span id="streamsight-utils"></span><h1>streamsight.utils<a class="headerlink" href="#module-streamsight.utils" title="Link to this heading"></a></h1>
-<section id="utility">
-<h2>Utility<a class="headerlink" href="#utility" title="Link to this heading"></a></h2>
-<p>The utility module provides a set of utility functions that are used in the
-Streamsight library. These function are general functions that are not class
-specific and also contains functions that are used in the top level such as
-preparing the logger and creating the configuration file.</p>
-<table class="autosummary longtable docutils align-default">
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/streamsight.utils.create_config_yaml.html#streamsight.utils.create_config_yaml" title="streamsight.utils.create_config_yaml"><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_config_yaml</span></code></a>(filename)</p></td>
-<td><p>Create a configuration file for the logger.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/streamsight.utils.safe_dir.html#streamsight.utils.safe_dir" title="streamsight.utils.safe_dir"><code class="xref py py-obj docutils literal notranslate"><span class="pre">safe_dir</span></code></a>(path)</p></td>
-<td><p>Check if directory is safe</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/streamsight.utils.add_columns_to_csr_matrix.html#streamsight.utils.add_columns_to_csr_matrix" title="streamsight.utils.add_columns_to_csr_matrix"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_columns_to_csr_matrix</span></code></a>(matrix[, n])</p></td>
-<td><p>Add a column of zeros to a csr_matrix.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/streamsight.utils.add_rows_to_csr_matrix.html#streamsight.utils.add_rows_to_csr_matrix" title="streamsight.utils.add_rows_to_csr_matrix"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_rows_to_csr_matrix</span></code></a>(matrix[, n])</p></td>
-<td><p>Add a row of zeros to a csr_matrix.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/streamsight.utils.arg_to_str.html#streamsight.utils.arg_to_str" title="streamsight.utils.arg_to_str"><code class="xref py py-obj docutils literal notranslate"><span class="pre">arg_to_str</span></code></a>(arg)</p></td>
-<td><p>Converts a type to its name or returns the string.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/streamsight.utils.df_to_sparse.html#streamsight.utils.df_to_sparse" title="streamsight.utils.df_to_sparse"><code class="xref py py-obj docutils literal notranslate"><span class="pre">df_to_sparse</span></code></a>(df, item_ix, user_ix[, ...])</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/streamsight.utils.prepare_logger.html#streamsight.utils.prepare_logger" title="streamsight.utils.prepare_logger"><code class="xref py py-obj docutils literal notranslate"><span class="pre">prepare_logger</span></code></a>(path)</p></td>
-<td><p>Prepare the logger.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/streamsight.utils.to_binary.html#streamsight.utils.to_binary" title="streamsight.utils.to_binary"><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_binary</span></code></a>(X)</p></td>
-<td><p>Converts a matrix to binary by setting all non-zero values to 1.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/streamsight.utils.to_tuple.html#streamsight.utils.to_tuple" title="streamsight.utils.to_tuple"><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_tuple</span></code></a>(el)</p></td>
-<td><p>Whether single element or tuple, always returns as tuple.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/streamsight.utils.ProgressBar.html#streamsight.utils.ProgressBar" title="streamsight.utils.ProgressBar"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ProgressBar</span></code></a>()</p></td>
-<td><p>Progress bar as visual.</p></td>
-</tr>
-</tbody>
-</table>
-</section>
+  <section id="streamsight-utils">
+<h1>streamsight.utils<a class="headerlink" href="#streamsight-utils" title="Link to this heading"></a></h1>
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="generated/streamsight.registries.AlgorithmStatusRegistry.html" class="btn btn-neutral float-left" title="streamsight.registries.AlgorithmStatusRegistry" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="generated/streamsight.utils.create_config_yaml.html" class="btn btn-neutral float-right" title="streamsight.utils.create_config_yaml" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="streamsight.registries.html" class="btn btn-neutral float-left" title="streamsight.registries" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="poster.html" class="btn btn-neutral float-right" title="Poster" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
