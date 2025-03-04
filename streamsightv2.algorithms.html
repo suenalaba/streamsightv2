@@ -61,13 +61,24 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#baseline-algorithms">Baseline Algorithms</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="generated/streamsightv2.algorithms.Random.html">streamsightv2.algorithms.Random</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/streamsightv2.algorithms.RecentPopularity.html">streamsightv2.algorithms.RecentPopularity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/streamsightv2.algorithms.DecayPopularity.html">streamsightv2.algorithms.DecayPopularity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/streamsightv2.algorithms.MostPop.html">streamsightv2.algorithms.MostPop</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#item-similarity-algorithms">Item Similarity Algorithms</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="generated/streamsightv2.algorithms.ItemKNN.html">streamsightv2.algorithms.ItemKNN</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/streamsightv2.algorithms.ItemKNNIncremental.html">streamsightv2.algorithms.ItemKNNIncremental</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/streamsightv2.algorithms.ItemKNNIncrementalMovieLens100K.html">streamsightv2.algorithms.ItemKNNIncrementalMovieLens100K</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/streamsightv2.algorithms.ItemKNNRolling.html">streamsightv2.algorithms.ItemKNNRolling</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/streamsightv2.algorithms.ItemKNNStatic.html">streamsightv2.algorithms.ItemKNNStatic</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#time-aware-item-similarity-algorithms">Time-Aware Item Similarity Algorithms</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="generated/streamsightv2.algorithms.TARSItemKNN.html">streamsightv2.algorithms.TARSItemKNN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/streamsightv2.algorithms.TARSItemKNNLiu.html">streamsightv2.algorithms.TARSItemKNNLiu</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/streamsightv2.algorithms.TARSItemKNNVaz.html">streamsightv2.algorithms.TARSItemKNNVaz</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/streamsightv2.algorithms.TARSItemKNNDing.html">streamsightv2.algorithms.TARSItemKNNDing</a></li>
 </ul>
 </li>
 </ul>
@@ -142,6 +153,15 @@ baseline algorithms are implemented in the module.</p>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/streamsightv2.algorithms.Random.html#streamsightv2.algorithms.Random" title="streamsightv2.algorithms.Random"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Random</span></code></a>([K, seed])</p></td>
 <td><p>Random recommendation for users.</p></td>
 </tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/streamsightv2.algorithms.RecentPopularity.html#streamsightv2.algorithms.RecentPopularity" title="streamsightv2.algorithms.RecentPopularity"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RecentPopularity</span></code></a>([K])</p></td>
+<td><p>A popularity-based algorithm which only considers popularity of the latest train data.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/streamsightv2.algorithms.DecayPopularity.html#streamsightv2.algorithms.DecayPopularity" title="streamsightv2.algorithms.DecayPopularity"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DecayPopularity</span></code></a>([K])</p></td>
+<td><p>A popularity-based algorithm with exponential decay over data from earlier time windows.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/streamsightv2.algorithms.MostPop.html#streamsightv2.algorithms.MostPop" title="streamsightv2.algorithms.MostPop"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MostPop</span></code></a>([K])</p></td>
+<td><p>A popularity-based algorithm with based on MostPop by accumulating data from earlier time windows.</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -162,11 +182,36 @@ yield the best performance.</p>
 <tr class="row-even"><td><p><a class="reference internal" href="generated/streamsightv2.algorithms.ItemKNNIncremental.html#streamsightv2.algorithms.ItemKNNIncremental" title="streamsightv2.algorithms.ItemKNNIncremental"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ItemKNNIncremental</span></code></a>([K, pad_with_popularity])</p></td>
 <td><p>Incremental version of ItemKNN algorithm.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/streamsightv2.algorithms.ItemKNNRolling.html#streamsightv2.algorithms.ItemKNNRolling" title="streamsightv2.algorithms.ItemKNNRolling"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ItemKNNRolling</span></code></a>([K])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/streamsightv2.algorithms.ItemKNNIncrementalMovieLens100K.html#streamsightv2.algorithms.ItemKNNIncrementalMovieLens100K" title="streamsightv2.algorithms.ItemKNNIncrementalMovieLens100K"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ItemKNNIncrementalMovieLens100K</span></code></a>([K, metadata])</p></td>
+<td><p>Incremental version of ItemKNN algorithm with MovieLens100k Metadata.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/streamsightv2.algorithms.ItemKNNRolling.html#streamsightv2.algorithms.ItemKNNRolling" title="streamsightv2.algorithms.ItemKNNRolling"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ItemKNNRolling</span></code></a>([K])</p></td>
 <td><p>Rolling version of ItemKNN algorithm.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/streamsightv2.algorithms.ItemKNNStatic.html#streamsightv2.algorithms.ItemKNNStatic" title="streamsightv2.algorithms.ItemKNNStatic"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ItemKNNStatic</span></code></a>([K])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/streamsightv2.algorithms.ItemKNNStatic.html#streamsightv2.algorithms.ItemKNNStatic" title="streamsightv2.algorithms.ItemKNNStatic"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ItemKNNStatic</span></code></a>([K])</p></td>
 <td><p>Static version of ItemKNN algorithm.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="time-aware-item-similarity-algorithms">
+<h2>Time-Aware Item Similarity Algorithms<a class="headerlink" href="#time-aware-item-similarity-algorithms" title="Link to this heading"></a></h2>
+<p>This is an extension of the item-based KNN algorithm. 
+The time-aware item-based KNN algorithms applies a decay factor to the timestamps of interactions. 
+This gives heavier weight to interactions that are more recent.</p>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/streamsightv2.algorithms.TARSItemKNN.html#streamsightv2.algorithms.TARSItemKNN" title="streamsightv2.algorithms.TARSItemKNN"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TARSItemKNN</span></code></a>([K, pad_with_popularity, ...])</p></td>
+<td><p>Framework for time aware variants of the ItemKNN algorithm.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/streamsightv2.algorithms.TARSItemKNNLiu.html#streamsightv2.algorithms.TARSItemKNNLiu" title="streamsightv2.algorithms.TARSItemKNNLiu"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TARSItemKNNLiu</span></code></a>([K, pad_with_popularity, ...])</p></td>
+<td><p>Time aware variant of ItemKNN which uses an exponential decay function and cosine similarity.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/streamsightv2.algorithms.TARSItemKNNVaz.html#streamsightv2.algorithms.TARSItemKNNVaz" title="streamsightv2.algorithms.TARSItemKNNVaz"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TARSItemKNNVaz</span></code></a>([K, pad_with_popularity, ...])</p></td>
+<td><p>Time aware variant of ItemKNN which uses a exponential decay function and pearson similarity.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/streamsightv2.algorithms.TARSItemKNNDing.html#streamsightv2.algorithms.TARSItemKNNDing" title="streamsightv2.algorithms.TARSItemKNNDing"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TARSItemKNNDing</span></code></a>([K, pad_with_popularity, ...])</p></td>
+<td><p>Time aware variant of ItemKNN which uses an exponential decay function at prediction time and cosine similarity.</p></td>
 </tr>
 </tbody>
 </table>

@@ -1,0 +1,43 @@
+﻿streamsightv2.algorithms.ItemKNNIncrementalMovieLens100K
+========================================================
+
+.. currentmodule:: streamsightv2.algorithms
+
+.. autoclass:: ItemKNNIncrementalMovieLens100K
+   :members:                             
+   :show-inheritance:   
+   :private-members:   
+   :undoc-members:        
+   :inherited-members:               
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~ItemKNNIncrementalMovieLens100K.__init__
+      ~ItemKNNIncrementalMovieLens100K.append_training_data
+      ~ItemKNNIncrementalMovieLens100K.fit
+      ~ItemKNNIncrementalMovieLens100K.get_metadata_routing
+      ~ItemKNNIncrementalMovieLens100K.get_params
+      ~ItemKNNIncrementalMovieLens100K.get_user_similarity_matrix
+      ~ItemKNNIncrementalMovieLens100K.predict
+      ~ItemKNNIncrementalMovieLens100K.set_params
+      ~ItemKNNIncrementalMovieLens100K.set_predict_request
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~ItemKNNIncrementalMovieLens100K.ITEM_USER_BASED
+      ~ItemKNNIncrementalMovieLens100K.identifier
+      ~ItemKNNIncrementalMovieLens100K.name
+   
+   

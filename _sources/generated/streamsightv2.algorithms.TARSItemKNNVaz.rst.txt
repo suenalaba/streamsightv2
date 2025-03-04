@@ -1,0 +1,44 @@
+﻿streamsightv2.algorithms.TARSItemKNNVaz
+=======================================
+
+.. currentmodule:: streamsightv2.algorithms
+
+.. autoclass:: TARSItemKNNVaz
+   :members:                             
+   :show-inheritance:   
+   :private-members:   
+   :undoc-members:        
+   :inherited-members:               
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~TARSItemKNNVaz.__init__
+      ~TARSItemKNNVaz.fit
+      ~TARSItemKNNVaz.get_metadata_routing
+      ~TARSItemKNNVaz.get_params
+      ~TARSItemKNNVaz.get_popularity_scores
+      ~TARSItemKNNVaz.predict
+      ~TARSItemKNNVaz.set_params
+      ~TARSItemKNNVaz.set_predict_request
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~TARSItemKNNVaz.DECAY_FUNCTIONS
+      ~TARSItemKNNVaz.SUPPORTED_SIMILARITIES
+      ~TARSItemKNNVaz.identifier
+      ~TARSItemKNNVaz.name
+      ~TARSItemKNNVaz.ITEM_USER_BASED
+   
+   

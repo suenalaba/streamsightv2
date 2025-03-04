@@ -1,0 +1,44 @@
+﻿streamsightv2.algorithms.TARSItemKNNLiu
+=======================================
+
+.. currentmodule:: streamsightv2.algorithms
+
+.. autoclass:: TARSItemKNNLiu
+   :members:                             
+   :show-inheritance:   
+   :private-members:   
+   :undoc-members:        
+   :inherited-members:               
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~TARSItemKNNLiu.__init__
+      ~TARSItemKNNLiu.fit
+      ~TARSItemKNNLiu.get_metadata_routing
+      ~TARSItemKNNLiu.get_params
+      ~TARSItemKNNLiu.get_popularity_scores
+      ~TARSItemKNNLiu.predict
+      ~TARSItemKNNLiu.set_params
+      ~TARSItemKNNLiu.set_predict_request
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~TARSItemKNNLiu.DECAY_FUNCTIONS
+      ~TARSItemKNNLiu.SUPPORTED_SIMILARITIES
+      ~TARSItemKNNLiu.identifier
+      ~TARSItemKNNLiu.name
+      ~TARSItemKNNLiu.ITEM_USER_BASED
+   
+   

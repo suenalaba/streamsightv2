@@ -64,6 +64,9 @@
 <li class="toctree-l3"><a class="reference internal" href="generated/streamsightv2.metrics.Metric.html">streamsightv2.metrics.Metric</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/streamsightv2.metrics.PrecisionK.html">streamsightv2.metrics.PrecisionK</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/streamsightv2.metrics.RecallK.html">streamsightv2.metrics.RecallK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/streamsightv2.metrics.DCGK.html">streamsightv2.metrics.DCGK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/streamsightv2.metrics.NDCGK.html">streamsightv2.metrics.NDCGK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/streamsightv2.metrics.HitK.html">streamsightv2.metrics.HitK</a></li>
 </ul>
 </li>
 </ul>
@@ -118,6 +121,15 @@
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/streamsightv2.metrics.RecallK.html#streamsightv2.metrics.RecallK" title="streamsightv2.metrics.RecallK"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RecallK</span></code></a>([K, timestamp_limit, cache])</p></td>
 <td><p>Computes the fraction of true interactions that made it into the Top-K recommendations.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/streamsightv2.metrics.DCGK.html#streamsightv2.metrics.DCGK" title="streamsightv2.metrics.DCGK"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DCGK</span></code></a>([K, timestamp_limit, cache])</p></td>
+<td><p>Computes the sum of gains of all items in a recommendation list.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/streamsightv2.metrics.NDCGK.html#streamsightv2.metrics.NDCGK" title="streamsightv2.metrics.NDCGK"><code class="xref py py-obj docutils literal notranslate"><span class="pre">NDCGK</span></code></a>([K, timestamp_limit])</p></td>
+<td><p>Computes the normalized sum of gains of all items in a recommendation list.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/streamsightv2.metrics.HitK.html#streamsightv2.metrics.HitK" title="streamsightv2.metrics.HitK"><code class="xref py py-obj docutils literal notranslate"><span class="pre">HitK</span></code></a>([K, timestamp_limit, cache])</p></td>
+<td><p>Computes the number of hits in a list of Top-K recommendations.</p></td>
 </tr>
 </tbody>
 </table>

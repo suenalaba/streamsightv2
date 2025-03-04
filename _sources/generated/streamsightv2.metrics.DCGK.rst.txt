@@ -1,0 +1,47 @@
+﻿streamsightv2.metrics.DCGK
+==========================
+
+.. currentmodule:: streamsightv2.metrics
+
+.. autoclass:: DCGK
+   :members:                             
+   :show-inheritance:   
+   :private-members:   
+   :undoc-members:        
+   :inherited-members:               
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~DCGK.__init__
+      ~DCGK.cache_values
+      ~DCGK.calculate
+      ~DCGK.calculate_cached
+      ~DCGK.get_params
+      ~DCGK.prepare_matrix
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~DCGK.DEFAULT_K
+      ~DCGK.col_names
+      ~DCGK.identifier
+      ~DCGK.macro_result
+      ~DCGK.micro_result
+      ~DCGK.name
+      ~DCGK.num_items
+      ~DCGK.num_users
+      ~DCGK.params
+      ~DCGK.timestamp_limit
+   
+   

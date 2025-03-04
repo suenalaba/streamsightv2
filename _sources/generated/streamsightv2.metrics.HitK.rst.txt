@@ -1,0 +1,47 @@
+﻿streamsightv2.metrics.HitK
+==========================
+
+.. currentmodule:: streamsightv2.metrics
+
+.. autoclass:: HitK
+   :members:                             
+   :show-inheritance:   
+   :private-members:   
+   :undoc-members:        
+   :inherited-members:               
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~HitK.__init__
+      ~HitK.cache_values
+      ~HitK.calculate
+      ~HitK.calculate_cached
+      ~HitK.get_params
+      ~HitK.prepare_matrix
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~HitK.DEFAULT_K
+      ~HitK.col_names
+      ~HitK.identifier
+      ~HitK.macro_result
+      ~HitK.micro_result
+      ~HitK.name
+      ~HitK.num_items
+      ~HitK.num_users
+      ~HitK.params
+      ~HitK.timestamp_limit
+   
+   
