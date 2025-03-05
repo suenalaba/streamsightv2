@@ -1,0 +1,38 @@
+﻿streamsightv2.metadata.Metadata
+===============================
+
+.. currentmodule:: streamsightv2.metadata
+
+.. autoclass:: Metadata
+   :members:                             
+   :show-inheritance:   
+   :private-members:   
+   :undoc-members:        
+   :inherited-members:               
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~Metadata.__init__
+      ~Metadata.fetch_metadata
+      ~Metadata.load
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~Metadata.DEFAULT_BASE_PATH
+      ~Metadata.DEFAULT_FILENAME
+      ~Metadata.file_path
+      ~Metadata.name
+   
+   
